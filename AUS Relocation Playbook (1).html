@@ -116,7 +116,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <p style="font-size:14px;line-height:1.65;color:#cbd8e8;max-width:660px;margin-bottom:24px">One playbook. One process. Every NZ to Australia placement — no exceptions, no workarounds. The Support Team owns the process from the moment Recruitment hands over.</p>
   <div style="display:flex;gap:24px;flex-wrap:wrap">
     <div><div style="font-family:'Archivo';font-weight:700;font-size:20px">7</div><div style="font-size:10.5px;color:#8fb0d4;letter-spacing:.04em">Sections</div></div>
-    <div><div style="font-family:'Archivo';font-weight:700;font-size:20px">12 wk</div><div style="font-size:10.5px;color:#8fb0d4;letter-spacing:.04em">Pastoral care</div></div>
+    <div><div style="font-family:'Archivo';font-weight:700;font-size:20px">12 wk</div><div style="font-size:10.5px;color:#8fb0d4;letter-spacing:.04em">Support program</div></div>
     <div><div style="font-family:'Archivo';font-weight:700;font-size:20px">92%</div><div style="font-size:10.5px;color:#8fb0d4;letter-spacing:.04em">Placement stick rate</div></div>
     <div><div style="font-family:'Archivo';font-weight:700;font-size:20px">A+B</div><div style="font-size:10.5px;color:#8fb0d4;letter-spacing:.04em">Pathways</div></div>
   </div>
@@ -165,7 +165,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-sys">Trigger</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Recruiter submits candidate form in JobAdder</div><div style="font-size:13px;color:#52708a;line-height:1.6">Automation wakes up. No manual trigger needed.</div></div></div>
     <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-auto">Step 1</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Candidate record created in Airtable</div><div style="font-size:13px;color:#52708a;line-height:1.6">Data verified across Airtable, Xero, and JobAdder.</div></div></div>
     <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-auto">Step 2</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Invoice plan selected, Xero contact and invoice generated</div><div style="font-size:13px;color:#52708a;line-height:1.6">Adroit, NEA, General 1, or General 2 — drives the full milestone schedule.</div></div></div>
-    <div style="display:flex;gap:14px;padding:14px;background:#fff7ed;border:1px solid #f6e0c3;border-radius:10px;margin-bottom:0"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-auto">Step 3</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Two emails fire + New Placement Notice to Pastoral Care <span style="color:#b7791f">★ You start here</span></div><div style="font-size:13px;color:#52708a;line-height:1.6">Email 1 to candidate + alert to Pastoral Care team. Send Email 2B to client same day.</div></div></div>
+    <div style="display:flex;gap:14px;padding:14px;background:#fff7ed;border:1px solid #f6e0c3;border-radius:10px;margin-bottom:0"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-auto">Step 3</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Two emails fire + New Placement Notice to Support Team <span style="color:#b7791f">★ You start here</span></div><div style="font-size:13px;color:#52708a;line-height:1.6">Email 1 to candidate + alert to Support Team. Send Email 2B to client same day.</div></div></div>
     <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-auto">Step 4</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Invoice email to candidate (Pathway B only)</div><div style="font-size:13px;color:#52708a;line-height:1.6">Invoice + ASB bank details sent to candidate automatically.</div></div></div>
     <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-manual">Step 5</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Candidate signs and pays</div><div style="font-size:13px;color:#52708a;line-height:1.6">DocuSeal → Signed. Xero reconciliation → Paid. These don't always happen in the same order.</div></div></div>
     <div style="display:flex;gap:14px;padding:14px"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-manual">Step 6</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Client pays invoice</div><div style="font-size:13px;color:#52708a;line-height:1.6">Xero reconciles, client record updates, recruiter commission triggered.</div></div></div>
@@ -196,77 +196,53 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   </div>
 
   <div class="sec-hdr">Check-In Calendar Schedule</div>
-  <div class="note-blue">Every check-in is pinned to a specific day. <strong style="color:#1c4fc4">Monday stays clear.</strong> Rachel enters arrival date in Airtable → n8n auto-creates Day 1 event in Outlook. All other events are created from start date using the offsets below.</div>
+  <div class="note-blue">Every check-in is pinned to a specific day. <strong style="color:#1c4fc4">Monday stays clear.</strong> Rachel enters arrival date in Airtable → n8n auto-creates Day 1 event in Outlook. All other events are created from start date using the offsets below.<br><br><strong style="color:#1c4fc4">Touchpoint weight:</strong> Day 1, Week 1, Week 2, Week 6 = <span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text check-in</span> — quick, casual, no call required. &nbsp; Week 4, Week 8, Week 10.5, Week 11 = <span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Call or email</span> — these four protect the 3-month guarantee period.</div>
   <table class="info-table" style="margin-bottom:28px">
-    <tr><th>Check-in</th><th>Calculated from</th><th>Day</th></tr>
-    <tr><td>Day 1 arrival email (automated)</td><td>Flight arrival date</td><td>Whatever day they land</td></tr>
-    <tr><td>Week 1 check-in</td><td>Start date + 5 days</td><td>Friday</td></tr>
-    <tr><td>Week 2 check-in</td><td>Start date + 14 days</td><td>Thursday</td></tr>
-    <tr><td style="font-weight:700;color:#c0392b">Week 4 review</td><td>Start date + 28 days</td><td>Wednesday</td></tr>
-    <tr><td>Week 6 email</td><td>Start date + 42 days</td><td>Tuesday</td></tr>
-    <tr><td style="font-weight:700;color:#c0392b">Week 8 review</td><td>Start date + 56 days</td><td>Wednesday</td></tr>
-    <tr><td>Week 10.5 prep call</td><td>Start date + 73 days</td><td>Thursday</td></tr>
-    <tr><td style="font-weight:700;color:#c0392b">Week 11 three-way review</td><td>Start date + 77 days</td><td>Friday</td></tr>
+    <tr><th>Check-in</th><th>Calculated from</th><th>Day</th><th>Weight</th></tr>
+    <tr><td>Day 1 arrival email (automated)</td><td>Flight arrival date</td><td>Whatever day they land</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
+    <tr><td>Week 1 text check-in</td><td>Start date + 5 days</td><td>Friday</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
+    <tr><td>Week 2 text check-in</td><td>Start date + 14 days</td><td>Thursday</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
+    <tr><td style="font-weight:700;color:#c0392b">Week 4 review</td><td>Start date + 28 days</td><td>Wednesday</td><td><span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Deep call</span></td></tr>
+    <tr><td>Week 6 text check-in</td><td>Start date + 42 days</td><td>Tuesday</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
+    <tr><td style="font-weight:700;color:#c0392b">Week 8 review</td><td>Start date + 56 days</td><td>Wednesday</td><td><span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Deep call</span></td></tr>
+    <tr><td>Week 10.5 prep call</td><td>Start date + 73 days</td><td>Thursday</td><td><span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Call</span></td></tr>
+    <tr><td style="font-weight:700;color:#c0392b">Week 11 three-way review</td><td>Start date + 77 days</td><td>Friday</td><td><span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Deep call</span></td></tr>
   </table>
 
-  <div class="sec-hdr">Pre-Departure Checklist</div>
+  <div class="note-blue">This is the at-a-glance master tracker. Full step-by-step detail, email copy, and call/text scripts live in Tabs 2–5 — this list is for tracking a live placement, not for training on the process.</div>
+
+  <div class="sec-hdr">Pre-Departure Checklist — Master Tracker</div>
   <div class="checklist-card">
-    <div class="check-section-title">Setup &amp; Gate</div>
-    <div class="check-item"><input type="checkbox"><span>Confirm pathway — Pathway A (self-managed) or Pathway B (full package)</span></div>
-    <div class="check-item"><input type="checkbox"><span>Confirm auto triggers fired — Email 1A or 1B sent, Airtable record correct</span></div>
-    <div class="check-item"><input type="checkbox"><span>Send Email 2A to candidate — same day as Email 1</span></div>
-    <div class="check-item"><input type="checkbox"><span>Send Email 2B to client — same day as Email 1</span></div>
-    <div class="check-item"><input type="checkbox"><span>Call candidate same day or next day — confirm emails received, book Documents Call</span></div>
-    <div class="check-item"><input type="checkbox"><span>No answer — call + text, repeat next day, 2 attempts no response → escalate to recruiter same day</span></div>
-    <div class="check-section-title">Documents Call</div>
-    <div class="check-item"><input type="checkbox"><span>Complete Pre-Departure Documents Call — Welcome Pack, TOB check, testimonial captured and sent to Brinda</span></div>
-    <div class="check-item"><input type="checkbox"><span>TOB not signed → email → text (24 hrs) → call → escalate to Les if unsigned end of day</span></div>
-    <div class="check-item"><input type="checkbox"><span>Complete working-through call — TOB, invoice, Microsoft Form</span></div>
-    <div class="check-item"><input type="checkbox"><span>GATE — TOB signed and invoice paid before any relocation work</span></div>
+    <div class="check-section-title">Setup &amp; Gate <span style="font-weight:400;text-transform:none;color:#829ab1">— detail in Tab 4</span></div>
+    <div class="check-item"><input type="checkbox"><span>Pathway confirmed — A (self-managed) or B (full package)</span></div>
+    <div class="check-item"><input type="checkbox"><span>Auto emails fired (1A/1B), Airtable record correct — Email 2A + 2B sent same day</span></div>
+    <div class="check-item"><input type="checkbox"><span>Documents Call done — 12-week program set, Welcome Pack, TOB check, origin-story testimonial ask</span></div>
+    <div class="check-item"><input type="checkbox"><span>TL-1 sent — trade licensing summary + application form, same day as Documents Call</span></div>
+    <div class="check-item"><input type="checkbox"><span>GATE — TOB signed AND invoice paid before any relocation work</span></div>
     <div class="check-section-title">Pathway A — Self-Managed</div>
-    <div class="check-item"><input type="checkbox"><span>Flights booked within week 1 of placement (3 weeks before start date)</span></div>
-    <div class="check-item"><input type="checkbox"><span>Flight details received and forwarded to employer</span></div>
-    <div class="check-item"><input type="checkbox"><span>Candidate arriving at least 3 days before start date</span></div>
+    <div class="check-item"><input type="checkbox"><span>Flights booked wk1 (3 wks before start), Contract Live set in JobAdder, arrival 3+ days before start</span></div>
     <div class="check-item"><input type="checkbox"><span>Contact exchange emails sent once flights confirmed</span></div>
     <div class="check-section-title">Pathway B — Full Relocation</div>
-    <div class="check-item"><input type="checkbox"><span>Microsoft Form data received in JobAdder/Airtable</span></div>
-    <div class="check-item"><input type="checkbox"><span>Accommodation booked — 3 AI options, candidate selects, SUR pays first 2 weeks</span></div>
-    <div class="check-item"><input type="checkbox"><span>Flights booked after accommodation confirmed, arrival 3 days before start date</span></div>
-    <div class="check-item"><input type="checkbox"><span>Brinda (Marketing) notified if flying from Auckland</span></div>
-    <div class="check-item"><input type="checkbox"><span>Airport transfer booked — pre-approved service, confirmation saved to JobAdder</span></div>
-    <div class="check-item"><input type="checkbox"><span>Grocery pack delivery arranged</span></div>
-    <div class="check-item"><input type="checkbox"><span>All-in-one confirmation email sent to candidate</span></div>
-    <div class="check-item"><input type="checkbox"><span>Travel Details email sent to client</span></div>
-    <div class="check-item"><input type="checkbox"><span>Contact exchange emails sent once flights confirmed</span></div>
+    <div class="check-item"><input type="checkbox"><span>Accommodation booked first, then flights, transfer, grocery pack</span></div>
+    <div class="check-item"><input type="checkbox"><span>All-in-one confirmation sent to candidate, Travel Details sent to client</span></div>
     <div class="check-item"><input type="checkbox"><span>Airtable updated, all documents saved to JobAdder</span></div>
   </div>
 
-  <div class="sec-hdr">Post-Departure Checklist</div>
+  <div class="sec-hdr">Post-Departure Checklist — Master Tracker</div>
   <div class="checklist-card">
-    <div class="check-section-title">Handover</div>
-    <div class="check-item"><input type="checkbox"><span>RC handover email received — CC'd in, signed contract attached</span></div>
-    <div class="check-item"><input type="checkbox"><span>Handover logged in JobAdder — automated calendar triggered</span></div>
-    <div class="check-item"><input type="checkbox"><span>Automated calendar confirmed — Day 1 through Week 11</span></div>
-    <div class="check-section-title">Post-Departure Check-ins</div>
-    <div class="check-item"><input type="checkbox"><span>Day 1 — candidate arrival automated email confirmed sent</span></div>
-    <div class="check-item"><input type="checkbox"><span>Day 1 — Australian number received. If not → send follow-up email next day</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 1 — candidate check-in call logged</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 2 — verbal questionnaire both sides, cross-reference logged</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 4 — questionnaire sent both sides, deep call completed, health score logged, escalate if ≤3</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 4 — follow-up email sent if no response within 24 hrs</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 6 — email check-in sent both sides</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 8 — Milestone 2 invoice confirmed before client contact</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 8 — questionnaire sent both sides, call completed</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 8 — follow-up email sent if no response within 24 hrs</span></div>
+    <div class="check-section-title">Handover <span style="font-weight:400;text-transform:none;color:#829ab1">— detail in Tab 3 / Tab 5</span></div>
+    <div class="check-item"><input type="checkbox"><span>RC handover received, logged in JobAdder, automated calendar confirmed Day 1 → Week 11</span></div>
+    <div class="check-section-title">8 Touchpoints — Day 1 to Week 11</div>
+    <div class="check-item"><input type="checkbox"><span>Day 1 — arrival email confirmed, AU number received</span></div>
+    <div class="check-item"><input type="checkbox"><span>Week 1 &amp; Week 2 — text check-ins sent both sides, logged in JobAdder</span></div>
+    <div class="check-item"><input type="checkbox"><span>Week 4 &amp; Week 8 — questionnaire + deep call both sides, health score logged, score ≤3 → escalate to Les within 24 hrs</span></div>
+    <div class="check-item"><input type="checkbox"><span>Week 6 — text check-in both sides</span></div>
     <div class="check-item"><input type="checkbox"><span>Week 10.5 — pre-calls done both sides, Week 11 format decided</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 11 — meeting held, Google review and referral ask done, summary emails sent within 24 hrs</span></div>
+    <div class="check-item"><input type="checkbox"><span>Week 11 — three-way review held, Google review + referral ask done, summaries sent within 24 hrs</span></div>
     <div class="check-section-title">Closeout</div>
-    <div class="check-item"><input type="checkbox"><span>Google review received from both parties</span></div>
-    <div class="check-item"><input type="checkbox"><span>Referral leads passed to RC</span></div>
-    <div class="check-item"><input type="checkbox"><span>Client re-hire leads passed to RC</span></div>
+    <div class="check-item"><input type="checkbox"><span>Google reviews received both parties, referral/re-hire leads passed to RC (Ian or Ayn)</span></div>
     <div class="check-item"><input type="checkbox"><span>Full placement record closed in JobAdder</span></div>
   </div>
-
 </div>
 </div>
 
@@ -275,44 +251,43 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 <div class="panel-body">
   <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap"><span class="badge badge-client">Client</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#829ab1">Pre-Departure</span></div>
   <h2 style="font-family:'Archivo';font-weight:800;font-size:26px;color:#102a43;margin-bottom:8px">Onboarding the Employer</h2>
-  <p style="font-size:14px;line-height:1.65;color:#52708a;max-width:700px;margin-bottom:22px">From placement confirmation to candidate departure — intro email, accommodation source, travel confirmation, and contact exchange.</p>
+  <p style="font-size:14px;line-height:1.65;color:#52708a;max-width:700px;margin-bottom:22px">From placement confirmation to candidate departure — intro email, accommodation source, travel confirmation, and contact exchange. Pathway A and Pathway B diverge after the intro email.</p>
 
-  <div class="sec-hdr" style="margin-top:0">SOP — Client Pre-Departure</div>
-  <div class="step-row">
-    <div class="step-num">1</div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send Email 2B — Pastoral Care Introduction</span><span class="badge badge-manual">Manual · Same day as Email 1</span></div><div class="step-body">First formal introduction to the pastoral care program. Send manually same day the automated Email 1 fires to the candidate. Client needs to know who you are and what to expect before the candidate arrives.</div></div>
-  </div>
-  <div class="step-row">
-    <div class="step-num">2</div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Property Manager Call</span><span class="badge badge-pw">Pathway B Only</span><span class="badge badge-call">Call Script</span></div><div class="step-body">Source accommodation before anything else moves. Call property managers directly. Looking for: private room or self-contained studio, under 30-minute commute to client address, short-term lease (4–8 weeks minimum), budget-friendly. Log all details in JobAdder.</div></div>
-  </div>
-  <div class="step-row">
-    <div class="step-num">3</div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send Travel Details Email</span><span class="badge badge-manual">Manual · On flight confirmation</span></div><div class="step-body">As soon as candidate flights are confirmed. Same day where possible. Both pathways.</div></div>
-  </div>
+  <div class="sec-hdr" style="margin-top:0">SOP — Both Pathways</div>
   <div class="step-row" style="border-bottom:none">
-    <div class="step-num">4</div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send Contact Exchange Email</span><span class="badge badge-manual">Manual · On flight confirmation</span></div><div class="step-body">Triggered by flight confirmation. Send employer the candidate's contact details and full travel information. Both pathways. Adjust for Pathway B (include accommodation details).</div></div>
+    <div class="step-num">1</div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send Email 2B — Support Team Introduction</span><span class="badge badge-manual">Manual · Same day as Email 1</span></div><div class="step-body">First formal introduction to the Support Team program. Send manually same day the automated Email 1 fires to the candidate. Client needs to know who you are and what to expect before the candidate arrives.</div></div>
   </div>
+
+  <div class="sec-hdr" style="background:#1f4e79">Pathway A — Self-Managed</div>
+  <div class="note-blue">Candidate arranges their own flights and accommodation. No accommodation sourcing on the client side.</div>
+  <div class="step-row"><div class="step-num">A1</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send Travel Details Email — TD-B1</span><span class="badge badge-manual">Manual · On flight confirmation</span></div><div class="step-body">As soon as candidate flights are confirmed. Same day where possible. No airport transfer line — Pathway A candidates arrange their own transfer.</div></div></div>
+  <div class="step-row" style="border-bottom:none"><div class="step-num">A2</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send Contact Exchange Email — CE-B1</span><span class="badge badge-manual">Manual · On flight confirmation</span></div><div class="step-body">Send employer the candidate's contact details and travel information. No accommodation line.</div></div></div>
+
+  <div class="sec-hdr" style="background:#157347">Pathway B — Full Relocation</div>
+  <div class="note-green">SUR sources accommodation before flights. Client-facing emails include accommodation details.</div>
+  <div class="step-row"><div class="step-num">B1</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Property Manager Call</span><span class="badge badge-call">Call Script — PM Call</span></div><div class="step-body">Source accommodation before anything else moves. Call property managers directly. Looking for: private room or self-contained studio, under 30-minute commute to client address, short-term lease (4–8 weeks minimum), budget-friendly. Log all details in JobAdder.</div></div></div>
+  <div class="step-row"><div class="step-num">B2</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send Travel Details Email — TD-B2</span><span class="badge badge-manual">Manual · On flight confirmation</span></div><div class="step-body">As soon as candidate flights are confirmed. Same day where possible. Confirms airport transfer is sorted — accurate for Pathway B, where SUR books it.</div></div></div>
+  <div class="step-row" style="border-bottom:none"><div class="step-num">B3</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send Contact Exchange Email — CE-B2</span><span class="badge badge-manual">Manual · On flight confirmation</span></div><div class="step-body">Send employer the candidate's contact details, travel information, and accommodation address.</div></div></div>
 
   <div class="sec-hdr">Email Templates — Client Pre-Departure</div>
-  <div class="note-blue">Email 2B is sent manually same day as Email 1. Travel Details and Contact Exchange are sent once flights are confirmed.</div>
+  <div class="note-blue">Email 2B is sent manually same day as Email 1, both pathways. Travel Details and Contact Exchange each have a Pathway A and Pathway B version — grab the one matching the candidate's pathway, nothing to edit out.</div>
 
   <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">Email 2B</span><span class="badge badge-manual">Manual</span><span class="badge badge-client">Client</span><span style="font-size:11px;color:#829ab1">Same day as Email 1</span></div><div class="email-title">Here Is What The Next 12 Weeks Look Like</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">Email 2B</span><span class="badge badge-manual">Manual</span><span class="badge badge-client">Client</span><span style="font-size:11px;color:#829ab1">Same day as Email 1 · Both pathways</span></div><div class="email-title">Here Is What The Next 12 Weeks Look Like</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
     <div class="email-body" data-email-body>Hey [First Name],
 
-Now that [Candidate Name] is confirmed and on their way, I wanted to introduce myself as your point of contact from here on out. I'm [Name] and I run the Pastoral Care support here at Stand Up Recruitment.
+Now that [Candidate Name] is confirmed and on their way, I wanted to introduce myself as your point of contact from here on out. I'm [Name] and I run the Support Team here at Stand Up Recruitment.
 
 We run a structured 12-week support program across every placement. It keeps both sides aligned, catches anything early, and protects the placement long term. It's why we maintain a 92% placement stick rate and it starts with this.
 
 Here is what to expect from us:
 
 Pre-arrival — Once [Candidate Name] has confirmed flights and accommodation, we will be in touch to keep you updated.
-Week 1 — Quick call to check [Candidate Name] has settled in well.
-Week 2 — Structured check-in with both sides.
+Week 1 — Quick text check-in to confirm [Candidate Name] has settled in well.
+Week 2 — Short text check-in with both sides.
 Week 4 — One-month review. Questionnaire and call.
-Week 6 — Email check-in from us. Reply if there is anything on your mind.
+Week 6 — Quick text check-in from us. Reply if there is anything on your mind.
 Week 8 — Two-month crucial review. Questionnaire and call. Checking both sides are tracking well.
 Week 10.5 — Prep call ahead of the three-way review.
 Week 11 — 30-minute Teams review with you, [Candidate Name], and myself.
@@ -321,7 +296,23 @@ Each touchpoint is short and focused. If anything comes up before a scheduled ch
   </div>
 
   <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">Travel Details</span><span class="badge badge-manual">Manual</span><span class="badge badge-client">Client</span><span style="font-size:11px;color:#829ab1">Both pathways</span></div><div class="email-title">[Candidate Name] — Travel Details</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">TD-B1</span><span class="badge badge-manual">Manual</span><span class="badge badge-client">Client</span><span class="badge badge-pw">Pathway A</span></div><div class="email-title">[Candidate Name] — Travel Details</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-body" data-email-body>Hey [Client Name],
+
+Just wanted to get [Candidate Name]'s travel details across to you.
+
+He's flying [Departure City] to [Destination City] on [Day] [Date], departing [Departure Time] and arriving [Arrival Time] local time.
+
+I've had a catch-up with him to make sure he's organised and ready to hit the ground running with you.
+
+Any questions at all, just flick me a message.
+
+[Your Name]
+Stand Up Recruitment</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">TD-B2</span><span class="badge badge-manual">Manual</span><span class="badge badge-client">Client</span><span class="badge badge-pw" style="background:#332200;color:#ffe69c;border-color:#665500">Pathway B</span></div><div class="email-title">[Candidate Name] — Travel Details</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
     <div class="email-body" data-email-body>Hey [Client Name],
 
 Just wanted to get [Candidate Name]'s travel details across to you.
@@ -337,7 +328,7 @@ Stand Up Recruitment</div>
   </div>
 
   <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">CE-B</span><span class="badge badge-manual">Manual</span><span class="badge badge-client">Client</span><span style="font-size:11px;color:#829ab1">Contact exchange — both pathways</span></div><div class="email-title">[Candidate Name] — Contact Details And Travel Update</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">CE-B1</span><span class="badge badge-manual">Manual</span><span class="badge badge-client">Client</span><span class="badge badge-pw">Pathway A</span></div><div class="email-title">[Candidate Name] — Contact Details And Travel Update</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
     <div class="email-body" data-email-body>Hi [First Name],
 
 Flights are confirmed for [Candidate Name]. Here are his contact details and travel information ahead of his start date.
@@ -350,7 +341,29 @@ Travel details
 Flight: [Departure City] to [Destination City], [Day] [Date]
 Departs: [Departure Time]
 Arrives: [Arrival Time] local time
-Accommodation: [Accommodation Address]   ← Pathway B only — remove for Pathway A
+Start date: [Start Date]
+
+Any questions, just flick me a message.
+
+[Your Name]
+Stand Up Recruitment</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">CE-B2</span><span class="badge badge-manual">Manual</span><span class="badge badge-client">Client</span><span class="badge badge-pw" style="background:#332200;color:#ffe69c;border-color:#665500">Pathway B</span></div><div class="email-title">[Candidate Name] — Contact Details And Travel Update</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-body" data-email-body>Hi [First Name],
+
+Flights are confirmed for [Candidate Name]. Here are his contact details and travel information ahead of his start date.
+
+[Candidate Name]
+Phone: [Phone Number]
+Email: [Email Address]
+
+Travel details
+Flight: [Departure City] to [Destination City], [Day] [Date]
+Departs: [Departure Time]
+Arrives: [Arrival Time] local time
+Accommodation: [Accommodation Address]
 Start date: [Start Date]
 
 He has his airport transfer sorted on arrival so nothing needed on your end. Any questions, just flick me a message.
@@ -382,11 +395,8 @@ AFTER — log in JobAdder:
 Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilities Y/N, short-term lease Y/N, property manager name and contact.</div>
   </div>
 
-  <div class="sec-hdr">AI Prompts — Client Pre-Departure</div>
-  <div class="prompt-card">
-    <div class="prompt-hdr"><div style="display:flex;gap:8px;align-items:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:#7fb6f0">AI-1</span><span class="prompt-title">Accommodation Search — Pathway B</span></div><button class="prompt-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="prompt-body" data-email-body>Find 3 accommodation options for a [male/female] candidate relocating to [suburb/city, state] for work starting [date]. Client address: [full address]. Traveling: [alone/with partner/with family]. Requirements: private room or self-contained studio, budget-friendly, under 30 min commute, flexible lease. For each option: name, address, weekly cost, commute time, booking link. Search: Flatmates.com.au, Gumtree, Airbnb, Domain.com.au.</div>
-  </div>
+  <div class="sec-hdr">AI Prompts</div>
+  <div class="note-blue">The accommodation search prompt lives in Tab 4 — Candidate Pre-Departure (AI-ACCOM) since that's where the search is actually run from. One copy, one place to update.</div>
 
 </div>
 </div>
@@ -403,14 +413,14 @@ Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilitie
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">1</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Arrival Check-In Call</span><span class="badge badge-call">Call</span></div>
-    <div class="step-body">Quick call to confirm the candidate has settled in from the client's perspective. Ask: Has [Candidate] made contact? How did the first day go? Anything you need from us? Log in JobAdder with health score. No response within 48 hours → follow-up email + call same day.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Arrival Check-In — Text</span><span class="badge badge-manual">Text · C-T1</span></div>
+    <div class="step-body">Quick text to confirm the candidate has settled in from the client's perspective. No call unless they flag a concern in reply. Log reply in JobAdder with health score. No response within 48 hours → follow-up text + call same day.</div></div>
   </div>
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">2</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Verbal Questionnaire — C2</span><span class="badge badge-call">Call Script C2</span></div>
-    <div class="step-body">Verbal questionnaire on the call — no questionnaire sent in advance. 4 rated statements (1–5). Cross-reference against candidate Week 2 answers. Mismatch = red flag. Log in JobAdder with health score.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Text C-T2</span><span class="badge badge-manual">Text · C-T2</span></div>
+    <div class="step-body">Text check-in — 4 rated statements (1–5) sent as a single text, candidate replies with numbers. Cross-reference against candidate Week 2 answers. Mismatch = red flag. Any concern raised → call same day. Log in JobAdder with health score.</div></div>
   </div>
 
   <div class="touch-row crit-row">
@@ -421,14 +431,14 @@ Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilitie
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">6</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Email Check-In Only</span><span class="badge badge-manual">Email only</span></div>
-    <div class="step-body">Email only — no call unless a concern is raised in reply. If concern raised → call same day. No reply within 48 hrs → call directly. Log in JobAdder.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Text C-T6</span><span class="badge badge-manual">Text · C-T6</span></div>
+    <div class="step-body">Text only — no call unless a concern is raised in reply. If concern raised → call same day. No reply within 48 hrs → call directly. Log in JobAdder.</div></div>
   </div>
 
   <div class="touch-row crit-row">
     <div class="touch-week"><div class="touch-label" style="color:#c0392b">WEEK</div><div class="touch-num" style="color:#c0392b">8</div></div>
     <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Two-Month Review — Questionnaire + Deep Call</span><span class="badge badge-crit">Critical</span><span class="badge badge-manual">Email A14</span><span class="badge badge-call">Call Script</span></div>
-    <div class="step-body"><strong style="color:#334e68">Confirm Milestone 2 invoice sent before contacting client.</strong> 5 rated statements including NPS indicators. If client signals upcoming hire → pass to RC same day. No response within 24 hrs → follow-up email, call same day. Milestone 2 invoice triggered.</div></div>
+    <div class="step-body"><strong style="color:#334e68">Confirm Milestone 2 invoice sent before contacting client.</strong> 5 rated statements including NPS indicators. If client signals upcoming hire → pass to RC (Ian or Ayn) same day. No response within 24 hrs → follow-up email, call same day. Milestone 2 invoice triggered.</div></div>
   </div>
 
   <div class="touch-row">
@@ -448,7 +458,7 @@ Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilitie
   </div>
 
   <div class="sec-hdr">Email Templates — Client Post-Departure</div>
-  <div class="note-blue">All emails sent manually. Follow-up emails only sent if no questionnaire response within 24 hours.</div>
+  <div class="note-blue">All emails sent manually. Follow-up emails only sent if no questionnaire response within 24 hours. <strong>Numbering note:</strong> A-codes run as one shared sequence across this tab and Tab 5 (Candidate) — e.g. A8 (client, Week 4) and A9 (candidate, Week 4) are the same touchpoint, different recipient. Not a typo if the numbers look non-sequential within one tab.</div>
 
   <div class="email-card">
     <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A8</span><span class="badge badge-manual">Manual · Week 4</span><span class="badge badge-client">Client</span></div><div class="email-title">[Candidate Name] — One Month In</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
@@ -475,18 +485,6 @@ I haven't received your Week 4 response for [Candidate Name] yet and this is our
 Your feedback at this stage is critical. It helps us catch anything early before it becomes a problem and protects the placement long term.
 
 If it's easier to jump on a quick call, I'm available. Just reply and we'll lock in a time.
-
-[Your Name]
-Stand Up Recruitment</div>
-  </div>
-
-  <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A12</span><span class="badge badge-manual">Manual · Week 6</span><span class="badge badge-client">Client</span></div><div class="email-title">[Candidate Name] — Six Week Check-In</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="email-body" data-email-body>Hi [First Name],
-
-Just checking in at the six-week mark on [Candidate Name]. How are things going from your end?
-
-Happy to jump on a quick call.
 
 [Your Name]
 Stand Up Recruitment</div>
@@ -546,28 +544,42 @@ It's been a pleasure working with you on this one. Whenever you're next looking 
 Stand Up Recruitment</div>
   </div>
 
-  <div class="sec-hdr">Call Scripts — Client Post-Departure</div>
+  <div class="sec-hdr">Call &amp; Text Scripts — Client Post-Departure</div>
   <div class="note-blue">Read questionnaire responses before any Week 4 or Week 8 call. Log a health score in JobAdder after every touchpoint.</div>
 
   <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-W2</span><span class="badge badge-call">Call · Week 2</span></div><div class="script-title">Week 2 Client Verbal Questionnaire</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>OPEN: "Hi [First Name], just catching up on [Candidate Name] at the two-week mark — how's it all going?"
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-T6</span><span class="badge badge-manual">Text · Week 6</span></div><div class="script-title">Week 6 Client Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>Hi [First Name], six-week check on [Candidate Name] — how are things going from your end? Happy to jump on a call if easier, otherwise a quick reply is great.
 
-Verbal questionnaire — 4 rated statements (1 = Not at all → 5 = Absolutely):
-1. [Candidate Name] is getting on well overall.
-2. They are fitting into our team and culture.
-3. The quality of their work meets our expectations.
-4. I am happy with how the placement is progressing.
-Plus any additional comments.
+AFTER: Log in JobAdder. Concern raised in reply → call same day. No reply within 48 hrs → call directly.</div>
+  </div>
 
-CLOSE: "Really appreciate the update. I'll be back in touch at the one-month mark."
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-T1</span><span class="badge badge-manual">Text · Week 1</span></div><div class="script-title">Week 1 Arrival Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>Hi [First Name], quick one to check in on [Candidate Name] after week one — has he made contact, how did the first day or two go, anything you need from us?
 
-AFTER: Cross-reference with candidate Week 2 answers. Mismatch → red flag → escalate to Les same day. Log health score in JobAdder.</div>
+Reply whenever suits.
+
+AFTER: Log reply in JobAdder with health score. Anything raised in the reply → call same day. No response within 48 hrs → follow-up text + call same day.</div>
+  </div>
+
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-T2</span><span class="badge badge-manual">Text · Week 2</span></div><div class="script-title">Week 2 Client Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>Hi [First Name], quick two-week check on [Candidate Name] — rate 1-5 (1 = not at all, 5 = absolutely):
+1. Getting on well overall
+2. Fitting into the team and culture
+3. Quality of work meets expectations
+4. You're happy with how the placement is progressing
+Reply with your numbers + anything else on your mind. Takes 30 seconds.
+
+AFTER: Cross-reference with candidate Week 2 answers. Mismatch → red flag → escalate to Les same day. Anything raised in the reply → call same day. Log health score in JobAdder.</div>
   </div>
 
   <div class="script-card">
     <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-W4</span><span class="badge badge-crit">Critical · Week 4</span></div><div class="script-title">Week 4 Client Deep Call</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>PRE-CALL: Read questionnaire responses. Note any score of 3 or below.
+    <div class="script-body" data-email-body>QUESTIONNAIRE + CALL.
+
+PRE-CALL: Read questionnaire responses. Note any score of 3 or below.
 
 OPEN: "Hi [First Name] — one month in. I've read through your answers and just wanted to have a proper catch-up on how it's all going."
 
@@ -588,7 +600,7 @@ OPEN: "Hi [First Name] — two months in. I've read through your answers — let
 
 Reference questionnaire responses. Address Milestone 2 if any questions arise.
 
-If client signals upcoming hire → pass to RC (Ian) same day.
+If client signals upcoming hire → pass to RC (Ian or Ayn) same day.
 
 CLOSE: "Really appreciate it. Three-way review coming up — I'll be in touch to lock it in."
 
@@ -652,7 +664,7 @@ AFTER — within 24 hours:
 <div class="panel-body">
   <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap"><span class="badge badge-cand">Candidate</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#829ab1">Pre-Departure</span></div>
   <h2 style="font-family:'Archivo';font-weight:800;font-size:26px;color:#102a43;margin-bottom:8px">Candidate Journey — Pre-Departure</h2>
-  <p style="font-size:14px;line-height:1.65;color:#52708a;max-width:700px;margin-bottom:22px">From placement confirmation through to boarding the plane. Follow the steps in order. Pathway A (self-managed) and Pathway B (full relocation) diverge at Step 6.</p>
+  <p style="font-size:14px;line-height:1.65;color:#52708a;max-width:700px;margin-bottom:22px">From placement confirmation through to boarding the plane. Follow the steps in order. Pathway A (self-managed) and Pathway B (full relocation) diverge at Step 7.</p>
 
   <div class="sec-hdr" style="margin-top:0">SOP — Candidate Pre-Departure Steps</div>
 
@@ -665,50 +677,85 @@ AFTER — within 24 hours:
   <div class="step-row">
     <div class="step-num">2</div>
     <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send Email 2A + Intro Call</span><span class="badge badge-manual">Manual · Same day</span></div>
-    <div class="step-body">Send Email 2A (pastoral care intro) same day as Email 1. Then call the candidate same day or next day — confirm emails received, answer questions, book the Pre-Departure Documents Call.<br><br>
+    <div class="step-body">Send Email 2A (Support Team intro) same day as Email 1. Then call the candidate same day or next day — confirm emails received, answer questions, book the Pre-Departure Documents Call.<br><br>
     <strong style="color:#334e68">No answer:</strong> Call + text. Repeat next day. Still no response after 2 attempts → escalate to recruiter same day. Recruiter also no response within 24 hrs → escalate to Les.</div></div>
   </div>
 
   <div class="step-row">
     <div class="step-num">3</div>
     <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Pre-Departure Documents Call</span><span class="badge badge-call">Call Script</span></div>
-    <div class="step-body">Phone or Teams. 20–30 minutes. Cover in order: TOB check → Welcome Pack walkthrough → travel details (Pathway A only) → testimonial questions at the end. Log everything in JobAdder. Send testimonial to Brinda (Marketing) same day.</div></div>
+    <div class="step-body">Phone or Teams. 20–30 minutes. Full script below (CAN-DOCS). Cover in order: rapport → confirm next steps email → set expectation on the 12-week support program → TOB check → Welcome Pack walkthrough → travel details (Pathway A only) → open the floor for questions → origin-story testimonial ask at the end. Log everything in JobAdder. If consent given — log in JobAdder and send notes to Brinda (Marketing) same day.</div></div>
   </div>
 
   <div class="step-row">
     <div class="step-num">4</div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Email Trade Licensing Info — TL-1</span><span class="badge badge-manual">Manual · Same day as Documents Call</span></div>
+    <div class="step-body">Send TL-1 same day as the Documents Call, every candidate. Covers a written summary of their specific state's licensing requirements plus the official application form or link for their trade — pull the state detail from the Trade Licensing tab. Confirm their state and trade before sending.</div></div>
+  </div>
+
+  <div class="step-row">
+    <div class="step-num">5</div>
     <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">TOB Follow-Up</span><span class="badge badge-manual">If not signed after Documents Call</span></div>
     <div class="step-body">Escalate in order: Email first → Text if no response within 24 hours → Call if still no response → Escalate to Les if still unsigned end of day. TOB must be confirmed in JobAdder before end of day.</div></div>
   </div>
 
   <div class="step-row">
-    <div class="step-num">5</div>
+    <div class="step-num">6</div>
     <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Working-Through Call</span><span class="badge badge-call">24–48 hrs after Documents Call</span></div>
     <div class="step-body">Cover: TOB line by line — confirm they understand. Invoice — amount, payment method, 3-day deadline. Microsoft Form — fill in together if needed. Close: "Once that's all paid and signed, we'll get straight into your relocation."</div></div>
   </div>
 
   <div class="step-row">
-    <div class="step-num">6</div>
+    <div class="step-num">7</div>
     <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">GATE — TOB Signed AND Invoice Paid</span><span class="badge badge-crit">Gate — nothing moves without this</span></div>
     <div class="step-body"><strong style="color:#c0392b">Nothing moves until both are confirmed.</strong> When payment confirmed → "Go time" alert fires. Act immediately. Send Email 3 (Payment Received) to candidate — Pathway B only. Then branch to Pathway A or Pathway B below.</div></div>
   </div>
 
+  <div class="sec-hdr" style="background:#7b341e">Difficult Candidate Protocol — Pre-Departure</div>
+  <div class="note-amber">Use this protocol any time a candidate is unresponsive, uncooperative, or raising concerns that aren't resolving in the normal flow. Every case must be logged in JobAdder.</div>
+  <div class="step-row">
+    <div class="step-num" style="background:#7b341e">1</div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Support Team resolves first</span><span class="badge badge-manual">You — attempt resolution</span></div>
+    <div class="step-body">Attempt to resolve the issue directly. Call, text, email in that order. Give the candidate space to talk. Document the issue and your response in JobAdder as you go.</div></div>
+  </div>
+  <div class="step-row">
+    <div class="step-num" style="background:#7b341e">2</div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Escalate to assigned recruiter — if unresolved within 24–48 hours</span><span class="badge badge-crit">Escalate → Ian or Ayn</span></div>
+    <div class="step-body">If the issue is not resolved within 24–48 hours, escalate to the candidate's assigned recruiter (Ian or Ayn) the same day. Brief them fully — what happened, what you tried, what's outstanding. They take ownership from here. Continue to support but do not work around them.</div></div>
+  </div>
+  <div class="step-row">
+    <div class="step-num" style="background:#7b341e">3</div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Escalate to Les — if still unresolved after recruiter involvement</span><span class="badge badge-crit">Final escalation → Les</span></div>
+    <div class="step-body">If the recruiter cannot resolve it, escalate to Les directly. Do not delay — if the placement is at risk, Les needs to know same day. Log everything: dates, what was tried, who was involved, what the outstanding issue is.</div></div>
+  </div>
+  <div class="step-row" style="border-bottom:none;margin-bottom:22px">
+    <div class="step-num" style="background:#7b341e">4</div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Candidate Pulls Out — JobAdder Update</span><span class="badge badge-sys">JobAdder · Mandatory</span></div>
+    <div class="step-body">If the candidate withdraws at any stage of pre-departure, update JobAdder immediately:
+<ol style="margin:8px 0 0 18px;padding:0;line-height:2">
+<li>Go to JobAdder → Placements</li>
+<li>Select the candidate</li>
+<li>Go to the <strong>Activity</strong> tab → log the reason for drop off</li>
+<li>Change status to: <strong style="color:#c0392b">Candidate Drop Off</strong></li>
+</ol></div></div>
+  </div>
+
   <div class="sec-hdr" style="background:#1f4e79">Pathway A — Self-Managed</div>
   <div class="note-blue">Candidate arranges their own flights and accommodation. SUR is not involved in logistics after the gate.</div>
-  <div class="step-row"><div class="step-num">A1</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Flights must be booked within week 1 of placement</span></div><div class="step-body">3 weeks before start date. Communicate this on the Documents Call. Not booked after week 1 → follow up immediately. Still not booked at 2 weeks out → escalate to recruiter same day.</div></div></div>
+  <div class="step-row"><div class="step-num">A1</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Flights must be booked within week 1 of placement</span><span class="badge badge-sys">JobAdder update required</span></div><div class="step-body">3 weeks before start date. Communicate this on the Documents Call. Not booked after week 1 → follow up immediately. Still not booked at 2 weeks out → escalate to recruiter same day.<br><br><strong style="color:#334e68">When candidate confirms flights are booked:</strong> JobAdder → Placements → [Candidate] → update Status to <strong style="color:#157347">Contract Live</strong>.</div></div></div>
   <div class="step-row"><div class="step-num">A2</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Receive and forward flight confirmation</span></div><div class="step-body">Once candidate sends flight details — forward to employer same day. Confirm candidate arriving at least 3 days before start date.</div></div></div>
-  <div class="step-row" style="border-bottom:none"><div class="step-num">A3</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send contact exchange emails once flights confirmed</span></div><div class="step-body">CE-A to candidate (employer contact details). CE-B to employer (candidate contact details + travel). Same day as flight confirmation. Update Airtable.</div></div></div>
+  <div class="step-row" style="border-bottom:none"><div class="step-num">A3</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send contact exchange emails once flights confirmed</span></div><div class="step-body">CE-A1 to candidate (employer contact details). CE-B1 to employer (candidate contact details + travel). Same day as flight confirmation. Update Airtable.</div></div></div>
 
   <div class="sec-hdr" style="background:#157347">Pathway B — Full Relocation Package</div>
   <div class="note-green">SUR pays first 2 weeks rent and books flights. Always: <strong>accommodation first, flights second.</strong></div>
   <div class="step-row"><div class="step-num">B1</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Book accommodation first — always</span></div><div class="step-body">3 AI-generated options near client address. Candidate selects. Confirm with host. SUR pays first 2 weeks rent. See AI Prompt below.</div></div></div>
-  <div class="step-row"><div class="step-num">B2</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Book flights after accommodation is locked</span></div><div class="step-body">3 AI-generated options. Candidate selects. Always arrive at least 3 days before start date. Flying from Auckland → notify Brinda (Marketing). 2 weeks from start date and no flights → escalate to recruiter same day.</div></div></div>
+  <div class="step-row"><div class="step-num">B2</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Book flights after accommodation is locked</span><span class="badge badge-sys">JobAdder update required</span></div><div class="step-body">3 AI-generated options. Candidate selects. Always arrive at least 3 days before start date. Flying from Auckland → notify Brinda (Marketing). 2 weeks from start date and no flights → escalate to recruiter same day.<br><br><strong style="color:#334e68">When flights are confirmed:</strong> JobAdder → Placements → [Candidate] → update Status to <strong style="color:#157347">Contract Live</strong>.</div></div></div>
   <div class="step-row"><div class="step-num">B3</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Book airport transfer</span></div><div class="step-body">Pre-approved state service only. Pre-book before sending confirmation email. Get written confirmation and save to JobAdder.</div></div></div>
-  <div class="step-row"><div class="step-num">B4</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send contact exchange emails + all-in-one confirmation</span></div><div class="step-body">CE-A (candidate) + CE-B (employer) same day. Then send all-in-one confirmation email to candidate — flights, accommodation address, transfer details, grocery pack delivery confirmed.</div></div></div>
+  <div class="step-row"><div class="step-num">B4</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send contact exchange emails + all-in-one confirmation</span></div><div class="step-body">CE-A2 (candidate) + CE-B2 (employer) same day. Then send all-in-one confirmation email to candidate — flights, accommodation address, transfer details, grocery pack delivery confirmed.</div></div></div>
   <div class="step-row" style="border-bottom:none"><div class="step-num">B5</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Update Airtable + save all documents to JobAdder</span></div><div class="step-body">Full relocation record complete. Airtable updated. All booking confirmations saved to JobAdder before candidate departs.</div></div></div>
 
   <div class="sec-hdr">Email Templates — Candidate Pre-Departure</div>
-  <div class="note-blue">Email 1A and 1B are automated. Email 2A, Email 3, and CE-A are sent manually. TOB follow-up email and text are only sent if TOB unsigned after Documents Call.</div>
+  <div class="note-blue">Email 1A and 1B are automated. Email 2A, Email 3, CE-A1/CE-A2, and TL-1 are sent manually. TOB follow-up email and text are only sent if TOB unsigned after Documents Call. CE-A has a Pathway A and Pathway B version — grab the one matching the candidate's pathway. TL-1 goes out to every candidate, same day as the Documents Call.</div>
 
   <div class="email-card">
     <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">Email 1A</span><span class="badge badge-auto">Automated</span><span class="badge badge-cand">Candidate</span><span class="badge badge-pw">Pathway A</span></div><div class="email-title">Congratulations On The Offer — Here Are Your Next Steps</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
@@ -716,7 +763,7 @@ AFTER — within 24 hours:
 
 Congrats! Your contract is signed and your journey to Australia is officially on.
 
-I'm [Your Name] from the Stand Up Pastoral Care Team. From here on, we're your one point of contact for everything. Any questions at all, just reply to this email or reach us at support@standuprecruitment.co.nz.
+I'm [Your Name] from the Stand Up Support Team. From here on, we're your one point of contact for everything. Any questions at all, just reply to this email or reach us at support@standuprecruitment.co.nz.
 
 You've got 2 things to complete. Please do these within 24 hours:
 
@@ -736,7 +783,7 @@ We are stoked for you. Let's get you to Australia!</div>
 
 Congrats! Your contract is signed and your journey to Australia is officially on.
 
-I'm [Your Name] from the Stand Up Pastoral Care Team. From here on, we're your one point of contact for everything. Any questions at all, just reply to this email or reach us at support@standuprecruitment.co.nz.
+I'm [Your Name] from the Stand Up Support Team. From here on, we're your one point of contact for everything. Any questions at all, just reply to this email or reach us at support@standuprecruitment.co.nz.
 
 You've got 3 things to complete. Please do these within 24 hours:
 
@@ -767,10 +814,10 @@ Now that you're locked in and on your way, I wanted to introduce myself properly
 Our job is to make sure you don't just land in Australia, but that you actually settle in well, feel supported at work, and have someone in your corner if anything comes up. Here is what the next 12 weeks look like:
 
 Day 1 — We contact you on arrival day to make sure you got there safely, accommodation is sorted, and you know where you are going.
-Week 1 — Check-in call at the end of your first week on the tools.
-Week 2 — Short questionnaire followed by a call. We check in with you and your employer.
+Week 1 — Quick text check-in at the end of your first week on the tools.
+Week 2 — Short text check-in with you and your employer.
 Week 4 — One-month review. A deeper call with you and your employer. We want the honest picture.
-Week 6 — Quick email check-in from us.
+Week 6 — Quick text check-in from us.
 Week 8 — Two-month review. Questionnaire and call.
 Week 10.5 — A quick prep call ahead of your three-way review.
 Week 11 — Three-way Teams video call with you, your employer, and me.
@@ -819,8 +866,29 @@ Stand Up Recruitment</div>
     <div class="email-body" data-email-body>Hey [First Name], it's Rachel from Stand Up. Your Terms of Business still needs to be signed before you fly. This is a requirement from [Client Name] before you can start on site. Can you please sign it now? [TOB Link]. Takes 2 mins. Call me if you need help.</div>
   </div>
 
+  <div class="email-card" style="border-left:4px solid #c0392b">
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">TOB-REF</span><span class="badge badge-crit">Refusal — escalate to Les before sending</span><span class="badge badge-cand">Candidate</span></div><div class="email-title">Terms Of Business — Standard Requirement, No Exceptions</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="note-red" style="margin:8px 14px 4px">Use only when candidate is actively refusing to sign — not just slow. Escalate to Les before sending this email.</div>
+    <div class="email-body" data-email-body>Hi [First Name],
+
+I want to follow up directly on your Terms of Business.
+
+I understand this may feel like a formality, but I want to be straightforward with you — signing the TOB is a non-negotiable requirement before we can proceed. This is standard company procedure at Stand Up Recruitment and there are no exceptions, regardless of the stage you are at in the process.
+
+[PLACEHOLDER — add specific reason or clause if relevant, e.g. "The TOB covers your relocation support arrangements and the guarantee period that protects both you and [Client Name]."]
+
+Without a signed TOB in place, we are unable to continue supporting your relocation or confirm your placement with [Client Name].
+
+If you have a specific concern about any part of the document, please call me directly and I will go through it with you line by line. I want to get this resolved today.
+
+[TOB Link]
+
+[Your Name]
+Stand Up Recruitment</div>
+  </div>
+
   <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">CE-A</span><span class="badge badge-manual">Manual · On flight confirm</span><span class="badge badge-cand">Candidate</span></div><div class="email-title">Your Contact Details For [Client Company]</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">CE-A1</span><span class="badge badge-manual">Manual · On flight confirm</span><span class="badge badge-cand">Candidate</span><span class="badge badge-pw">Pathway A</span></div><div class="email-title">Your Contact Details For [Client Company]</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
     <div class="email-body" data-email-body>Hi [First Name],
 
 You are all set. Here are your contact details for [Client Company] and a summary of your travel arrangements so you have everything in one place.
@@ -836,9 +904,59 @@ Your travel details
 Flight: [Departure City] to [Destination City], [Day] [Date]
 Departs: [Departure Time]
 Arrives: [Arrival Time] local time
-Accommodation: [Accommodation Address]   ← Pathway B only — remove for Pathway A
 
 If you have any questions before you fly, just reach out. We are really excited for you.
+
+[Your Name]
+Stand Up Recruitment</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">CE-A2</span><span class="badge badge-manual">Manual · On flight confirm</span><span class="badge badge-cand">Candidate</span><span class="badge badge-pw" style="background:#332200;color:#ffe69c;border-color:#665500">Pathway B</span></div><div class="email-title">Your Contact Details For [Client Company]</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-body" data-email-body>Hi [First Name],
+
+You are all set. Here are your contact details for [Client Company] and a summary of your travel arrangements so you have everything in one place.
+
+Your employer
+Name: [Contact Name]
+Role: [Contact Role]
+Phone: [Phone Number]
+Email: [Email Address]
+Address: [Workplace Address]
+
+Your travel details
+Flight: [Departure City] to [Destination City], [Day] [Date]
+Departs: [Departure Time]
+Arrives: [Arrival Time] local time
+Accommodation: [Accommodation Address]
+
+If you have any questions before you fly, just reach out. We are really excited for you.
+
+[Your Name]
+Stand Up Recruitment</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">TL-1</span><span class="badge badge-manual">Manual · Same day as Documents Call</span><span class="badge badge-cand">Candidate</span></div><div class="email-title">Your Trade Licensing Requirements For [State]</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-body" data-email-body>Hi [First Name],
+
+Following on from our call, here's everything you need to get your [Trade] licence sorted for [State].
+
+What you'll need
+[State-specific requirement summary — pull from the Trade Licensing tab: regulator name, who needs a licence, required documents]
+
+How to apply
+[State-specific application steps and lodging details]
+
+Official application form / link
+[Insert regulator link or attach the official application form/PDF for State]
+
+A few things worth knowing:
+- This has to be applied for under Trans-Tasman Mutual Recognition — it isn't automatic, so get this moving early.
+- Your NZ licence needs to still be current when you apply.
+- If your trade needs a White Card or High Risk Work Licence as well, that's separate — covered in your Relocation Guide.
+
+Any questions on any of this, just reply here or call me directly.
 
 [Your Name]
 Stand Up Recruitment</div>
@@ -847,51 +965,110 @@ Stand Up Recruitment</div>
   <div class="sec-hdr">Call Scripts — Candidate Pre-Departure</div>
 
   <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-DOCS</span><span class="badge badge-call">Documents Call · Step 3</span></div><div class="script-title">Pre-Departure Documents Call</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>FORMAT: Phone or Teams video. 20–30 minutes.
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-DOCS</span><span class="badge badge-call">Documents Call · Step 3</span></div><div class="script-title">Pre-Departure Documents Call — Full Sales &amp; Rapport Script</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>FORMAT: Phone or Teams video. 20–30 minutes. Use for every candidate, both pathways.
 
 If no answer — text: "Hey [First Name], it's Rachel from Stand Up Recruitment. I just tried to give you a call. I'd love to go through everything you need before you fly and answer any questions you have. When is a good time? We can do a Teams call or phone call, whatever works best for you."
 
-COVER IN THIS ORDER:
+BEFORE YOU DIAL:
+- Confirm TOB status in JobAdder — signed or not changes your opening.
+- Confirm Pathway — A (self-managed) or B (full relocation) — the travel-details section only applies to Pathway A.
+- Have the Welcome Pack details below open so you're not hunting for numbers on the call.
 
-1. TOB CHECK — confirm in JobAdder before the call.
-If not signed: "Before we get into everything else — I can see your Terms of Business hasn't been signed off yet. Can we get that sorted now? I'll send the link while we're on the call."
+1. OPEN — RECORDING DISCLOSURE:
+"Hey [First Name], good to finally chat properly. Quick heads up before we start — I'm recording this call for training purposes, that alright with you?"
+Wait for a yes. If they hesitate, reassure: "Totally normal, it just helps us keep improving how we support people through this." Then move straight into rapport — don't let the disclosure kill the warmth.
 
-2. WELCOME PACK WALKTHROUGH:
-- Australian SIM — grab at airport, Telstra for regional/remote
-- White Card — must be done in Australia (NZ not valid), whitecardonline.com.au, ~$150, one day online
+2. BUILD RAPPORT — BEFORE THE BUSINESS TALK:
+A minute or two here is what turns you from "the recruitment admin call" into someone they trust for the next three months. Keep it light — the deeper origin-story digging happens at the close (Part 9), don't duplicate it here.
+- "How are you feeling about it all now it's actually real?"
+- "Bit of a whirlwind the last few weeks I'd imagine — how are you finding it?"
+Listen for their mood and energy, not their backstory yet. Reflect it back later when you're talking through the guide (e.g. "since you mentioned money's the big driver, let's make sure your TFN's sorted so you're not losing 45% of it").
+
+3. CONFIRM THEY'VE ACTIONED THE NEXT STEPS EMAIL:
+"Awesome. Now, you should've had an email from us with two things — your Terms of Business to sign, and a Relocation Guide PDF. Have you had a chance to look at those yet?"
+- If both done — "Nice one, that makes today easy." Move to Part 6.
+- If TOB not signed — go to Part 5 now, before anything else.
+- If they haven't opened the guide at all — no problem, that's what today's for. Walk it live with them in Part 6.
+
+4. SET THE EXPECTATION — THE 12-WEEK SUPPORT PROGRAM:
+Do this before the guide, not after. It frames the whole call as a partnership, not a one-off admin call — and it's the biggest lever against nasty surprises on either side, candidate or client.
+"Before we get into the practical stuff, I want to run you through what support looks like over your first 12 weeks — because honestly, it only works if you're part of it."
+
+Give them the shape of it in your own words, don't recite it:
+- Day 1 (light) — arrival email, confirm landed safe, AU SIM sorted, know where you're going
+- Week 1 (light/text) — quick text, highs and lows, settling in
+- Week 2 (light/text) — text check-in, both sides, rated questions
+- Week 4 (deep call) — one-month review, real call, both sides, honest picture — most important check-in of the placement
+- Week 6 (light/text) — quick text, anything on your mind
+- Week 8 (deep call) — two-month review, call, both sides
+- Week 10.5 (call) — prep call ahead of the three-way review
+- Week 11 (deep call) — three-way Teams review, you, them, and the client, 30 minutes — wraps the guarantee period
+
+WHY IT MATTERS — say this part properly, don't rush it:
+"Here's the honest truth on why this matters. The biggest risk to a placement isn't a bad hire — it's silence. If something's bugging you and you don't tell us, it builds up quietly until you're on a plane home, or [Client Name]'s already looking to replace you. By that point it's too late for us to fix anything."
+"It works the other way too. If something changes on [Client Name]'s side — hours, workload, anything — we want to hear it from you early, not find out in week 10 when it's already a problem."
+"So here's what I actually need from you: when we check in, even if it's just a text, give us the real answer, not the polite one. If something feels off, flag it early. That's genuinely how we protect you and keep this whole thing on track — for you and for [Client Name]."
+"Can I count on you for that?"
+AFTER: log their response and engagement level in JobAdder. A candidate who brushes this off is an early flag — worth a note, not a reason to push harder on the call.
+
+5. TOB CHECK (only if unsigned):
+"Before we get into everything else — I can see your Terms of Business hasn't been signed off yet. Can we get that sorted now? I'll send the link through while we're on the call."
+Stay on the line while they open it. If they raise a concern about content, go through it clause by clause right there — don't let it become a follow-up task. If still unsigned by end of call: email → text (24 hrs) → call → escalate to Les if still unsigned end of day.
+
+6. WELCOME PACK WALKTHROUGH:
+Frame it as looking out for them, not reading them a checklist: "Let's go through exactly what you need to sort before you fly, and how to actually do each one — this is the stuff that trips people up if nobody walks you through it."
+- Australian SIM — grab at airport kiosk, Telstra for regional/remote
+- White Card — must be done in Australia (NZ Site Safe NOT valid), whitecardonline.com.au, ~$100-150, one day online
 - Bank account — CommBank or Westpac, open online from NZ, activate in branch on arrival
 - TFN — apply before flying, no TFN = 45%+ tax, ~2 weeks to arrive
 - Driver licence — NZ valid 3 months, swap before it runs out, no driving test
 - Medicare — free basic healthcare as a Kiwi, enrol at Medicare office on arrival
 - Super — pick AustralianSuper, Hostplus, or Cbus for construction before starting
+If their trade needs a state licence or a High Risk Work Licence (scaffolding, rigging, cranes, forklifts, EWPs) — flag it here. That's a state-by-state TTMRA application, not automatic. Full detail lives in the Trade Licensing tab, and the TL-1 email goes out same day (Step 4 in the SOP above).
 
-3. PATHWAY A ONLY — TRAVEL DETAILS:
+7. PATHWAY A ONLY — TRAVEL DETAILS (skip entirely for Pathway B):
 - "Have you booked your flights yet?"
 - "Flights need to be booked within this first week — 3 weeks before your start date. [Client Name] needs your confirmation as proof you're committed."
 - "Try to arrive at least 3 days before your start date."
 - "Once you have your flight details, send them through and I'll let your employer know."
 - "Have you sorted an airport transfer?"
 
-4. TESTIMONIAL QUESTIONS (at the end — don't force it):
-- "What were you earning and what were your hours like in New Zealand — and what are you earning and what are your hours like now in Australia?"
-- "How long did it take from signing with Stand Up to your first day on site?"
-- "What was the moment you knew you'd made the right decision?"
-- "What would you say to a [Trade] in New Zealand who wants to make the move but doesn't know where to start — and how did Stand Up make that easier for you?"
+8. OPEN THE FLOOR:
+"That's everything from my end — what questions have you got? Nothing's too small."
+Give this real space. Don't rush to fill silence — this is often where genuine concerns surface, and handling them well here is what keeps candidates from going quiet later.
 
-CLOSE — permissions and video ask:
-"Your responses may be used on the Stand Up website. Are you happy for us to use what you've shared? Would you be keen to do a quick 60-second video? No pressure — we can send you a link."
+9. CLOSE — THE ORIGIN STORY + TESTIMONIAL ASK:
+This is the half of the testimonial you CAN get pre-departure — their NZ struggle and what tipped them into making the move. It's fresher and more honest right now than it will ever be again. The Australia-side contrast comes later, at Week 4 (CAN-W4), once they've actually lived it. Let this flow naturally out of the rapport-building in Part 2 — don't make it feel like a second interview.
+
+GET THE BEFORE STORY:
+- "Take me back — what was work and life actually like for you in NZ before this?"
+- "What was the tipping point — the moment you thought, right, I'm actually doing this?"
+- "What almost stopped you from making the move?"
+- "What were you hoping to get out of this that you weren't getting in NZ — money, work, lifestyle, whatever it is?"
+- "If you had to put it in one line — why now?"
+
+ASK PERMISSION TO USE IT:
+"Honestly [Candidate Name], what you just told me could really help so many tradies that are in the same spot as you. We've got so many [Trade] on the fence about moving because they're unsure. Would it be okay if I use a little bit of our conversation in one of our SUR stories?"
+
+If they push back:
+"Fair enough — but can I be honest? I think you'd actually regret not sharing this. There's a guy in the exact same spot as you were, scared to make the jump, and your story might be the one thing that gets him to go for it. That's a pretty big deal to just sit on."
+
+If they still say no:
+"No worries at all — appreciate you even considering it."
 
 AFTER:
-- Log in JobAdder — TOB status, Welcome Pack items, outstanding items
-- Save testimonial and send to Brinda (Marketing) same day
+- Log in JobAdder — TOB status, Welcome Pack items covered, outstanding items
+- Note their reaction to the 12-week program ask in Part 4 — low engagement is an early flag worth tracking
+- If consent given — log consent in JobAdder, send conversation notes to Brinda (Marketing) same day
 - If video consented — send Loom or VideoAsk link within 24 hours
 - Pathway A — log flight details, notify employer once received
-- TOB still not signed → escalate per Step 4</div>
+- TOB still not signed → escalate per Step 5
+- Send TL-1 (Trade Licensing email) same day — Step 4 in the SOP</div>
   </div>
 
   <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-TOB</span><span class="badge badge-call">TOB Follow-Up Call · Step 4</span></div><div class="script-title">TOB Follow-Up Call</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-TOB</span><span class="badge badge-call">TOB Follow-Up Call · Step 5</span></div><div class="script-title">TOB Follow-Up Call</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
     <div class="script-body" data-email-body>OPEN: "Hey [First Name], it's Rachel from Stand Up. How are you going? I'm just calling because we still have not received your signed Terms of Business."
 
 THE ASK: "This needs to be done before you fly. It is a requirement from [Client Name] — without it signed, your placement is not fully confirmed on their end."
@@ -937,14 +1114,14 @@ AFTER: Confirm TOB signed in JobAdder before end of day. Still unsigned → esca
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">1</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">End of Week 1 Check-In Call</span><span class="badge badge-call">Call Script</span></div>
-    <div class="step-body">Candidate only. End of first week on the tools. Ask: highs and lows · clear on expectations · getting on with team · settling in outside work. Log in JobAdder with health score. Anything concerning → follow up within 48 hrs. No response → call + text. Repeat next day. Still no response → escalate to Les directly.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">End of Week 1 Check-In — Text CAN-T1</span><span class="badge badge-manual">Text · CAN-T1</span></div>
+    <div class="step-body">Candidate only. End of first week on the tools. Text asking: highs and lows, clear on expectations, getting on with the team, settling in outside work. Log reply in JobAdder with health score. Anything concerning in the reply → call same day. No response → text again + call. Repeat next day. Still no response → escalate to Les directly. <strong style="color:#334e68">Testimonial questions now sit in the Week 4 deep call</strong> — a real conversation gets a better story than a text reply.</div></div>
   </div>
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">2</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Verbal Questionnaire — C1</span><span class="badge badge-call">Call Script</span></div>
-    <div class="step-body">Verbal questionnaire on the call — no questionnaire sent in advance. 5 rated statements (1–5). Cross-reference against client Week 2 answers. Mismatch = red flag. Log in JobAdder with health score.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Text CAN-T2</span><span class="badge badge-manual">Text · CAN-T2</span></div>
+    <div class="step-body">Text check-in — 5 rated statements (1–5) sent as a single text, candidate replies with numbers. Cross-reference against client Week 2 answers. Mismatch = red flag. Any concern raised → call same day. Log in JobAdder with health score.</div></div>
   </div>
 
   <div class="touch-row crit-row">
@@ -955,8 +1132,8 @@ AFTER: Confirm TOB signed in JobAdder before end of day. Still unsigned → esca
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">6</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Email Check-In Only</span><span class="badge badge-auto">Auto email</span></div>
-    <div class="step-body">Email only — no call unless a concern is raised. Concern raised in reply → call same day. No reply within 48 hrs → call directly. Log in JobAdder.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Text CAN-T6</span><span class="badge badge-manual">Text · CAN-T6</span></div>
+    <div class="step-body">Text only — no call unless a concern is raised. Concern raised in reply → call same day. No reply within 48 hrs → call directly. Log in JobAdder.</div></div>
   </div>
 
   <div class="touch-row crit-row">
@@ -978,7 +1155,7 @@ AFTER: Confirm TOB signed in JobAdder before end of day. Still unsigned → esca
   </div>
 
   <div class="sec-hdr">Email Templates — Candidate Post-Departure</div>
-  <div class="note-blue">Day 1 email is automated. Week 4, 6, and 8 check-in emails are automated. Follow-up emails are sent manually if no response within 24 hours.</div>
+  <div class="note-blue">Only the Day 1 arrival email is automated. Week 4, 6, and 8 check-in emails are sent manually — matches the Client Post-Departure cadence. Follow-up emails are sent manually if no response within 24 hours. <strong>Numbering note:</strong> A-codes run as one shared sequence with Tab 3 (Client) — see that tab for the explanation.</div>
 
   <div class="email-card">
     <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">Day 1</span><span class="badge badge-auto">Automated · Arrival morning</span><span class="badge badge-cand">Candidate</span></div><div class="email-title">You Made It — Welcome To Australia</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
@@ -1047,18 +1224,6 @@ Stand Up Recruitment</div>
   </div>
 
   <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A13</span><span class="badge badge-auto">Automated · Week 6</span><span class="badge badge-cand">Candidate</span></div><div class="email-title">Six Weeks In — Hope It's Going Well</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="email-body" data-email-body>Hi [First Name],
-
-Six weeks in, just wanted to check in and say hi. Hope things are going well.
-
-Anything on your mind? Always happy to chat.
-
-[Your Name]
-Stand Up Recruitment</div>
-  </div>
-
-  <div class="email-card">
     <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A15</span><span class="badge badge-manual">Manual · Week 8</span><span class="badge badge-cand">Candidate</span></div><div class="email-title">Two Months In — Quick One From Me</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
     <div class="email-body" data-email-body>Hi [First Name],
 
@@ -1103,42 +1268,46 @@ You've got a great thing going with [Client Name]. My door stays open if you eve
 Stand Up Recruitment</div>
   </div>
 
-  <div class="sec-hdr">Call Scripts — Candidate Post-Departure</div>
+  <div class="sec-hdr">Call &amp; Text Scripts — Candidate Post-Departure</div>
 
   <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-W1</span><span class="badge badge-call">Call · Week 1</span></div><div class="script-title">Week 1 End of Week Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>OPEN: "Hey [Name], first week done — how was it?"
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-T6</span><span class="badge badge-manual">Text · Week 6</span></div><div class="script-title">Week 6 Candidate Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>Hey [Name], six weeks in — just checking in, hope it's all going well. Anything on your mind? Always happy to chat, just reply or call.
 
-ASK:
-- "What were the highs and lows?"
-- "Are you clear on what's expected of you?"
-- "How are you getting on with the team?"
-- "How are you settling in outside of work?"
-
-CLOSE: "Love to hear it. I'll be in touch again at Week 2 — call me anytime if something comes up."
-
-AFTER: Log in JobAdder with health score. Anything concerning → follow up within 48 hrs.</div>
+AFTER: Log in JobAdder. Concern raised in reply → call same day. No reply within 48 hrs → call directly.</div>
   </div>
 
   <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-W2</span><span class="badge badge-call">Call · Week 2</span></div><div class="script-title">Week 2 Verbal Questionnaire</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>OPEN: "Hey [Name], Week 2 — how are you going?"
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-T1</span><span class="badge badge-manual">Text · Week 1</span></div><div class="script-title">Week 1 End of Week Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>Hey [Name], first week done — how was it? Quick one from me:
+- Highs and lows this week?
+- Clear on what's expected of you?
+- Getting on well with the team?
+- Settling in outside of work?
 
-Verbal questionnaire — 5 rated statements (1 = Not at all → 5 = Absolutely):
-1. I'm glad I made the move to Australia.
-2. The role is what I expected it to be.
-3. I feel comfortable with my supervisor and team.
-4. I'm settling in well outside of work.
-5. Overall, I'm happy with how things are going.
+Reply whenever suits, no rush. I'll be in touch again at Week 2 — call me anytime if something comes up.
 
-CLOSE: "Appreciate you being open with me. I'll be in touch at the one-month mark — call me anytime."
+AFTER: Log in JobAdder with health score. Anything concerning in the reply → call same day. No response within 48 hrs → follow up.</div>
+  </div>
 
-AFTER: Cross-reference with client Week 2 answers. Mismatch = red flag. Log in JobAdder with health score.</div>
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-T2</span><span class="badge badge-manual">Text · Week 2</span></div><div class="script-title">Week 2 Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>Hey [Name], Week 2 — how's it all going? Rate these 1-5 (1 = not at all, 5 = absolutely):
+1. I'm glad I made the move to Australia
+2. The role is what I expected it to be
+3. I feel comfortable with my supervisor and team
+4. I'm settling in well outside of work
+5. Overall, I'm happy with how things are going
+Reply with your numbers + anything else on your mind.
+
+AFTER: Cross-reference with client Week 2 answers. Mismatch = red flag. Any concern raised → call same day. Log in JobAdder with health score.</div>
   </div>
 
   <div class="script-card">
     <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-W4</span><span class="badge badge-crit">Critical · Week 4</span></div><div class="script-title">Week 4 One-Month Deep Call</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>PRE-CALL: Read questionnaire responses. Note anything ≤3.
+    <div class="script-body" data-email-body>QUESTIONNAIRE + CALL.
+
+PRE-CALL: Read questionnaire responses. Note anything ≤3. Also re-read your notes from their Pre-Departure Documents Call (CAN-DOCS) — you already have their NZ story, don't re-ask it.
 
 OPEN: "Hey [Name] — one month in, that's huge. I've had a read through your answers and wanted to talk through a few things with you."
 
@@ -1151,9 +1320,23 @@ Reference responses. Start with what's going well, then open the door. Don't rus
 - Feeling settled outside of work
 - Glad they made the move
 
-CLOSE: "Really appreciate you being open with me — that's exactly what this is for. I'll follow up on [action] by [date]."
+TESTIMONIAL — BRIDGE BACK TO THEIR STORY (once they've warmed up — natural, don't force it):
+"Back when we first spoke, you told me [reference what they said about NZ / their reason for moving] — take me through how it's actually panned out."
 
-AFTER: Cross-reference with client Week 4. Score ≤3 → escalate to Les within 24 hours. Log health score.</div>
+AUSTRALIA CONTRAST QUESTIONS:
+- "What's the biggest difference you've noticed being in Australia — money, lifestyle, work, anything?"
+- "If you had to put a number on it — how much better is pay and conditions here compared to back home?"
+- "What's something about working in Australia that's surprised you, in a good way?"
+- "Would you ever come back to NZ for work? Why or why not?"
+- "What would you say to a mate back in NZ who's on the fence about making the jump?"
+
+CLOSE — RECONFIRM CONSENT: "Honestly [Name] — and just to check, you're still good with us using a bit of what you've shared today alongside what you told me before you left, for one of our SUR stories?"
+(If they already said yes at the Documents Call, this is just a light reconfirm, not a fresh ask. If they said no there, don't re-ask.)
+
+If they push back: "Fair enough — but I think you'd regret not sharing this. There's a guy in the exact same spot you were, scared to make the jump, and your story might be the thing that gets him to go for it."
+If they still say no: "No worries at all, appreciate you considering it."
+
+AFTER: Cross-reference with client Week 4. Score ≤3 → escalate to Les within 24 hours. Log health score. If consent given → log in JobAdder, send notes to Brinda (Marketing) same day.</div>
   </div>
 
   <div class="script-card">
@@ -1218,7 +1401,7 @@ AFTER: Complete both pre-calls (candidate + client) before sending Teams invite.
     <div style="background:#fff;border:1px solid #d9e2ec;border-radius:10px;padding:16px 18px">
       <div style="display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;margin-bottom:6px"><span class="badge badge-crit">Required for all sites</span><div style="font-family:'Archivo';font-weight:700;font-size:14.5px;color:#102a43">White Card (CPCCWHS1001)</div></div>
       <div style="font-size:13px;color:#52708a;line-height:1.7;margin-bottom:8px">Required for everyone on an Australian construction site. <strong style="color:#c0392b">NZ Site Safe cards are NOT accepted.</strong></div>
-      <div style="font-size:12.5px;color:#486581;line-height:1.8"><strong style="color:#334e68">Steps:</strong> 1. Create USI at usi.gov.au · 2. Find RTO at training.gov.au or complete online at whitecardonline.com.au · 3. Complete CPCCWHS1001 — 1 day in-person or a few hours online (~$150) · 4. Verify identity with RTO · 5. White Card posted within a few weeks. Valid for life, recognised in all states.</div>
+      <div style="font-size:12.5px;color:#486581;line-height:1.8"><strong style="color:#334e68">Steps:</strong> 1. Create USI at usi.gov.au · 2. Find RTO at training.gov.au or complete online at whitecardonline.com.au · 3. Complete CPCCWHS1001 — 1 day in-person or a few hours online (~$100-150) · 4. Verify identity with RTO · 5. White Card posted within a few weeks. Valid for life, recognised in all states.</div>
     </div>
     <div style="background:#fff;border:1px solid #d9e2ec;border-radius:10px;padding:16px 18px">
       <div style="display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;margin-bottom:6px"><span class="badge badge-manual">Applicable trades</span><div style="font-family:'Archivo';font-weight:700;font-size:14.5px;color:#102a43">High Risk Work Licences (HRWL)</div></div>
@@ -1363,7 +1546,7 @@ AFTER: Complete both pre-calls (candidate + client) before sending Teams invite.
       <a href="https://www.docuseal.com" target="_blank" class="url-link">docuseal.com</a>
     </div>
     <div class="url-row" style="border-bottom:none">
-      <div><div class="url-label">Support Team Email</div><div class="url-desc">Candidate-facing contact address for all pastoral care communications.</div></div>
+      <div><div class="url-label">Support Team Email</div><div class="url-desc">Candidate-facing contact address for all Support Team communications.</div></div>
       <a href="mailto:support@standuprecruitment.co.nz" class="url-link">support@standuprecruitment.co.nz</a>
     </div>
   </div>
@@ -1379,7 +1562,7 @@ AFTER: Complete both pre-calls (candidate + client) before sending Teams invite.
       <a href="https://www.usi.gov.au" target="_blank" class="url-link">usi.gov.au</a>
     </div>
     <div class="url-row">
-      <div><div class="url-label">White Card Online</div><div class="url-desc">CPCCWHS1001 — must be completed in Australia (~$150, 1 day online). NZ Site Safe cards NOT accepted.</div></div>
+      <div><div class="url-label">White Card Online</div><div class="url-desc">CPCCWHS1001 — must be completed in Australia (~$100-150, 1 day online). NZ Site Safe cards NOT accepted.</div></div>
       <a href="https://www.whitecardonline.com.au" target="_blank" class="url-link">whitecardonline.com.au</a>
     </div>
     <div class="url-row">
@@ -1436,7 +1619,7 @@ AFTER: Complete both pre-calls (candidate + client) before sending Teams invite.
 </div><!-- end .container -->
 
 <div style="text-align:center;padding:28px 16px 40px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#829ab1;letter-spacing:.08em">
-  STAND UP RECRUITMENT · AUSTRALIAN RELOCATION PLAYBOOK · INTERNAL USE ONLY · v2.0
+  STAND UP RECRUITMENT · AUSTRALIAN RELOCATION PLAYBOOK · INTERNAL USE ONLY · v3.0
 </div>
 
 <script>
