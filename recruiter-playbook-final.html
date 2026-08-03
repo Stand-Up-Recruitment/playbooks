@@ -636,32 +636,6 @@ body{
 #theme-toggle:hover{background:var(--surface2);color:var(--text);border-color:var(--border3)}
 #theme-toggle .toggle-icon{font-size:13px;line-height:1}
 
-#hub-back{
-  position:fixed;
-  top:20px;left:20px;
-  z-index:1000;
-  display:flex;
-  align-items:center;
-  gap:7px;
-  padding:8px 16px;
-  border-radius:20px;
-  border:.5px solid var(--border2);
-  background:rgba(17,17,17,.85);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  color:var(--muted);
-  font-family:var(--font-mono);
-  font-size:10px;
-  letter-spacing:.08em;
-  cursor:pointer;
-  transition:all var(--transition);
-  box-shadow:0 2px 12px rgba(0,0,0,.3);
-  user-select:none;
-  text-decoration:none;
-}
-#hub-back:hover{background:var(--surface2);color:var(--text);border-color:var(--border3)}
-[data-theme="light"] #hub-back{background:rgba(255,255,255,.9)}
-
 /* ── Responsive ──────────────────────────────────────────── */
 @media(max-width:640px){
   #dashboard{padding:48px 18px 80px}
@@ -743,10 +717,6 @@ body{
 </style>
 </head>
 <body>
-<a id="hub-back" href="index.html" title="Back to Playbook Hub">
-  <span class="toggle-icon">←</span>
-  <span>Hub</span>
-</a>
 <button id="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
   <span class="toggle-icon" id="toggle-icon">☀️</span>
   <span id="toggle-label">Light</span>
@@ -794,7 +764,7 @@ body{
     <div class="module-card" data-mid="m111" data-search="1.1 job creation new job jobadder job brief job card job ad claude sur job brief generator prompt sur job ad prompt for aus client job description sales call transcript trade me seek jora joberelay jobspace" onclick="openModule('m111')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
       <div style="font-size:11px;font-weight:700;color:#4ac8f0;letter-spacing:.05em;margin-bottom:4px">1.1</div>
       <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">Job Creation</div>
-      <div style="font-size:12px;color:var(--text2);line-height:1.4">Turn the client job description and sales transcript into a job brief, job card, and job ad.</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.4">Assign your workflow to the new job in JobAdder, then generate and post the job ad.</div>
     </div>
     <div class="module-card" data-mid="m121" data-search="1.2.1 ai sourcing airtable form bot calendly boolean search string calendar booking internal interview trung" onclick="openModule('m121')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
       <div style="font-size:11px;font-weight:700;color:#4ac8f0;letter-spacing:.05em;margin-bottom:4px">1.2.1</div>
@@ -931,7 +901,6 @@ body{
         <li>A <strong>job ad</strong> — the public-facing advertisement that candidates will see on job boards</li>
       </ol>
       <div class="callout warn"><strong>This is the starting gun for recruitment.</strong> Nothing happens before this stage is complete.</div>
-      <div class="callout info" style="margin-top:8px"><strong>Note on automation:</strong> Trung is currently building a system that will automate job creation so the job brief and job card appear in JobAdder automatically when a new job comes in. Once that is live, you will not need to do this manually. Until then, follow the steps below every time a new job comes in. Even when automation is live, understanding this process helps you know what is happening behind the scenes.</div>
     </div>
   </div>
 
@@ -945,74 +914,27 @@ body{
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 1 — Collect your source documents</div>
+    <div class="block-title">Step 1 — Find the job and assign your workflow</div>
     <div class="block-body">
-      <p>Before you open Claude or JobAdder, you need both documents in hand.</p>
-      <ul>
-        <li><strong>Client job description</strong> → check your email. It will be sent through by the sales team or the EA.</li>
-        <li><strong>Sales call transcript</strong> → go to SharePoint: <code>Stand Up Recruitment HQ → Documents → Client Meeting Transcripts → All Documents</code>. Find the transcript that matches your client and open it.</li>
-      </ul>
-      <div class="callout warn" style="margin-top:8px">Do not proceed without both. If either is missing, follow up with the EA or Les before moving forward.</div>
+      <div class="step-row"><div class="step-num">1</div><div>Go to the JobAdder home page</div></div>
+      <div class="step-row"><div class="step-num">2</div><div>Find the new job under the <strong>No Applications</strong> stage</div></div>
+      <div class="step-row"><div class="step-num">3</div><div>Click the job to open it</div></div>
+      <div class="step-row"><div class="step-num">4</div><div>Go to the <strong>Details</strong> tab and find the job details</div></div>
+      <div class="step-row"><div class="step-num">5</div><div>Click <strong>Edit</strong></div></div>
+      <div class="step-row"><div class="step-num">6</div><div>Under <strong>Workflow</strong>, assign the job to your own workflow — make sure you select yours, not someone else's</div></div>
+      <div class="step-row"><div class="step-num">7</div><div>Save your changes</div></div>
+      <div class="callout warn">Jobs currently come through without a workflow assigned — this must be done manually every time. If you skip this step, the job won't track correctly against you.</div>
     </div>
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 2 — Generate the job brief using Claude</div>
+    <div class="block-title">Step 2 — Generate and post the job ad</div>
     <div class="block-body">
-      <p>The job brief is your single source of truth for the entire recruitment process. It tells you who to look for, what to sell candidates on, and what to filter out. Every sourcing call, every interview, and every CV submission you make will refer back to this document.</p>
-      <div class="step-row"><div class="step-num">1</div><div>Open Claude at claude.ai</div></div>
-      <div class="step-row"><div class="step-num">2</div><div>Go to your dedicated job brief creation thread — if you do not have one yet, start a new conversation and call it "Job Brief Creation"</div></div>
-      <div class="step-row"><div class="step-num">3</div><div>Paste the <strong>SUR Job Brief Generator Prompt</strong> into the thread (see Prompts tab)</div></div>
-      <div class="step-row"><div class="step-num">4</div><div>Attach or paste in both the <strong>client job description</strong> and the <strong>sales call transcript</strong></div></div>
-      <div class="step-row"><div class="step-num">5</div><div>Claude will produce a structured job brief with 5 sections (see table below)</div></div>
-      <table class="data-table">
-        <thead><tr><th>Section</th><th>What it covers</th></tr></thead>
-        <tbody>
-          <tr><td>Role Overview</td><td>Who the client is, what the job is, pay, location</td></tr>
-          <tr><td>What to Prioritise</td><td>The must-have skills, experience, and licences</td></tr>
-          <tr><td>Selling Points to Candidates</td><td>What makes this role attractive to a NZ tradesperson</td></tr>
-          <tr><td>Red Flags</td><td>Candidate types or behaviours that would waste the client's time</td></tr>
-          <tr><td>Extra Notes from Client</td><td>Culture, urgency, logistics, anything else</td></tr>
-        </tbody>
-      </table>
-      <p style="margin-top:8px">Read the output carefully. If anything is marked "Not specified" or "confirm before submitting" — follow up with Les to fill in the gaps before you move forward.</p>
-      <div class="callout info"><strong>The Red Flags and What to Prioritise sections</strong> are the most important parts of the brief. Read them carefully before you make a single call or send a single message to a candidate.</div>
-    </div>
-  </div>
-
-  <div class="content-block">
-    <div class="block-title">Step 3 — Create the job card in JobAdder</div>
-    <div class="block-body">
-      <p>The job card is the official record of the job in our system. Creating it is the trigger that kicks off recruitment — nothing starts before this is done.</p>
-      <div class="step-row"><div class="step-num">1</div><div>Log into JobAdder</div></div>
-      <div class="step-row"><div class="step-num">2</div><div>Hover over <strong>Jobs</strong> in the left-hand sidebar</div></div>
-      <div class="step-row"><div class="step-num">3</div><div>Click <strong>New Job</strong></div></div>
-      <div class="step-row"><div class="step-num">4</div><div>Select your <strong>workflow</strong> — each recruiter has their own. Make sure you select yours, not someone else's.</div></div>
-      <div class="step-row"><div class="step-num">5</div><div>Fill in: Company details (client's business name), Primary contact (person at the client's business), Job title (use the title from the job brief)</div></div>
-      <div class="step-row"><div class="step-num">6</div><div>Paste the full job brief into the job description field</div></div>
-      <div class="step-row"><div class="step-num">7</div><div>Click <strong>Create Job</strong></div></div>
-      <div class="callout warn">Always double-check you have selected your own workflow before clicking Create. Selecting the wrong one creates tracking issues that are hard to fix later.</div>
-    </div>
-  </div>
-
-  <div class="content-block">
-    <div class="block-title">Step 4 — Generate and post the job ad</div>
-    <div class="block-body">
-      <p>The job ad is what candidates see on job boards like Trade Me, Seek, and JobRelay. A well-written ad attracts the right candidates. A vague or generic one wastes everyone's time.</p>
-      <p style="margin-top:10px"><strong>4a — Write the job ad using Claude</strong></p>
-      <div class="step-row"><div class="step-num">1</div><div>Open your dedicated Claude job ad creation thread — if you do not have one yet, start a new conversation and call it "Job Ad Creation"</div></div>
-      <div class="step-row"><div class="step-num">2</div><div>Paste the <strong>SUR Job Ad Prompt for Aus</strong> into the thread (see Prompts tab)</div></div>
-      <div class="step-row"><div class="step-num">3</div><div>Include the following details from your job brief: Role overview, What to prioritise, Selling points to candidates, Red flags, Any extra notes from the client</div></div>
-      <div class="step-row"><div class="step-num">4</div><div>Review the output before posting. Claude produces a strong first draft but you must read it and check every detail is accurate. Never post an ad with details you have not verified.</div></div>
+      <div class="step-row"><div class="step-num">1</div><div>Open your dedicated Claude job ad creation thread</div></div>
+      <div class="step-row"><div class="step-num">2</div><div>Paste the <strong>SUR Job Ad Prompt for Aus</strong> with the relevant details from the job brief already sitting in the job card</div></div>
+      <div class="step-row"><div class="step-num">3</div><div>Review the output before posting — never post details you have not verified</div></div>
       <div class="formula">Ad naming convention: <code>Role | State</code> — e.g. Electrician | Queensland</div>
-      <p style="margin-top:10px"><strong>4b — Post the ad in JobAdder</strong></p>
-      <div class="step-row"><div class="step-num">1</div><div>Open the job card you just created in JobAdder</div></div>
-      <div class="step-row"><div class="step-num">2</div><div>Click <strong>Actions</strong> on the right-hand side</div></div>
-      <div class="step-row"><div class="step-num">3</div><div>Click <strong>Post Job</strong></div></div>
-      <div class="step-row"><div class="step-num">4</div><div>Enter the ad title using the naming convention above</div></div>
-      <div class="step-row"><div class="step-num">5</div><div>Paste in the job ad copy from Claude</div></div>
-      <div class="step-row"><div class="step-num">6</div><div>Select your platforms from the table below</div></div>
-      <div class="step-row"><div class="step-num">7</div><div>Click <strong>Post</strong></div></div>
+      <p style="margin-top:10px">In JobAdder: <strong>Actions</strong> → <strong>Post Job</strong> → paste ad copy → select platforms → <strong>Post</strong></p>
       <table class="data-table">
         <thead><tr><th>Platform</th><th>Type</th><th>Notes</th></tr></thead>
         <tbody>
@@ -1021,21 +943,20 @@ body{
           <tr><td>JobSpace</td><td>Free</td><td>Always post</td></tr>
           <tr><td>JobAdder Board</td><td>Free</td><td>Always post</td></tr>
           <tr><td>Trade Jobs</td><td>Free</td><td>Always post</td></tr>
-          <tr><td>Trade Me</td><td>Subscription</td><td>Post for trade roles — use your judgment</td></tr>
+          <tr><td>Trade Me</td><td>Subscription</td><td>Post for trade roles</td></tr>
         </tbody>
       </table>
-      <p style="margin-top:10px"><strong>4c — Verify the ad is live</strong></p>
-      <p>After posting, visit each platform and confirm the ad is displaying correctly. Check the formatting, salary details, and contact information. If anything looks wrong, go to Job Ads → Live Ads in JobAdder, find your ad, and click Edit Job Ad to fix it.</p>
+      <p style="margin-top:10px">After posting, visit each platform and confirm the ad is displaying correctly.</p>
     </div>
   </div>
 
   <div class="content-block">
     <div class="block-label">Common Mistakes</div>
     <div class="block-body">
-      <div class="callout danger">Starting to source candidates before the job card is live in JobAdder — the job card is the starting gun, not the email</div>
-      <div class="callout danger" style="margin-top:8px">Skipping the "Not specified" or "confirm before submitting" fields in the job brief without following up with Les</div>
+      <div class="callout danger">Forgetting to assign the job to your own workflow — this is easy to miss now that job creation is automated</div>
+      <div class="callout danger" style="margin-top:8px">Starting to source candidates before the workflow is assigned and the ad is live</div>
       <div class="callout danger" style="margin-top:8px">Posting the Claude-generated ad without reading it first</div>
-      <div class="callout danger" style="margin-top:8px">Selecting the wrong workflow when creating the job card in JobAdder</div>
+      <div class="callout danger" style="margin-top:8px">Assigning the job to the wrong workflow</div>
     </div>
   </div>
 
@@ -1045,26 +966,18 @@ body{
 <div class="tab-panel" id="panel-m111-Watch">
   <div class="content-block">
     <div class="block-label">Video Walkthrough</div>
-    <div class="block-title">4 videos — Job Brief, Job Card, and Job Ad Creation</div>
+    <div class="block-title">3 videos — Job Assignment and Job Ad Creation</div>
     <div class="block-body">
       <div class="video-item">
-        <div class="video-title-bar"><span>Video 1 of 4</span><strong>Job Brief and Job Card Creation — Part 1</strong></div>
+        <div class="video-title-bar"><span>Video 1 of 3</span><strong>Checking new job and assigning workflow</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Brief%20and%20Job%20Card%20Creation%20Part%201.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Brief%20and%20Job%20Card%20Creation%20Part%201.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20-%20Checking%20new%20job%20and%20assigning%20workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20-%20Checking%20new%20job%20and%20assigning%20workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
-        <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 1 Job Brief and Job Card Creation Part 1.mp4</p>
+        <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 1 - Checking new job and assigning workflow.mp4</p>
       </div>
       <div class="video-item">
-        <div class="video-title-bar"><span>Video 2 of 4</span><strong>Job Brief and Job Card Creation — Part 2</strong></div>
-        <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Brief%20and%20Job%20Card%20Creation%20Part%202.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Brief%20and%20Job%20Card%20Creation%20Part%202.mp4" style="color:var(--accent)">Open directly</a></p>
-        </video>
-        <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 1 Job Brief and Job Card Creation Part 2.mp4</p>
-      </div>
-      <div class="video-item">
-        <div class="video-title-bar"><span>Video 3 of 4</span><strong>Job Ad Creation and Posting — Part 1</strong></div>
+        <div class="video-title-bar"><span>Video 2 of 3</span><strong>Job Ad Creation and Posting — Part 1</strong></div>
         <video controls>
           <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%201.mp4" type="video/mp4">
           <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%201.mp4" style="color:var(--accent)">Open directly</a></p>
@@ -1072,7 +985,7 @@ body{
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 1 Job Ad Creation and Posting Part 1.mp4</p>
       </div>
       <div class="video-item">
-        <div class="video-title-bar"><span>Video 4 of 4</span><strong>Job Ad Creation and Posting — Part 2</strong></div>
+        <div class="video-title-bar"><span>Video 3 of 3</span><strong>Job Ad Creation and Posting — Part 2</strong></div>
         <video controls>
           <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%202.mp4" type="video/mp4">
           <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%202.mp4" style="color:var(--accent)">Open directly</a></p>
@@ -1247,13 +1160,13 @@ Formatting Rules
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <div class="callout" style="margin:10px 0"><strong>Complete this before moving to Stage 2.</strong></div>
-<p>Les will give you a practice job description and a dummy sales transcript. Using those two documents, complete the full Stage 1 process:</p>
+<p>Recruiter will give you a practice job description and a dummy sales transcript. Using those two documents, complete the full Stage 1 process:</p>
 <div class="step-row"><div class="step-num">1</div><div>Generate the job brief in Claude using the SUR Job Brief Generator Prompt — read it fully before moving on</div></div>
 <div class="step-row"><div class="step-num">2</div><div>Create the job card in JobAdder using your own workflow</div></div>
 <div class="step-row"><div class="step-num">3</div><div>Generate the job ad using the SUR Job Ad Prompt for Aus — review it before posting</div></div>
 <div class="step-row"><div class="step-num">4</div><div>Post the ad to at least two platforms via JobAdder</div></div>
 <div class="step-row"><div class="step-num">5</div><div>Verify the ad is displaying correctly on both platforms</div></div>
-<p>Share your job brief and job ad with Les for review. You move to Stage 2 once Les signs off.</p>
+<p>Share your job brief and job ad with Les for review. You move to Stage 2 once Recruiter signs off.</p>
 </div>
 </div>
 <div class="content-block">
@@ -1295,7 +1208,7 @@ window.__quizData['m111']=[
     <div class="block-label">Tell — What You Need to Know</div>
     <div class="block-body">
       <p>Sourcing is how candidates enter your pipeline. The goal is simple - find qualified New Zealand tradespeople who are keen to move to Australia and get them booked in for an internal interview. You have two ways to do this: AI sourcing and manual sourcing. Use both every day.</p>
-      <p style="margin-top:10px">Each recruiter at SUR has a dedicated AI bot set up by Trung. The bot's job is to call candidates from our database, screen them on the basics, and book qualified candidates directly into your calendar for an internal interview.</p>
+      <p style="margin-top:10px">Each recruiter at SUR has a dedicated AI bot set up by our Automation Team. The bot's job is to call candidates from our database, screen them on the basics, and book qualified candidates directly into your calendar for an internal interview.</p>
       <p style="margin-top:10px">By the time a candidate appears in your calendar, they have already been called and agreed to meet you. Your job at this stage is to submit the sourcing form every morning to tell the bot what roles to source for that day.</p>
       <div class="callout warn"><strong>The bot does not remember what it called yesterday.</strong> You must submit the form every day for every active role you want sourced.</div>
       <div class="term-row"><div class="term-name">What the bot does</div><div class="term-def">Calls candidates from the database, screens them on basic eligibility, and books qualified candidates directly into your Calendly. The booking appears as "Stand Up Recruitment — Internal Interview" with the candidate's name, date, time, and location already filled in.</div></div>
@@ -1347,7 +1260,7 @@ window.__quizData['m111']=[
   <div class="content-block">
     <div class="block-title">Step 3 — Check in with Trung for manual follow-ups</div>
     <div class="block-body">
-      <p>Some candidates will hang up, not answer, or the call may not connect. These are leads that should not be wasted. Each day, check in with Trung to find out which candidates hung up or did not answer. Add these to your manual sourcing list and follow up yourself in Stage 2.2.</p>
+      <p>Some candidates will hang up, not answer, or the call may not connect. These are leads that should not be wasted. Each day, check in with our Automation Team to find out which candidates hung up or did not answer. Add these to your manual sourcing list and follow up yourself in Stage 2.2.</p>
       <div class="callout info">A qualified NZ tradesperson who wants to move to Australia is a valuable lead. Do not let them slip through because the bot did not connect. If Trung flags a hang-up on a role you are actively hiring for, call them yourself.</div>
     </div>
   </div>
@@ -1442,12 +1355,12 @@ window.__quizData['m111']=[
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <div class="callout" style="margin:10px 0"><strong>Complete this before moving to Stage 2.2.</strong></div>
-<p style="margin-top:10px"><strong>Using a live active role assigned by Les:</strong></p>
+<p style="margin-top:10px"><strong>Using a live active role assigned by Recruiter:</strong></p>
 <div class="step-row"><div class="step-num">1</div><div>Open the Airtable sourcing form and fill it in for the assigned role using the prompt formula</div></div>
 <div class="step-row"><div class="step-num">2</div><div>Submit the form</div></div>
 <div class="step-row"><div class="step-num">3</div><div>Check your calendar the following day and confirm at least one booking has come through</div></div>
 <div class="step-row"><div class="step-num">4</div><div>Check in with Trung and ask if any candidates hung up or did not answer — note them down for manual follow-up in Stage 2.2</div></div>
-<p>Show Les your submitted form and your calendar booking before moving on.</p>
+<p>Show Recruiter your submitted form and your calendar booking before moving on.</p>
 </div>
 </div>
 <div class="content-block">
@@ -1516,13 +1429,18 @@ window.__quizData['m121']=[
   <div class="content-block">
     <div class="block-title">Channel 2 — Cold Email Outreach</div>
     <div class="block-body">
-      <p>The SUR Candidate Database is our existing pool of past and current candidates stored in Excel. Use this to run cold email campaigns for roles you are actively hiring for.</p>
-      <p style="margin-top:8px">Where to find it: <code>Shared Drive → Recruitment Folder → SUR Candidate Database</code></p>
-      <div class="step-row"><div class="step-num">1</div><div>Open the database in Excel and click the <strong>Pivot Table</strong> sheet</div></div>
-      <div class="step-row"><div class="step-num">2</div><div>Select the trade you are targeting and copy candidate details — name, phone, email</div></div>
-      <div class="step-row"><div class="step-num">3</div><div>Paste into a new Word document set up for mail merge</div></div>
-      <div class="step-row"><div class="step-num">4</div><div>Divide your list into <strong>batches of 50 candidates</strong> — never send to more than 50 at a time</div></div>
-      <div class="step-row"><div class="step-num">5</div><div>Open the <strong>2026 Cold Email Templates</strong> file, copy the relevant template, and run the mail merge from Word via Outlook</div></div>
+      <p>Cold email outreach is now done directly in JobAdder — no more Excel or Word mail merge.</p>
+      <p style="margin-top:8px"><strong>How to send a cold email batch:</strong></p>
+      <div class="step-row"><div class="step-num">1</div><div>Go to the <strong>Candidates</strong> tab in JobAdder</div></div>
+      <div class="step-row"><div class="step-num">2</div><div>Filter <strong>Working Rights</strong> to NZ Citizen</div></div>
+      <div class="step-row"><div class="step-num">3</div><div>Filter <strong>Category</strong> to the role you are targeting — e.g. Carpenter</div></div>
+      <div class="step-row"><div class="step-num">4</div><div>Select all candidates in the filtered list</div></div>
+      <div class="step-row"><div class="step-num">5</div><div>Click <strong>Send Message</strong> in the upper right corner</div></div>
+      <div class="step-row"><div class="step-num">6</div><div>Select <strong>Email the Candidate</strong></div></div>
+      <div class="step-row"><div class="step-num">7</div><div>Select <strong>Send an Ad Hoc Email</strong></div></div>
+      <div class="step-row"><div class="step-num">8</div><div>Paste in the subject line and body from the relevant cold email template</div></div>
+      <div class="step-row"><div class="step-num">9</div><div>Click <strong>Send</strong></div></div>
+      <p style="margin-top:8px"><strong>Email sequence — complete the full cycle before moving to the next batch:</strong></p>
       <table class="data-table">
         <thead><tr><th>Timing</th><th>Template</th></tr></thead>
         <tbody>
@@ -1531,7 +1449,7 @@ window.__quizData['m121']=[
           <tr><td>After another 48 hours</td><td>Follow-Up 2 — High Scarcity / Final Push</td></tr>
         </tbody>
       </table>
-      <p style="margin-top:8px">Complete the full cycle before moving to the next batch of 50. If a candidate replies and is interested → send the role details reply template and work to book a call.</p>
+      <p style="margin-top:8px">If a candidate replies and is interested → send the role details reply template and work to book a call.</p>
     </div>
   </div>
 
@@ -1652,12 +1570,12 @@ window.__quizData['m121']=[
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 Updating Candidate Tagging and Rejecting a Candidate.mp4 — How to update the candidate's Status on their profile, and why you should never click Reject on a job card</p>
       </div>
       <div class="video-item">
-        <div class="video-title-bar"><span>Video 3 of 5</span><strong>Sourcing Cold Email and Headhunt — Part 1</strong></div>
+        <div class="video-title-bar"><span>Video 3 of 5</span><strong>Sourcing Cold Email and Headhunt — Part 1 — Cold Email through Job Adder</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20Part%201.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20Part%201.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20%E2%80%94%20Part%201%20%20Cold%20Email%20through%20Job%20Adder.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20%E2%80%94%20Part%201%20%20Cold%20Email%20through%20Job%20Adder.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
-        <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 Manual Sourcing - Sourcing Cold Email and Headhunt Part 1.mp4 — Running the mail merge and sending cold emails via Outlook</p>
+        <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 - Sourcing Cold Email and Headhunt — Part 1  Cold Email through Job Adder.mp4</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 4 of 5</span><strong>Sourcing Cold Email and Headhunt — Part 2</strong></div>
@@ -1728,10 +1646,13 @@ window.__quizData['m121']=[
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <div class="callout" style="margin:10px 0"><strong>Complete this before moving to Stage 3.</strong></div>
-<div class="step-row"><div class="step-num">1</div><div>Open the SUR Candidate Database, filter the pivot table by the trade assigned by Les, copy the first 50 candidates into Word, and send the first cold email batch using Email 1 — Value First</div></div>
-<div class="step-row"><div class="step-num">2</div><div>Log into JobSmart, generate a Boolean search string using Claude, run the search, unlock at least 2 suitable profiles, download their CVs, and upload them to JobAdder as new candidates</div></div>
-<div class="step-row"><div class="step-num">3</div><div>Send the cold email sequence to each candidate you unlocked</div></div>
-<p>Show Les your Outlook Outbox confirming emails were sent and your JobAdder updates for the uploaded candidates before moving on.</p>
+<p>Using a live active role assigned by Recruiter:</p>
+<div class="step-row"><div class="step-num">1</div><div>Open JobAdder, filter by NZ Citizen and the assigned trade, and call a minimum of 10 candidates</div></div>
+<div class="step-row"><div class="step-num">2</div><div>Log a note for every call using the correct note format — aim for at least one qualified, one unqualified, and one pipeline note</div></div>
+<div class="step-row"><div class="step-num">3</div><div>Book any qualified candidates in for an internal interview before hanging up</div></div>
+<div class="step-row"><div class="step-num">4</div><div>Open the SUR Candidate Database, filter by the assigned trade, select the first 50, and send Email 1 of the cold email sequence</div></div>
+<div class="step-row"><div class="step-num">5</div><div>Log into JobSmart, generate a Boolean search string using Claude, run the search, unlock at least 2 suitable profiles, download their CVs, and upload them to JobAdder</div></div>
+<p>Show Recruiter your JobAdder notes, Outlook outbox, and JobAdder uploads before moving on.</p>
 </div>
 </div>
 <div class="content-block">
@@ -2019,7 +1940,7 @@ Stand Up Recruitment</div>
 <ul><li>Have the candidate's JobAdder profile open</li><li>Have the job brief open</li></ul>
 <p style="margin-top:10px"><strong>After the call:</strong></p>
 <ul><li>Log the correct note in JobAdder</li><li>If qualified → internal interview booked, confirmation email and SMS sent</li><li>If not qualified → note logged, candidate rejected across all job cards</li></ul>
-<p>Check in with Les after your first solo call before continuing independently.</p>
+<p>Check in with Recruiter after your first solo call before continuing independently.</p>
 </div>
 </div>
 </div>
@@ -2701,8 +2622,8 @@ Stand Up Recruitment</div>
   </div><div class="content-block">
     <div class="block-title">6. Close</div>
     <div class="block-body">
-      <div class="callout warn"><strong>Wrap up warmly, but make sure nothing gets left hanging.</strong></div>
-      <p style="margin-top:8px">There are three things to cover here and none of them can be skipped - the cool off period, referees, and police check details. Do this in one clean sweep at the end rather than scattering it through the call.</p>
+      <div class="callout warn"><strong>Wrap up on a high note, but make sure nothing gets left hanging.</strong></div>
+      <p style="margin-top:8px">There are three things to cover here and none of them can be skipped - the cool off period, referees, and police check details. Do this in one clean sweep at the end rather than scattering it through the call. End the call with the same energy you opened it with - this is exciting for them, don't let the admin at the end flatten that.</p>
       <p style="margin-top:8px"><strong>Cool off period:</strong></p>
       <div class="callout info" style="margin-top:8px"><strong>You:</strong> Before we move you to the client interview stage, I want you to take the next 2 days to properly think this through. Relocating to Australia is a big decision. (pause) I'll send you an email with a summary of the role and the relocation information. We'll touch base in 2 days and decide together whether to move forward.</div>
       <p style="margin-top:8px">Pause after acknowledging it's a big decision before moving into the practical next steps - let the weight of the decision land before you talk logistics.</p>
@@ -2940,7 +2861,7 @@ window.__quizData['m141']=[
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <p>Complete this before moving to Stage 6.</p>
-<p style="margin-top:10px"><strong>For a real candidate assigned by Les:</strong></p>
+<p style="margin-top:10px"><strong>For a real candidate assigned by Recruiter:</strong></p>
 <div class="step-row"><div class="step-num">1</div><div>Call both referees using the reference check script — if no answer, recall in the afternoon and send the SMS if still no response</div></div>
 <div class="step-row"><div class="step-num">2</div><div>Log the outcome of each reference call in JobAdder</div></div>
 <div class="step-row"><div class="step-num">3</div><div>Submit the police check via the Airtable form with all 6 mandatory fields</div></div>
@@ -3086,18 +3007,7 @@ window.__quizData['m151']=[
     </div>
   </div>
 
-  <div class="content-block">
-    <div class="block-label">Practice Activity</div>
-    <div class="block-title">Do — Your Activity</div>
-    <div class="block-body">
-      <div class="callout success"><strong>Complete this before moving to Stage 7.</strong></div>
-      <div class="step-row" style="margin-top:10px"><div class="step-num">1</div><div>Set up your dedicated Claude CV formatting thread using the setup prompt and the SUR Formatted CV Template</div></div>
-      <div class="step-row"><div class="step-num">2</div><div>Format a real candidate CV assigned by Les using the SUR CV Formatting Prompt</div></div>
-      <div class="step-row"><div class="step-num">3</div><div>Review the formatted CV against the checklist above</div></div>
-      <div class="step-row"><div class="step-num">4</div><div>Download as a Word document and upload to the candidate's profile in JobAdder</div></div>
-      <div class="callout info" style="margin-top:10px">Share the formatted CV with Les for sign-off before submitting to any client. Resources: SUR Prompt Library.</div>
-    </div>
-  </div>
+  
 </div>
 
 <div class="tab-panel" id="panel-m211-Watch">
@@ -3281,10 +3191,10 @@ Name Rules (NON-NEGOTIABLE)
 <div class="block-body">
 <div class="callout" style="margin:10px 0"><strong>Complete this before moving to Stage 7.</strong></div>
 <div class="step-row"><div class="step-num">1</div><div>Set up your dedicated Claude CV formatting thread using the setup prompt and the SUR Formatted CV Template</div></div>
-<div class="step-row"><div class="step-num">2</div><div>Format a real candidate CV assigned by Les using the SUR CV Formatting Prompt</div></div>
+<div class="step-row"><div class="step-num">2</div><div>Format a real candidate CV assigned by Recruiter using the SUR CV Formatting Prompt</div></div>
 <div class="step-row"><div class="step-num">3</div><div>Review the formatted CV against the checklist above</div></div>
 <div class="step-row"><div class="step-num">4</div><div>Download as a Word document and upload to the candidate's profile in JobAdder</div></div>
-<p>Share the formatted CV with Les for sign-off before submitting to any client.</p>
+<p>Share the formatted CV with Recruiter for sign-off before submitting to any client.</p>
 </div>
 </div>
 <div class="content-block">
@@ -3384,16 +3294,7 @@ window.__quizData['m211']=[
     </div>
   </div>
 
-  <div class="content-block">
-    <div class="block-label">Practice Activity</div>
-    <div class="block-title">Do — Your Activity</div>
-    <div class="block-body">
-      <div class="callout success"><strong>Complete this before moving to Stage 8.</strong></div>
-      <p style="margin:10px 0">Once you have sent a CV to a real client assigned by Les, work through the full follow-up sequence until you get a confirmed interview time or a clear no from the client.</p>
-      <p>Log every touchpoint in JobAdder notes — date, method, and outcome of each step.</p>
-      <div class="callout info" style="margin-top:10px">Resources: SUR Email Template Library.</div>
-    </div>
-  </div>
+  
 </div>
 
 <div class="tab-panel" id="panel-m221-Watch">
@@ -3583,7 +3484,7 @@ Stand Up Recruitment</div>
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <div class="callout" style="margin:10px 0"><strong>Complete this before moving to Stage 8.</strong></div>
-<p>Once you have sent a CV to a real client assigned by Les, work through the full follow-up sequence until you get a confirmed interview time or a clear no from the client.</p>
+<p>Once you have sent a CV to a real client assigned by Recruiter, work through the full follow-up sequence until you get a confirmed interview time or a clear no from the client.</p>
 <p>Log every touchpoint in JobAdder notes — date, method, and outcome of each step.</p>
 </div>
 </div>
@@ -3680,18 +3581,7 @@ window.__quizData['m221']=[
     </div>
   </div>
 
-  <div class="content-block">
-    <div class="block-label">Practice Activity</div>
-    <div class="block-title">Upcoming Task — Apply This When You Are Managing a Live Role</div>
-    <div class="block-body">
-      <div class="callout info">This stage requires a live role and a real client interview — you will not be able to action this in your first week. When you reach this point in a live role:</div>
-      <div class="step-row" style="margin-top:10px"><div class="step-num">1</div><div>Coordinate the interview time and confirm the candidate's availability</div></div>
-      <div class="step-row"><div class="step-num">2</div><div>Send the meeting invite to the client only and the prep email/SMS to the candidate</div></div>
-      <div class="step-row"><div class="step-num">3</div><div>Sit in on the client interview — shadow an experienced recruiter for your first one</div></div>
-      <div class="step-row"><div class="step-num">4</div><div>Run the post-interview debrief and follow up with the candidate</div></div>
-      <div class="step-row"><div class="step-num">5</div><div>Always leave the debrief with a locked-in date for the next step</div></div>
-    </div>
-  </div>
+  
 </div>
 
 <div class="tab-panel" id="panel-m231-Watch">
@@ -3871,8 +3761,11 @@ We'll open the call and set you up - just be yourself from there.</div>
       <div class="callout info" style="margin-top:8px"><strong>You:</strong> [Candidate], [Client] is looking for someone who will commit to at least 24 months in this role - is that something you see yourself doing?</div>
       <p style="margin-top:8px">Only do this if it genuinely helps move things toward a yes. You're not creating problems that weren't there - you're clearing up ones that already exist so they can be addressed directly instead of lingering unspoken.</p>
       <p style="margin-top:8px"><strong>Setting the real stakes - say this in front of everyone:</strong> This is a different kind of moment - you're deliberately putting a serious consequence on the table, in front of both the candidate and the client, so nobody can say later they weren't told. It also doubles as a genuine confidence check on the candidate. Slow this one right down.</p>
-      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Just one more thing while all the parties are here - [Candidate], if you get over there and you can't do what you've told us you can do, [Client] will send you home. (pause) Is that clear and understood? (pause) Are you confident in your skills?</div>
-      <p style="margin-top:8px">Pause after stating the consequence, and pause again after confirming they understand it, before asking if they're confident. Each pause is doing real work here - the first lets the seriousness of "sent home" actually land, the second separates understanding the risk from the confidence question itself. Don't run all three into one breath. This isn't about scaring the candidate - it's about making sure their yes is a real yes, not a reflexive one.</p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Just one more thing while all the parties are here - [Candidate], if you get over there and you can't do what you've told us you can do, I just want to be completely clear that the client is not going to keep you around or offer you a job. (pause) Are you confident with your skills and the things that we talked about? (pause)</div>
+      <p style="margin-top:8px">Pause after stating the consequence, before asking about their confidence, and then again after asking it. The first pause lets the seriousness of "not keeping you around" actually land. The second gives them real space to answer honestly rather than reflexively saying yes just to keep the momentum going. Don't run all three into one breath. This isn't about scaring the candidate - it's about making sure their yes is a real yes.</p>
+      <p style="margin-top:8px"><strong>Once the candidate and client are both aligned and confident, close the loop for everyone in the room:</strong></p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> With that being said, is there any other questions from either parties?</div>
+      <p style="margin-top:8px">This is a small line but it matters - it signals the conversation is wrapping up on solid ground, and it gives both sides one last genuine chance to raise anything before you move to the debrief. Don't skip it just because things feel settled.</p>
     </div>
   </div><div class="content-block">
     <div class="block-title">4. The Debrief - Release the Candidate Gracefully</div>
@@ -4039,21 +3932,7 @@ window.__quizData['m231']=[
     </div>
   </div>
 
-  <div class="content-block">
-    <div class="block-label">Practice Activity</div>
-    <div class="block-title">Upcoming Task — Apply This When You Are Managing a Live Role</div>
-    <div class="block-body">
-      <div class="callout info">This stage requires a live placement — you will not be able to action this in your first week. When you reach this point in a live role:</div>
-      <div class="step-row" style="margin-top:10px"><div class="step-num">1</div><div>Acknowledge the offer letter to the client same day</div></div>
-      <div class="step-row"><div class="step-num">2</div><div>Send the offer letter to the candidate for review with clear next steps</div></div>
-      <div class="step-row"><div class="step-num">3</div><div>Run the day 2 follow-up call</div></div>
-      <div class="step-row"><div class="step-num">4</div><div>Send the offer via DocuSeal once the candidate confirms</div></div>
-      <div class="step-row"><div class="step-num">5</div><div>Follow up until the signed contract and ID are returned</div></div>
-      <div class="step-row"><div class="step-num">6</div><div>Place the candidate in JobAdder — confirm start date, calculate the correct fee, select relocation status, upload signed offer</div></div>
-      <div class="step-row"><div class="step-num">7</div><div>Send the handover emails to both client and candidate with admin CC'd</div></div>
-      <div class="step-row"><div class="step-num">8</div><div>Confirm placement automations have triggered in JobAdder</div></div>
-    </div>
-  </div>
+  
 </div>
 
 <div class="tab-panel" id="panel-m241-Watch">
@@ -4426,17 +4305,7 @@ window.__quizData['m241']=[
     </div>
   </div>
 
-  <div class="content-block">
-    <div class="block-label">Practice Activity</div>
-    <div class="block-title">Upcoming Task — Apply This When You Are Managing a Live Role</div>
-    <div class="block-body">
-      <div class="callout info">This stage applies whenever you are waiting on a client decision or contract. When you reach this point:</div>
-      <div class="step-row" style="margin-top:10px"><div class="step-num">1</div><div>Log the agreed date in JobAdder immediately after the interview debrief</div></div>
-      <div class="step-row"><div class="step-num">2</div><div>If the date passes with nothing received — work through the cadence above</div></div>
-      <div class="step-row"><div class="step-num">3</div><div>Keep the candidate warm once the cycle passes Email 1</div></div>
-      <div class="step-row"><div class="step-num">4</div><div>Escalate to Les after Call 2 — do not continue contact until Les decides next steps</div></div>
-    </div>
-  </div>
+  
 </div>
 
 <div class="tab-panel" id="panel-m242-Watch">
@@ -4531,7 +4400,7 @@ Stand Up Recruitment</div>
 <div class="step-row"><div class="step-num">1</div><div>Log the agreed date in JobAdder immediately after the interview debrief</div></div>
 <div class="step-row"><div class="step-num">2</div><div>If the date passes with nothing received — work through the cadence above</div></div>
 <div class="step-row"><div class="step-num">3</div><div>Keep the candidate warm once the cycle passes Email 1</div></div>
-<div class="step-row"><div class="step-num">4</div><div>Escalate to Les after Call 2 — do not continue contact until Les decides next steps</div></div>
+<div class="step-row"><div class="step-num">4</div><div>Escalate to Director after Call 2 - do not continue contact until Director decides next steps</div></div>
 </div>
 </div>
 </div>
@@ -4567,17 +4436,11 @@ window.__quizData['m242']=[
     <div class="block-body">
       <p>Post-placement care will be handled by a dedicated team member once hired. This stage covers candidate and client check-ins after the start date to protect the placement and ensure a smooth transition.</p>
       <div class="callout info"><strong>This section will be added to the playbook once the role is filled and the process is defined.</strong></div>
-      <div class="callout warn" style="margin-top:10px">This is a living document. It will be updated as the team grows and processes evolve. If something is not covered here, speak to Les.</div>
+      <div class="callout warn" style="margin-top:10px">This is a living document. It will be updated as the team grows and processes evolve. If something is not covered here, speak to Director.</div>
     </div>
   </div>
 
-  <div class="content-block">
-    <div class="block-label">Practice Activity</div>
-    <div class="block-title">Do — Your Activity</div>
-    <div class="block-body">
-      <p>There is no formal activity for this stage yet — it will be added once the Post-Placement Care role is filled and the process is fully documented. In the meantime, if a placement you made needs a check-in, speak to Les about how to proceed.</p>
-    </div>
-  </div>
+  
 </div>
 
 <div class="tab-panel" id="panel-m251-Watch">
@@ -4639,7 +4502,7 @@ window.__quizData['m242']=[
 <div class="block-body">
 <p>Post-placement care will be handled by a dedicated team member once hired. This stage covers candidate and client check-ins after the start date to protect the placement and ensure a smooth transition.</p>
 <div class="callout" style="margin-top:10px"><strong>This section will be added to the playbook once the role is filled and the process is defined.</strong></div>
-<p style="margin-top:10px">In the meantime, if a placement you made needs a check-in, speak to Les about how to proceed.</p>
+<p style="margin-top:10px">In the meantime, if a placement you made needs a check-in, speak to Director about how to proceed.</p>
 </div>
 </div>
 </div>
