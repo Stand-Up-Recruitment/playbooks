@@ -84,7 +84,7 @@
     line-height:1.5;
     margin:0;
   }
-  #themeToggle{
+  #themeToggle, #logoutBtn{
     font-family:'DM Mono',monospace;
     font-size:12px;
     letter-spacing:.06em;
@@ -98,7 +98,7 @@
     white-space:nowrap;
     transition:background .15s ease, border-color .15s ease;
   }
-  #themeToggle:hover{
+  #themeToggle:hover, #logoutBtn:hover{
     border-color:var(--accent);
   }
   .grid{
@@ -204,7 +204,10 @@
       <h1>Playbook Hub</h1>
       <p class="subtitle">One place to find every team playbook — training material, SOPs, and reference libraries in one click.</p>
     </div>
-    <button id="themeToggle" type="button">☾ Dark / ☀ Light</button>
+    <div style="display:flex; gap:10px;">
+      <button id="themeToggle" type="button">☾ Dark / ☀ Light</button>
+      <button id="logoutBtn" type="button">Log out</button>
+    </div>
   </header>
 
   <div class="grid">
@@ -255,6 +258,18 @@
 </div>
 
 <script>
+(function(){
+  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support'];
+  if(VALID_ROLES.indexOf(sessionStorage.getItem('playbook-auth')) === -1){
+    window.location.href = 'login.html';
+  }
+})();
+
+document.getElementById('logoutBtn').addEventListener('click', function(){
+  sessionStorage.removeItem('playbook-auth');
+  window.location.href = 'login.html';
+});
+
 (function(){
   var root = document.documentElement;
   var btn = document.getElementById('themeToggle');
