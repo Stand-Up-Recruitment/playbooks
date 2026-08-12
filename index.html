@@ -208,7 +208,7 @@
     <div>
       <p class="eyebrow">Stand Up Recruitment</p>
       <h1>Stand Up Recruitment Hub</h1>
-      <p class="subtitle">One place to find every team playbook — training material, SOPs, and reference libraries in one click.</p>
+      <p class="subtitle">Every department's Hiring Process, Onboarding Process, and Playbook in one place. Recruitment's Hiring Process is fully built — everyone else follows the same framework with department-specific test tasks still pending sign-off.</p>
     </div>
     <div style="display:flex; gap:10px;">
       <button id="themeToggle" type="button">☾ Dark / ☀ Light</button>
@@ -294,7 +294,7 @@
 
 <script>
 (function(){
-  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support'];
+  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support', 'sales', 'automation'];
   if(VALID_ROLES.indexOf(sessionStorage.getItem('playbook-auth')) === -1){
     window.location.href = 'login.html';
   }
