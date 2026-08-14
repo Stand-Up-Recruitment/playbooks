@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>
-(function(){
-  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support'];
-  if(VALID_ROLES.indexOf(sessionStorage.getItem('playbook-auth')) === -1){
-    window.location.href = 'login.html';
-  }
-})();
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recruiter Playbook — Stand Up Playbook</title>
@@ -644,32 +636,6 @@ body{
 #theme-toggle:hover{background:var(--surface2);color:var(--text);border-color:var(--border3)}
 #theme-toggle .toggle-icon{font-size:13px;line-height:1}
 
-#hub-back{
-  position:fixed;
-  top:20px;left:20px;
-  z-index:1000;
-  display:flex;
-  align-items:center;
-  gap:7px;
-  padding:8px 16px;
-  border-radius:20px;
-  border:.5px solid var(--border2);
-  background:rgba(17,17,17,.85);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  color:var(--muted);
-  font-family:var(--font-mono);
-  font-size:10px;
-  letter-spacing:.08em;
-  cursor:pointer;
-  transition:all var(--transition);
-  box-shadow:0 2px 12px rgba(0,0,0,.3);
-  user-select:none;
-  text-decoration:none;
-}
-#hub-back:hover{background:var(--surface2);color:var(--text);border-color:var(--border3)}
-[data-theme="light"] #hub-back{background:rgba(255,255,255,.9)}
-
 /* ── Responsive ──────────────────────────────────────────── */
 @media(max-width:640px){
   #dashboard{padding:48px 18px 80px}
@@ -751,10 +717,6 @@ body{
 </style>
 </head>
 <body>
-<a id="hub-back" href="recruiter-hub.html" title="Back to Playbook Hub">
-  <span class="toggle-icon">&#8592;</span>
-  <span>Hub</span>
-</a>
 <button id="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
   <span class="toggle-icon" id="toggle-icon">☀️</span>
   <span id="toggle-label">Light</span>
@@ -927,16 +889,11 @@ body{
   <div class="content-block">
     <div class="block-label">Tell — What You Need to Know</div>
     <div class="block-body">
-      <p>A new job at SUR starts when the sales team closes a client. This means a business in Australia has agreed to work with us to find them a tradesperson. Once that happens, two documents are created and sent to you:</p>
+      <p>A new job at SUR starts when the sales team closes a client. This means a business in Australia has agreed to work with us to find them a tradesperson. Once that happens, the job brief and job card are now created automatically in JobAdder — you don't need to build these yourself anymore. If a job appears without a brief or looks incomplete, flag it to the Automation team before proceeding.</p>
+      <p style="margin-top:10px">Your job in this stage is to:</p>
       <ol>
-        <li><strong>The client job description</strong> — sent to you via email. This is the document the client fills out telling us what kind of person they are looking for, what the role involves, and what they are paying.</li>
-        <li><strong>The sales call transcript</strong> — this is a recording of the conversation between Les and the client. The EA uploads it to SharePoint so you can access it.</li>
-      </ol>
-      <p style="margin-top:10px">Your job in this stage is to take those two documents and turn them into three things:</p>
-      <ol>
-        <li>A <strong>job brief</strong> — a structured internal document that tells you everything you need to know to recruit for this role</li>
-        <li>A <strong>job card</strong> in JobAdder — the official record of the job in our recruitment system</li>
-        <li>A <strong>job ad</strong> — the public-facing advertisement that candidates will see on job boards</li>
+        <li>Find the new job in JobAdder and assign it to your own workflow — jobs are currently created without a workflow assigned, so this has to be done manually</li>
+        <li>Generate and post the job ad — the public-facing advertisement that candidates will see on job boards</li>
       </ol>
       <div class="callout warn"><strong>This is the starting gun for recruitment.</strong> Nothing happens before this stage is complete.</div>
     </div>
@@ -947,7 +904,7 @@ body{
     <div class="block-title">What is JobAdder? What is Claude?</div>
     <div class="block-body">
       <p><strong>JobAdder</strong> is the software we use to manage our entire recruitment process. Think of it as the command centre for everything — every candidate, every job, every note, and every stage of the process lives here. You will use it every single day. If you have never used JobAdder before, do not worry — the steps below will walk you through exactly what to click.</p>
-      <p style="margin-top:10px"><strong>Claude</strong> is an AI tool we use to help write job briefs and job ads. Instead of writing everything from scratch, you give Claude the raw information and it produces a structured, professional output that you then review and use. Think of it like having a very fast, very thorough assistant. You will use Claude from a dedicated thread — a saved conversation that remembers the context of your work. You will set up separate threads for job brief creation and job ad creation.</p>
+      <p style="margin-top:10px"><strong>Claude</strong> is an AI tool we use to help write job ads. Instead of writing everything from scratch, you give Claude the raw information and it produces a structured, professional output that you then review and use. Think of it like having a very fast, very thorough assistant. You will use Claude from a dedicated thread — a saved conversation that remembers the context of your work — for job ad creation.</p>
     </div>
   </div>
 
@@ -1009,24 +966,24 @@ body{
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 3</span><strong>Checking new job and assigning workflow</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDElMjAtJTIwQ2hlY2tpbmclMjBuZXclMjBqb2IlMjBhbmQlMjBhc3NpZ25pbmclMjB3b3JrZmxvdy5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMjU5MzdaJlgtQW16LUV4cGlyZXM9NDMyMDAmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT0wMDlhZTViNGZhMDFiN2E4Nzk2NGMyODY1OTBiNDE1OTIwMTAwMmU3MjgwMzk1ODhmOTY2YmRmMWM1N2U1NmE0" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDElMjAtJTIwQ2hlY2tpbmclMjBuZXclMjBqb2IlMjBhbmQlMjBhc3NpZ25pbmclMjB3b3JrZmxvdy5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMjU5MzdaJlgtQW16LUV4cGlyZXM9NDMyMDAmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT0wMDlhZTViNGZhMDFiN2E4Nzk2NGMyODY1OTBiNDE1OTIwMTAwMmU3MjgwMzk1ODhmOTY2YmRmMWM1N2U1NmE0" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20-%20Checking%20new%20job%20and%20assigning%20workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20-%20Checking%20new%20job%20and%20assigning%20workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 1 - Checking new job and assigning workflow.mp4</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 2 of 3</span><strong>Job Ad Creation and Posting — Part 1</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDElMjBKb2IlMjBBZCUyMENyZWF0aW9uJTIwYW5kJTIwUG9zdGluZyUyMFBhcnQlMjAxLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPU04QkkwNzBNQU9EVkU1T0JHSE9ZJTJGMjAyNjA4MTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwODEyVDAyMDAzM1omWC1BbXotRXhwaXJlcz00MzIwMCZYLUFtei1TZWN1cml0eS1Ub2tlbj1leUpoYkdjaU9pSklVelV4TWlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKaFkyTmxjM05MWlhraU9pSk5PRUpKTURjd1RVRlBSRlpGTlU5Q1IwaFBXU0lzSW1WNGNDSTZNVGM0TmpVek1EWXdNaXdpY0dGeVpXNTBJam9pYldsdWFXOWhaRzFwYmlKOS5ZWk9CZmJWMnlMV3dpUU9sNGZCRFd3N3lDclFtTm9yNXB3X0FZQS11dEFyQktCWXJ5UXdoZVZJM1JnT0d1Y0dvbFdUVjZ5RmlTQUdNQUhjODNLdUZKQSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmdmVyc2lvbklkPW51bGwmWC1BbXotU2lnbmF0dXJlPThlZjBkNDkwZmU4NWJlYjc5MDVkOGUxNGNlNjg0YTZhYTU0ODQyYjU1Mjk2NTI5YTViYWM0MDg5MzVkOTJhNzY" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDElMjBKb2IlMjBBZCUyMENyZWF0aW9uJTIwYW5kJTIwUG9zdGluZyUyMFBhcnQlMjAxLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPU04QkkwNzBNQU9EVkU1T0JHSE9ZJTJGMjAyNjA4MTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwODEyVDAyMDAzM1omWC1BbXotRXhwaXJlcz00MzIwMCZYLUFtei1TZWN1cml0eS1Ub2tlbj1leUpoYkdjaU9pSklVelV4TWlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKaFkyTmxjM05MWlhraU9pSk5PRUpKTURjd1RVRlBSRlpGTlU5Q1IwaFBXU0lzSW1WNGNDSTZNVGM0TmpVek1EWXdNaXdpY0dGeVpXNTBJam9pYldsdWFXOWhaRzFwYmlKOS5ZWk9CZmJWMnlMV3dpUU9sNGZCRFd3N3lDclFtTm9yNXB3X0FZQS11dEFyQktCWXJ5UXdoZVZJM1JnT0d1Y0dvbFdUVjZ5RmlTQUdNQUhjODNLdUZKQSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmdmVyc2lvbklkPW51bGwmWC1BbXotU2lnbmF0dXJlPThlZjBkNDkwZmU4NWJlYjc5MDVkOGUxNGNlNjg0YTZhYTU0ODQyYjU1Mjk2NTI5YTViYWM0MDg5MzVkOTJhNzY" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%201.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%201.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 1 Job Ad Creation and Posting Part 1.mp4</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 3 of 3</span><strong>Job Ad Creation and Posting — Part 2</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDElMjBKb2IlMjBBZCUyMENyZWF0aW9uJTIwYW5kJTIwUG9zdGluZyUyMFBhcnQlMjAyLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPU04QkkwNzBNQU9EVkU1T0JHSE9ZJTJGMjAyNjA4MTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwODEyVDAyMDExM1omWC1BbXotRXhwaXJlcz00MzE5OSZYLUFtei1TZWN1cml0eS1Ub2tlbj1leUpoYkdjaU9pSklVelV4TWlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKaFkyTmxjM05MWlhraU9pSk5PRUpKTURjd1RVRlBSRlpGTlU5Q1IwaFBXU0lzSW1WNGNDSTZNVGM0TmpVek1EWXdNaXdpY0dGeVpXNTBJam9pYldsdWFXOWhaRzFwYmlKOS5ZWk9CZmJWMnlMV3dpUU9sNGZCRFd3N3lDclFtTm9yNXB3X0FZQS11dEFyQktCWXJ5UXdoZVZJM1JnT0d1Y0dvbFdUVjZ5RmlTQUdNQUhjODNLdUZKQSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmdmVyc2lvbklkPW51bGwmWC1BbXotU2lnbmF0dXJlPTFhOTVhMGJjM2UyODQ1NTZlNjY0NDFmZjhkYTUwYzZmZTQwNjI2YzM4YzJjMWU1NTkxMDMyNDE3YzljM2UwMmM" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDElMjBKb2IlMjBBZCUyMENyZWF0aW9uJTIwYW5kJTIwUG9zdGluZyUyMFBhcnQlMjAyLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPU04QkkwNzBNQU9EVkU1T0JHSE9ZJTJGMjAyNjA4MTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwODEyVDAyMDExM1omWC1BbXotRXhwaXJlcz00MzE5OSZYLUFtei1TZWN1cml0eS1Ub2tlbj1leUpoYkdjaU9pSklVelV4TWlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKaFkyTmxjM05MWlhraU9pSk5PRUpKTURjd1RVRlBSRlpGTlU5Q1IwaFBXU0lzSW1WNGNDSTZNVGM0TmpVek1EWXdNaXdpY0dGeVpXNTBJam9pYldsdWFXOWhaRzFwYmlKOS5ZWk9CZmJWMnlMV3dpUU9sNGZCRFd3N3lDclFtTm9yNXB3X0FZQS11dEFyQktCWXJ5UXdoZVZJM1JnT0d1Y0dvbFdUVjZ5RmlTQUdNQUhjODNLdUZKQSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmdmVyc2lvbklkPW51bGwmWC1BbXotU2lnbmF0dXJlPTFhOTVhMGJjM2UyODQ1NTZlNjY0NDFmZjhkYTUwYzZmZTQwNjI2YzM4YzJjMWU1NTkxMDMyNDE3YzljM2UwMmM" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%202.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%202.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 1 Job Ad Creation and Posting Part 2.mp4</p>
       </div>
@@ -1198,26 +1155,25 @@ Formatting Rules
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <div class="callout" style="margin:10px 0"><strong>Complete this before moving to Stage 2.</strong></div>
-<p>Recruiter will give you a practice job description and a dummy sales transcript. Using those two documents, complete the full Stage 1 process:</p>
-<div class="step-row"><div class="step-num">1</div><div>Generate the job brief in Claude using the SUR Job Brief Generator Prompt — read it fully before moving on</div></div>
-<div class="step-row"><div class="step-num">2</div><div>Create the job card in JobAdder using your own workflow</div></div>
-<div class="step-row"><div class="step-num">3</div><div>Generate the job ad using the SUR Job Ad Prompt for Aus — review it before posting</div></div>
-<div class="step-row"><div class="step-num">4</div><div>Post the ad to at least two platforms via JobAdder</div></div>
-<div class="step-row"><div class="step-num">5</div><div>Verify the ad is displaying correctly on both platforms</div></div>
-<p>Share your job brief and job ad with Les for review. You move to Stage 2 once Recruiter signs off.</p>
+<p>Using a live job assigned to you:</p>
+<div class="step-row"><div class="step-num">1</div><div>Find the job in JobAdder under No Applications and assign it to your own workflow</div></div>
+<div class="step-row"><div class="step-num">2</div><div>Generate the job ad using the SUR Job Ad Prompt for Aus and review it before posting</div></div>
+<div class="step-row"><div class="step-num">3</div><div>Post the ad to at least two platforms via JobAdder</div></div>
+<div class="step-row"><div class="step-num">4</div><div>Verify the ad is displaying correctly on both platforms</div></div>
+<p>Confirm with Les that your workflow assignment and job ad are correct. You move to Stage 2 once Les signs off.</p>
 </div>
 </div>
 <div class="content-block">
 <div class="block-label">Resources</div>
 <div class="block-body">
-<ul><li>SUR Prompt Library</li><li><a href="https://standuprecruitment.sharepoint.com/sites/all/Shared%20Documents/Forms/AllItems.aspx?e=5%3A9f2d1bc0cf0c42a3843f7e8f9f31cc4f&sharingv2=true&fromShare=true&at=9&CID=0d81bf59%2Da657%2D4d5b%2Dae64%2Dce6e65c6a634&FolderCTID=0x01200031BCE13C275E6C458C72B3B1E414B80E&id=%2Fsites%2Fall%2FShared%20Documents%2FSALES%2FClient%20Meeting%20Transcripts" target="_blank" style="color:var(--accent)">SharePoint — Client Meeting Transcripts</a></li></ul>
+<ul><li>SUR Job Ad Prompt for Aus</li></ul>
 </div>
 </div>
 </div>
 <script>
 window.__quizData=window.__quizData||{};
 window.__quizData['m111']=[
-{"q":"What two documents does a recruiter receive when a new job comes in?","opts":["The job ad and the job card","The client job description and the sales call transcript","The job brief and the CV","The Airtable form and the job card"],"ans":1},
+{"q":"What happens to the job brief and job card when a new job comes in today?","opts":["The recruiter builds them manually from the client documents","They are created automatically in JobAdder by the Automation team","The client builds them before sending the job in","They are skipped until the candidate is sourced"],"ans":1},
 {"q":"What is the starting gun for recruitment activity on a new role?","opts":["Receiving the client email","Writing the job ad","The job card going live in JobAdder","Posting to Trade Me"],"ans":2},
 {"q":"Which two sections of the job brief are the most important to read carefully before sourcing?","opts":["Role Overview and Extra Notes","What to Prioritise and Red Flags","Selling Points and Role Overview","None - read it all equally"],"ans":1},
 {"q":"What is the ad naming convention when posting a job ad?","opts":["State | Role","Client | Role","Role | State","Role | Client | State"],"ans":2},
@@ -1325,8 +1281,8 @@ window.__quizData['m111']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 1</span><strong>AI Sourcing — Filling Out the Airtable Form</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIlMjBBSSUyMFNvdXJjaW5nJTIwLSUyMEZpbGxpbmclMjBPdXQlMjB0aGUlMjBBaXJ0YWJsZSUyMEZvcm0ubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMwMDU3WiZYLUFtei1FeHBpcmVzPTQzMjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9ZTNhMTQ2OTg3YjRkMzMyNjZiYThhYTc1NDQxOWIwNDJkNzVhOTg4YTM5ZmQzNmRiYWYyOTM3MzE1OTg0MDNhMQ" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIlMjBBSSUyMFNvdXJjaW5nJTIwLSUyMEZpbGxpbmclMjBPdXQlMjB0aGUlMjBBaXJ0YWJsZSUyMEZvcm0ubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMwMDU3WiZYLUFtei1FeHBpcmVzPTQzMjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9ZTNhMTQ2OTg3YjRkMzMyNjZiYThhYTc1NDQxOWIwNDJkNzVhOTg4YTM5ZmQzNmRiYWYyOTM3MzE1OTg0MDNhMQ" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202%20AI%20Sourcing%20-%20Filling%20Out%20the%20Airtable%20Form.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202%20AI%20Sourcing%20-%20Filling%20Out%20the%20Airtable%20Form.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2 AI Sourcing - Filling Out the Airtable Form.mp4</p>
       </div>
@@ -1594,40 +1550,40 @@ window.__quizData['m121']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 5</span><strong>Manual Sourcing in JobAdder</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIuMiUyME1hbnVhbCUyMFNvdXJjaW5nJTIwaW4lMjBKb2JBZGRlci5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzAyMzBaJlgtQW16LUV4cGlyZXM9NDMyMDAmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT1mZDcyMTYzZWY2NjdlYWZhNzE0MzRhMzBmMmQzMTAyMWJkOTdlMmFlZDExYjk1OTk4NjEyNzk0YzNlNDY0MDhl" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIuMiUyME1hbnVhbCUyMFNvdXJjaW5nJTIwaW4lMjBKb2JBZGRlci5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzAyMzBaJlgtQW16LUV4cGlyZXM9NDMyMDAmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT1mZDcyMTYzZWY2NjdlYWZhNzE0MzRhMzBmMmQzMTAyMWJkOTdlMmFlZDExYjk1OTk4NjEyNzk0YzNlNDY0MDhl" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20in%20JobAdder.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20in%20JobAdder.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 Manual Sourcing in JobAdder.mp4 — Filtering by NZ Citizen and trade, checking the Applications tab, making calls, logging notes</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 2 of 5</span><strong>Updating Candidate Tagging and Rejecting a Candidate</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIuMiUyMFVwZGF0aW5nJTIwQ2FuZGlkYXRlJTIwVGFnZ2luZyUyMGFuZCUyMFJlamVjdGluZyUyMGElMjBDYW5kaWRhdGUubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMwMTU4WiZYLUFtei1FeHBpcmVzPTQzMjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9MTBlZDQ1MmI3ZGI0MGQxNDZiZGQ1OTNiMzlmMjI0NDYzMzg2ZGNiOGY3OTJiYjE1M2QwZjI2ZDcyMTA2MmQzYQ" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIuMiUyMFVwZGF0aW5nJTIwQ2FuZGlkYXRlJTIwVGFnZ2luZyUyMGFuZCUyMFJlamVjdGluZyUyMGElMjBDYW5kaWRhdGUubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMwMTU4WiZYLUFtei1FeHBpcmVzPTQzMjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9MTBlZDQ1MmI3ZGI0MGQxNDZiZGQ1OTNiMzlmMjI0NDYzMzg2ZGNiOGY3OTJiYjE1M2QwZjI2ZDcyMTA2MmQzYQ" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Updating%20Candidate%20Tagging%20and%20Rejecting%20a%20Candidate.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Updating%20Candidate%20Tagging%20and%20Rejecting%20a%20Candidate.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 Updating Candidate Tagging and Rejecting a Candidate.mp4 — How to update the candidate's Status on their profile, and why you should never click Reject on a job card</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 3 of 5</span><strong>Sourcing Cold Email and Headhunt — Part 1 — Cold Email through Job Adder</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIuMiUyMC0lMjBTb3VyY2luZyUyMENvbGQlMjBFbWFpbCUyMGFuZCUyMEhlYWRodW50JTIwJUUyJTgwJTk0JTIwUGFydCUyMDElMjAlMjBDb2xkJTIwRW1haWwlMjB0aHJvdWdoJTIwSm9iJTIwQWRkZXIubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMwMzA3WiZYLUFtei1FeHBpcmVzPTQzMjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9NzlhOWEwMzVkMWEwMjFmMzdhNzI4MmEzZWVkNDg2NTZlYmU0ZjA4Mjc1MzZmNTQxYzI4M2U1NDhiMzEwODhmNA" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIuMiUyMC0lMjBTb3VyY2luZyUyMENvbGQlMjBFbWFpbCUyMGFuZCUyMEhlYWRodW50JTIwJUUyJTgwJTk0JTIwUGFydCUyMDElMjAlMjBDb2xkJTIwRW1haWwlMjB0aHJvdWdoJTIwSm9iJTIwQWRkZXIubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMwMzA3WiZYLUFtei1FeHBpcmVzPTQzMjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9NzlhOWEwMzVkMWEwMjFmMzdhNzI4MmEzZWVkNDg2NTZlYmU0ZjA4Mjc1MzZmNTQxYzI4M2U1NDhiMzEwODhmNA" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20%E2%80%94%20Part%201%20%20Cold%20Email%20through%20Job%20Adder.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20%E2%80%94%20Part%201%20%20Cold%20Email%20through%20Job%20Adder.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 - Sourcing Cold Email and Headhunt — Part 1  Cold Email through Job Adder.mp4</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 4 of 5</span><strong>Sourcing Cold Email and Headhunt — Part 2</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIuMiUyME1hbnVhbCUyMFNvdXJjaW5nJTIwLSUyMFNvdXJjaW5nJTIwQ29sZCUyMEVtYWlsJTIwYW5kJTIwSGVhZGh1bnQlMjBQYXJ0JTIwMi5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzAzNTRaJlgtQW16LUV4cGlyZXM9NDMyMDAmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT1kMzcyYTA2MDRjMmM1MDEyZDM0MmFkMzIyZGIxOWJjNDYzYTUxODVkYzUxZWQ3ZjkxZjFiNjdlOTBhZmI3OTJm" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIuMiUyME1hbnVhbCUyMFNvdXJjaW5nJTIwLSUyMFNvdXJjaW5nJTIwQ29sZCUyMEVtYWlsJTIwYW5kJTIwSGVhZGh1bnQlMjBQYXJ0JTIwMi5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzAzNTRaJlgtQW16LUV4cGlyZXM9NDMyMDAmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT1kMzcyYTA2MDRjMmM1MDEyZDM0MmFkMzIyZGIxOWJjNDYzYTUxODVkYzUxZWQ3ZjkxZjFiNjdlOTBhZmI3OTJm" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20Part%202.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20Part%202.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 Manual Sourcing - Sourcing Cold Email and Headhunt Part 2.mp4 — Headhunting on Trade Me JobSmart: Boolean search, unlocking profiles, uploading to JobAdder</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 5 of 5</span><strong>Sourcing Cold Email and Headhunt — Part 3</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIuMiUyME1hbnVhbCUyMFNvdXJjaW5nJTIwLSUyMFNvdXJjaW5nJTIwQ29sZCUyMEVtYWlsJTIwYW5kJTIwSGVhZGh1bnQlMjBQYXJ0JTIwMy5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzA0MThaJlgtQW16LUV4cGlyZXM9NDMxOTkmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT02ZTE5YmYzNjNiMTc4ZDdlNTQxZTQ2ZGRhYzRlMzNkMjA1MTEwMzg1MmU2YWM1ZjZmYmQzZGY1ZmU3YmE4NjY0" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDIuMiUyME1hbnVhbCUyMFNvdXJjaW5nJTIwLSUyMFNvdXJjaW5nJTIwQ29sZCUyMEVtYWlsJTIwYW5kJTIwSGVhZGh1bnQlMjBQYXJ0JTIwMy5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzA0MThaJlgtQW16LUV4cGlyZXM9NDMxOTkmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT02ZTE5YmYzNjNiMTc4ZDdlNTQxZTQ2ZGRhYzRlMzNkMjA1MTEwMzg1MmU2YWM1ZjZmYmQzZGY1ZmU3YmE4NjY0" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20Part%203.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20Part%203.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 Manual Sourcing - Sourcing Cold Email and Headhunt Part 3.mp4 — Headhunting on Trade Me JobSmart: Boolean search, unlocking profiles, uploading to JobAdder</p>
       </div>
@@ -1819,8 +1775,8 @@ window.__quizData['m122']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 2</span><strong>Sending the Internal Interview Invite</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDMlMjBTZW5kaW5nJTIwdGhlJTIwSW50ZXJuYWwlMjBJbnRlcnZpZXclMjBJbnZpdGUubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMwNDQ2WiZYLUFtei1FeHBpcmVzPTQzMjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9OWFjNmM1ZGRiZTdiMGRmMTk2ZGZmNWFhODgzNmI0YzQxMDk5ZDkwNTExMGExZWVjODBiNjI0N2YyZjY5YWMzZA" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDMlMjBTZW5kaW5nJTIwdGhlJTIwSW50ZXJuYWwlMjBJbnRlcnZpZXclMjBJbnZpdGUubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMwNDQ2WiZYLUFtei1FeHBpcmVzPTQzMjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9OWFjNmM1ZGRiZTdiMGRmMTk2ZGZmNWFhODgzNmI0YzQxMDk5ZDkwNTExMGExZWVjODBiNjI0N2YyZjY5YWMzZA" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%203%20Sending%20the%20Internal%20Interview%20Invite.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%203%20Sending%20the%20Internal%20Interview%20Invite.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 3 Sending the Internal Interview Invite.mp4</p>
       </div>
@@ -2105,7 +2061,7 @@ window.__quizData['m131']=[
       <div class="term-row"><div class="term-name">AI sourced</div><div class="term-def">The AI bot screened them but did not disqualify anyone. The recruiter must reconfirm experience and readiness at the start before investing time selling the opportunity. If they do not pass this check, close the call professionally and move on.</div></div>
       <div class="term-row"><div class="term-name">Manually sourced</div><div class="term-def">The screening call already qualified them. Lead with the opportunity straight away.</div></div>
       <p style="margin-top:8px">After that initial difference, both paths follow the same flow through to the close.</p>
-      <div class="callout warn"><strong>Prepare your technical questions before the interview.</strong> Never wing this one.</div>
+      <div class="callout warn"><strong>Refer to the Tailored Interview Guide created for the role you are recruiting for.</strong> Never wing this one.</div>
     </div>
   </div>
 
@@ -2115,9 +2071,10 @@ window.__quizData['m131']=[
       <ul>
         <li>Review the candidate's profile and any notes in JobAdder</li>
         <li>Open the job brief — have selling points, must-haves, and red flags ready</li>
-        <li>Generate 2 to 3 trade-specific technical questions using the Interview Question Creation Prompt — do this before the call, not during it</li>
+        <li>Run the Tailored Interview Guide Generator using the job description and sales call transcript — do this before the call, not during it. This gives you a Client Intent Summary, Commitment Questions, Role and Location Questions, and 3 Technical Questions all tailored to what this specific client is genuinely after — not just generic trade questions</li>
         <li>Have the Aus Video Interview Form open in JobAdder ready to fill in</li>
       </ul>
+      <div class="callout info" style="margin-top:8px">The Tailored Interview Guide Generator surfaces things the job description alone won't — clients often reveal real concerns during the sales call (reliability issues with past hires, remote site conditions, specific pain points) that never make it into the written brief. Read the Client Intent Summary carefully before you start the call.</div>
     </div>
   </div>
 
@@ -2259,7 +2216,7 @@ window.__quizData['m131']=[
     <div class="block-title">Part 5 — Work History and Technical Assessment</div>
     <div class="block-body">
       <div class="formula">"Talk me through your experience - what have you been working on recently? Walk me through the last role or two."</div>
-      <p>Listen carefully. Ask clarifying questions. Note any gaps against the job brief must-haves. Ask the 2 to 3 technical questions you generated before the call. Ask: "What motivates you to work? What gets you out of bed in the morning?"</p>
+      <p>Listen carefully. Ask clarifying questions. Note any gaps against the job brief must-haves. Ask the 3 technical questions from your Tailored Interview Guide. Ask: "What motivates you to work? What gets you out of bed in the morning?"</p>
     </div>
   </div>
 
@@ -2293,8 +2250,8 @@ window.__quizData['m131']=[
       <div class="video-item" style="margin-top:14px">
         <div class="video-title-bar"><span>Video 1 of 1</span><strong>Internal Interview — Live Recording</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDQlMjBJbnRlcm5hbCUyMEludGVydmlldyUyMC0lMjBMaXZlJTIwUmVjb3JkaW5nLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPU04QkkwNzBNQU9EVkU1T0JHSE9ZJTJGMjAyNjA4MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwODExVDIzMDUzM1omWC1BbXotRXhwaXJlcz00MzE5OSZYLUFtei1TZWN1cml0eS1Ub2tlbj1leUpoYkdjaU9pSklVelV4TWlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKaFkyTmxjM05MWlhraU9pSk5PRUpKTURjd1RVRlBSRlpGTlU5Q1IwaFBXU0lzSW1WNGNDSTZNVGM0TmpVek1EWXdNaXdpY0dGeVpXNTBJam9pYldsdWFXOWhaRzFwYmlKOS5ZWk9CZmJWMnlMV3dpUU9sNGZCRFd3N3lDclFtTm9yNXB3X0FZQS11dEFyQktCWXJ5UXdoZVZJM1JnT0d1Y0dvbFdUVjZ5RmlTQUdNQUhjODNLdUZKQSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmdmVyc2lvbklkPW51bGwmWC1BbXotU2lnbmF0dXJlPTk1NmM2NTRkNzZkZmU1YzIyMDkxNzRjNjA3NWE0ZjNlOTVjMDM5YmJiNzZkZTM4ODhlNmI2MzdlMjM0NjU3Y2E" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDQlMjBJbnRlcm5hbCUyMEludGVydmlldyUyMC0lMjBMaXZlJTIwUmVjb3JkaW5nLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPU04QkkwNzBNQU9EVkU1T0JHSE9ZJTJGMjAyNjA4MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwODExVDIzMDUzM1omWC1BbXotRXhwaXJlcz00MzE5OSZYLUFtei1TZWN1cml0eS1Ub2tlbj1leUpoYkdjaU9pSklVelV4TWlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKaFkyTmxjM05MWlhraU9pSk5PRUpKTURjd1RVRlBSRlpGTlU5Q1IwaFBXU0lzSW1WNGNDSTZNVGM0TmpVek1EWXdNaXdpY0dGeVpXNTBJam9pYldsdWFXOWhaRzFwYmlKOS5ZWk9CZmJWMnlMV3dpUU9sNGZCRFd3N3lDclFtTm9yNXB3X0FZQS11dEFyQktCWXJ5UXdoZVZJM1JnT0d1Y0dvbFdUVjZ5RmlTQUdNQUhjODNLdUZKQSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmdmVyc2lvbklkPW51bGwmWC1BbXotU2lnbmF0dXJlPTk1NmM2NTRkNzZkZmU1YzIyMDkxNzRjNjA3NWE0ZjNlOTVjMDM5YmJiNzZkZTM4ODhlNmI2MzdlMjM0NjU3Y2E" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%204%20Internal%20Interview%20-%20Live%20Recording.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%204%20Internal%20Interview%20-%20Live%20Recording.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 4 Internal Interview - Live Recording.mp4 — A real internal interview showing both the AI sourced and manually sourced paths, the financial readiness discussion, technical questions, and the close</p>
       </div>
@@ -2305,18 +2262,40 @@ window.__quizData['m131']=[
 <div class="tab-panel" id="panel-m141-Templates">
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Prompt — Internal Interview</div><div class="email-template-subject">Interview Question Creation</div></div>
+      <div><div class="email-template-label">Prompt — Internal Interview</div><div class="email-template-subject">Tailored Interview Guide Generator</div></div>
       <button class="copy-btn" id="copy-m141a" onclick="copyTemplate('m141a')">Copy</button>
     </div>
-    <div class="email-template-body" id="tmpl-m141a">Create 3 simple, trade-specific technical interview questions for a [INSERT TRADE].
+    <div class="email-template-body" id="tmpl-m141a">PROMPT: SUR Tailored Interview Guide Generator
 
-Each question should be:
-- Short and easy for the candidate to understand
-- Focused on practical on-the-job skills
-- Include what a strong answer looks like
-- Include what a red flag answer looks like
+Input:
+- Job Description: [PASTE JOB DESCRIPTION HERE]
+- Sales Call Transcript: [PASTE SALES CALL TRANSCRIPT HERE]
 
-Keep it in plain language - tradie-friendly, no fluff.</div>
+Task:
+Analyse both documents together to understand what the client is genuinely looking for in this hire - not just the stated requirements, but anything implied in the transcript that reveals a real concern, past bad experience, or unspoken expectation. Clients often say things during the sales call that never make it into the written job description but reveal exactly what could go wrong with the wrong hire - reliability concerns, remote or isolated site conditions, past staff who didn't work out and why, culture fit issues, or specific technical pain points.
+
+Rules:
+- Do not invent details not stated or reasonably inferable from the documents provided
+- If something in the transcript implies a concern (e.g. "the last guy we had just didn't show up half the time," "it's pretty remote out there," "we need someone who can actually run the site, not just follow instructions"), treat that as a genuine signal and build a question around it
+- Do not duplicate the standard screening questions already covered elsewhere in the process (citizenship, criminal history, medical conditions, passport validity, moving alone or with family, upcoming vacations) - this output is additional to those, not a replacement
+- Keep every question short, plain, and conversational - the recruiter needs to be able to ask it naturally, not read it off a script
+- Cap Technical Questions at exactly 3
+
+Output Format:
+
+1. Client Intent Summary
+A short set of bullet points summarising what the client is really after, including any implied concerns or red flags picked up from the transcript that the recruiter should be alert to during the interview.
+
+2. Commitment Questions (2 to 3, based on what's actually in the transcript)
+Questions designed to genuinely test whether the candidate will show up and stay - not just say yes to being keen. Anchor these to whatever specific commitment concern is present in the transcript (e.g. remote location, physically demanding role, past turnover issues). If nothing specific comes up in the transcript, generate general but genuine commitment questions instead of forcing a connection that isn't there.
+
+3. Role and Location Questions (2 to 3, based on what's actually in the transcript)
+Questions designed to surface whether the candidate has genuinely thought through the day-to-day reality of the role and where they'll be living - not just whether they're "keen." These should test whether the candidate has done any real thinking about logistics, lifestyle, or what the actual work will look like day to day.
+
+4. Technical Questions (exactly 3)
+Anchored directly to the client's specific must-haves or pain points from the job description and transcript - not generic trade questions. For each question, include what a strong answer looks like (specific tasks, tools, systems, or sites, clear understanding of process and sequence, genuine hands-on ownership) and what a red flag answer looks like (vague or generic answers, buzzwords without explanation, describing what "the team" did without personal ownership).
+
+Write like a leading hand or site supervisor asking, not an HR professional. Short, plain, conversational language throughout. If a leading hand wouldn't say it on site, reword it.</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
@@ -2538,7 +2517,7 @@ Stand Up Recruitment</div>
 <div class="callout" style="margin:10px 0"><strong>Complete this after your shadowing sessions and before moving to Stage 5.</strong></div>
 <p>After shadowing at least 2 live internal interviews, conduct your first solo interview on a real candidate assigned by Les.</p>
 <p style="margin-top:10px"><strong>Before the interview:</strong></p>
-<ul><li>Review the candidate's JobAdder profile and notes</li><li>Have the job brief open</li><li>Generate 2 to 3 technical questions using the Interview Question Creation Prompt</li><li>Have the Aus Video Interview Form open in JobAdder</li><li>Know whether the candidate is AI sourced or manually sourced — this determines how you open</li></ul>
+<ul><li>Review the candidate's JobAdder profile and notes</li><li>Have the job brief open</li><li>Generate tailored interview questions using the Tailored Interview Guide Generator Prompt (needs the job brief and sales call transcript)</li><li>Have the Aus Video Interview Form open in JobAdder</li><li>Know whether the candidate is AI sourced or manually sourced — this determines how you open</li></ul>
 <p style="margin-top:10px"><strong>After the interview:</strong></p>
 <ul><li>Complete the Aus Video Interview Form in JobAdder</li><li>Send the Cool Off Period Email with the correct attachments</li><li>Send the Document Request Email</li><li>Schedule the follow-up call for day 3</li></ul>
 <p>Check in with Les after your first solo interview before continuing independently.</p>
@@ -2823,16 +2802,16 @@ window.__quizData['m141']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 2</span><strong>Reference Check — Live Recording</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDUlMjBSZWZlcmVuY2UlMjAlMjYlMjBQb2xpY2UlMjBDaGVjayUyMC0lMjBSZWZlcmVuY2UlMjBDaGVjayUyMExpdmUlMjBSZWNvcmRpbmcubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMwODMyWiZYLUFtei1FeHBpcmVzPTQzMjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9ZmU5M2YxYWRkMThiOTBlMmMzYjY0MmNkZGIwYTYyZGJkMDM5ODRmYzkyODViMmE0ODhiYmQzZWRlZTFlYjFhYQ" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDUlMjBSZWZlcmVuY2UlMjAlMjYlMjBQb2xpY2UlMjBDaGVjayUyMC0lMjBSZWZlcmVuY2UlMjBDaGVjayUyMExpdmUlMjBSZWNvcmRpbmcubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMwODMyWiZYLUFtei1FeHBpcmVzPTQzMjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9ZmU5M2YxYWRkMThiOTBlMmMzYjY0MmNkZGIwYTYyZGJkMDM5ODRmYzkyODViMmE0ODhiYmQzZWRlZTFlYjFhYQ" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%205%20Reference%20&%20Police%20Check%20-%20Reference%20Check%20Live%20Recording.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%205%20Reference%20&%20Police%20Check%20-%20Reference%20Check%20Live%20Recording.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 5 Reference &amp; Police Check - Reference Check Live Recording.mp4 — A real reference check call showing the opening, the rundown question, how to handle short responses, and the close</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 2 of 2</span><strong>Police Check — Airtable Form Walkthrough</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDUlMjBSZWZlcmVuY2UlMjAlMjYlMjBQb2xpY2UlMjBDaGVja3MlMjAtJTIwUG9saWNlJTIwQ2hlY2slMjAlRTIlODAlOTQlMjBBaXJ0YWJsZSUyMEZvcm0lMjBXYWxrdGhyb3VnaC5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzA5MDNaJlgtQW16LUV4cGlyZXM9NDMxOTkmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT03OWJiMGFkNjgyYzJjNGZjY2E0ZTdjYTNjYjI4YTMzMTcwNmQ1YzJmZjhkZThjYmNmYjFiNDRkODM4MzNkMWNj" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDUlMjBSZWZlcmVuY2UlMjAlMjYlMjBQb2xpY2UlMjBDaGVja3MlMjAtJTIwUG9saWNlJTIwQ2hlY2slMjAlRTIlODAlOTQlMjBBaXJ0YWJsZSUyMEZvcm0lMjBXYWxrdGhyb3VnaC5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzA5MDNaJlgtQW16LUV4cGlyZXM9NDMxOTkmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT03OWJiMGFkNjgyYzJjNGZjY2E0ZTdjYTNjYjI4YTMzMTcwNmQ1YzJmZjhkZThjYmNmYjFiNDRkODM4MzNkMWNj" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%205%20Reference%20&%20Police%20Checks%20-%20Police%20Check%20—%20Airtable%20Form%20Walkthrough.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%205%20Reference%20&%20Police%20Checks%20-%20Police%20Check%20—%20Airtable%20Form%20Walkthrough.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 5 Reference &amp; Police Checks - Police Check — Airtable Form Walkthrough.mp4 — How to fill out and submit the police check form in Airtable</p>
       </div>
@@ -3056,8 +3035,8 @@ window.__quizData['m151']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 1</span><strong>CV Formatting — Setting Up Your Claude Thread and Formatting Your First CV</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDYlMjBDViUyMEZvcm1hdHRpbmclMjAtJTIwU2V0dGluZyUyMFVwJTIwWW91ciUyMENsYXVkZSUyMFRocmVhZCUyMGFuZCUyMEZvcm1hdHRpbmclMjBZb3VyJTIwRmlyc3QlMjBDVi5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzA5MjVaJlgtQW16LUV4cGlyZXM9NDMyMDAmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT04OGUxOTA0NzdmYjZmZTcyZmU3NWFkNWYyYzQ4MmRiODYzNTI0ZTk0ZDRlYjJiN2EyYzhkYTdmY2U4Yjk1OGZh" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDYlMjBDViUyMEZvcm1hdHRpbmclMjAtJTIwU2V0dGluZyUyMFVwJTIwWW91ciUyMENsYXVkZSUyMFRocmVhZCUyMGFuZCUyMEZvcm1hdHRpbmclMjBZb3VyJTIwRmlyc3QlMjBDVi5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzA5MjVaJlgtQW16LUV4cGlyZXM9NDMyMDAmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT04OGUxOTA0NzdmYjZmZTcyZmU3NWFkNWYyYzQ4MmRiODYzNTI0ZTk0ZDRlYjJiN2EyYzhkYTdmY2U4Yjk1OGZh" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%206%20CV%20Formatting%20-%20Setting%20Up%20Your%20Claude%20Thread%20and%20Formatting%20Your%20First%20CV.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%206%20CV%20Formatting%20-%20Setting%20Up%20Your%20Claude%20Thread%20and%20Formatting%20Your%20First%20CV.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 6 CV Formatting - Setting Up Your Claude Thread and Formatting Your First CV.mp4</p>
       </div>
@@ -3343,16 +3322,16 @@ window.__quizData['m211']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 2</span><strong>Submitting Candidate CV</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDclMjBTdWJtaXR0aW5nJTIwQ2FuZGlkYXRlJTIwQ1YubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMxMDEzWiZYLUFtei1FeHBpcmVzPTQzMTk5JlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9Yzc3ODVmZTMxZGQwNGRiMzE0N2UxOTIzOTg4OTBmN2Q5ZGQ1Y2EwMmMwMmRiMTNhZjZiZTI4OGIzMmI4N2EzYQ" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDclMjBTdWJtaXR0aW5nJTIwQ2FuZGlkYXRlJTIwQ1YubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9TThCSTA3ME1BT0RWRTVPQkdIT1klMkYyMDI2MDgxMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA4MTFUMjMxMDEzWiZYLUFtei1FeHBpcmVzPTQzMTk5JlgtQW16LVNlY3VyaXR5LVRva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpoWTJObGMzTkxaWGtpT2lKTk9FSkpNRGN3VFVGUFJGWkZOVTlDUjBoUFdTSXNJbVY0Y0NJNk1UYzROalV6TURZd01pd2ljR0Z5Wlc1MElqb2liV2x1YVc5aFpHMXBiaUo5LllaT0JmYlYyeUxXd2lRT2w0ZkJEV3c3eUNyUW1Ob3I1cHdfQVlBLXV0QXJCS0JZcnlRd2hlVkkzUmdPR3VjR29sV1RWNnlGaVNBR01BSGM4M0t1RkpBJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ2ZXJzaW9uSWQ9bnVsbCZYLUFtei1TaWduYXR1cmU9Yzc3ODVmZTMxZGQwNGRiMzE0N2UxOTIzOTg4OTBmN2Q5ZGQ1Y2EwMmMwMmRiMTNhZjZiZTI4OGIzMmI4N2EzYQ" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%207%20Submitting%20Candidate%20CV.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%207%20Submitting%20Candidate%20CV.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 7 Submitting Candidate CV.mp4</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 2 of 2</span><strong>Booking Candidate Interview with the Client</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDclMjBCb29raW5nJTIwQ2FuZGlkYXRlJTIwSW50ZXJ2aWV3JTIwd2l0aCUyMHRoZSUyMGNsaWVudC5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzEwNDBaJlgtQW16LUV4cGlyZXM9NDMxOTkmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT02ZDc1MjA2N2E0NTg2MDNlMDllOTVjYjJhMDg4ODZmYmEzYzUyNjhmMGI1Zjc2MTI1ZjQyYmVlNDMyYzI4NWFm" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDclMjBCb29raW5nJTIwQ2FuZGlkYXRlJTIwSW50ZXJ2aWV3JTIwd2l0aCUyMHRoZSUyMGNsaWVudC5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzEwNDBaJlgtQW16LUV4cGlyZXM9NDMxOTkmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT02ZDc1MjA2N2E0NTg2MDNlMDllOTVjYjJhMDg4ODZmYmEzYzUyNjhmMGI1Zjc2MTI1ZjQyYmVlNDMyYzI4NWFm" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%207%20Booking%20Candidate%20Interview%20with%20the%20client.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%207%20Booking%20Candidate%20Interview%20with%20the%20client.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 7 Booking Candidate Interview with the client.mp4</p>
       </div>
@@ -3630,8 +3609,8 @@ window.__quizData['m221']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 1</span><strong>Client Interview — Live Recording</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDglMjBDbGllbnQlMjBJbnRlcnZpZXclMjAlRTIlODAlOTQlMjBMaXZlJTIwUmVjb3JkaW5nLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPU04QkkwNzBNQU9EVkU1T0JHSE9ZJTJGMjAyNjA4MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwODExVDIzMTIwOFomWC1BbXotRXhwaXJlcz00MzIwMCZYLUFtei1TZWN1cml0eS1Ub2tlbj1leUpoYkdjaU9pSklVelV4TWlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKaFkyTmxjM05MWlhraU9pSk5PRUpKTURjd1RVRlBSRlpGTlU5Q1IwaFBXU0lzSW1WNGNDSTZNVGM0TmpVek1EWXdNaXdpY0dGeVpXNTBJam9pYldsdWFXOWhaRzFwYmlKOS5ZWk9CZmJWMnlMV3dpUU9sNGZCRFd3N3lDclFtTm9yNXB3X0FZQS11dEFyQktCWXJ5UXdoZVZJM1JnT0d1Y0dvbFdUVjZ5RmlTQUdNQUhjODNLdUZKQSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmdmVyc2lvbklkPW51bGwmWC1BbXotU2lnbmF0dXJlPTVmMWI0YWU0MTg2NTRjNThmNzY4OTM3MWQ5MDhkZTEzODcwYzVjMDQxYjQyY2YyZWYyNjJkOWE2OGRlNjY3YWY" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDglMjBDbGllbnQlMjBJbnRlcnZpZXclMjAlRTIlODAlOTQlMjBMaXZlJTIwUmVjb3JkaW5nLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPU04QkkwNzBNQU9EVkU1T0JHSE9ZJTJGMjAyNjA4MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwODExVDIzMTIwOFomWC1BbXotRXhwaXJlcz00MzIwMCZYLUFtei1TZWN1cml0eS1Ub2tlbj1leUpoYkdjaU9pSklVelV4TWlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKaFkyTmxjM05MWlhraU9pSk5PRUpKTURjd1RVRlBSRlpGTlU5Q1IwaFBXU0lzSW1WNGNDSTZNVGM0TmpVek1EWXdNaXdpY0dGeVpXNTBJam9pYldsdWFXOWhaRzFwYmlKOS5ZWk9CZmJWMnlMV3dpUU9sNGZCRFd3N3lDclFtTm9yNXB3X0FZQS11dEFyQktCWXJ5UXdoZVZJM1JnT0d1Y0dvbFdUVjZ5RmlTQUdNQUhjODNLdUZKQSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmdmVyc2lvbklkPW51bGwmWC1BbXotU2lnbmF0dXJlPTVmMWI0YWU0MTg2NTRjNThmNzY4OTM3MWQ5MDhkZTEzODcwYzVjMDQxYjQyY2YyZWYyNjJkOWE2OGRlNjY3YWY" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%208%20Client%20Interview%20—%20Live%20Recording.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%208%20Client%20Interview%20—%20Live%20Recording.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 8 Client Interview — Live Recording.mp4 — A real client interview showing the introduction, reading the room, and the post-interview debrief</p>
       </div>
@@ -3976,23 +3955,31 @@ window.__quizData['m231']=[
 <div class="tab-panel" id="panel-m241-Watch">
   <div class="content-block">
     <div class="block-label">Video Walkthrough</div>
-    <div class="block-title">2 videos — DocuSeal and Placement</div>
+    <div class="block-title">3 videos — DocuSeal and Placement</div>
     <div class="block-body">
       <div class="video-item">
-        <div class="video-title-bar"><span>Video 1 of 2</span><strong>Uploading and Sending the Offer via DocuSeal</strong></div>
+        <div class="video-title-bar"><span>Video 1 of 3</span><strong>Uploading and Sending the Offer via DocuSeal</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDklMjBPZmZlciUyMC0lMjBVcGxvYWRpbmclMjBhbmQlMjBTZW5kaW5nJTIwdGhlJTIwT2ZmZXIlMjB2aWElMjBEb2N1U2VhbC5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzEyMzNaJlgtQW16LUV4cGlyZXM9NDMxOTkmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT0xMWViNTE2YjczNGQ4ODA0ZWY0NTMzNDU3MjFjZDI4YjIwYjJhMzJhMTFiNTVkM2M2ZjE5ZmFiM2IyZjUzNjQ5" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDklMjBPZmZlciUyMC0lMjBVcGxvYWRpbmclMjBhbmQlMjBTZW5kaW5nJTIwdGhlJTIwT2ZmZXIlMjB2aWElMjBEb2N1U2VhbC5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzEyMzNaJlgtQW16LUV4cGlyZXM9NDMxOTkmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT0xMWViNTE2YjczNGQ4ODA0ZWY0NTMzNDU3MjFjZDI4YjIwYjJhMzJhMTFiNTVkM2M2ZjE5ZmFiM2IyZjUzNjQ5" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20Offer%20-%20Uploading%20and%20Sending%20the%20Offer%20via%20DocuSeal.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20Offer%20-%20Uploading%20and%20Sending%20the%20Offer%20via%20DocuSeal.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 9 Offer - Uploading and Sending the Offer via DocuSeal.mp4 — How to upload the offer letter to DocuSeal, add the signature field, and send it to the candidate for signature</p>
       </div>
       <div class="video-item">
-        <div class="video-title-bar"><span>Video 2 of 2</span><strong>Placing a Candidate in JobAdder</strong></div>
+        <div class="video-title-bar"><span>Video 2 of 3</span><strong>Placing a Candidate in JobAdder</strong></div>
         <video controls>
-          <source src="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDklMjBPZmZlciUyMC0lMjBQbGFjaW5nJTIwY2FuZGlkYXRlJTIwaW4lMjBKb2JBZGRlci5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzEyNTJaJlgtQW16LUV4cGlyZXM9NDMyMDAmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT0xZjllZjAzMjI2YWQ1M2UzZDViNmRiODczOTc0NmFlMTcyMDk2YjJkNzk1ZGY0YTBmYzRiMGQwODlhNDJlZWRl" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-console.srv1303295.hstgr.cloud/api/v1/download-shared-object/aHR0cHM6Ly9taW5pby1hcGkuc3J2MTMwMzI5NS5oc3Rnci5jbG91ZC9wbGF5Ym9vay9QbGF5Ym9vayUyMFZpZGVvcy9TdGFnZSUyMDklMjBPZmZlciUyMC0lMjBQbGFjaW5nJTIwY2FuZGlkYXRlJTIwaW4lMjBKb2JBZGRlci5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1NOEJJMDcwTUFPRFZFNU9CR0hPWSUyRjIwMjYwODExJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgxMVQyMzEyNTJaJlgtQW16LUV4cGlyZXM9NDMyMDAmWC1BbXotU2VjdXJpdHktVG9rZW49ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmhZMk5sYzNOTFpYa2lPaUpOT0VKSk1EY3dUVUZQUkZaRk5VOUNSMGhQV1NJc0ltVjRjQ0k2TVRjNE5qVXpNRFl3TWl3aWNHRnlaVzUwSWpvaWJXbHVhVzloWkcxcGJpSjkuWVpPQmZiVjJ5TFd3aVFPbDRmQkRXdzd5Q3JRbU5vcjVwd19BWUEtdXRBckJLQllyeVF3aGVWSTNSZ09HdWNHb2xXVFY2eUZpU0FHTUFIYzgzS3VGSkEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnZlcnNpb25JZD1udWxsJlgtQW16LVNpZ25hdHVyZT0xZjllZjAzMjI2YWQ1M2UzZDViNmRiODczOTc0NmFlMTcyMDk2YjJkNzk1ZGY0YTBmYzRiMGQwODlhNDJlZWRl" style="color:var(--accent)">Open directly</a></p>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20Offer%20-%20Placing%20candidate%20in%20JobAdder.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20Offer%20-%20Placing%20candidate%20in%20JobAdder.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 9 Offer - Placing candidate in JobAdder.mp4 — How to place the candidate in JobAdder, calculate the correct fee, select relocation status, and upload the signed offer</p>
+      </div>
+      <div class="video-item">
+        <div class="video-title-bar"><span>Video 3 of 3</span><strong>Placing a Replacement Candidate in JobAdder</strong></div>
+        <video controls>
+          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20-%20Placing%20a%20Replacement%20Candidate%20in%20JobAdder.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20-%20Placing%20a%20Replacement%20Candidate%20in%20JobAdder.mp4" style="color:var(--accent)">Open directly</a></p>
+        </video>
+        <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 9 - Placing a Replacement Candidate in JobAdder.mp4 — How to place a replacement candidate in JobAdder when the original placement falls through</p>
       </div>
     </div>
   </div>
@@ -4438,7 +4425,7 @@ Stand Up Recruitment</div>
 <div class="step-row"><div class="step-num">1</div><div>Log the agreed date in JobAdder immediately after the interview debrief</div></div>
 <div class="step-row"><div class="step-num">2</div><div>If the date passes with nothing received — work through the cadence above</div></div>
 <div class="step-row"><div class="step-num">3</div><div>Keep the candidate warm once the cycle passes Email 1</div></div>
-<div class="step-row"><div class="step-num">4</div><div>Escalate to Director after Call 2 - do not continue contact until Director decides next steps</div></div>
+<div class="step-row"><div class="step-num">4</div><div>Escalate to Les after Call 2 - do not continue contact until Les decides next steps</div></div>
 </div>
 </div>
 </div>
@@ -4474,7 +4461,7 @@ window.__quizData['m242']=[
     <div class="block-body">
       <p>Post-placement care will be handled by a dedicated team member once hired. This stage covers candidate and client check-ins after the start date to protect the placement and ensure a smooth transition.</p>
       <div class="callout info"><strong>This section will be added to the playbook once the role is filled and the process is defined.</strong></div>
-      <div class="callout warn" style="margin-top:10px">This is a living document. It will be updated as the team grows and processes evolve. If something is not covered here, speak to Director.</div>
+      <div class="callout warn" style="margin-top:10px">This is a living document. It will be updated as the team grows and processes evolve. If something is not covered here, speak to Les.</div>
     </div>
   </div>
 
@@ -4540,7 +4527,7 @@ window.__quizData['m242']=[
 <div class="block-body">
 <p>Post-placement care will be handled by a dedicated team member once hired. This stage covers candidate and client check-ins after the start date to protect the placement and ensure a smooth transition.</p>
 <div class="callout" style="margin-top:10px"><strong>This section will be added to the playbook once the role is filled and the process is defined.</strong></div>
-<p style="margin-top:10px">In the meantime, if a placement you made needs a check-in, speak to Director about how to proceed.</p>
+<p style="margin-top:10px">In the meantime, if a placement you made needs a check-in, speak to Les about how to proceed.</p>
 </div>
 </div>
 </div>
@@ -5673,24 +5660,46 @@ Job Card Input:
 
   <div class="content-block">
     <div class="block-label">Stage 4 - Internal Interview</div>
-    <div class="block-title">Interview Question Creation</div>
-    <div class="block-body">Generates trade-specific technical interview questions for the internal interview. Use this before every internal interview - prepare your questions before the call, never during it.</div>
-    <div class="callout info" style="margin-top:8px">Input required: Trade or role title. Replace [INSERT TRADE] with the specific trade before running the prompt.</div>
+    <div class="block-title">Tailored Interview Guide Generator</div>
+    <div class="block-body">Analyses the job description and sales call transcript together to understand what the client is genuinely after - including anything implied but not stated outright - and produces a tailored set of interview questions across three categories: Commitment, Role &amp; Location, and Technical. Use this in place of generic technical-only questions.</div>
+    <div class="callout info" style="margin-top:8px">Inputs required: the client's Job Description and the Sales Call Transcript - the same two documents used for the Job Brief Generator. This prompt does not replace the standard screening questions already in the playbook (citizenship, criminal history, medical, passport, family/vacation commitments) - those are always asked regardless of this output.</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Prompt - Internal Interview</div><div class="email-template-subject">Interview Question Creation</div></div>
+      <div><div class="email-template-label">Prompt - Internal Interview</div><div class="email-template-subject">Tailored Interview Guide Generator</div></div>
       <button class="copy-btn" id="copy-m302-08" onclick="copyTemplate('m302-08')">Copy</button>
     </div>
-    <div class="email-template-body" id="tmpl-m302-08">Create 3 simple, trade-specific technical interview questions for a [INSERT TRADE].
+    <div class="email-template-body" id="tmpl-m302-08">PROMPT: SUR Tailored Interview Guide Generator
 
-Each question should be:
-- Short and easy for the candidate to understand
-- Focused on practical on-the-job skills
-- Include what a strong answer looks like
-- Include what a red flag answer looks like
+Input:
+- Job Description: [PASTE JOB DESCRIPTION HERE]
+- Sales Call Transcript: [PASTE SALES CALL TRANSCRIPT HERE]
 
-Keep it in plain language - tradie-friendly, no fluff.</div>
+Task:
+Analyse both documents together to understand what the client is genuinely looking for in this hire - not just the stated requirements, but anything implied in the transcript that reveals a real concern, past bad experience, or unspoken expectation. Clients often say things during the sales call that never make it into the written job description but reveal exactly what could go wrong with the wrong hire - reliability concerns, remote or isolated site conditions, past staff who didn't work out and why, culture fit issues, or specific technical pain points.
+
+Rules:
+- Do not invent details not stated or reasonably inferable from the documents provided
+- If something in the transcript implies a concern (e.g. "the last guy we had just didn't show up half the time," "it's pretty remote out there," "we need someone who can actually run the site, not just follow instructions"), treat that as a genuine signal and build a question around it
+- Do not duplicate the standard screening questions already covered elsewhere in the process (citizenship, criminal history, medical conditions, passport validity, moving alone or with family, upcoming vacations) - this output is additional to those, not a replacement
+- Keep every question short, plain, and conversational - the recruiter needs to be able to ask it naturally, not read it off a script
+- Cap Technical Questions at exactly 3
+
+Output Format:
+
+1. Client Intent Summary
+A short set of bullet points summarising what the client is really after, including any implied concerns or red flags picked up from the transcript that the recruiter should be alert to during the interview.
+
+2. Commitment Questions (2 to 3, based on what's actually in the transcript)
+Questions designed to genuinely test whether the candidate will show up and stay - not just say yes to being keen. Anchor these to whatever specific commitment concern is present in the transcript (e.g. remote location, physically demanding role, past turnover issues). If nothing specific comes up in the transcript, generate general but genuine commitment questions instead of forcing a connection that isn't there.
+
+3. Role and Location Questions (2 to 3, based on what's actually in the transcript)
+Questions designed to surface whether the candidate has genuinely thought through the day-to-day reality of the role and where they'll be living - not just whether they're "keen." These should test whether the candidate has done any real thinking about logistics, lifestyle, or what the actual work will look like day to day.
+
+4. Technical Questions (exactly 3)
+Anchored directly to the client's specific must-haves or pain points from the job description and transcript - not generic trade questions. For each question, include what a strong answer looks like (specific tasks, tools, systems, or sites, clear understanding of process and sequence, genuine hands-on ownership) and what a red flag answer looks like (vague or generic answers, buzzwords without explanation, describing what "the team" did without personal ownership).
+
+Write like a leading hand or site supervisor asking, not an HR professional. Short, plain, conversational language throughout. If a leading hand wouldn't say it on site, reword it.</div>
   </div>
 
   <div class="content-block">
