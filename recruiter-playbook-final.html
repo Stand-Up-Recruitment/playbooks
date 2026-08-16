@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function(){
+  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support'];
+  if(VALID_ROLES.indexOf(sessionStorage.getItem('playbook-auth')) === -1){
+    window.location.href = 'login.html';
+  }
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recruiter Playbook — Stand Up Playbook</title>
@@ -636,6 +644,32 @@ body{
 #theme-toggle:hover{background:var(--surface2);color:var(--text);border-color:var(--border3)}
 #theme-toggle .toggle-icon{font-size:13px;line-height:1}
 
+#hub-back{
+  position:fixed;
+  top:20px;left:20px;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 16px;
+  border-radius:20px;
+  border:.5px solid var(--border2);
+  background:rgba(17,17,17,.85);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  color:var(--muted);
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.08em;
+  cursor:pointer;
+  transition:all var(--transition);
+  box-shadow:0 2px 12px rgba(0,0,0,.3);
+  user-select:none;
+  text-decoration:none;
+}
+#hub-back:hover{background:var(--surface2);color:var(--text);border-color:var(--border3)}
+[data-theme="light"] #hub-back{background:rgba(255,255,255,.9)}
+
 /* ── Responsive ──────────────────────────────────────────── */
 @media(max-width:640px){
   #dashboard{padding:48px 18px 80px}
@@ -717,6 +751,10 @@ body{
 </style>
 </head>
 <body>
+<a id="hub-back" href="recruiter-hub.html" title="Back to Playbook Hub">
+  <span class="toggle-icon">&#8592;</span>
+  <span>Hub</span>
+</a>
 <button id="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
   <span class="toggle-icon" id="toggle-icon">☀️</span>
   <span id="toggle-label">Light</span>
@@ -966,24 +1004,24 @@ body{
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 3</span><strong>Checking new job and assigning workflow</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20-%20Checking%20new%20job%20and%20assigning%20workflow.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20-%20Checking%20new%20job%20and%20assigning%20workflow.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 1 - Checking new job and assigning workflow.mp4</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 2 of 3</span><strong>Job Ad Creation and Posting — Part 1</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%201.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%201.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Job Ad Creation and Posting Part 1.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Job Ad Creation and Posting Part 1.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 1 Job Ad Creation and Posting Part 1.mp4</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 3 of 3</span><strong>Job Ad Creation and Posting — Part 2</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%202.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%201%20Job%20Ad%20Creation%20and%20Posting%20Part%202.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Job Ad Creation and Posting Part 2.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Job Ad Creation and Posting Part 2.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 1 Job Ad Creation and Posting Part 2.mp4</p>
       </div>
@@ -1281,8 +1319,8 @@ window.__quizData['m111']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 1</span><strong>AI Sourcing — Filling Out the Airtable Form</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202%20AI%20Sourcing%20-%20Filling%20Out%20the%20Airtable%20Form.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202%20AI%20Sourcing%20-%20Filling%20Out%20the%20Airtable%20Form.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2 AI Sourcing - Filling Out the Airtable Form.mp4</p>
       </div>
@@ -1550,40 +1588,40 @@ window.__quizData['m121']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 5</span><strong>Manual Sourcing in JobAdder</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20in%20JobAdder.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20in%20JobAdder.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 Manual Sourcing in JobAdder.mp4 — Filtering by NZ Citizen and trade, checking the Applications tab, making calls, logging notes</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 2 of 5</span><strong>Updating Candidate Tagging and Rejecting a Candidate</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Updating%20Candidate%20Tagging%20and%20Rejecting%20a%20Candidate.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Updating%20Candidate%20Tagging%20and%20Rejecting%20a%20Candidate.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 Updating Candidate Tagging and Rejecting a Candidate.mp4 — How to update the candidate's Status on their profile, and why you should never click Reject on a job card</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 3 of 5</span><strong>Sourcing Cold Email and Headhunt — Part 1 — Cold Email through Job Adder</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20%E2%80%94%20Part%201%20%20Cold%20Email%20through%20Job%20Adder.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20%E2%80%94%20Part%201%20%20Cold%20Email%20through%20Job%20Adder.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 - Sourcing Cold Email and Headhunt — Part 1  Cold Email through Job Adder.mp4</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 4 of 5</span><strong>Sourcing Cold Email and Headhunt — Part 2</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20Part%202.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20Part%202.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 Manual Sourcing - Sourcing Cold Email and Headhunt Part 2.mp4 — Headhunting on Trade Me JobSmart: Boolean search, unlocking profiles, uploading to JobAdder</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 5 of 5</span><strong>Sourcing Cold Email and Headhunt — Part 3</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20Part%203.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%202.2%20Manual%20Sourcing%20-%20Sourcing%20Cold%20Email%20and%20Headhunt%20Part%203.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 2.2 Manual Sourcing - Sourcing Cold Email and Headhunt Part 3.mp4 — Headhunting on Trade Me JobSmart: Boolean search, unlocking profiles, uploading to JobAdder</p>
       </div>
@@ -1775,8 +1813,8 @@ window.__quizData['m122']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 2</span><strong>Sending the Internal Interview Invite</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%203%20Sending%20the%20Internal%20Interview%20Invite.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%203%20Sending%20the%20Internal%20Interview%20Invite.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 3 Sending the Internal Interview Invite.mp4</p>
       </div>
@@ -2250,8 +2288,8 @@ window.__quizData['m131']=[
       <div class="video-item" style="margin-top:14px">
         <div class="video-title-bar"><span>Video 1 of 1</span><strong>Internal Interview — Live Recording</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%204%20Internal%20Interview%20-%20Live%20Recording.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%204%20Internal%20Interview%20-%20Live%20Recording.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 4 Internal Interview - Live Recording.mp4 — A real internal interview showing both the AI sourced and manually sourced paths, the financial readiness discussion, technical questions, and the close</p>
       </div>
@@ -2802,16 +2840,16 @@ window.__quizData['m141']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 2</span><strong>Reference Check — Live Recording</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%205%20Reference%20&%20Police%20Check%20-%20Reference%20Check%20Live%20Recording.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%205%20Reference%20&%20Police%20Check%20-%20Reference%20Check%20Live%20Recording.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 5 Reference &amp; Police Check - Reference Check Live Recording.mp4 — A real reference check call showing the opening, the rundown question, how to handle short responses, and the close</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 2 of 2</span><strong>Police Check — Airtable Form Walkthrough</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%205%20Reference%20&%20Police%20Checks%20-%20Police%20Check%20—%20Airtable%20Form%20Walkthrough.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%205%20Reference%20&%20Police%20Checks%20-%20Police%20Check%20—%20Airtable%20Form%20Walkthrough.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 5 - Police Check - Airtable Form Walkthrough.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 5 - Police Check - Airtable Form Walkthrough.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 5 Reference &amp; Police Checks - Police Check — Airtable Form Walkthrough.mp4 — How to fill out and submit the police check form in Airtable</p>
       </div>
@@ -3035,8 +3073,8 @@ window.__quizData['m151']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 1</span><strong>CV Formatting — Setting Up Your Claude Thread and Formatting Your First CV</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%206%20CV%20Formatting%20-%20Setting%20Up%20Your%20Claude%20Thread%20and%20Formatting%20Your%20First%20CV.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%206%20CV%20Formatting%20-%20Setting%20Up%20Your%20Claude%20Thread%20and%20Formatting%20Your%20First%20CV.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 6 CV Formatting - Setting Up Your Claude Thread and Formatting Your First CV.mp4</p>
       </div>
@@ -3322,16 +3360,16 @@ window.__quizData['m211']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 2</span><strong>Submitting Candidate CV</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%207%20Submitting%20Candidate%20CV.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%207%20Submitting%20Candidate%20CV.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 7 Submitting Candidate CV.mp4</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 2 of 2</span><strong>Booking Candidate Interview with the Client</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%207%20Booking%20Candidate%20Interview%20with%20the%20client.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%207%20Booking%20Candidate%20Interview%20with%20the%20client.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 7 - Booking Candidate Interview with the client.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 7 - Booking Candidate Interview with the client.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 7 Booking Candidate Interview with the client.mp4</p>
       </div>
@@ -3609,8 +3647,8 @@ window.__quizData['m221']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 1</span><strong>Client Interview — Live Recording</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%208%20Client%20Interview%20—%20Live%20Recording.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%208%20Client%20Interview%20—%20Live%20Recording.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 1 - Checking new job and assigning workflow.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 8 Client Interview — Live Recording.mp4 — A real client interview showing the introduction, reading the room, and the post-interview debrief</p>
       </div>
@@ -3960,24 +3998,24 @@ window.__quizData['m231']=[
       <div class="video-item">
         <div class="video-title-bar"><span>Video 1 of 3</span><strong>Uploading and Sending the Offer via DocuSeal</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20Offer%20-%20Uploading%20and%20Sending%20the%20Offer%20via%20DocuSeal.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20Offer%20-%20Uploading%20and%20Sending%20the%20Offer%20via%20DocuSeal.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 9 - Uploading and Sending the Offer via DocuSeal.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 9 - Uploading and Sending the Offer via DocuSeal.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 9 Offer - Uploading and Sending the Offer via DocuSeal.mp4 — How to upload the offer letter to DocuSeal, add the signature field, and send it to the candidate for signature</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 2 of 3</span><strong>Placing a Candidate in JobAdder</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20Offer%20-%20Placing%20candidate%20in%20JobAdder.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20Offer%20-%20Placing%20candidate%20in%20JobAdder.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 9 - Placing a Candidate in JobAdder.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 9 - Placing a Candidate in JobAdder.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 9 Offer - Placing candidate in JobAdder.mp4 — How to place the candidate in JobAdder, calculate the correct fee, select relocation status, and upload the signed offer</p>
       </div>
       <div class="video-item">
         <div class="video-title-bar"><span>Video 3 of 3</span><strong>Placing a Replacement Candidate in JobAdder</strong></div>
         <video controls>
-          <source src="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20-%20Placing%20a%20Replacement%20Candidate%20in%20JobAdder.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="file:///C:/Users/accou/OneDrive%20-%20STAND%20UP%20RECRUITMENT%20LIMITED/Documents%20-%20Stand%20Up%20Recruitment%20HQ/RECRUITMENT/Playbook%20Videos/Stage%209%20-%20Placing%20a%20Replacement%20Candidate%20in%20JobAdder.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 9 - Placing a Replacement Candidate in JobAdder.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 9 - Placing a Replacement Candidate in JobAdder.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 9 - Placing a Replacement Candidate in JobAdder.mp4 — How to place a replacement candidate in JobAdder when the original placement falls through</p>
       </div>
