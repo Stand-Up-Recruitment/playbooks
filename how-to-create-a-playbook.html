@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Create a Playbook — Stand Up Recruitment</title>
+<style>
+:root{
+  --bg:#0f1117;--surface:#1a1d2e;--surface2:#21253a;--surface3:#2a2f47;
+  --text:#e8eaf0;--text2:#9ba3bf;--muted:#6b7280;
+  --border:#2d3352;--border2:#374066;
+}
+[data-theme=light]{
+  --bg:#f4f5f7;--surface:#ffffff;--surface2:#f0f1f5;--surface3:#e5e7ef;
+  --text:#1a1d2e;--text2:#4b5563;--muted:#9ca3af;
+  --border:#d1d5db;--border2:#c4c9d8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* TOP BAR */
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.logo-wrap{display:flex;flex-direction:column}
+.logo-main{font-weight:800;font-size:15px;color:var(--text);line-height:1.2}
+.logo-main span{color:#f59e0b}
+.logo-sub{font-size:10px;color:var(--muted);letter-spacing:.04em;margin-top:1px}
+.top-right{display:flex;align-items:center;gap:12px}
+.theme-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text2);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:12px;transition:background .15s}
+#search-bar{width:280px;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 14px;border-radius:8px;font-size:13px;outline:none;transition:border-color .15s}
+#search-bar:focus{border-color:#f59e0b}
+
+/* DASHBOARD */
+#dashboard{padding:36px 24px;max-width:1100px;margin:0 auto}
+.hero{margin-bottom:36px}
+.hero-eyebrow{font-size:11px;font-weight:700;color:#f59e0b;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.hero h1{font-size:30px;font-weight:800;color:var(--text);margin-bottom:10px;line-height:1.2}
+.hero p{color:var(--text2);font-size:14px;line-height:1.65;max-width:600px}
+.section-label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin:28px 0 12px}
+.module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.module-card{cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;transition:transform .15s,box-shadow .15s,border-color .15s}
+.module-card:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.35);border-color:var(--border2)}
+.card-eyebrow{font-size:11px;font-weight:700;color:#f59e0b;letter-spacing:.05em;margin-bottom:5px}
+.card-title{font-weight:700;font-size:14px;color:var(--text);line-height:1.35;margin-bottom:6px}
+.card-desc{font-size:12px;color:var(--text2);line-height:1.5}
+
+/* MODULE VIEW */
+#module-view{display:none;padding:32px 24px;max-width:900px;margin:0 auto}
+.back-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text2);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;margin-bottom:24px;transition:border-color .15s}
+.back-btn:hover{border-color:#f59e0b;color:var(--text)}
+.module-header{margin-bottom:26px}
+.module-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;color:#f59e0b}
+.module-h1{font-size:26px;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.25}
+.module-intro{color:var(--text2);font-size:14px;line-height:1.65}
+
+/* TABS */
+.tab-bar{display:flex;gap:0;margin-bottom:22px;border-bottom:1px solid var(--border)}
+.tab-btn{background:none;border:none;color:var(--muted);padding:10px 18px;cursor:pointer;font-size:13px;font-weight:600;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s}
+.tab-btn.active{color:#f59e0b;border-bottom-color:#f59e0b}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* CONTENT BLOCKS */
+.content-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.block-label{font-size:11px;font-weight:700;color:#f59e0b;letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px}
+.block-body{font-size:13px;color:var(--text2);line-height:1.75}
+.block-body ul{margin:6px 0 0 18px}
+.block-body li{margin-bottom:5px}
+.block-body strong{color:var(--text)}
+
+/* STEPS */
+.step-row{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start}
+.step-num{min-width:30px;height:30px;background:#f59e0b;color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0;margin-top:1px}
+.step-body{font-size:13px;color:var(--text2);line-height:1.7;padding-top:4px}
+.step-body strong{color:var(--text)}
+
+/* CALLOUTS */
+.callout{background:var(--surface2);border:1px solid var(--border2);border-left:3px solid #f59e0b;border-radius:8px;padding:13px 16px;font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:14px}
+.callout strong{color:var(--text)}
+.callout.red{border-left-color:#ef4444}
+.callout.green{border-left-color:#10b981}
+.callout.blue{border-left-color:#3b82f6}
+
+/* PROMPT BOXES */
+.prompt-box{background:var(--surface3);border:1px solid var(--border2);border-radius:8px;padding:16px;margin-bottom:16px;position:relative}
+.prompt-label{font-size:10px;font-weight:700;color:#f59e0b;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.copy-btn{background:#f59e0b;color:#000;border:none;border-radius:5px;padding:3px 10px;font-size:10px;font-weight:700;cursor:pointer}
+.prompt-text{font-family:'Courier New',monospace;font-size:12px;color:var(--text);white-space:pre-wrap;line-height:1.6}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:20px 0}
+
+code{font-family:'Courier New',monospace;background:var(--surface3);padding:2px 6px;border-radius:4px;font-size:12px;color:var(--text)}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap">
+    <div class="logo-main">Stand Up <span>Recruitment</span></div>
+    <div class="logo-sub">How to Create a Playbook</div>
+  </div>
+  <div class="top-right">
+    <input id="search-bar" type="text" placeholder="&#128269; Search modules..." oninput="filterCards(this.value)">
+    <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle">&#9728; Light</button>
+  </div>
+</div>
+
+<div id="dashboard">
+  <div class="hero">
+    <div class="hero-eyebrow">Internal Guide</div>
+    <h1>How to Create a Playbook</h1>
+    <p>A complete guide for any Stand Up Recruitment team member to record, build, and maintain playbook tiles using Claude. Includes ready-to-use prompts for every scenario.</p>
+  </div>
+
+  <div class="section-label">The Process</div>
+  <div class="module-grid" id="card-grid">
+
+    <div class="module-card" data-mid="m1" data-search="overview what is playbook purpose structure concept format">
+      <div class="card-eyebrow">Overview</div>
+      <div class="card-title">What is a Playbook?</div>
+      <div class="card-desc">Purpose, structure, and concept behind Stand Up playbooks.</div>
+    </div>
+
+    <div class="module-card" data-mid="m2" data-search="step 1 record video teams screen recording transcription microphone">
+      <div class="card-eyebrow">Step 1</div>
+      <div class="card-title">Record in Microsoft Teams</div>
+      <div class="card-desc">How to screen record and capture a transcript in Teams.</div>
+    </div>
+
+    <div class="module-card" data-mid="m3" data-search="step 2 export video transcript download mp4 docx onedrive chat">
+      <div class="card-eyebrow">Step 2</div>
+      <div class="card-title">Export the Video &amp; Transcript</div>
+      <div class="card-desc">Download the .mp4 and .docx from Teams or OneDrive.</div>
+    </div>
+
+    <div class="module-card" data-mid="m4" data-search="step 3 name save files naming convention folder onedrive path">
+      <div class="card-eyebrow">Step 3</div>
+      <div class="card-title">Name &amp; Save Your Files</div>
+      <div class="card-desc">Correct naming format and folder — essential for videos to play.</div>
+    </div>
+
+    <div class="module-card" data-mid="m5" data-search="step 4 build tile claude prompt transcript create update cowork">
+      <div class="card-eyebrow">Step 4</div>
+      <div class="card-title">Build the Tile with Claude</div>
+      <div class="card-desc">How to prompt Claude to generate or update a playbook tile.</div>
+    </div>
+
+    <div class="module-card" data-mid="m6" data-search="step 5 review test iterate check video tabs hard refresh ctrl shift r">
+      <div class="card-eyebrow">Step 5</div>
+      <div class="card-title">Review &amp; Iterate</div>
+      <div class="card-desc">Test every tab, hard refresh, and request targeted fixes.</div>
+    </div>
+
+    <div class="module-card" data-mid="m7" data-search="prompt library templates copy paste create update delete fix change remove add contact">
+      <div class="card-eyebrow">Prompt Library</div>
+      <div class="card-title">All Claude Prompts</div>
+      <div class="card-desc">Copy-paste prompts for every playbook change — create, update, delete, fix, and more.</div>
+    </div>
+
+  </div>
+</div>
+
+<div id="module-view">
+
+<!-- ═══════════════════════════════════════════════ m1 ═══ -->
+<div id="module-m1" style="display:none">
+<button class="back-btn" onclick="closeMod()">&#8592; Back to Playbook</button>
+<div class="module-header">
+  <div class="module-eyebrow">Overview</div>
+  <h1 class="module-h1">What is a Playbook?</h1>
+  <p class="module-intro">The purpose, structure, and format of Stand Up Recruitment playbooks — and why they exist.</p>
+</div>
+<div class="tab-bar" id="tabs-m1">
+  <button class="tab-btn active" onclick="switchTab('m1','overview')" id="tbtn-m1-overview">Overview</button>
+  <button class="tab-btn" onclick="switchTab('m1','steps')" id="tbtn-m1-steps">Key Rules</button>
+</div>
+
+<div class="tab-panel active" id="panel-m1-overview">
+  <div class="content-block">
+    <div class="block-label">What is it?</div>
+    <div class="block-body">A Stand Up Recruitment Playbook is a <strong>self-contained HTML file</strong> that gives any team member clear, video-backed instructions for every key business process. It opens in any browser — no login, no internet, no special software required.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">How it is structured</div>
+    <div class="block-body">Each playbook contains a <strong>searchable dashboard</strong> of tiles. Every tile covers one process and has four tabs:<br><br>
+      <strong>Overview</strong> — Purpose, context, and key information<br>
+      <strong>Watch</strong> — Embedded screen recording of the process<br>
+      <strong>Steps</strong> — Step-by-step instructions built from the transcript<br>
+      <strong>Quiz</strong> — Comprehension check (where included)
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Existing playbooks at Stand Up</div>
+    <div class="block-body">
+      <strong>Admin &amp; Ops</strong> — <code>admin-ops-playbook-final.html</code><br>
+      All playbook files live in the same OneDrive folder as the videos:<br>
+      <code>Documents - Stand Up Recruitment HQ / ACCOUNTS &amp; ADMIN / PLAYBOOK VIDEOS / NEW Videos</code>
+    </div>
+  </div>
+  <div class="callout green">
+    <strong>No internet needed.</strong> Playbooks are fully self-contained HTML files. Videos are linked from the same OneDrive folder on your computer — as long as the folder is synced, everything works offline.
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-m1-steps">
+  <div class="content-block">
+    <div class="block-label">Golden Rules</div>
+    <div class="block-body"></div>
+  </div>
+  <div class="step-row"><div class="step-num">1</div><div class="step-body"><strong>One video = one tile.</strong> Keep each tile focused on a single process. If a process is complex, split it into Part 1 / Part 2 as separate tiles.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div class="step-body"><strong>Always say the tile name at the start of the recording.</strong> This gives Claude the context it needs to build accurate content.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div class="step-body"><strong>Filenames must match exactly.</strong> The .mp4 and .docx must share the identical base name. Even a single character difference will break the video.</div></div>
+  <div class="step-row"><div class="step-num">4</div><div class="step-body"><strong>Always say "no changes to structure or format"</strong> in your Claude prompt. This keeps all tiles visually consistent.</div></div>
+  <div class="step-row"><div class="step-num">5</div><div class="step-body"><strong>Hard refresh after every update.</strong> Press <code>Ctrl+Shift+R</code> (Windows) or <code>Cmd+Shift+R</code> (Mac) — otherwise the browser shows the old cached version.</div></div>
+  <div class="step-row"><div class="step-num">6</div><div class="step-body"><strong>Never manually edit the HTML file.</strong> Always ask Claude. Manual edits can break the div structure and cause navigation failures.</div></div>
+  <div class="callout red">
+    <strong>If something looks broken after an update</strong> — ask Claude to restore the previous backup. Claude creates a numbered <code>.bak.html</code> file before every change (e.g. <code>admin-ops-playbook-final.bak10.html</code>).
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ m2 ═══ -->
+<div id="module-m2" style="display:none">
+<button class="back-btn" onclick="closeMod()">&#8592; Back to Playbook</button>
+<div class="module-header">
+  <div class="module-eyebrow">Step 1</div>
+  <h1 class="module-h1">Record in Microsoft Teams</h1>
+  <p class="module-intro">How to screen record a process in Microsoft Teams with transcription — the foundation of every playbook tile.</p>
+</div>
+<div class="tab-bar" id="tabs-m2">
+  <button class="tab-btn active" onclick="switchTab('m2','overview')" id="tbtn-m2-overview">Overview</button>
+  <button class="tab-btn" onclick="switchTab('m2','steps')" id="tbtn-m2-steps">Steps</button>
+</div>
+
+<div class="tab-panel active" id="panel-m2-overview">
+  <div class="content-block">
+    <div class="block-label">Why Teams?</div>
+    <div class="block-body">Microsoft Teams automatically generates a <strong>transcript (.docx)</strong> alongside the screen recording. This transcript is what Claude reads to build all the written content in the tile — Overview, Steps, and Quiz. Better narration = better tile content.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Before you start recording</div>
+    <div class="block-body">
+      <ul>
+        <li>Know exactly what process you are recording — do a practice run if unsure</li>
+        <li>Close irrelevant browser tabs and applications</li>
+        <li>Use a quiet environment so transcription accuracy is high</li>
+        <li>Speak clearly and narrate every action as you perform it</li>
+        <li>Start by stating the tile number and title clearly (e.g. <em>"Hi, in this video I'm walking through 2.2.4 — how to monitor subscriptions monthly."</em>)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Ideal recording length</div>
+    <div class="block-body">Aim for <strong>3–10 minutes</strong> per tile. Too short means not enough content. Too long is hard to watch. For complex processes, split into Part 1 / Part 2.</div>
+  </div>
+  <div class="callout">
+    <strong>Critical:</strong> You must start <em>both</em> Recording AND Transcription. If transcription is not started, no .docx file will be generated and Claude cannot build the tile content.
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-m2-steps">
+  <div class="content-block">
+    <div class="block-label">How to Record with Transcription</div>
+    <div class="block-body"></div>
+  </div>
+  <div class="step-row"><div class="step-num">1</div><div class="step-body">Open <strong>Microsoft Teams</strong> → click <strong>Meet Now</strong> to start an instant meeting (no participants needed)</div></div>
+  <div class="step-row"><div class="step-num">2</div><div class="step-body">Click <strong>Share Screen</strong> → select the window or application you want to record</div></div>
+  <div class="step-row"><div class="step-num">3</div><div class="step-body">Click the <strong>&#8943; (three dots)</strong> in the meeting toolbar → select <strong>Start Recording</strong></div></div>
+  <div class="step-row"><div class="step-num">4</div><div class="step-body">Immediately after: click <strong>&#8943;</strong> again → select <strong>Start Transcription</strong></div></div>
+  <div class="step-row"><div class="step-num">5</div><div class="step-body">State the tile number and title, then narrate clearly as you perform the process — describe every click, every field, every decision</div></div>
+  <div class="step-row"><div class="step-num">6</div><div class="step-body">When finished: <strong>&#8943; → Stop Recording</strong>, then <strong>&#8943; → Stop Transcription</strong></div></div>
+  <div class="step-row"><div class="step-num">7</div><div class="step-body">End the meeting. Teams will process the files — this may take a few minutes</div></div>
+  <div class="step-row"><div class="step-num">8</div><div class="step-body">Files will appear in the <strong>Teams meeting chat</strong> as attachments, or in <strong>OneDrive → My Files → Recordings</strong></div></div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ m3 ═══ -->
+<div id="module-m3" style="display:none">
+<button class="back-btn" onclick="closeMod()">&#8592; Back to Playbook</button>
+<div class="module-header">
+  <div class="module-eyebrow">Step 2</div>
+  <h1 class="module-h1">Export the Video &amp; Transcript</h1>
+  <p class="module-intro">How to download the .mp4 recording and .docx transcript from Teams or OneDrive.</p>
+</div>
+<div class="tab-bar" id="tabs-m3">
+  <button class="tab-btn active" onclick="switchTab('m3','overview')" id="tbtn-m3-overview">Overview</button>
+  <button class="tab-btn" onclick="switchTab('m3','steps')" id="tbtn-m3-steps">Steps</button>
+</div>
+
+<div class="tab-panel active" id="panel-m3-overview">
+  <div class="content-block">
+    <div class="block-label">Two files you need</div>
+    <div class="block-body">
+      <strong>1. Video (.mp4)</strong> — played in the Watch tab of the tile<br><br>
+      <strong>2. Transcript (.docx)</strong> — uploaded to Claude so it can build all written content (Overview, Steps, Quiz)
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Where to find them</div>
+    <div class="block-body">
+      <strong>Option A:</strong> In the <strong>Teams meeting chat</strong> as attachments after the meeting ends<br><br>
+      <strong>Option B:</strong> In <strong>OneDrive → My Files → Recordings</strong>
+    </div>
+  </div>
+  <div class="callout">
+    <strong>Check transcript quality</strong> before uploading to Claude. Open the .docx and skim it — fix any obvious transcription errors (e.g. misheard technical terms, system names, amounts). This directly improves the quality of the tile content Claude generates.
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-m3-steps">
+  <div class="content-block">
+    <div class="block-label">Download from Teams Chat</div>
+    <div class="block-body"></div>
+  </div>
+  <div class="step-row"><div class="step-num">1</div><div class="step-body">Go to the <strong>Teams meeting chat</strong> where the recording was made</div></div>
+  <div class="step-row"><div class="step-num">2</div><div class="step-body">Hover over the recording attachment → click the <strong>download icon</strong> → save the <strong>.mp4</strong> file</div></div>
+  <div class="step-row"><div class="step-num">3</div><div class="step-body">Hover over the transcript attachment → click download → save the <strong>.docx</strong> file</div></div>
+  <div class="divider"></div>
+  <div class="content-block">
+    <div class="block-label">Alternative — Download from OneDrive</div>
+    <div class="block-body"></div>
+  </div>
+  <div class="step-row"><div class="step-num">1</div><div class="step-body">Open <strong>OneDrive → My Files → Recordings</strong></div></div>
+  <div class="step-row"><div class="step-num">2</div><div class="step-body">Find the recording — right-click → <strong>Download</strong> → save as <strong>.mp4</strong></div></div>
+  <div class="step-row"><div class="step-num">3</div><div class="step-body">Find the matching transcript (same name, .docx extension) → download</div></div>
+  <div class="callout green">Once downloaded, rename both files before saving to the playbook folder — see Step 3 for the naming format.</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ m4 ═══ -->
+<div id="module-m4" style="display:none">
+<button class="back-btn" onclick="closeMod()">&#8592; Back to Playbook</button>
+<div class="module-header">
+  <div class="module-eyebrow">Step 3</div>
+  <h1 class="module-h1">Name &amp; Save Your Files</h1>
+  <p class="module-intro">The correct naming format and folder location — essential for videos to play in the playbook.</p>
+</div>
+<div class="tab-bar" id="tabs-m4">
+  <button class="tab-btn active" onclick="switchTab('m4','overview')" id="tbtn-m4-overview">Overview</button>
+  <button class="tab-btn" onclick="switchTab('m4','steps')" id="tbtn-m4-steps">Steps</button>
+</div>
+
+<div class="tab-panel active" id="panel-m4-overview">
+  <div class="content-block">
+    <div class="block-label">Why naming matters</div>
+    <div class="block-body">The playbook HTML file references videos by their <strong>exact filename</strong>. If the filename doesn't match what Claude put in the HTML, the video will not load in the Watch tab.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Naming format</div>
+    <div class="block-body">
+      <code>[Section number] [Title].mp4</code><br>
+      <code>[Section number] [Title].docx</code><br><br>
+      <strong>Examples:</strong><br>
+      <code>2.2.4 How to monitor subscriptions monthly.mp4</code><br>
+      <code>2.2.4 How to monitor subscriptions monthly.docx</code><br><br>
+      <code>3.1.14 HR Consultations - Peninsula.mp4</code><br>
+      <code>3.1.14 HR Consultations - Peninsula.docx</code>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Folder location — save to your division's folder</div>
+    <div class="block-body">
+      Save your .mp4 and .docx into the folder for your division:<br><br>
+      <strong>Admin &amp; Ops</strong><br>
+      <code>Documents - Stand Up Recruitment HQ / ACCOUNTS &amp; ADMIN / PLAYBOOK VIDEOS / NEW Videos</code><br><br>
+      <strong>Pastoral Care</strong><br>
+      <code>Documents - Stand Up Recruitment HQ / PASTORAL CARE / Playbook</code><br><br>
+      <strong>EA</strong><br>
+      <code>Documents - Stand Up Recruitment HQ / EA / Playbook</code><br><br>
+      <strong>Recruitment</strong><br>
+      <code>Documents - Stand Up Recruitment HQ / RECRUITMENT / Playbook Videos</code><br><br>
+      <strong>Marketing</strong><br>
+      <code>Documents - Stand Up Recruitment HQ / MARKETING / Playbook</code>
+    </div>
+  </div>
+  <div class="callout">
+    <strong>Both files must share the exact same base name</strong> — only the extension differs (.mp4 vs .docx). Confirm the tile number and title with Nihanga before naming if creating a brand new tile.
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-m4-steps">
+  <div class="content-block">
+    <div class="block-label">Name &amp; Save Process</div>
+    <div class="block-body"></div>
+  </div>
+  <div class="step-row"><div class="step-num">1</div><div class="step-body">Confirm the correct <strong>tile number and title</strong>. For new tiles, check with Nihanga before naming — this avoids having to rename later.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div class="step-body">Rename the video file using the format: <code>[Number] [Title].mp4</code></div></div>
+  <div class="step-row"><div class="step-num">3</div><div class="step-body">Rename the transcript using the same base name: <code>[Number] [Title].docx</code></div></div>
+  <div class="step-row"><div class="step-num">4</div><div class="step-body">Save both files to:<br><strong>OneDrive → Documents - Stand Up Recruitment HQ → ACCOUNTS &amp; ADMIN → PLAYBOOK VIDEOS → NEW Videos</strong></div></div>
+  <div class="step-row"><div class="step-num">5</div><div class="step-body">Confirm both files are visible in the folder before prompting Claude. If OneDrive is still syncing, wait until the sync is complete.</div></div>
+  <div class="callout red"><strong>Do not use special characters</strong> other than spaces, hyphens, and dots in filenames. Brackets, slashes, or ampersands will break the video path.</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ m5 ═══ -->
+<div id="module-m5" style="display:none">
+<button class="back-btn" onclick="closeMod()">&#8592; Back to Playbook</button>
+<div class="module-header">
+  <div class="module-eyebrow">Step 4</div>
+  <h1 class="module-h1">Build the Tile with Claude</h1>
+  <p class="module-intro">How to give Claude the right instructions to create or update a playbook tile from your transcript.</p>
+</div>
+<div class="tab-bar" id="tabs-m5">
+  <button class="tab-btn active" onclick="switchTab('m5','overview')" id="tbtn-m5-overview">Overview</button>
+  <button class="tab-btn" onclick="switchTab('m5','steps')" id="tbtn-m5-steps">Steps</button>
+</div>
+
+<div class="tab-panel active" id="panel-m5-overview">
+  <div class="content-block">
+    <div class="block-label">What Claude does</div>
+    <div class="block-body">Claude reads your .docx transcript, extracts all key steps and information, and builds a fully formatted HTML module with all tabs — then injects it directly into the playbook HTML file and saves it. You don't need to touch any code.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Two scenarios</div>
+    <div class="block-body">
+      <strong>Updating an existing tile</strong> — the tile already exists with placeholder or old content. Claude replaces only that tile with new content from your transcript. Everything else stays exactly the same.<br><br>
+      <strong>Creating a brand new tile</strong> — the tile doesn't exist yet. Claude adds a new dashboard card in the right section AND adds the new module in the correct position in the HTML file.
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Module ID — what it is</div>
+    <div class="block-body">Every tile has an internal ID. It's simply the tile number with all dots removed:<br><br>
+      <code>2.2.4 → m224</code>&nbsp;&nbsp;&nbsp;<code>3.1.8 → m318</code>&nbsp;&nbsp;&nbsp;<code>3.1.14 → m3114</code>&nbsp;&nbsp;&nbsp;<code>2.2.21 → m2221</code><br><br>
+      Always tell Claude the module ID in your prompt so it knows which tile to work on.
+    </div>
+  </div>
+  <div class="callout">
+    <strong>Tip:</strong> Use the Cowork mode desktop app for all playbook updates — it gives Claude direct access to your OneDrive folder where the files live. See the Prompt Library tile for copy-paste prompts for every scenario.
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-m5-steps">
+  <div class="content-block">
+    <div class="block-label">The build process</div>
+    <div class="block-body"></div>
+  </div>
+  <div class="step-row"><div class="step-num">1</div><div class="step-body">Confirm both the <strong>.mp4</strong> and <strong>.docx</strong> are correctly named and saved in the playbook folder</div></div>
+  <div class="step-row"><div class="step-num">2</div><div class="step-body">Open <strong>Claude Cowork mode</strong> (desktop app) and make sure the playbook folder is connected</div></div>
+  <div class="step-row"><div class="step-num">3</div><div class="step-body">Go to the <strong>Prompt Library</strong> tile in this playbook and copy the right prompt for your scenario (update, create, delete, fix, etc.)</div></div>
+  <div class="step-row"><div class="step-num">4</div><div class="step-body">Fill in the tile number, title, and module ID in the prompt, then send it to Claude</div></div>
+  <div class="step-row"><div class="step-num">5</div><div class="step-body">Claude will: read the transcript → build the content → update the HTML file → confirm div balance (open tags = close tags)</div></div>
+  <div class="step-row"><div class="step-num">6</div><div class="step-body">Claude confirms it's done. Open the playbook HTML file, hard refresh (<code>Ctrl+Shift+R</code>), and review</div></div>
+  <div class="callout red">
+    <strong>If Claude reports unequal div counts</strong> (e.g. 450 open / 448 close) — do not accept the file. Ask Claude to investigate and fix the imbalance before saving.
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ m6 ═══ -->
+<div id="module-m6" style="display:none">
+<button class="back-btn" onclick="closeMod()">&#8592; Back to Playbook</button>
+<div class="module-header">
+  <div class="module-eyebrow">Step 5</div>
+  <h1 class="module-h1">Review &amp; Iterate</h1>
+  <p class="module-intro">How to test every part of a new or updated tile and request precise corrections from Claude.</p>
+</div>
+<div class="tab-bar" id="tabs-m6">
+  <button class="tab-btn active" onclick="switchTab('m6','overview')" id="tbtn-m6-overview">Overview</button>
+  <button class="tab-btn" onclick="switchTab('m6','steps')" id="tbtn-m6-steps">Steps</button>
+</div>
+
+<div class="tab-panel active" id="panel-m6-overview">
+  <div class="content-block">
+    <div class="block-label">Why review matters</div>
+    <div class="block-body">Claude builds content from auto-generated transcripts. Occasionally a step, figure, or detail needs a tweak — especially if something was shown on screen but not clearly stated in the recording. A quick review before sharing with the team prevents mistakes from being embedded in the playbook.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">What to check</div>
+    <div class="block-body">
+      <ul>
+        <li><strong>Dashboard card</strong> — title and description accurate and readable?</li>
+        <li><strong>Open tile</strong> — all tabs visible and clickable?</li>
+        <li><strong>Overview tab</strong> — key points accurate and clear?</li>
+        <li><strong>Watch tab</strong> — video plays without errors?</li>
+        <li><strong>Steps tab</strong> — all steps present, in correct order, with correct details?</li>
+        <li><strong>Quiz tab</strong> — answers register, Check Answers marks correctly?</li>
+        <li><strong>Back button</strong> — returns to dashboard?</li>
+        <li><strong>Search</strong> — tile appears when you search a keyword?</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout">
+    <strong>Hard refresh is required</strong> every time after Claude updates the file. Press <strong>Ctrl+Shift+R</strong> (Windows) or <strong>Cmd+Shift+R</strong> (Mac). The browser caches the old version and will show the wrong content without this.
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-m6-steps">
+  <div class="content-block">
+    <div class="block-label">Review Checklist</div>
+    <div class="block-body"></div>
+  </div>
+  <div class="step-row"><div class="step-num">1</div><div class="step-body">Open the playbook HTML file in <strong>Chrome</strong></div></div>
+  <div class="step-row"><div class="step-num">2</div><div class="step-body"><strong>Hard refresh:</strong> Ctrl+Shift+R (Windows) / Cmd+Shift+R (Mac)</div></div>
+  <div class="step-row"><div class="step-num">3</div><div class="step-body">Use the search bar to find the new tile — confirm it appears in the dashboard</div></div>
+  <div class="step-row"><div class="step-num">4</div><div class="step-body">Click the tile → confirm all tabs are present and clicking between them works</div></div>
+  <div class="step-row"><div class="step-num">5</div><div class="step-body"><strong>Watch tab:</strong> press play → video loads and plays from the correct file</div></div>
+  <div class="step-row"><div class="step-num">6</div><div class="step-body"><strong>Steps tab:</strong> read all steps → note anything missing, incorrect, or out of order</div></div>
+  <div class="step-row"><div class="step-num">7</div><div class="step-body"><strong>Quiz tab (if present):</strong> select answers → click Check Answers → confirms correct/incorrect</div></div>
+  <div class="step-row"><div class="step-num">8</div><div class="step-body">Click <strong>← Back</strong> → returns to dashboard</div></div>
+  <div class="divider"></div>
+  <div class="content-block">
+    <div class="block-label">Requesting a fix from Claude</div>
+    <div class="block-body"></div>
+  </div>
+  <div class="step-row"><div class="step-num">1</div><div class="step-body">Be specific — tell Claude <em>exactly</em> what needs changing. Include: tile name, tab name, step number or section, and the correct text. E.g. <em>"In tile 3.1.8 NPP Process, Steps tab, Step 4 — the amount should be $13,500 not $7,200."</em></div></div>
+  <div class="step-row"><div class="step-num">2</div><div class="step-body">Claude makes the targeted change and saves → hard refresh → re-check</div></div>
+  <div class="step-row"><div class="step-num">3</div><div class="step-body">Repeat until the tile is accurate. Claude creates a new backup before each change, so nothing is ever permanently lost.</div></div>
+  <div class="callout red"><strong>Never manually edit the HTML file</strong> unless you are experienced with HTML. Always ask Claude — even small manual edits can break div balance and cause the whole navigation to stop working.</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ m7 ═══ -->
+<div id="module-m7" style="display:none">
+<button class="back-btn" onclick="closeMod()">&#8592; Back to Playbook</button>
+<div class="module-header">
+  <div class="module-eyebrow">Prompt Library</div>
+  <h1 class="module-h1">All Claude Prompts</h1>
+  <p class="module-intro">Copy-paste prompts for every playbook change. Fill in the bracketed fields and send to Claude in Cowork mode.</p>
+</div>
+<div class="tab-bar" id="tabs-m7">
+  <button class="tab-btn active" onclick="switchTab('m7','overview')" id="tbtn-m7-overview">Reference</button>
+  <button class="tab-btn" onclick="switchTab('m7','steps')" id="tbtn-m7-steps">All Prompts</button>
+</div>
+
+<div class="tab-panel active" id="panel-m7-overview">
+  <div class="content-block">
+    <div class="block-label">Quick reference — Module ID format</div>
+    <div class="block-body">Remove all dots from the tile number to get the module ID:<br><br>
+      <code>2.2.4 → m224</code>&nbsp;&nbsp;&nbsp;
+      <code>3.1.8 → m318</code>&nbsp;&nbsp;&nbsp;
+      <code>3.1.14 → m3114</code>&nbsp;&nbsp;&nbsp;
+      <code>2.2.21 → m2221</code>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Playbook file name</div>
+    <div class="block-body"><code>admin-ops-playbook-final.html</code></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Folder paths — by division</div>
+    <div class="block-body">
+      <strong>Admin &amp; Ops</strong>&nbsp;&nbsp;<code>ACCOUNTS &amp; ADMIN / PLAYBOOK VIDEOS / NEW Videos</code><br>
+      <strong>Pastoral Care</strong>&nbsp;&nbsp;<code>PASTORAL CARE / Playbook</code><br>
+      <strong>EA</strong>&nbsp;&nbsp;<code>EA / Playbook</code><br>
+      <strong>Recruitment</strong>&nbsp;&nbsp;<code>RECRUITMENT / Playbook Videos</code><br>
+      <strong>Marketing</strong>&nbsp;&nbsp;<code>MARKETING / Playbook</code><br><br>
+      All paths are under: <code>Documents - Stand Up Recruitment HQ</code>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Prompts available in the All Prompts tab</div>
+    <div class="block-body">
+      <ul>
+        <li>1 — <strong>Update an existing tile</strong> (new video + transcript)</li>
+        <li>2 — <strong>Create a brand new tile</strong></li>
+        <li>3 — <strong>Remove one or more tiles</strong></li>
+        <li>4 — <strong>Fix a specific detail</strong> in a tile</li>
+        <li>5 — <strong>Add or update contact details</strong> in a tile</li>
+        <li>6 — <strong>Add or edit a callout / note</strong> in a tile</li>
+        <li>7 — <strong>Change a tile's title or dashboard description</strong></li>
+        <li>8 — <strong>Fix a video that is not playing</strong></li>
+        <li>9 — <strong>Restore from backup</strong> after something breaks</li>
+        <li>10 — <strong>Add multiple tiles at once</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout blue">
+    <strong>Always keep the phrase "no changes to structure or format"</strong> in your prompt. This tells Claude not to redesign or reformat anything — only update the specific tile content you've requested.
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-m7-steps">
+
+  <!-- PROMPT 1 -->
+  <div class="content-block">
+    <div class="block-label">Prompt 1 — Update an existing tile</div>
+    <div class="block-body">Use when you have a new video and transcript for a tile that already exists in the playbook.</div>
+  </div>
+  <div class="prompt-box">
+    <div class="prompt-label">Copy this prompt</div>
+    <div class="prompt-text">Hey Claude,
+
+I have recorded a new video and transcript for an existing playbook tile and I need you to update it.
+
+Tile number: [e.g. 2.2.4]
+Tile title: [e.g. How to monitor subscriptions monthly]
+Module ID: [e.g. m224]
+Playbook file: admin-ops-playbook-final.html
+
+Files are saved in the playbook folder (NEW Videos) with these exact filenames:
+- [e.g. 2.2.4 How to monitor subscriptions monthly.mp4]
+- [e.g. 2.2.4 How to monitor subscriptions monthly.docx]
+
+Please:
+1. Read the .docx transcript from the playbook folder
+2. Build full content for all tabs — Overview, Watch, Steps, and Quiz
+3. Replace the existing module (id="module-m224") in admin-ops-playbook-final.html
+4. Confirm the video src path is correct
+5. Confirm div balance (open = close) after saving
+
+No changes to structure or format.</div>
+  </div>
+
+  <!-- PROMPT 2 -->
+  <div class="content-block">
+    <div class="block-label">Prompt 2 — Create a brand new tile</div>
+    <div class="block-body">Use when you have a new process that doesn't have a tile yet. Confirm the tile number with Nihanga first.</div>
+  </div>
+  <div class="prompt-box">
+    <div class="prompt-label">Copy this prompt</div>
+    <div class="prompt-text">Hey Claude,
+
+I need to create a brand new tile in the admin-ops playbook.
+
+Tile number: [e.g. 3.1.15]
+Tile title: [e.g. Managing Employee Leave in Xero]
+Section: [e.g. 3.1 — People & HR]
+Module ID: [e.g. m3115]
+Position: Insert after tile [e.g. 3.1.14]
+
+Files saved in the playbook folder (NEW Videos) with these exact filenames:
+- [e.g. 3.1.15 Managing Employee Leave in Xero.mp4]
+- [e.g. 3.1.15 Managing Employee Leave in Xero.docx]
+
+Please:
+1. Read the .docx transcript from the playbook folder
+2. Build full content for all tabs — Overview, Watch, Steps, and Quiz
+3. Add a new dashboard card in the correct section (after the 3.1.14 card)
+4. Add the new module div after the last module in that section
+5. Confirm the video src path is correct
+6. Confirm div balance (open = close) after saving
+
+No changes to existing tiles, structure, or format.</div>
+  </div>
+
+  <!-- PROMPT 3 -->
+  <div class="content-block">
+    <div class="block-label">Prompt 3 — Remove one or more tiles</div>
+    <div class="block-body">Use when a process is no longer relevant or has been replaced.</div>
+  </div>
+  <div class="prompt-box">
+    <div class="prompt-label">Copy this prompt</div>
+    <div class="prompt-text">Hey Claude,
+
+Please remove the following tiles from admin-ops-playbook-final.html:
+
+- [e.g. 3.1.6 How to book training for NZ employees — Be Safe] (module ID: m316)
+- [e.g. 3.1.9 NPP Agreement renewal process] (module ID: m319)
+
+For each tile, remove both:
+1. The dashboard card (the clickable tile on the main screen)
+2. The module div (the content behind the tile)
+
+Please confirm div balance (open = close) after removing all tiles.
+
+No other changes to structure or format.</div>
+  </div>
+
+  <!-- PROMPT 4 -->
+  <div class="content-block">
+    <div class="block-label">Prompt 4 — Fix a specific detail in a tile</div>
+    <div class="block-body">Use when one piece of information needs correcting — a step, an amount, a name, a date, etc.</div>
+  </div>
+  <div class="prompt-box">
+    <div class="prompt-label">Copy this prompt</div>
+    <div class="prompt-text">Hey Claude,
+
+Please make a targeted fix in admin-ops-playbook-final.html.
+
+Tile: [e.g. 3.1.8 NPP Process] (module ID: m318)
+Tab: [e.g. Steps]
+Location: [e.g. Step 4]
+
+Current (incorrect) text:
+"[paste the wrong text here]"
+
+Replace with:
+"[paste the correct text here]"
+
+Please make only this change. Confirm div balance after saving.
+
+No other changes to structure or format.</div>
+  </div>
+
+  <!-- PROMPT 5 -->
+  <div class="content-block">
+    <div class="block-label">Prompt 5 — Add or update contact details in a tile</div>
+    <div class="block-body">Use when you want to add key contacts (phone numbers, email, names) to a tile's Overview tab.</div>
+  </div>
+  <div class="prompt-box">
+    <div class="prompt-label">Copy this prompt</div>
+    <div class="prompt-text">Hey Claude,
+
+Please add a Key Contacts block to the Overview tab of the following tile in admin-ops-playbook-final.html.
+
+Tile: [e.g. 3.1.14 HR Consultations - Peninsula] (module ID: m3114)
+Tab: Overview (add it at the bottom of the Overview tab content)
+
+Contacts to add:
+1. Name/Role: [e.g. Peninsula Hotline]
+   Phone: [e.g. 0800 675 700]
+   Note: [e.g. 24/7 HR & Employment Relations Advice]
+
+2. Name/Role: [e.g. Client Manager — Steve]
+   Phone: [e.g. 027 274 4456]
+   Note: [e.g. For account & contract queries]
+
+Use the same contact card style as other tiles — amber phone number, icon, border card style.
+
+Please add to Overview tab only. No other tabs to be changed.
+Confirm div balance after saving.
+
+No other changes to structure or format.</div>
+  </div>
+
+  <!-- PROMPT 6 -->
+  <div class="content-block">
+    <div class="block-label">Prompt 6 — Add or edit a callout / important note</div>
+    <div class="block-body">Use when you want to add a highlighted note or warning box to any tab of a tile.</div>
+  </div>
+  <div class="prompt-box">
+    <div class="prompt-label">Copy this prompt</div>
+    <div class="prompt-text">Hey Claude,
+
+Please add a callout box to the following tile in admin-ops-playbook-final.html.
+
+Tile: [e.g. 2.2.11 Credit an Invoice] (module ID: m2211)
+Tab: [e.g. Steps]
+Position: [e.g. After Step 3 / At the end of the tab]
+
+Callout type: [Choose one: standard (amber left border) / red (warning) / green (tip)]
+Callout text:
+"[e.g. Always check with Rowen before issuing a credit note for amounts over $5,000.]"
+
+Please add only this callout. Confirm div balance after saving.
+
+No other changes to structure or format.</div>
+  </div>
+
+  <!-- PROMPT 7 -->
+  <div class="content-block">
+    <div class="block-label">Prompt 7 — Change a tile's title or dashboard description</div>
+    <div class="block-body">Use when a tile needs to be renamed or its dashboard card description updated.</div>
+  </div>
+  <div class="prompt-box">
+    <div class="prompt-label">Copy this prompt</div>
+    <div class="prompt-text">Hey Claude,
+
+Please update the title and/or description for the following tile in admin-ops-playbook-final.html.
+
+Tile: [e.g. 3.2.11] (module ID: [e.g. m3211])
+
+Changes needed:
+- Dashboard card title: change from "[old title]" to "[new title]"
+- Dashboard card description: change from "[old description]" to "[new description]"
+- Module h1 heading (inside the tile): change from "[old title]" to "[new title]"
+- Module eyebrow (top label inside tile): [leave same / change to: new text]
+
+Please update all instances of the title to keep them consistent.
+Confirm div balance after saving.
+
+No other changes to structure or format.</div>
+  </div>
+
+  <!-- PROMPT 8 -->
+  <div class="content-block">
+    <div class="block-label">Prompt 8 — Fix a video that is not playing</div>
+    <div class="block-body">Use when the Watch tab shows a video player but nothing loads, or shows an error.</div>
+  </div>
+  <div class="prompt-box">
+    <div class="prompt-label">Copy this prompt</div>
+    <div class="prompt-text">Hey Claude,
+
+The video in the following tile is not playing in admin-ops-playbook-final.html.
+
+Tile: [e.g. 3.1.1 NZ Client Onboarding] (module ID: m311)
+
+The video file is saved as:
+[e.g. 3.1.1 NZ Client Onboarding.mp4]
+
+It is in the playbook folder:
+OneDrive → Documents - Stand Up Recruitment HQ → ACCOUNTS & ADMIN → PLAYBOOK VIDEOS → NEW Videos
+
+Please:
+1. Check the current video src path in the module's Watch tab
+2. Correct the filename/path to match the exact filename above
+3. Make sure spaces are correctly URL-encoded in the path
+4. Save the file and confirm the fix
+
+No other changes to structure or format.</div>
+  </div>
+
+  <!-- PROMPT 9 -->
+  <div class="content-block">
+    <div class="block-label">Prompt 9 — Restore from backup after something breaks</div>
+    <div class="block-body">Use if the playbook looks broken or navigation stops working after a recent update.</div>
+  </div>
+  <div class="prompt-box">
+    <div class="prompt-label">Copy this prompt</div>
+    <div class="prompt-text">Hey Claude,
+
+Something has broken in admin-ops-playbook-final.html after the last update. Please restore from the most recent backup.
+
+Please:
+1. Check what backup files are available in the NEW Videos folder (they will be named like admin-ops-playbook-final.bak9.html or similar)
+2. Identify the most recent backup that was created before the issue
+3. Restore the playbook from that backup (copy backup content → save as admin-ops-playbook-final.html)
+4. Confirm div balance on the restored file
+
+Let me know which backup you restored from and what the div count is.</div>
+  </div>
+
+  <!-- PROMPT 10 -->
+  <div class="content-block">
+    <div class="block-label">Prompt 10 — Add multiple tiles at once</div>
+    <div class="block-body">Use when you have recorded several videos in one session and want to add all tiles in one go.</div>
+  </div>
+  <div class="prompt-box">
+    <div class="prompt-label">Copy this prompt</div>
+    <div class="prompt-text">Hey Claude,
+
+I have recorded multiple new videos and I need you to create/update the following tiles in admin-ops-playbook-final.html:
+
+Tile 1:
+- Number & title: [e.g. 3.1.1 NZ Client Onboarding]
+- Module ID: m311
+- Action: [Update existing / Create new]
+- Files: 3.1.1 NZ Client Onboarding.mp4 / .docx
+
+Tile 2:
+- Number & title: [e.g. 3.1.4 Drug Testing]
+- Module ID: m314
+- Action: [Update existing / Create new]
+- Files: 3.1.4 Drug Testing.mp4 / .docx
+
+Tile 3:
+- Number & title: [e.g. 3.1.8 NPP Process]
+- Module ID: m318
+- Action: [Update existing / Create new]
+- Files: 3.1.8 NPP Process.mp4 / .docx
+
+All files are saved in the NEW Videos playbook folder with the exact filenames listed above.
+
+Please:
+1. Process each tile one at a time — read transcript, build content, inject into HTML
+2. Create a backup before starting
+3. Confirm div balance after all tiles are done
+
+No changes to structure or format.</div>
+  </div>
+
+</div>
+</div>
+
+</div><!-- /module-view -->
+
+<script>
+var currentModule = null;
+var moduleStack = [];
+
+function openModule(id) {
+  if (currentModule) moduleStack.push(currentModule);
+  if (currentModule) { var el = document.getElementById('module-' + currentModule); if (el) el.style.display = 'none'; }
+  currentModule = id;
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('module-view').style.display = 'block';
+  var m = document.getElementById('module-' + id);
+  if (m) m.style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function closeMod() {
+  if (moduleStack.length > 0) {
+    var prev = moduleStack.pop();
+    if (currentModule) { var el = document.getElementById('module-' + currentModule); if (el) el.style.display = 'none'; }
+    currentModule = prev;
+    var m = document.getElementById('module-' + prev);
+    if (m) m.style.display = 'block';
+    window.scrollTo(0, 0);
+    return;
+  }
+  if (currentModule) { var el = document.getElementById('module-' + currentModule); if (el) el.style.display = 'none'; }
+  currentModule = null;
+  moduleStack = [];
+  document.getElementById('module-view').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function switchTab(mid, name) {
+  var bar = document.getElementById('tabs-' + mid);
+  if (!bar) return;
+  bar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  var btn = document.getElementById('tbtn-' + mid + '-' + name);
+  if (btn) btn.classList.add('active');
+  var mod = document.getElementById('module-' + mid);
+  if (!mod) return;
+  mod.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  var pan = document.getElementById('panel-' + mid + '-' + name);
+  if (pan) pan.classList.add('active');
+}
+
+function filterCards(q) {
+  q = q.toLowerCase();
+  document.querySelectorAll('.module-card').forEach(function(c) {
+    var s = (c.getAttribute('data-search') || '') + ' ' + (c.querySelector('.card-title') ? c.querySelector('.card-title').textContent : '');
+    c.style.display = s.toLowerCase().indexOf(q) > -1 ? '' : 'none';
+  });
+}
+
+function toggleTheme() {
+  var b = document.body;
+  var btn = document.getElementById('theme-toggle');
+  if (b.getAttribute('data-theme') === 'light') {
+    b.removeAttribute('data-theme');
+    btn.textContent = '☀ Light';
+  } else {
+    b.setAttribute('data-theme', 'light');
+    btn.textContent = '🌙 Dark';
+  }
+}
+
+// Wire up card clicks
+document.querySelectorAll('.module-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    openModule(this.getAttribute('data-mid'));
+  });
+});
+</script>
+</body>
+</html>
