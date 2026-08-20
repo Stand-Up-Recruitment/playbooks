@@ -9,11 +9,13 @@
   --bg:#0f1117;--surface:#1a1d2e;--surface2:#21253a;--surface3:#2a2f47;
   --text:#e8eaf0;--text2:#9ba3bf;--muted:#6b7280;
   --border:#2d3352;--border2:#374066;
+  --accent:#c8f04a;
 }
 [data-theme=light]{
   --bg:#f4f5f7;--surface:#ffffff;--surface2:#f0f1f5;--surface3:#e5e7ef;
   --text:#1a1d2e;--text2:#4b5563;--muted:#9ca3af;
   --border:#d1d5db;--border2:#c4c9d8;
+  --accent:#4a6600;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
@@ -22,45 +24,47 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .top-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .logo-wrap{display:flex;flex-direction:column}
 .logo-main{font-weight:800;font-size:15px;color:var(--text);line-height:1.2}
-.logo-main span{color:#f59e0b}
+.logo-main span{color:var(--accent)}
 .logo-sub{font-size:10px;color:var(--muted);letter-spacing:.04em;margin-top:1px}
 .top-right{display:flex;align-items:center;gap:12px}
 .theme-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text2);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:12px;transition:background .15s}
+.top-back-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text2);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:12px;transition:border-color .15s,color .15s;display:flex;align-items:center;gap:6px}
+.top-back-btn:hover{border-color:var(--accent);color:var(--text)}
 #search-bar{width:280px;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 14px;border-radius:8px;font-size:13px;outline:none;transition:border-color .15s}
-#search-bar:focus{border-color:#f59e0b}
+#search-bar:focus{border-color:var(--accent)}
 
 /* DASHBOARD */
 #dashboard{padding:36px 24px;max-width:1100px;margin:0 auto}
 .hero{margin-bottom:36px}
-.hero-eyebrow{font-size:11px;font-weight:700;color:#f59e0b;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.hero-eyebrow{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
 .hero h1{font-size:30px;font-weight:800;color:var(--text);margin-bottom:10px;line-height:1.2}
 .hero p{color:var(--text2);font-size:14px;line-height:1.65;max-width:600px}
 .section-label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin:28px 0 12px}
 .module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .module-card{cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;transition:transform .15s,box-shadow .15s,border-color .15s}
 .module-card:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.35);border-color:var(--border2)}
-.card-eyebrow{font-size:11px;font-weight:700;color:#f59e0b;letter-spacing:.05em;margin-bottom:5px}
+.card-eyebrow{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.05em;margin-bottom:5px}
 .card-title{font-weight:700;font-size:14px;color:var(--text);line-height:1.35;margin-bottom:6px}
 .card-desc{font-size:12px;color:var(--text2);line-height:1.5}
 
 /* MODULE VIEW */
 #module-view{display:none;padding:32px 24px;max-width:900px;margin:0 auto}
 .back-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text2);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;margin-bottom:24px;transition:border-color .15s}
-.back-btn:hover{border-color:#f59e0b;color:var(--text)}
+.back-btn:hover{border-color:var(--accent);color:var(--text)}
 .module-header{margin-bottom:26px}
-.module-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;color:#f59e0b}
+.module-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;color:var(--accent)}
 .module-h1{font-size:26px;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.25}
 .module-intro{color:var(--text2);font-size:14px;line-height:1.65}
 
 /* TABS */
 .tab-bar{display:flex;gap:0;margin-bottom:22px;border-bottom:1px solid var(--border)}
 .tab-btn{background:none;border:none;color:var(--muted);padding:10px 18px;cursor:pointer;font-size:13px;font-weight:600;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s}
-.tab-btn.active{color:#f59e0b;border-bottom-color:#f59e0b}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
 .tab-panel{display:none}.tab-panel.active{display:block}
 
 /* CONTENT BLOCKS */
 .content-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
-.block-label{font-size:11px;font-weight:700;color:#f59e0b;letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px}
+.block-label{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px}
 .block-body{font-size:13px;color:var(--text2);line-height:1.75}
 .block-body ul{margin:6px 0 0 18px}
 .block-body li{margin-bottom:5px}
@@ -68,12 +72,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 /* STEPS */
 .step-row{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start}
-.step-num{min-width:30px;height:30px;background:#f59e0b;color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0;margin-top:1px}
+.step-num{min-width:30px;height:30px;background:var(--accent);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0;margin-top:1px}
 .step-body{font-size:13px;color:var(--text2);line-height:1.7;padding-top:4px}
 .step-body strong{color:var(--text)}
 
 /* CALLOUTS */
-.callout{background:var(--surface2);border:1px solid var(--border2);border-left:3px solid #f59e0b;border-radius:8px;padding:13px 16px;font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:14px}
+.callout{background:var(--surface2);border:1px solid var(--border2);border-left:3px solid var(--accent);border-radius:8px;padding:13px 16px;font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:14px}
 .callout strong{color:var(--text)}
 .callout.red{border-left-color:#ef4444}
 .callout.green{border-left-color:#10b981}
@@ -81,8 +85,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 /* PROMPT BOXES */
 .prompt-box{background:var(--surface3);border:1px solid var(--border2);border-radius:8px;padding:16px;margin-bottom:16px;position:relative}
-.prompt-label{font-size:10px;font-weight:700;color:#f59e0b;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
-.copy-btn{background:#f59e0b;color:#000;border:none;border-radius:5px;padding:3px 10px;font-size:10px;font-weight:700;cursor:pointer}
+.prompt-label{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.copy-btn{background:var(--accent);color:#000;border:none;border-radius:5px;padding:3px 10px;font-size:10px;font-weight:700;cursor:pointer}
 .prompt-text{font-family:'Courier New',monospace;font-size:12px;color:var(--text);white-space:pre-wrap;line-height:1.6}
 
 /* DIVIDER */
@@ -94,9 +98,12 @@ code{font-family:'Courier New',monospace;background:var(--surface3);padding:2px 
 <body>
 
 <div class="top-bar">
-  <div class="logo-wrap">
-    <div class="logo-main">Stand Up <span>Recruitment</span></div>
-    <div class="logo-sub">How to Create a Playbook</div>
+  <div style="display:flex;align-items:center;gap:16px">
+    <button class="top-back-btn" onclick="history.back()" title="Back to previous page">&#8592; Back</button>
+    <div class="logo-wrap">
+      <div class="logo-main">Stand Up <span>Recruitment</span></div>
+      <div class="logo-sub">How to Create a Playbook</div>
+    </div>
   </div>
   <div class="top-right">
     <input id="search-bar" type="text" placeholder="&#128269; Search modules..." oninput="filterCards(this.value)">

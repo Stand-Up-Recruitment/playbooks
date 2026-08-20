@@ -166,7 +166,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <div class="video-body">
       <div style="margin-bottom:6px"><span class="video-badge">TRAINING VIDEO</span></div>
       <div class="video-title">System Overview — How It All Fits Together</div>
-      <div class="video-desc">Start here before anything else. Walks through the full pipeline: JobAdder → Airtable → Xero → DocuSeal, and how the check-in calendar drives everything downstream.</div>
+      <div class="video-desc">Start here before anything else. Covers JobAdder → Airtable and how the check-in calendar drives everything downstream on the candidate/pastoral care side. Xero and DocuSeal invoicing sit with the Accounts team — not covered here.</div>
       <a href="#" class="video-link">[Paste Loom link here]</a>
     </div>
   </div>
@@ -222,6 +222,9 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <table class="info-table" style="margin-bottom:20px">
     <tr><th>Check-in</th><th>Calculated from</th><th>Weight</th></tr>
     <tr><td>Pre-arrival — TFN/Super/Medicare forms pointer (candidate only)</td><td>Same day as Email 1/2A</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Email</span></td></tr>
+    <tr><td>Candidate Check-In — CAN-WK1–6, automated (candidate only)</td><td>Every 7 days from signing until start date</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
+    <tr><td>Candidate Final Confirmation — CAN-48H, automated (candidate only)</td><td>Flight date − 2 days</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
+    <tr><td>2 weeks / 1 week before start date — CAN-2WK / CAN-1WK, optional calls (candidate only)</td><td>Start date − 14 / 7 days</td><td><span style="background:#f1eef8;color:#5b3a99;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Optional / Call</span></td></tr>
     <tr><td>Day 1 arrival email (automated, candidate only)</td><td>Flight arrival date</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
     <tr><td>Week 1 text check-in</td><td>Start date + 5 days</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
     <tr><td>Week 2 text check-in</td><td>Start date + 14 days</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
@@ -518,7 +521,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div class="note-blue" style="margin-bottom:14px">Logistics failures before the candidate lands — separate from the concern/conflict scenarios above, but they follow the same rule: something time-critical gets Les's visibility fast, not at the next scheduled catch-up.</div>
   <table class="info-table">
     <tr><th>Scenario</th><th>Protocol</th></tr>
-    <tr><td>Candidate pulls out</td><td>Log in JobAdder and notify recruiter same day. Recruiter notifies client within 24 hours. Escalate to Les same day regardless of reason — revenue impact needs his visibility immediately. Les determines refund/replacement per contract terms with client.</td></tr>
+    <tr><td>Candidate pulls out</td><td>Log in JobAdder and notify recruiter same day. Recruiter notifies client within 24 hours. Escalate to Les same day regardless of reason — revenue impact needs his visibility immediately. Les determines refund/replacement per contract terms with client. <strong>Preventive:</strong> the Pre-Departure Waiting Period Check-In Cadence (Tab 5) exists to catch wavering before it gets here — any hesitation flagged in those check-ins triggers this same protocol early.</td></tr>
     <tr><td>Airport transfer no-show</td><td>Time-critical — candidate calls you directly, not email. Book emergency taxi/rideshare on the spot, reimburse the candidate. Log the incident with the transfer provider same day. Second no-show ever from the same provider → escalate to Les to review the provider relationship.</td></tr>
     <tr><td>Accommodation falls through</td><td>Pre-departure (host backs out before flight): re-run AI-ACCOM immediately. No alternative found within 48 hours of flight → escalate to Les. Post-arrival (host backs out after landing): urgent, same-day — book a temporary hotel while re-searching, escalate to Les immediately given cost and candidate welfare.</td></tr>
     <tr><td>Flights not booked by deadline</td><td>Day 5, no flights booked → call the candidate directly, understand the blocker. Day 7 (deadline), still not booked → escalate to recruiter — this is now a client-relationship risk. Recruiter unresolved within 24 hours → escalate to Les.</td></tr>
@@ -1004,6 +1007,17 @@ AFTER — within 24 hours:
 </ol></div></div>
   </div>
 
+  <div class="sec-hdr" style="background:#334e68">Pre-Departure Waiting Period Check-In Cadence</div>
+  <div class="note-blue">Applies to every candidate, regardless of gap length between signing and start date. The gap between the Documents Call and start date can run 4–6 weeks with zero contact otherwise — this cadence exists because that silence is exactly where candidates quietly go cold and pull out at the last minute. If the gap is short, steps naturally compress; still run each one.</div>
+  <table class="info-table" style="margin-bottom:14px">
+    <tr><th>Timing</th><th>Channel</th><th>Purpose</th></tr>
+    <tr><td>Immediately after signing</td><td>Documents Call</td><td>Full onboarding walkthrough (already covered above)</td></tr>
+    <tr><td><strong>Candidate Check-In</strong> — automated, every 7 days from signing to start date</td><td>Text</td><td>Light touch, warm and personal — how they're feeling, anything on their mind. Rotates through 6 variants so it never feels generic — see CAN-WK1–6 below.</td></tr>
+    <tr><td><strong>Candidate Final Confirmation</strong> — automated, 2 days before flight</td><td>Text</td><td>Final warm check-in before they fly — see CAN-48H below.</td></tr>
+  </table>
+  <div class="note-blue" style="margin-bottom:20px"><strong style="color:#1c4fc4">Optional, not automated:</strong> CAN-2WK (2 weeks before start date) and CAN-1WK (1 week before start date) are deeper calls, not texts — use them at your discretion for candidates who need more support, or where the weekly texts have flagged something worth following up live.</div>
+  <div class="note-red" style="margin-bottom:20px"><strong style="color:#5e1a14">Any hesitation flagged at any of these check-ins</strong> → trigger the Candidate Pulls Out protocol (Escalation Protocol tab) immediately. Catching wavering early is a completely different conversation than catching it 48 hours out — don't wait for it to become final.</div>
+
   <div class="sec-hdr" style="background:#1f4e79">Pathway A — Self-Managed</div>
   <div class="note-blue">Candidate arranges their own flights and accommodation. SUR is not involved in logistics after the gate.</div>
   <div class="step-row"><div class="step-num">A1</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Flights must be booked within week 1 of placement</span><span class="badge badge-sys">JobAdder update required</span></div><div class="step-body">3 weeks before start date. Communicate this on the Documents Call. Not booked after week 1 → follow up immediately. Still not booked at 2 weeks out → escalate to recruiter same day.<br><br><strong style="color:#334e68">When candidate confirms flights are booked:</strong> JobAdder → Placements → [Candidate] → update Status to <strong style="color:#157347">Contract Live</strong>.</div></div></div>
@@ -1367,6 +1381,59 @@ If concern about content: "Let's go through it together right now. What part did
 CLOSE: "Perfect — once that is signed you are fully locked in and good to go. Really excited for you."
 
 AFTER: Confirm TOB signed in JobAdder before end of day. Still unsigned → escalate to Les same day.</div>
+  </div>
+
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-WK1–6</span><span class="badge badge-manual">Text · Weekly, automated off signing date</span></div><div class="script-title">Weekly Waiting-Period Check-In — Rotating Set</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>Six variants, one per week — rotate in order so it never reads as the same generic text twice. If the gap is longer than 6 weeks, keep repeating from CAN-WK6's tone rather than looping back to CAN-WK1 — "just signed" framing won't fit anymore by then.
+
+CAN-WK1 (Week 1): "Hey [Name], now that it's actually official — how are you feeling? Signing is a big moment, and it's completely normal for it to feel like a lot all at once. I'm here for anything on your mind, big or small, just reply or call whenever."
+
+CAN-WK2 (Week 2): "Hey [Name], how's everything tracking on your end? Curious how things are going with work, home, all the pieces coming together. No pressure to have it all sorted — just want to make sure you're not carrying anything alone."
+
+CAN-WK3 (Week 3): "Hey [Name], checking in again — how are you doing? You're about halfway through the wait now, and this stretch can be the hardest — everything feels far off but also coming fast. If anything's weighing on you, I'd rather hear it now than have you sit with it."
+
+CAN-WK4 (Week 4): "Hey [Name], how's it all feeling now that things are starting to ramp up? Flights, packing, saying your goodbyes — it can hit differently once it's actually close. However you're feeling about it is completely normal, just wanted you to know I'm here."
+
+CAN-WK5 (Week 5): "Hey [Name], getting close now! How are you feeling about it all? Excited, nervous, a bit of both is completely normal at this point. Anything you want to talk through before it's go-time, I'm here — no question too small."
+
+CAN-WK6 (Week 6, final week): "Hey [Name], this is it — final stretch. How are you holding up? Whatever's going through your mind right now, good or nervous or both, is exactly how it should feel. If there's anything at all on your mind before you go, don't sit on it, just call me."
+
+AFTER: Log any response in JobAdder. Anything other than a genuinely settled response → note it and watch for a pattern across the next check-in.</div>
+  </div>
+
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-2WK</span><span class="badge badge-call">Optional Call · ~2 weeks before start date</span></div><div class="script-title">Two Weeks Out — Deeper Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>OPEN: "Hey [Name], we're two weeks out from your start date now — wanted to have a proper check-in before things ramp up."
+
+ASK:
+1. "How are you feeling about everything at this point?"
+2. "Where are you at with visa, documents, notice period — anything still outstanding?"
+3. "How's everything at home — lease, family — anything that still needs sorting?"
+
+CLOSE: "Perfect — one more check-in the week before you fly to lock in logistics."
+
+AFTER: Log in JobAdder. Any hesitation flagged → trigger the Candidate Pulls Out protocol (Escalation Protocol tab) immediately, don't wait for it to become final.</div>
+  </div>
+
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-1WK</span><span class="badge badge-call">Optional Call · ~1 week before start date</span></div><div class="script-title">One Week Out — Final Logistics Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>OPEN: "Hey [Name], one week to go! Let's lock in the final details."
+
+ASK: Confirm flights are booked and details are correct. Confirm accommodation sorted (Pathway B) or transfer plan (Pathway A). Confirm PPE and documents packed.
+
+Then directly: "Are you still feeling good about this — all set to fly?"
+
+CLOSE: "Great — quick final check 48 hours out just to confirm everything's still on track."
+
+AFTER: Log in JobAdder. Any hesitation → escalate immediately per the Candidate Pulls Out protocol.</div>
+  </div>
+
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-48H</span><span class="badge badge-manual">Text · Automated, 2 days before flight</span></div><div class="script-title">Candidate Final Confirmation</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>"Hey [Name], you're almost there! Just wanted to check in ahead of your flight on [Flight Date] — how are you feeling? If there's anything on your mind, or anything at all you need before you go, please don't hesitate to reach out. We can't wait to see you land."
+
+AFTER: No reply within a few hours → call directly. Still unreachable → follow the No-Response Escalation Ladder (Escalation Protocol tab).</div>
   </div>
 
   <div class="sec-hdr">AI Prompts — Candidate Pre-Departure</div>
@@ -1832,7 +1899,7 @@ AFTER: Complete both pre-calls (candidate + client) before sending Teams invite.
     <div class="video-body">
       <div style="margin-bottom:6px"><span class="video-badge">TAB 1 · OVERVIEW</span></div>
       <div class="video-title">System Overview — How It All Fits Together</div>
-      <div class="video-desc">Start here. The full pipeline: JobAdder → Airtable → Xero → DocuSeal, and how the check-in calendar drives everything.</div>
+      <div class="video-desc">Start here. Covers JobAdder → Airtable and the check-in calendar, on the candidate/pastoral care side. Xero and DocuSeal invoicing sit with Accounts — not covered here.</div>
       <a href="#" class="video-link">[Paste Loom link here]</a>
     </div>
   </div>
