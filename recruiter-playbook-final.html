@@ -1459,6 +1459,27 @@ window.__quizData['m121']=[
   </div>
 
   <div class="content-block">
+    <div class="block-title">If the Candidate Says They're Not Ready Yet</div>
+    <div class="block-body">
+      <p>(e.g. not looking to move for 3, 6, or 12 months) Don't treat this as a dead end. The goal is to keep them warm so they come back through us when they are ready, instead of quietly self-applying for a job in Australia later on.</p>
+      <ul>
+        <li>Acknowledge it — this is common, no pressure</li>
+        <li>Reiterate the Grand Slam offer — a job sorted before they even leave New Zealand, free temporary accommodation, and a free flight</li>
+        <li>Lock in a rough month — get something specific, not "sometime next year"</li>
+        <li>Confirm you'll check back in around that time, and send your details via text so they can reach you sooner if their plans change</li>
+      </ul>
+      <p style="margin-top:8px">See the Script Coaching Guide for the full word-for-word script and tone notes on this one.</p>
+      <div class="callout warn" style="margin-top:8px"><strong>Backend — every time, no exceptions:</strong>
+        <ul style="margin-top:6px">
+          <li>Update JobAdder notes with the timeframe given, target month, and any key objections or interests raised</li>
+          <li>Tag the candidate Hot List and log the date they'll be available again in the notes</li>
+          <li>Send the Not Ready Yet — Follow-Up SMS template within 5 minutes of ending the call</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
     <div class="block-title">Channel 2 — Cold Email Outreach</div>
     <div class="block-body">
       <p>Cold email outreach is now done directly in JobAdder — no more Excel or Word mail merge.</p>
@@ -1528,15 +1549,18 @@ window.__quizData['m121']=[
           <tr><td>New / Unscreened</td><td>The default status for all new candidates. Do not leave it here after you've called them.</td></tr>
           <tr><td>In Process</td><td>The candidate is being progressed in any job card in JobAdder.</td></tr>
           <tr><td>Screened - Active</td><td>You (or the AI) have spoken to the candidate and logged notes, but there is no current job that matches them. Use this status when a candidate doesn't qualify for the specific role you called about but is otherwise a fine candidate for future roles.</td></tr>
-          <tr><td>Unsuccessful - Internal</td><td>The candidate failed the screening call or the internal interview — not a serious issue, just not the right fit this time.</td></tr>
-          <tr><td>Unsuccessful - Client</td><td>The candidate failed the client interview.</td></tr>
+          <tr><td>Unsuccessful - Internal</td><td>The candidate failed the screening call or the internal interview, and the reason suggests they are not a good fit for future roles either.</td></tr>
+          <tr><td>Unsuccessful - Client</td><td>The candidate failed the client interview, and the reason suggests they are not a good fit for future roles either.</td></tr>
+          <tr><td>Hot List</td><td>The candidate completed an internal interview but there is no current job that matches their exact experience - or they failed a client interview for a reason that doesn't rule them out for future clients - or they've told you they're not ready to move yet but have given a target timeframe. These are strong candidates worth revisiting when the right role or the right time comes up. If it's a "not ready yet" candidate, log the date they'll be available again in the notes.</td></tr>
           <tr><td>Placed / Currently Employed</td><td>Self explanatory — the candidate has been placed.</td></tr>
           <tr><td>Do Not Use / Blacklisted</td><td>For serious cases only — rude, unreliable, or someone we do not want to work with again.</td></tr>
           <tr><td>Called</td><td>The candidate did not answer your call.</td></tr>
+          <tr><td>Unresponsive</td><td>The candidate has been called 3 times - by the AI bot, a recruiter, or a combination of both - with no answer.</td></tr>
         </tbody>
       </table>
       <div class="callout warn" style="margin-top:10px"><strong>Never click Reject on a job card.</strong> Rejecting a candidate directly from a job card automatically changes their overall status to Do Not Use / Blacklisted — even if they were simply not right for that specific role. This is a system quirk, not something we want. Always go to the candidate's profile and manually update their Status field instead. If a candidate is a duplicate across multiple job cards and you have moved them forward on one, just leave the other applications as they are — no action needed on those.</div>
       <p style="margin-top:10px"><strong>If a candidate doesn't qualify for any current job, do not leave their status as New / Unscreened.</strong> Update it to Screened - Active and log your notes. This tells the AI bot and other recruiters that this candidate has already been spoken to, so they are considered correctly for future roles rather than called again from scratch.</p>
+      <div class="callout info" style="margin-top:10px">If there are no New / Unscreened candidates for the trade you're sourcing, filter for candidates tagged Hot List instead. These are strong candidates who have already been through an internal interview but didn't have a matching job at the time, or who missed out on a previous client but could still be a good fit elsewhere. Read through their notes to check if they fit the role you're currently sourcing for before calling.</div>
     </div>
   </div>
 
@@ -1548,10 +1572,14 @@ window.__quizData['m121']=[
         <tbody>
           <tr><td>Qualified</td><td>Book internal interview — confirm time before hanging up</td><td>In Process</td></tr>
           <tr><td>Unqualified — no current job matches</td><td>Log note with reason</td><td>Screened - Active</td></tr>
-          <tr><td>Unqualified — failed screening call</td><td>Log note with reason</td><td>Unsuccessful - Internal</td></tr>
+          <tr><td>Unqualified — failed screening call, not suited to future roles</td><td>Log note with reason</td><td>Unsuccessful - Internal</td></tr>
           <tr><td>Unqualified — serious issue, do not call again</td><td>Log note with reason</td><td>Do Not Use / Blacklisted</td></tr>
           <tr><td>Pipeline</td><td>Log note with timeframe. Revisit when closer.</td><td>Screened - Active</td></tr>
-          <tr><td>No answer</td><td>Log note. Send no answer SMS template.</td><td>Called</td></tr>
+          <tr><td>Completed internal interview, no matching job right now</td><td>Log note with details</td><td>Hot List</td></tr>
+          <tr><td>Failed client interview, but could suit a future client</td><td>Log note with client feedback</td><td>Hot List</td></tr>
+          <tr><td>Failed client interview, not suited to future roles</td><td>Log note with client feedback</td><td>Unsuccessful - Client</td></tr>
+          <tr><td>No answer — 1st or 2nd attempt</td><td>Log note. Send no answer SMS template.</td><td>Called</td></tr>
+          <tr><td>No answer — 3rd attempt</td><td>Log note.</td><td>Unresponsive</td></tr>
         </tbody>
       </table>
       <div class="callout info" style="margin-top:8px">Set the status directly on the candidate's profile — never by rejecting a job card. Rejecting a job card auto-sets Do Not Use / Blacklisted regardless of the reason.</div>
@@ -1575,7 +1603,7 @@ window.__quizData['m121']=[
       </table>
       <p style="margin-top:8px"><strong>If qualified — book the internal interview before you hang up:</strong> Confirm day and time on the call. Aim for same day or next day.</p>
       <p><strong>If not suitable:</strong> "Awesome, thanks so much for chatting with me today [Name]. We will be in touch if anything comes up that matches your experience. Have a good one!"</p>
-      <p><strong>If no answer — send the SMS template:</strong> "Hi [Name], it's Ian from Stand Up Recruitment. You showed interest in moving to Australia for work. I've got some exciting opportunities for [Trade] I think you'd want to hear about. When are you available?"</p>
+      <p><strong>If no answer — send the SMS template:</strong> "Hi [Name], it's Ian from Stand Up Recruitment. You showed interest in moving to Australia for work. I've got some exciting opportunities for [Trade] offering high pay and free temporary accommodation. Would you be interested in hearing more?"</p>
     </div>
   </div>
 </div>
@@ -1793,12 +1821,34 @@ window.__quizData['m122']=[
   </div>
 
   <div class="content-block">
+    <div class="block-title">If the Candidate Says They're Not Ready Yet</div>
+    <div class="block-body">
+      <p>(e.g. not looking to move for 3, 6, or 12 months) Don't treat this as a dead end. The goal is to keep them warm so they come back through us when they are ready.</p>
+      <ul>
+        <li>Acknowledge it — this is common, no pressure</li>
+        <li>Reiterate the Grand Slam offer — a job sorted before they even leave New Zealand, free temporary accommodation, and a free flight</li>
+        <li>Lock in a rough month — get something specific, not "sometime next year"</li>
+        <li>Confirm you'll check back in around that time, and send your details via text so they can reach you sooner if their plans change</li>
+      </ul>
+      <p style="margin-top:8px">See the Script Coaching Guide for the full word-for-word script and tone notes on this one.</p>
+      <div class="callout warn" style="margin-top:8px"><strong>Backend — every time, no exceptions:</strong>
+        <ul style="margin-top:6px">
+          <li>Update JobAdder notes with the timeframe given, target month, and any key objections or interests raised</li>
+          <li>Tag the candidate Hot List and log the date they'll be available again in the notes</li>
+          <li>Send the Not Ready Yet — Follow-Up SMS template within 5 minutes of ending the call</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
     <div class="block-label">Common Mistakes</div>
     <div class="block-body">
       <div class="callout danger">Ending the call with a qualified candidate without booking the internal interview — lock it in before you hang up</div>
       <div class="callout danger" style="margin-top:8px">Going too deep on experience — this is a quick qualification check, not a full interview</div>
       <div class="callout danger" style="margin-top:8px">Forgetting to log a note and update the candidate's status after every call</div>
       <div class="callout danger" style="margin-top:8px">Clicking Reject on a job card instead of updating the Status field — rejecting a job card auto-sets Do Not Use / Blacklisted regardless of the reason</div>
+      <div class="callout danger" style="margin-top:8px">Letting a "not ready yet" candidate go cold — always lock in a target month, tag Hot List, and send the follow-up text within 5 minutes</div>
     </div>
   </div>
 
@@ -1832,7 +1882,7 @@ window.__quizData['m122']=[
       <div><div class="email-template-label">SMS — Sourcer to Candidate</div><div class="email-template-subject">No Answer SMS</div></div>
       <button class="copy-btn" id="copy-m131a" onclick="copyTemplate('m131a')">Copy</button>
     </div>
-    <div class="email-template-body" id="tmpl-m131a">Hi [Name], it's Ian from Stand Up Recruitment. You showed interest in moving to Australia for work. I've got some exciting opportunities for [Trade] I think you'd want to hear about. When are you available?</div>
+    <div class="email-template-body" id="tmpl-m131a">Hi [Name], it's Ian from Stand Up Recruitment. You showed interest in moving to Australia for work. I've got some exciting opportunities for [Trade] offering high pay and free temporary accommodation. Would you be interested in hearing more?</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
@@ -1915,6 +1965,13 @@ Stand Up Recruitment</div>
       <button class="copy-btn" id="copy-m131g" onclick="copyTemplate('m131g')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m131g">Hey [Name], just a reminder we're locked in for [TIME] today! Got some really exciting roles in Australia to walk you through, and these ones come with free flights and temp accommodation sorted for you. Worth a quick 15 mins. Still good to go?</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS - Sourcer / Placer to Candidate</div><div class="email-template-subject">Not Ready Yet - Follow-Up SMS</div></div>
+      <button class="copy-btn" id="copy-m131h" onclick="copyTemplate('m131h')">Copy</button>
+    </div>
+    <div class="email-template-body" id="tmpl-m131h">Hey [Name], [Recruiter] from Stand Up Recruitment here. Good chatting today. We'll touch base around [month] but call/text me anytime if your plans move earlier - we'll get your job sorted before you leave NZ, plus accommodation and flights. Save my number and we'll talk soon.</div>
   </div>
 </div>
 
@@ -2016,6 +2073,29 @@ Stand Up Recruitment</div>
       <p style="margin-top:8px">This is a practical question but it still needs warmth. You're not checking a box, you're trying to understand where they're actually at in their head - some people have already made peace with moving, others are still testing the idea out loud for the first time.</p>
       <div class="callout info" style="margin-top:8px"><strong>You:</strong> And when are you looking to make the move?</div>
       <p style="margin-top:8px">Acknowledge whatever they say before moving on - don't just note it down and jump to the next question. A simple "Okay, that's good to know" or "Right, that gives us something to work with" keeps it feeling like a conversation rather than data collection.</p>
+    </div>
+  </div><div class="content-block">
+    <div class="block-title">Sub-Script - If They Say They're Not Ready Yet</div>
+    <div class="block-body">
+      <div class="callout warn"><strong>This is not a dead end. It's a future booking you're locking in right now.</strong></div>
+      <p style="margin-top:8px">If the candidate says any version of "not looking to go for 3 months, 6 months, next year" - this is where you use it. The whole point is to make sure that when they are ready, they come back through Stand Up Recruitment instead of quietly self-applying for a job in Australia somewhere else. You do this by making the Grand Slam offer sound too good to walk away from - because it is. Why would they not want a job sorted before they even leave New Zealand? Why would they not want free temporary accommodation? Why would they not want a free flight? That's your job to make them realise.</p>
+      <p style="margin-top:8px"><strong>1. Acknowledge</strong></p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Hey, yeah, no worries - a lot of people we talk to aren't ready right now.</div>
+      <p style="margin-top:8px"><strong>2. Reiterate the Grand Slam Offer</strong></p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> But the reason people do end up coming back through us, [Name], is because we sort you out with a job offer before you even leave New Zealand. That's going to save you a lot of stress, time, and wasted money when you get over there - because otherwise you're waiting on callbacks, going for interviews, it's just extra stress you don't want, right?</div>
+      <p style="margin-top:8px">(Pause. Get the micro-yes.)</p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> On top of that, we'll get you temporary free accommodation if you need it. If you've already got somewhere to stay, that's all good too. And we'll sort your free flight over there.</div>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Even though you're not ready yet, does that sound like something worth locking in with us for when you are?</div>
+      <p style="margin-top:8px">(Pause. Let them answer.) These pauses matter more than they look on the page. The first one gets a small agreement before you build on it further - don't rush past it into the next sentence. The second one is the actual close - let it sit. If you fill the silence yourself, you're answering for them instead of letting them commit.</p>
+      <p style="margin-top:8px"><strong>3. Lock a Rough Date</strong></p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Great, so roughly what month are we talking here?</div>
+      <p style="margin-top:8px">Get a real month - not "sometime next year." A vague timeframe gives them no reason to actually call back, and gives you nothing to nurture them against later.</p>
+      <p style="margin-top:8px"><strong>4. Confirm and Set Expectation</strong></p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Yep, sweet, I'll pencil that in and give you a call back as we get closer. I'm gonna send you over a text message with my details, so if anything changes, you can get a hold of me before that. All good?</div>
+      <p style="margin-top:8px">Wait for a verbal yes before ending the call - don't just assume it and move on.</p>
+      <p style="margin-top:8px"><strong>5. Close</strong></p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Perfect, talk soon [Name].</div>
+      <p style="margin-top:8px">This is a scaffold, not a script to recite word for word. Use what works, drop what doesn't, and make it sound like you. See the playbook for the backend steps that must happen after every one of these calls - JobAdder notes, the Hot List tag, and the follow-up text.</p>
     </div>
   </div><div class="content-block">
     <div class="block-title">5. Trade-Specific Qualifications - Confirm the Non-Negotiables</div>
@@ -2502,6 +2582,13 @@ Once we have everything, we're good to go. If you're having any trouble uploadin
 [Placer Name]
 Stand Up Recruitment</div>
   </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS - Sourcer / Placer to Candidate</div><div class="email-template-subject">Not Ready Yet - Follow-Up SMS</div></div>
+      <button class="copy-btn" id="copy-m141j" onclick="copyTemplate('m141j')">Copy</button>
+    </div>
+    <div class="email-template-body" id="tmpl-m141j">Hey [Name], [Recruiter] from Stand Up Recruitment here. Good chatting today. We'll touch base around [month] but call/text me anytime if your plans move earlier - we'll get your job sorted before you leave NZ, plus accommodation and flights. Save my number and we'll talk soon.</div>
+  </div>
 </div>
 
 <div class="tab-panel" id="panel-m141-Quiz">
@@ -2576,6 +2663,17 @@ Stand Up Recruitment</div>
     </div>
   </div><div class="content-block">
     <div class="block-label">Internal Interview</div>
+    <div class="block-title">How to Use the Tailored Interview Guide Without Sounding Like a Checklist</div>
+    <div class="block-body">
+      <div class="callout warn"><strong>The guide is a reference document, not a script order.</strong></div>
+      <p style="margin-top:8px">Before you get into the actual flow of this interview, it's worth understanding how to use the Tailored Interview Guide properly. When recruiters first started using it, the most common feedback was that it felt overwhelming - a whole document full of questions can easily start to feel like a form you're working through rather than a conversation. Here's how to use it so that doesn't happen.</p>
+      <p style="margin-top:8px"><strong>1. Never read the questions in the order they're generated.</strong> The guide gives you a Client Intent Summary plus three categories of questions - Commitment, Role and Location, and Technical. That's a reference for you to draw from, not a script to read top to bottom. Read the whole thing before the call, understand why each question is there, then weave the questions in naturally wherever they actually fit based on what the candidate is saying.</p>
+      <p style="margin-top:8px"><strong>2. Anchor questions to something the candidate just said.</strong> This is the same technique that runs through every script in this guide - instead of announcing the next question on your list, connect it to what they just told you. For example, instead of "Next question: are you comfortable with the remote location?" try "You mentioned you grew up rurally - how do you think that'll translate to a site like this one, pretty out of the way?" Same information, completely different feel.</p>
+      <p style="margin-top:8px"><strong>3. Use the Client Intent Summary as context, not something you announce.</strong> Never say out loud "the client mentioned reliability concerns so I need to ask you about commitment." That's transparently box-ticking and the candidate will feel it. The summary should only inform which questions you reach for and how you frame them - it stays invisible to the candidate.</p>
+      <p style="margin-top:8px"><strong>4. Only ask what you don't already know.</strong> If Part 0 - Uncover the Real Why already revealed genuine motivation and commitment, you don't need to mechanically work through every commitment question on the list. Adapt based on what's already surfaced. The guide is there to make sure nothing important gets missed, not to force you through every line regardless of what's already been covered.</p>
+      <p style="margin-top:8px">If you're using more than one Tailored Interview Guide in the same call because the candidate could fit multiple jobs, this matters even more - you're holding two or three documents worth of questions in your head at once, and the conversation will only feel natural if you're pulling from them selectively rather than working through them like a checklist.</p>
+    </div>
+  </div><div class="content-block">
     <div class="block-title">0. Uncover the Real Why - Before Anything Else</div>
     <div class="block-body">
       <p>Les is firm on this one. Every candidate gets asked why they want to move, and every candidate gets 2 to 3 follow-up questions to actually get to what's driving it. This happens first, before you sell anything, before you reconfirm anything - it's the foundation the rest of the conversation sits on.</p>
@@ -2652,6 +2750,28 @@ Stand Up Recruitment</div>
       <p style="margin-top:8px">If anything disqualifying comes up, close the call professionally before continuing.</p>
     </div>
   </div><div class="content-block">
+    <div class="block-title">Sub-Script - If They Say They're Not Ready Yet</div>
+    <div class="block-body">
+      <div class="callout warn"><strong>This is not a dead end. It's a future booking you're locking in right now.</strong></div>
+      <p style="margin-top:8px">If the candidate says any version of "not looking to go for 3 months, 6 months, next year" - this is where you use it. The whole point is to make sure that when they are ready, they come back through Stand Up Recruitment instead of quietly self-applying for a job in Australia somewhere else. You do this by making the Grand Slam offer sound too good to walk away from - because it is.</p>
+      <p style="margin-top:8px"><strong>1. Acknowledge</strong></p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Hey, yeah, no worries - a lot of people we talk to aren't ready right now.</div>
+      <p style="margin-top:8px"><strong>2. Reiterate the Grand Slam Offer</strong></p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> But the reason people do end up coming back through us, [Name], is because we sort you out with a job offer before you even leave New Zealand. That's going to save you a lot of stress, time, and wasted money when you get over there - because otherwise you're waiting on callbacks, going for interviews, it's just extra stress you don't want, right?</div>
+      <p style="margin-top:8px">(Pause. Get the micro-yes.)</p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> On top of that, we'll get you temporary free accommodation if you need it. If you've already got somewhere to stay, that's all good too. And we'll sort your free flight over there.</div>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Even though you're not ready yet, does that sound like something worth locking in with us for when you are?</div>
+      <p style="margin-top:8px">(Pause. Let them answer.) Let both pauses do their job. The first gets a small agreement to build on. The second is the actual close - don't fill the silence for them.</p>
+      <p style="margin-top:8px"><strong>3. Lock a Rough Date</strong></p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Great, so roughly what month are we talking here?</div>
+      <p style="margin-top:8px">Get a real month, not "sometime next year." A vague timeframe gives them no reason to call back and gives you nothing to nurture them against.</p>
+      <p style="margin-top:8px"><strong>4. Confirm and Set Expectation</strong></p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Yep, sweet, I'll pencil that in and give you a call back as we get closer. I'm gonna send you over a text message with my details, so if anything changes, you can get a hold of me before that. All good?</div>
+      <p style="margin-top:8px"><strong>5. Close</strong></p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Perfect, talk soon [Name].</div>
+      <p style="margin-top:8px">See the playbook for the backend steps that must happen after this call - JobAdder notes, the Hot List tag, and the follow-up text.</p>
+    </div>
+  </div><div class="content-block">
     <div class="block-title">4. Financial Readiness Discussion</div>
     <div class="block-body">
       <div class="callout warn"><strong>This exists to protect the candidate, not to interrogate them. Frame it that way.</strong></div>
@@ -2669,10 +2789,10 @@ Stand Up Recruitment</div>
     <div class="block-title">5. Work History and Technical Assessment</div>
     <div class="block-body">
       <div class="callout warn"><strong>Let them talk about their actual work - this is where their real expertise comes through.</strong></div>
-      <p style="margin-top:8px">This is often where candidates relax the most, because they're talking about something they know well and are proud of. Let them run with it, and use your prepared technical questions to go deeper rather than firing them one after another like a quiz.</p>
+      <p style="margin-top:8px">This is often where candidates relax the most, because they're talking about something they know well and are proud of. Let them run with it, and use this as your opening to weave in the Commitment Questions, Role and Location Questions, and Technical Questions from your Tailored Interview Guide - going deeper rather than firing them one after another like a quiz.</p>
       <div class="callout info" style="margin-top:8px"><strong>You:</strong> Talk me through your experience - what have you been working on recently? Walk me through the last role or two.</div>
-      <p style="margin-top:8px">Listen carefully, ask clarifying questions, and note any gaps against the job brief must-haves. Then ask your 2 to 3 prepared technical questions.</p>
-      <div class="callout info" style="margin-top:8px"><strong>You:</strong> What motivates you to work? What gets you out of bed in the morning?</div>
+      <p style="margin-top:8px">Listen carefully, ask clarifying questions, and note any gaps against the job brief must-haves. As they talk, look for natural openings to bring in your Commitment and Role and Location Questions if you haven't covered them yet - then move into the 3 Technical Questions from your Tailored Interview Guide.</p>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> What's the thing that's going to keep you going on the tough days out there?</div>
     </div>
   </div><div class="content-block">
     <div class="block-title">6. Close</div>
@@ -2690,9 +2810,9 @@ Stand Up Recruitment</div>
         <div class="step-row"><div class="step-num">2</div><div>AI sourced: reconfirm citizenship, trade, keenness, timeline first. Manually sourced: lead with the opportunity</div></div>
         <div class="step-row"><div class="step-num">3</div><div>Run through the opportunity - tailored to their real why</div></div>
         <div class="step-row"><div class="step-num">4</div><div>Confirm they're keen before going deeper</div></div>
-        <div class="step-row"><div class="step-num">5</div><div>Screening questions - practical but warm</div></div>
+        <div class="step-row"><div class="step-num">5</div><div>Screening questions, plus Commitment Questions and Role and Location Questions from the Tailored Interview Guide - woven in naturally, not read as a list</div></div>
         <div class="step-row"><div class="step-num">6</div><div>Financial readiness - pause before asking if it aligns</div></div>
-        <div class="step-row"><div class="step-num">7</div><div>Work history and technical assessment - let them talk</div></div>
+        <div class="step-row"><div class="step-num">7</div><div>Work history and technical assessment - let them talk, then the 3 Technical Questions from the Tailored Interview Guide</div></div>
         <div class="step-row"><div class="step-num">8</div><div>Close - cool off period, referees, police check, all in one sweep</div></div>
       </div>
     </div>
@@ -4204,7 +4324,7 @@ Stand Up Recruitment</div>
 <div class="step-row"><div class="step-num">3</div><div>Run the day 2 follow-up call</div></div>
 <div class="step-row"><div class="step-num">4</div><div>Send the offer via DocuSeal once the candidate confirms</div></div>
 <div class="step-row"><div class="step-num">5</div><div>Follow up until the signed contract and ID are returned</div></div>
-<div class="step-row"><div class="step-num">6</div><div>Place the candidate in JobAdder — confirm start date, calculate the correct fee, select relocation status, upload signed offer</div></div>
+<div class="step-row"><div class="step-num">6</div><div>Place the candidate in JobAdder — confirm start date, calculate the correct fee, select relocation status or replacement, upload signed offer</div></div>
 <div class="step-row"><div class="step-num">7</div><div>Send the handover emails to both client and candidate with admin CC'd</div></div>
 <div class="step-row"><div class="step-num">8</div><div>Confirm placement automations have triggered in JobAdder</div></div>
 </div>
@@ -4602,7 +4722,7 @@ window.__quizData['m251']=[
       <div><div class="email-template-label">SMS - Sourcer to Candidate</div><div class="email-template-subject">No Answer SMS</div></div>
       <button class="copy-btn" id="copy-m301-01" onclick="copyTemplate('m301-01')">Copy</button>
     </div>
-    <div class="email-template-body" id="tmpl-m301-01">Hi [Name], it's Ian from Stand Up Recruitment. You showed interest in moving to Australia for work. I've got some exciting opportunities for [Trade] I think you'd want to hear about. When are you available?</div>
+    <div class="email-template-body" id="tmpl-m301-01">Hi [Name], it's Ian from Stand Up Recruitment. You showed interest in moving to Australia for work. I've got some exciting opportunities for [Trade] offering high pay and free temporary accommodation. Would you be interested in hearing more?</div>
   </div>
 
   <div class="content-block">
@@ -4683,6 +4803,20 @@ Stand Up Recruitment</div>
       <button class="copy-btn" id="copy-m301-06" onclick="copyTemplate('m301-06')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-06">Hi [Name], quick reminder - locked in for [TIME] today. Got some solid AUS roles to walk you through. Worth 15 mins. Still good?</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS - Sourcer to Candidate</div><div class="email-template-subject">Meeting Day Reminder SMS - Grand Slam Roles</div></div>
+      <button class="copy-btn" id="copy-m301-06a" onclick="copyTemplate('m301-06a')">Copy</button>
+    </div>
+    <div class="email-template-body" id="tmpl-m301-06a">Hey [Name], just a reminder we're locked in for [TIME] today! Got some really exciting roles in Australia to walk you through, and these ones come with free flights and temp accommodation sorted for you. Worth a quick 15 mins. Still good to go?</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS - Sourcer / Placer to Candidate</div><div class="email-template-subject">Not Ready Yet - Follow-Up SMS</div></div>
+      <button class="copy-btn" id="copy-m301-06b" onclick="copyTemplate('m301-06b')">Copy</button>
+    </div>
+    <div class="email-template-body" id="tmpl-m301-06b">Hey [Name], [Recruiter] from Stand Up Recruitment here. Good chatting today. We'll touch base around [month] but call/text me anytime if your plans move earlier - we'll get your job sorted before you leave NZ, plus accommodation and flights. Save my number and we'll talk soon.</div>
   </div>
 
   <div class="content-block">
