@@ -163,7 +163,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 
   <div class="video-card" style="display:block">
     <video controls preload="metadata" style="width:100%;display:block;background:#000;max-height:420px">
-      <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/System_Overview_Video.mp4" type="video/mp4">
+      <source src="System_Overview_Video.mp4" type="video/mp4">
       Your browser doesn't support embedded video — the file is System_Overview_Video.mp4 in this folder.
     </video>
     <div class="video-body">
@@ -220,7 +220,8 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div class="note-blue" style="margin-bottom:20px"><strong style="color:#1c4fc4">Escalation Contacts, the Payment-Gap Rule, Post-Departure Escalation Protocol, and Guarantee Claim Process now live in their own tab</strong> — see Tab 2 · Escalation Protocol.</div>
 
   <div class="sec-hdr">Check-In Calendar Schedule</div>
-  <div class="note-blue">Every check-in is pinned to a specific week offset. Rachel enters arrival date in Airtable → n8n auto-creates Day 1 event in Outlook. All other events are created from start date using the offsets below.<br><br><strong style="color:#1c4fc4">Touchpoint weight:</strong> Day 1, Week 1, Week 2, Week 6, Week 11 = <span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text or email</span> — quick, casual, no call required. &nbsp; Week 4, Week 8, Week 14.5, Week 15 = <span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Call or email</span> — these four protect the 4-month guarantee period.</div>
+  <div class="note-blue">Every check-in is pinned to a specific week offset. Rachel enters arrival date in Airtable → n8n auto-creates Day 1 event in Outlook. All other events are created from start date using the offsets below.<br><br><strong style="color:#1c4fc4">Touchpoint weight:</strong> Day 1, Week 11 = <span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text or email</span> — quick, casual, no call required. &nbsp; Week 1 (Day 5), Week 2, Week 6 = <span style="background:#e4ebf3;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Call First</span> — 2 call attempts same day (~11am / ~3pm), text only if both go unanswered. &nbsp; Week 4, Week 8, Week 14.5, Week 15 = <span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Call or email</span> — these four protect the 4-month guarantee period.</div>
+  <div class="note-red"><strong style="color:#5e1a14">Any bad result, at any check-in = urgent, same day, no exceptions.</strong> Run the Concern Resolution Protocol (Tab 2) immediately — don't wait for the next scheduled touchpoint. A bad reply by text is never resolved in writing — reply asking for a quick call and get on the phone that day. <strong style="color:#5e1a14">The call itself takes precedence over CRM/Airtable logging — make the call first, log it after, not the other way round.</strong></div>
   <table class="info-table" style="margin-bottom:20px">
     <tr><th>Check-in</th><th>Calculated from</th><th>Weight</th></tr>
     <tr><td>Pre-arrival — TFN/Super/Medicare forms pointer (candidate only)</td><td>Same day as Email 1/2A</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Email</span></td></tr>
@@ -228,10 +229,11 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <tr><td>Candidate Final Confirmation — CAN-48H, automated (candidate only)</td><td>Flight date − 2 days</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
     <tr><td>2 weeks / 1 week before start date — CAN-2WK / CAN-1WK, optional calls (candidate only)</td><td>Start date − 14 / 7 days</td><td><span style="background:#f1eef8;color:#5b3a99;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Optional / Call</span></td></tr>
     <tr><td>Day 1 arrival email (automated, candidate only)</td><td>Flight arrival date</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
-    <tr><td>Week 1 text check-in</td><td>Start date + 5 days</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
-    <tr><td>Week 2 text check-in</td><td>Start date + 14 days</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
+    <tr><td>Week 1 check-in — call first, text fallback</td><td>Start date + 5 days</td><td><span style="background:#e4ebf3;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Call First</span></td></tr>
+    <tr><td>Week 2 check-in — call first, text fallback</td><td>Start date + 14 days</td><td><span style="background:#e4ebf3;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Call First</span></td></tr>
+    <tr><td style="color:#856404">Week 3 follow-up call — conditional</td><td>Only if Week 2 flagged a negative from either side</td><td><span style="background:#fff3cd;color:#856404;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Conditional / Call</span></td></tr>
     <tr><td style="font-weight:700;color:#c0392b">Week 4 review</td><td>Start date + 28 days</td><td><span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Deep call</span></td></tr>
-    <tr><td>Week 6 text check-in</td><td>Start date + 42 days</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text</span></td></tr>
+    <tr><td>Week 6 check-in — call first, text fallback</td><td>Start date + 42 days</td><td><span style="background:#e4ebf3;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Call First</span></td></tr>
     <tr><td style="font-weight:700;color:#c0392b">Week 8 review</td><td>Start date + 56 days</td><td><span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Deep call</span></td></tr>
     <tr><td>Week 11 light check-in email</td><td>Start date + 77 days</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Email</span></td></tr>
     <tr><td>Week 14.5 prep call</td><td>Start date + 101 days</td><td><span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Call</span></td></tr>
@@ -263,9 +265,10 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <div class="check-item"><input type="checkbox"><span>RC handover received, logged in JobAdder, automated calendar confirmed Day 1 → Week 15</span></div>
     <div class="check-section-title">9 Touchpoints — Day 1 to Week 15</div>
     <div class="check-item"><input type="checkbox"><span>Day 1 — arrival email confirmed, AU number received (candidate only)</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 1 &amp; Week 2 — text check-ins sent both sides, logged in JobAdder</span></div>
+    <div class="check-item"><input type="checkbox"><span>Week 1 &amp; Week 2 — call check-ins both sides (2 attempts, text fallback), logged in JobAdder</span></div>
+    <div class="check-item"><input type="checkbox"><span>Week 3 — conditional follow-up call, only if Week 2 flagged a negative from either side</span></div>
     <div class="check-item"><input type="checkbox"><span>Week 4 &amp; Week 8 — questionnaire + deep call both sides, health score logged, score ≤3 → escalate to Les within 24 hrs</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 6 — text check-in both sides</span></div>
+    <div class="check-item"><input type="checkbox"><span>Week 6 — call check-in both sides (2 attempts, text fallback)</span></div>
     <div class="check-item"><input type="checkbox"><span>Week 11 — light check-in email both sides</span></div>
     <div class="check-item"><input type="checkbox"><span>Week 14.5 — pre-calls done both sides, Week 15 format decided</span></div>
     <div class="check-item"><input type="checkbox"><span>Week 15 — three-way review held, Google review + referral ask done, summaries sent within 24 hrs</span></div>
@@ -312,28 +315,31 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 <path d="M1025.0 164 L1025.0 186.0 L536.0 186.0 L536.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="386" y="204" width="300" height="46" rx="8" fill="#0F6E56" stroke="none"/>
 <text x="536.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Concern resolution</text>
-<rect x="386" y="258" width="300" height="217" rx="6" fill="#F3FAF7" stroke="#1D9E75" stroke-width="1"/>
-<rect x="386" y="258" width="5" height="217" fill="#1D9E75"/>
+<rect x="386" y="258" width="300" height="240" rx="6" fill="#F3FAF7" stroke="#1D9E75" stroke-width="1"/>
+<rect x="386" y="258" width="5" height="240" fill="#1D9E75"/>
 <text x="412.0" y="282.0" font-size="13" fill="#2C2C2A">Week 1 stays light -&gt; call, no pickup =</text>
 <text x="412.0" y="303.0" font-size="13" fill="#2C2C2A">email</text>
-<text x="412.0" y="326.0" font-size="13" fill="#2C2C2A">Week 2+: call, ask good first, then bad</text>
-<text x="412.0" y="349.0" font-size="13" fill="#2C2C2A">Concern raised -&gt; contact the other</text>
-<text x="412.0" y="370.0" font-size="13" fill="#2C2C2A">party</text>
-<text x="412.0" y="393.0" font-size="13" fill="#2C2C2A">Relay their response back, make them</text>
-<text x="412.0" y="414.0" font-size="13" fill="#2C2C2A">feel heard</text>
-<text x="412.0" y="437.0" font-size="13" fill="#2C2C2A">Close the loop -&gt; written summary, CC</text>
-<text x="412.0" y="458.0" font-size="13" fill="#2C2C2A">both sides</text>
+<text x="412.0" y="326.0" font-size="13" fill="#2C2C2A">Client bad -&gt; call candidate same day;</text>
+<text x="412.0" y="349.0" font-size="13" fill="#2C2C2A">candidate bad -&gt; give it a week first</text>
+<text x="412.0" y="370.0" font-size="13" fill="#2C2C2A">Concern raised -&gt; contact other party,</text>
+<text x="412.0" y="393.0" font-size="13" fill="#2C2C2A">put solution back on them</text>
+<text x="412.0" y="414.0" font-size="13" fill="#2C2C2A">Close loop -&gt; written summary +</text>
+<text x="412.0" y="437.0" font-size="13" fill="#2C2C2A">praise both sides, CC'd</text>
+<text x="412.0" y="458.0" font-size="13" fill="#2C2C2A">Repeat bad -&gt; 3-way call/site visit;</text>
+<text x="412.0" y="481.0" font-size="13" fill="#2C2C2A">2 bad running -&gt; escalate to Les</text>
 <path d="M1025.0 164 L1025.0 186.0 L862.0 186.0 L862.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="712" y="204" width="300" height="46" rx="8" fill="#0F6E56" stroke="none"/>
 <text x="862.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Communication channel</text>
-<rect x="712" y="258" width="300" height="154" rx="6" fill="#F3FAF7" stroke="#1D9E75" stroke-width="1"/>
-<rect x="712" y="258" width="5" height="154" fill="#1D9E75"/>
-<text x="738.0" y="282.0" font-size="13" fill="#2C2C2A">Light check-in (Wk 1,2,6,11) -&gt; text or</text>
-<text x="738.0" y="303.0" font-size="13" fill="#2C2C2A">email</text>
-<text x="738.0" y="326.0" font-size="13" fill="#2C2C2A">Deep review (Wk 4,8,14.5,15) -&gt; call or</text>
-<text x="738.0" y="347.0" font-size="13" fill="#2C2C2A">Teams</text>
-<text x="738.0" y="370.0" font-size="13" fill="#2C2C2A">Concern arrives by text/email -&gt; always</text>
-<text x="738.0" y="391.0" font-size="13" fill="#2C2C2A">call back</text>
+<rect x="712" y="258" width="300" height="194" rx="6" fill="#F3FAF7" stroke="#1D9E75" stroke-width="1"/>
+<rect x="712" y="258" width="5" height="194" fill="#1D9E75"/>
+<text x="738.0" y="282.0" font-size="13" fill="#2C2C2A">Call-first (Wk 1,2,6) -&gt; 2 call</text>
+<text x="738.0" y="303.0" font-size="13" fill="#2C2C2A">attempts, text fallback only</text>
+<text x="738.0" y="326.0" font-size="13" fill="#2C2C2A">Light check-in (Wk 11) -&gt; text or</text>
+<text x="738.0" y="347.0" font-size="13" fill="#2C2C2A">email</text>
+<text x="738.0" y="370.0" font-size="13" fill="#2C2C2A">Deep review (Wk 4,8,14.5,15) -&gt;</text>
+<text x="738.0" y="391.0" font-size="13" fill="#2C2C2A">call or Teams</text>
+<text x="738.0" y="414.0" font-size="13" fill="#2C2C2A">Concern arrives by text/email -&gt;</text>
+<text x="738.0" y="435.0" font-size="13" fill="#2C2C2A">always call back</text>
 <path d="M1025.0 164 L1025.0 186.0 L1188.0 186.0 L1188.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="1038" y="204" width="300" height="46" rx="8" fill="#0F6E56" stroke="none"/>
 <text x="1188.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">No-response ladder</text>
@@ -400,8 +406,8 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 <path d="M2906.0 164 L2906.0 186.0 L2906.0 186.0 L2906.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="2756" y="204" width="300" height="46" rx="8" fill="#993C1D" stroke="none"/>
 <text x="2906.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Standard escalation</text>
-<rect x="2756" y="258" width="300" height="175" rx="6" fill="#FCF1EC" stroke="#D85A30" stroke-width="1"/>
-<rect x="2756" y="258" width="5" height="175" fill="#D85A30"/>
+<rect x="2756" y="258" width="300" height="220" rx="6" fill="#FCF1EC" stroke="#D85A30" stroke-width="1"/>
+<rect x="2756" y="258" width="5" height="220" fill="#D85A30"/>
 <text x="2782.0" y="282.0" font-size="13" fill="#2C2C2A">No response, either side -&gt; Les directly</text>
 <text x="2782.0" y="305.0" font-size="13" fill="#2C2C2A">Health score declining trend -&gt; flag to</text>
 <text x="2782.0" y="326.0" font-size="13" fill="#2C2C2A">Les early</text>
@@ -409,6 +415,8 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 <text x="2782.0" y="370.0" font-size="13" fill="#2C2C2A">payment-gap</text>
 <text x="2782.0" y="393.0" font-size="13" fill="#2C2C2A">Issue surfaces live in Week 15 review -&gt;</text>
 <text x="2782.0" y="414.0" font-size="13" fill="#2C2C2A">pause, escalate same day</text>
+<text x="2782.0" y="437.0" font-size="13" fill="#2C2C2A">Repeat bad result, either side, 2 in a</text>
+<text x="2782.0" y="458.0" font-size="13" fill="#2C2C2A">row -&gt; escalate to Les</text>
 <path d="M2906.0 164 L2906.0 186.0 L3232.0 186.0 L3232.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="3082" y="204" width="300" height="46" rx="8" fill="#993C1D" stroke="none"/>
 <text x="3232.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Guarantee claim process</text>
@@ -438,19 +446,39 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <tr><td>3</td><td>No further action needed — continue standard cadence.</td></tr>
   </table>
 
+  <div class="sec-hdr">First-Response Rule — Who You Call First</div>
+  <div class="note-blue" style="margin-bottom:14px">This decides your very next move the moment a bad result comes in — before the full Concern Resolution Protocol below kicks in.</div>
+  <table class="info-table" style="margin-bottom:28px">
+    <tr><th>Who reported bad</th><th>Your first move</th></tr>
+    <tr><td style="font-weight:700;color:#c0392b">Client reports bad about candidate</td><td>Call the candidate immediately, same day. No exceptions, no waiting period.</td></tr>
+    <tr><td style="font-weight:700;color:#334e68">Candidate reports bad about client</td><td>Give it a week first. Reassure the candidate, tell them you'll check back in next week's call — don't go to the client on the first mention. <strong style="color:#c0392b">Exception:</strong> safety/welfare issues always escalate immediately per the Post-Departure Escalation Protocol below, regardless of which side raised it.</td></tr>
+  </table>
+
   <div class="sec-hdr">Concern Resolution Protocol</div>
   <div class="note-blue">Applies from Week 2 onward, any check-in, either direction — client→candidate or candidate→client. This is separate from the escalation-to-Les scenarios below; most concerns resolve here and never need to go further.</div>
   <div class="note-red" style="margin-bottom:14px"><strong style="color:#5e1a14">Week 1 stays light.</strong> Simple call; no pickup → email. Don't dig for issues yet — both sides are still settling in.</div>
+  <div class="note-red" style="margin-bottom:14px"><strong style="color:#5e1a14">Any bad result is urgent — same day, full stop.</strong> If it comes in by text, don't resolve it in writing: reply "thanks for that — can I give you a quick call in 15?" and get on the phone that day.</div>
   <table class="info-table" style="margin-bottom:14px">
     <tr><th>Step</th><th>Action</th></tr>
-    <tr><td>1</td><td>Call. Ask what's going well first, then what's not.</td></tr>
-    <tr><td>2</td><td>If a concern comes up — tell them you'll contact the other side to discuss it. Don't try to resolve it on this call.</td></tr>
+    <tr><td>1</td><td>Call. Ask what's going well first, then what's not. Boil vague complaints down to the specific issue — don't accept generalities. Ask directly: "what exactly is [it] that you don't like?"</td></tr>
+    <tr><td>2</td><td>Apply the First-Response Rule above to decide when you contact the other party. If a concern comes up — tell them you'll contact the other side to discuss it. Don't try to resolve it on this call.</td></tr>
     <tr><td>3</td><td>Contact the other party (whoever the concern is about).</td></tr>
     <tr><td>4</td><td>With them: start with the good, then raise the concern. Close by asking "what's the plan?" — put it back on them to propose the solution, don't hand them one.</td></tr>
     <tr><td>5</td><td>Go back to the original person. Relay what the other side said and how it's going to work out. Make them feel heard.</td></tr>
-    <tr><td>6</td><td>Close the loop — send a written overview email of what was discussed, CC'ing both client and candidate.</td></tr>
+    <tr><td>6</td><td>Tell both sides you'll check back in a week to confirm it's sorted. Diarise the follow-up — don't let it slip.</td></tr>
+    <tr><td>7 — follow-up call</td><td>If it's resolved: close the loop with praise on <strong>both</strong> sides. Tell the candidate the change has been noticed and appreciated. Tell the client it's handled. Don't just let it quietly drop — the encouragement is part of the fix.</td></tr>
+    <tr><td>8</td><td>Send a written overview email of what was discussed and the outcome, CC'ing both client and candidate.</td></tr>
   </table>
   <div class="note-blue" style="margin-bottom:28px"><strong style="color:#1c4fc4">Standing rule:</strong> If a concern is raised over email, always call — don't resolve it in writing. No answer on the call → follow up by email asking when's a good time to ring.</div>
+
+  <div class="sec-hdr">Repeat-Issue Escalation Ladder</div>
+  <div class="note-blue" style="margin-bottom:14px">What happens if the same issue is still live at the next check-in — this is where a one-off concern becomes a relationship risk.</div>
+  <table class="info-table" style="margin-bottom:28px">
+    <tr><th>Trigger</th><th>Action</th></tr>
+    <tr><td>1st bad result, any issue</td><td>Run the Concern Resolution Protocol above. Tell both sides you'll follow up in a week.</td></tr>
+    <tr><td style="font-weight:700;color:#c0392b">2nd bad result in a row, same issue ("double whammy")</td><td>This is now serious — treat it as triple-red. Request a 3-way call or site visit to sort it face to face. Either side declines → still red alert, escalate to Les same day regardless.</td></tr>
+    <tr><td style="font-weight:700;color:#c0392b">2 bad results running, either side, any issue</td><td>Escalate to Les — this is a relationship-risk signal now, not a one-off, even if no single score has hit the ≤3 threshold yet.</td></tr>
+  </table>
 
   <div class="sec-hdr">Self-Resolved Concerns — When Client and Candidate Sort It Out Themselves</div>
   <div class="note-blue" style="margin-bottom:14px">Different from the Concern Resolution Protocol above — this is for when a concern never comes to you first. Client and candidate talk directly and sort something small out between themselves, and you only hear about it after the fact.</div>
@@ -465,12 +493,14 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div class="sec-hdr">Communication Channel Protocol</div>
   <table class="info-table" style="margin-bottom:14px">
     <tr><th>Situation</th><th>Channel</th></tr>
-    <tr><td>Routine light check-in (Week 1, 2, 6, 11)</td><td>Text or email first</td></tr>
+    <tr><td>Call-first check-in (Week 1, 2, 6)</td><td>2 call attempts same day (~11am / ~3pm) — text only if both go unanswered</td></tr>
+    <tr><td>Routine light check-in (Week 11)</td><td>Text or email first</td></tr>
     <tr><td>Deep review or critical week (4, 8, 14.5, 15)</td><td>Call or Teams — not text/email</td></tr>
     <tr><td>A concern or issue comes in</td><td>Always respond by calling, even if it arrived by text or email — never resolve a concern in writing</td></tr>
   </table>
 
   <div style="font-family:'Archivo';font-weight:700;font-size:13px;color:#334e68;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px">No-Response Escalation Ladder — when someone goes completely quiet</div>
+  <div class="note-blue" style="margin-bottom:10px">Different from the 2-call-attempts-then-text rule on Week 1/2/6 check-ins above — this ladder is for total silence after that: no reply to the fallback text either.</div>
   <table class="info-table" style="margin-bottom:28px">
     <tr><th>Step</th><th>Timing</th><th>Action</th></tr>
     <tr><td>1</td><td>Day 1</td><td>Phone call + text</td></tr>
@@ -509,7 +539,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div style="font-family:'Archivo';font-weight:700;font-size:13px;color:#334e68;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px">Standard — attempt resolution first, then escalate</div>
   <table class="info-table" style="margin-bottom:20px">
     <tr><th>Scenario</th><th>Protocol</th></tr>
-    <tr><td>No response from client at any check-in</td><td>Text/email again, call same day if no reply. Still no response next day → escalate to Les directly.</td></tr>
+    <tr><td>No response from client at any check-in</td><td>Text/email again, call same day if no reply. Still no response next day → keep going, don't drop it. If it's dragging on, ask directly: "is there anyone else on your side I should be in touch with?" — flag we'll keep trying regardless. Still no response → escalate to Les directly.</td></tr>
     <tr><td>No response from candidate at any check-in</td><td>Text again + call, repeat next day. Still no response → escalate to Les directly.</td></tr>
     <tr><td>Health score declining trend, not yet ≤3 (e.g. 5→4→3 across two checks)</td><td>Flag to Les as an early warning at the next natural touchpoint — don't wait for it to hit ≤3.</td></tr>
     <tr><td>Milestone invoice unpaid (Week 4 / Week 8 triggers)</td><td>Unpaid 5 business days after trigger → escalate to Les. Same shape as the pre-departure payment-gap rule.</td></tr>
@@ -584,10 +614,10 @@ Here's what to expect from us:
 
 Pre-arrival — once flights and accommodation are confirmed, we'll keep you updated.
 Day 1 — arrival confirmed on our end.
-Week 1 — quick text check-in to confirm [Candidate Name] has settled in.
-Week 2 — short check-in with both sides.
+Week 1 — quick call to confirm [Candidate Name] has settled in. If we can't reach you, we'll follow up by text.
+Week 2 — same again, call first, both sides.
 Week 4 — one-month review, questionnaire.
-Week 6 — quick text check-in. Reply if anything's on your mind.
+Week 6 — quick call, same as Weeks 1 and 2.
 Week 8 — two-month review, questionnaire. Checking both sides are tracking well.
 Week 11 — quick check-in as we head into the final stretch.
 Week 14.5 — prep call ahead of the three-way review.
@@ -668,14 +698,14 @@ Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilitie
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">1</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Week 1 Check-In — Text</span><span class="badge badge-manual">Text · C-T1</span></div>
-    <div class="step-body">Quick text to confirm the candidate has settled in from the client's perspective. No call unless they flag a concern in reply. Log reply in JobAdder with health score. No response within 48 hours → follow-up text + call same day.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Week 1 Check-In — Call First</span><span class="badge badge-call">Call · C-T1</span></div>
+    <div class="step-body">Call first — 2 attempts same day (~11am / ~3pm). No answer either attempt → send fallback text. Good → log health score, no further action. Bad → apply First-Response Rule (Tab 2): client bad about candidate = call candidate immediately, same day. Log reply in JobAdder with health score.</div></div>
   </div>
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">2</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Text C-T2</span><span class="badge badge-manual">Text · C-T2</span></div>
-    <div class="step-body">Text check-in — 4 rated statements (1–5) sent as a single text, candidate replies with numbers. Cross-reference against candidate Week 2 answers. Mismatch = red flag. Any concern raised → call same day. Log in JobAdder with health score.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Call First C-T2</span><span class="badge badge-call">Call · C-T2</span></div>
+    <div class="step-body">Call first — 2 attempts same day. No answer either attempt → send fallback text with 4 rated statements (1–5). Cross-reference against candidate Week 2 answers. Mismatch = red flag → escalate to Les same day. Any concern raised → run Concern Resolution Protocol (Tab 2). Both sides good → Week 3 skipped. Either side bad → mandatory Week 3 follow-up call. Log in JobAdder with health score.</div></div>
   </div>
 
   <div class="touch-row crit-row">
@@ -686,8 +716,8 @@ Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilitie
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">6</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Text C-T6</span><span class="badge badge-manual">Text · C-T6</span></div>
-    <div class="step-body">Text only — no call unless a concern is raised in reply. If concern raised → call same day. No reply within 48 hrs → call directly. Log in JobAdder.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Call First C-T6</span><span class="badge badge-call">Call · C-T6</span></div>
+    <div class="step-body">Call first — 2 attempts same day. No answer either attempt → send fallback text. Concern raised → run Concern Resolution Protocol (Tab 2), same day. Log in JobAdder.</div></div>
   </div>
 
   <div class="touch-row crit-row">
@@ -821,31 +851,70 @@ Stand Up Recruitment</div>
   <div class="note-blue">Read questionnaire responses before any Week 4 or Week 8 call. Log a health score in JobAdder after every touchpoint.</div>
 
   <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-T6</span><span class="badge badge-manual">Text · Week 6</span></div><div class="script-title">Week 6 Client Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>Hi [First Name], six-week check on [Candidate Name] — how are things going from your end? Happy to jump on a call if easier, otherwise a quick reply is great.
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-T1</span><span class="badge badge-call">Call · Week 1 (Day 5)</span></div><div class="script-title">Week 1 Client Check-In — Call First</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>CALL — 2 attempts same day (~11am, then ~3pm). Do not skip straight to text.
 
-AFTER: Log in JobAdder. Concern raised in reply → call same day. No reply within 48 hrs → call directly.</div>
+OPEN: "Hi [First Name], quick check on [Candidate Name] — how's the first week gone?"
+
+GOOD → Log health score in JobAdder. No further action.
+
+BAD → Get the specific issue, don't accept vague answers. Tell them: "Leave it with me, I'll speak to [Candidate Name] and come back to you." Do not try to resolve it on this call. Run the Concern Resolution Protocol (Tab 2) — First-Response Rule: client bad about candidate = call the candidate immediately, same day.
+
+NO ANSWER on either attempt → send this fallback text:
+"Hi [First Name], quick one to check in on [Candidate Name] after the first week — how's it going, anything you need from us? Keen to hear back from you today if you can."
+
+AFTER: Log in JobAdder with health score. Any bad result is urgent — same day, no waiting for Week 2.</div>
   </div>
 
   <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-T1</span><span class="badge badge-manual">Text · Week 1</span></div><div class="script-title">Week 1 Client Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>Hi [First Name], quick one to check in on [Candidate Name] after week one — has he made contact, how did the first day or two go, anything you need from us?
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-T2</span><span class="badge badge-call">Call · Week 2</span></div><div class="script-title">Week 2 Client Check-In — Call First</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>CALL — 2 attempts same day (~11am, then ~3pm).
 
-Reply whenever suits.
+OPEN: "Hi [First Name], two weeks in now — how's [Candidate Name] going from your side?"
 
-AFTER: Log reply in JobAdder with health score. Anything raised in the reply → call same day. No response within 48 hrs → follow-up text + call same day.</div>
-  </div>
-
-  <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-T2</span><span class="badge badge-manual">Text · Week 2</span></div><div class="script-title">Week 2 Client Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>Hi [First Name], quick two-week check on [Candidate Name] — rate 1-5 (1 = not at all, 5 = absolutely):
+Talking points if you need to probe further:
 1. Getting on well overall
 2. Fitting into the team and culture
 3. Quality of work meets expectations
-4. You're happy with how the placement is progressing
-Reply with your numbers + anything else on your mind. Takes 30 seconds.
+4. Happy with how the placement is progressing
 
-AFTER: Cross-reference with candidate Week 2 answers. Mismatch → red flag → escalate to Les same day. Anything raised in the reply → call same day. Log health score in JobAdder.</div>
+GOOD, and candidate also said good in their Week 1/2 check-in → no Week 3 check-in, resume normal cadence at Week 4.
+
+BAD → run the Concern Resolution Protocol (Tab 2). Get the specific issue. If this is the second bad result in a row (client bad in Week 1 too, or matches a bad Week 2 from the candidate) → this is a "double whammy," escalate the response per the Repeat-Issue Escalation Ladder (Tab 2) and diarise a mandatory Week 3 follow-up call.
+
+NO ANSWER on either attempt → send this fallback text:
+"Hi [First Name], quick two-week check on [Candidate Name] — rate 1-5 (1 = not at all, 5 = absolutely): 1. Getting on well overall 2. Fitting into the team and culture 3. Quality of work meets expectations 4. Happy with how the placement is progressing. Reply with your numbers today if you can — takes 30 seconds."
+
+AFTER: Cross-reference with candidate Week 2 answers. Mismatch → red flag → escalate to Les same day. Log health score in JobAdder. Either side bad → mandatory Week 3 follow-up call.</div>
+  </div>
+
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-T3</span><span class="badge badge-amber" style="background:#fff3cd;color:#856404;border:1px solid #ffe69c;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:5px">Conditional · Week 3</span></div><div class="script-title">Week 3 Follow-Up Call — Client (only if Week 2 was bad)</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>Only runs if Week 2 flagged a negative from either side. Skip entirely if both sides were good at Week 2.
+
+OPEN: "Hi [First Name], following up like I said I would — how's [Candidate Name] doing with [the specific issue raised]?"
+
+BETTER → Log the improvement. Also call the candidate to relay it and give them credit — close-loop-with-praise (Concern Resolution Protocol, Tab 2).
+
+STILL BAD → This is the "double whammy." Request a 3-way call or site visit — treat as triple-red. Either side declines → still escalate to Les same day regardless.
+
+AFTER: Log in JobAdder with health score.</div>
+  </div>
+
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">C-T6</span><span class="badge badge-call">Call · Week 6</span></div><div class="script-title">Week 6 Client Check-In — Call First</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>CALL — 2 attempts same day (~11am, then ~3pm). Haven't spoken in a month by this point — worth the call regardless of how Weeks 1/2/4 went.
+
+OPEN: "Hi [First Name], six-week check on [Candidate Name] — how's it all going from your end?"
+
+GOOD → Log health score in JobAdder. No further action.
+
+BAD → Run the Concern Resolution Protocol (Tab 2). First-Response Rule applies — client bad about candidate = call candidate immediately, same day.
+
+NO ANSWER on either attempt → send this fallback text:
+"Hi [First Name], six-week check on [Candidate Name] — how are things going from your end? Happy to jump on a call if easier, otherwise keen to hear back today."
+
+AFTER: Log in JobAdder. Any bad result is urgent, same day.</div>
   </div>
 
   <div class="script-card">
@@ -1107,10 +1176,10 @@ Now that you're locked in and on your way, here's what to expect from us over th
 
 Pre-arrival — get a head start if you like: your Relocation Guide has the TFN, Super, and Medicare forms and steps. Nothing needs to be submitted yet, but no harm reading ahead.
 Day 1 — Arrival check-in.
-Week 1 — Quick text check-in.
-Week 2 — Text check-in with you and your employer.
+Week 1 — Quick call to see how the first week went. If we can't reach you, we'll follow up by text.
+Week 2 — Same again, a call with you and your employer.
 Week 4 — One-month review, questionnaire.
-Week 6 — Quick text check-in.
+Week 6 — Quick call, same as Weeks 1 and 2.
 Week 8 — Two-month review, questionnaire.
 Week 11 — Quick check-in email.
 Week 14.5 — Prep call ahead of the three-way review.
@@ -1485,14 +1554,14 @@ AFTER: No reply within a few hours → call directly. Still unreachable → foll
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">1</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">End of Week 1 Check-In — Text CAN-T1</span><span class="badge badge-manual">Text · CAN-T1</span></div>
-    <div class="step-body">Candidate only. End of first week on the tools. Text asking: highs and lows, clear on expectations, getting on with the team, settling in outside work. Log reply in JobAdder with health score. Anything concerning in the reply → call same day. No response → text again + call. Repeat next day. Still no response → escalate to Les directly. <strong style="color:#334e68">Testimonial questions now sit in the Week 4 deep call</strong> — a real conversation gets a better story than a text reply.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">End of Week 1 Check-In — Call First CAN-T1</span><span class="badge badge-call">Call · CAN-T1</span></div>
+    <div class="step-body">Candidate only. Call first — 2 attempts same day (~11am / ~3pm). No answer either attempt → send fallback text. Good → log health score, no further action. Bad → apply First-Response Rule (Tab 2): candidate bad about client = give it a week, reassure the candidate, tell them you'll check back next week — don't go to the client yet (safety/welfare issues excepted, escalate immediately). Log reply in JobAdder with health score. <strong style="color:#334e68">Testimonial questions now sit in the Week 4 deep call</strong> — a real conversation gets a better story than a text reply.</div></div>
   </div>
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">2</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Text CAN-T2</span><span class="badge badge-manual">Text · CAN-T2</span></div>
-    <div class="step-body">Text check-in — 5 rated statements (1–5) sent as a single text, candidate replies with numbers. Cross-reference against client Week 2 answers. Mismatch = red flag. Any concern raised → call same day. Log in JobAdder with health score.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Call First CAN-T2</span><span class="badge badge-call">Call · CAN-T2</span></div>
+    <div class="step-body">Call first — 2 attempts same day. No answer either attempt → send fallback text with 5 rated statements (1–5). Cross-reference against client Week 2 answers. Mismatch = red flag → escalate to Les same day. Any concern raised → run Concern Resolution Protocol (Tab 2). Both sides good → Week 3 skipped. Either side bad → mandatory Week 3 follow-up call. Log in JobAdder with health score.</div></div>
   </div>
 
   <div class="touch-row crit-row">
@@ -1503,8 +1572,8 @@ AFTER: No reply within a few hours → call directly. Still unreachable → foll
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">6</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Text CAN-T6</span><span class="badge badge-manual">Text · CAN-T6</span></div>
-    <div class="step-body">Text only — no call unless a concern is raised. Concern raised in reply → call same day. No reply within 48 hrs → call directly. Log in JobAdder.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Call First CAN-T6</span><span class="badge badge-call">Call · CAN-T6</span></div>
+    <div class="step-body">Call first — 2 attempts same day. No answer either attempt → send fallback text. Concern raised → run Concern Resolution Protocol (Tab 2), same day. Log in JobAdder.</div></div>
   </div>
 
   <div class="touch-row crit-row">
@@ -1652,36 +1721,73 @@ Stand Up Recruitment</div>
   <div class="sec-hdr">Call &amp; Text Scripts — Candidate Post-Departure</div>
 
   <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-T6</span><span class="badge badge-manual">Text · Week 6</span></div><div class="script-title">Week 6 Candidate Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>Hey [Name], six weeks in — just checking in, hope it's all going well. Anything on your mind? Always happy to chat, just reply or call.
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-T1</span><span class="badge badge-call">Call · Week 1</span></div><div class="script-title">Week 1 End of Week Check-In — Call First</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>CALL — 2 attempts same day (~11am, then ~3pm). Do not skip straight to text.
 
-AFTER: Log in JobAdder. Concern raised in reply → call same day. No reply within 48 hrs → call directly.</div>
+OPEN: "Hey [Name], first week done — how'd it go? What's going well, and are there any concerns from your side?"
+
+Talking points if needed: clear on what's expected, getting on with the team, settling in outside of work.
+
+GOOD → Log health score in JobAdder. No further action.
+
+BAD → Get the specific issue. Tell them: "Leave it with me — I'll have a look into it and check back in with you next week." Give it a week before looping in the client (First-Response Rule, Tab 2) — don't try to talk them out of it or resolve it on this call. Exception: safety/welfare issues escalate to Les immediately, no waiting period.
+
+NO ANSWER on either attempt → send this fallback text:
+"Hey [Name], first week done — how'd it go? Quick one from me — what's going well, and are there any concerns from your side? Keen to hear back today if you can."
+
+AFTER: Log in JobAdder with health score. Any bad result is urgent internally — diarise the Week 2 follow-up, don't just let it sit.</div>
   </div>
 
   <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-T1</span><span class="badge badge-manual">Text · Week 1</span></div><div class="script-title">Week 1 End of Week Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>Hey [Name], first week done — how was it? Quick one from me:
-- Highs and lows this week?
-- Clear on what's expected of you?
-- Getting on well with the team?
-- Settling in outside of work?
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-T2</span><span class="badge badge-call">Call · Week 2</span></div><div class="script-title">Week 2 Check-In — Call First</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>CALL — 2 attempts same day (~11am, then ~3pm).
 
-Reply whenever suits, no rush. I'll be in touch again at Week 2 — call me anytime if something comes up.
+OPEN: "Hey [Name], two weeks in now — how's it all going?"
 
-AFTER: Log in JobAdder with health score. Anything concerning in the reply → call same day. No response within 48 hrs → follow up.</div>
+Talking points if you need to probe further:
+1. Glad you made the move to Australia
+2. Role is what you expected it to be
+3. Comfortable with your supervisor and team
+4. Settling in well outside of work
+5. Happy with how things are going overall
+
+GOOD, and client also said good in their Week 1/2 check-in → no Week 3 check-in, resume normal cadence at Week 4.
+
+BAD → run the Concern Resolution Protocol (Tab 2). If this was already flagged bad at Week 1, or the client also flagged bad at Week 2 → "double whammy," escalate per the Repeat-Issue Escalation Ladder (Tab 2) and diarise a mandatory Week 3 follow-up call.
+
+NO ANSWER on either attempt → send this fallback text:
+"Hey [Name], Week 2 — how's it all going? Rate these 1-5 (1 = not at all, 5 = absolutely): 1. Glad I made the move to Australia 2. Role is what I expected it to be 3. Comfortable with my supervisor and team 4. Settling in well outside of work 5. Happy with how things are going overall. Reply with your numbers today if you can."
+
+AFTER: Cross-reference with client Week 2 answers. Mismatch = red flag → escalate to Les same day. Log in JobAdder with health score. Either side bad → mandatory Week 3 follow-up call.</div>
   </div>
 
   <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-T2</span><span class="badge badge-manual">Text · Week 2</span></div><div class="script-title">Week 2 Text Check-In</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>Hey [Name], Week 2 — how's it all going? Rate these 1-5 (1 = not at all, 5 = absolutely):
-1. I'm glad I made the move to Australia
-2. The role is what I expected it to be
-3. I feel comfortable with my supervisor and team
-4. I'm settling in well outside of work
-5. Overall, I'm happy with how things are going
-Reply with your numbers + anything else on your mind.
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-T3</span><span class="badge" style="background:#fff3cd;color:#856404;border:1px solid #ffe69c;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:5px">Conditional · Week 3</span></div><div class="script-title">Week 3 Follow-Up Call — Candidate (only if Week 2 was bad)</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>Only runs if Week 2 flagged a negative from either side. Skip entirely if both sides were good at Week 2.
 
-AFTER: Cross-reference with client Week 2 answers. Mismatch = red flag. Any concern raised → call same day. Log in JobAdder with health score.</div>
+OPEN: "Hey [Name], following up like I said I would — how's it going with [the specific issue raised]?"
+
+BETTER → Log the improvement. Also call the client to let them know it's been addressed and give the candidate credit — close-loop-with-praise (Concern Resolution Protocol, Tab 2). Tell the candidate directly: "The client's noticed the change, keep it up."
+
+STILL BAD → This is the "double whammy." Escalate — request a 3-way call or site visit if it's a client-side issue, or escalate to Les same day if it's still unresolved on the candidate side.
+
+AFTER: Log in JobAdder with health score.</div>
+  </div>
+
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-T6</span><span class="badge badge-call">Call · Week 6</span></div><div class="script-title">Week 6 Candidate Check-In — Call First</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>CALL — 2 attempts same day (~11am, then ~3pm). Haven't spoken in a month by this point — worth the call regardless of how earlier weeks went.
+
+OPEN: "Hey [Name], six weeks in — how's it all going?"
+
+GOOD → Log health score in JobAdder. No further action.
+
+BAD → Run the Concern Resolution Protocol (Tab 2). First-Response Rule applies — candidate bad about client, give it a week before looping in the client (safety/welfare excepted).
+
+NO ANSWER on either attempt → send this fallback text:
+"Hey [Name], six weeks in — just checking in, hope it's all going well. Anything on your mind? Give me a call or reply today if you can."
+
+AFTER: Log in JobAdder. Any bad result is urgent, same day.</div>
   </div>
 
   <div class="script-card">
@@ -1912,7 +2018,7 @@ AFTER: Complete both pre-calls (candidate + client) before sending Teams invite.
   <div class="note-blue" style="margin-bottom:14px">Master index of every training video in the playbook, for new onboarders working through the process top to bottom. Each video also sits inline next to the relevant step — this is just the one-stop list.</div>
   <div class="video-card" style="display:block">
     <video controls preload="metadata" style="width:100%;display:block;background:#000;max-height:420px">
-      <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/System_Overview_Video.mp4" type="video/mp4">
+      <source src="System_Overview_Video.mp4" type="video/mp4">
       Your browser doesn't support embedded video — the file is System_Overview_Video.mp4 in this folder.
     </video>
     <div class="video-body">
@@ -2032,7 +2138,7 @@ AFTER: Complete both pre-calls (candidate + client) before sending Teams invite.
 </div><!-- end .container -->
 
 <div style="text-align:center;padding:28px 16px 40px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#829ab1;letter-spacing:.08em">
-  STAND UP RECRUITMENT · AUSTRALIAN RELOCATION PLAYBOOK · INTERNAL USE ONLY · v5.0
+  STAND UP RECRUITMENT · AUSTRALIAN RELOCATION PLAYBOOK · INTERNAL USE ONLY · v6.0
 </div>
 
 <script>
