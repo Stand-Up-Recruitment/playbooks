@@ -178,7 +178,12 @@
 
     if(CREDENTIALS[username] === password){
       sessionStorage.setItem('playbook-auth', username);
-      window.location.href = REDIRECTS[username] || 'index.html';
+      var destination = REDIRECTS[username] || 'index.html';
+      if(REDIRECTS[username]){
+        window.location.replace(destination);
+      } else {
+        window.location.href = destination;
+      }
     } else {
       errorEl.classList.add('show');
       passwordField.value = '';
