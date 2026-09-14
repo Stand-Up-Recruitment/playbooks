@@ -157,7 +157,14 @@
     recruiter: 'recruiter123',
     support:   'support123',
     automation: 'automation123',
-    sales: 'sales123'
+    sales: 'sales123',
+    recruiter2: 'recruiter2123',
+    recruiter3: 'recruiter3123'
+  };
+
+  var REDIRECTS = {
+    recruiter2: 'recruiter-playbook-final.html',
+    recruiter3: 'recruiter-playbook-final.html'
   };
 
   var form = document.getElementById('loginForm');
@@ -171,7 +178,7 @@
 
     if(CREDENTIALS[username] === password){
       sessionStorage.setItem('playbook-auth', username);
-      window.location.href = 'index.html';
+      window.location.href = REDIRECTS[username] || 'index.html';
     } else {
       errorEl.classList.add('show');
       passwordField.value = '';
