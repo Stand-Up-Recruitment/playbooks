@@ -556,6 +556,71 @@ body{
 .quiz-result.pass{background:rgba(74,240,160,.08);border:.5px solid rgba(74,240,160,.3);color:var(--tier1)}
 .quiz-result.fail{background:rgba(240,90,74,.08);border:.5px solid rgba(240,90,74,.3);color:var(--danger)}
 
+/* ── Candidate Tagging Helper / JobAdder Quick Reference ────── */
+.tag-helper-cat{margin-bottom:22px}
+.tag-helper-cat-title{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--accent);margin-bottom:8px}
+.tag-helper-option{
+  cursor:pointer;
+  padding:12px 14px;
+  border-radius:var(--radius-sm);
+  border:.5px solid var(--border2);
+  margin-bottom:8px;
+  font-size:13px;
+  background:var(--surface2);
+  transition:all var(--transition);
+}
+.tag-helper-option:hover{border-color:var(--accent);background:var(--surface3)}
+.tag-helper-option.open{border-color:var(--accent)}
+.tag-helper-result{
+  display:none;
+  margin-top:10px;
+  padding:12px 14px;
+  border-radius:var(--radius-sm);
+  background:rgba(200,240,74,.06);
+  border:.5px solid var(--accent);
+  font-size:13px;
+  line-height:1.6;
+  color:var(--text2);
+}
+.tag-helper-result.show{display:block}
+.tag-pill{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.04em;
+  padding:3px 10px;
+  border-radius:999px;
+  background:var(--accent);
+  color:#000;
+  margin-bottom:6px;
+}
+.ja-search-input{
+  width:100%;
+  padding:11px 14px;
+  border-radius:var(--radius-sm);
+  border:.5px solid var(--border2);
+  background:var(--surface2);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:13.5px;
+  margin-bottom:18px;
+}
+.ja-search-input:focus{outline:none;border-color:var(--accent)}
+.ja-group-title{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--accent);margin:20px 0 8px}
+.ja-item{
+  padding:12px 14px;
+  border-radius:var(--radius-sm);
+  border:.5px solid var(--border);
+  background:var(--surface2);
+  margin-bottom:8px;
+  font-size:13px;
+  color:var(--text2);
+  line-height:1.6;
+}
+.ja-item strong{color:var(--text)}
+.ja-item.ja-hidden{display:none}
+
 /* ── Test / Practice ─────────────────────────────────────── */
 .test-scenario{
   background:var(--surface);
@@ -804,12 +869,12 @@ body{
       <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">Job Creation</div>
       <div style="font-size:12px;color:var(--text2);line-height:1.4">Assign your workflow to the new job in JobAdder, then generate and post the job ad.</div>
     </div>
-    <div class="module-card" data-mid="m121" data-search="1.2.1 ai sourcing airtable form bot calendly boolean search string calendar booking internal interview trung" onclick="openModule('m121')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+    <div class="module-card" data-mid="m121" data-search="1.2.1 ai sourcing airtable form bot 1 screening bot bot 2 sourcing bot grand slam calendly boolean search string calendar booking internal interview trung screened called" onclick="openModule('m121')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
       <div style="font-size:11px;font-weight:700;color:#4ac8f0;letter-spacing:.05em;margin-bottom:4px">1.2.1</div>
       <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">AI Sourcing</div>
       <div style="font-size:12px;color:var(--text2);line-height:1.4">Submit the daily Airtable sourcing form so the AI bot calls and books candidates for you.</div>
     </div>
-    <div class="module-card" data-mid="m122" data-search="1.2.2 manual sourcing jobadder candidate database cold email outreach headhunting trade me jobsmart status screened active unsuccessful do not use blacklisted screening script" onclick="openModule('m122')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+    <div class="module-card" data-mid="m122" data-search="1.2.2 manual sourcing jobadder candidate database cold email outreach headhunting trade me jobsmart status screened warm list hot list unsuccessful do not use blacklisted screening script" onclick="openModule('m122')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
       <div style="font-size:11px;font-weight:700;color:#4ac8f0;letter-spacing:.05em;margin-bottom:4px">1.2.2</div>
       <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">Manual Sourcing</div>
       <div style="font-size:12px;color:var(--text2);line-height:1.4">JobAdder database, cold email outreach, and Trade Me JobSmart headhunting.</div>
@@ -888,7 +953,7 @@ body{
     <div style="width:4px;height:28px;background:#f0a04a;border-radius:2px;flex-shrink:0"></div>
     <div>
       <div style="font-size:13px;font-weight:800;color:#f0a04a;letter-spacing:.06em;text-transform:uppercase">Resources</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:2px">2 modules</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px">4 modules</div>
     </div>
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
@@ -902,7 +967,16 @@ body{
       <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">SUR Prompt Library</div>
       <div style="font-size:12px;color:var(--text2);line-height:1.4">Every Claude and ChatGPT prompt referenced in the playbook, ready to copy and paste.</div>
     </div>
-    
+    <div class="module-card" data-mid="m303" data-search="resources sur candidate tagging helper jobadder status tag decision tool no answer called unresponsive screened warm list hot list unsuccessful do not use blacklisted placed" onclick="openModule('m303')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+      <div style="font-size:11px;font-weight:700;color:#f0a04a;letter-spacing:.05em;margin-bottom:4px">Resources</div>
+      <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">SUR Candidate Tagging Helper</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.4">Pick the situation, get the correct JobAdder Status tag and next action.</div>
+    </div>
+    <div class="module-card" data-mid="m304" data-search="resources sur jobadder quick reference candidates list candidate profile job card common mix ups reject status stage internal meeting contact candidate meeting" onclick="openModule('m304')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+      <div style="font-size:11px;font-weight:700;color:#f0a04a;letter-spacing:.05em;margin-bottom:4px">Resources</div>
+      <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">SUR JobAdder Quick Reference</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.4">Searchable list of JobAdder actions grouped by where they live, plus common mix-ups.</div>
+    </div>
   </div>
 </div>
 </div>
@@ -1240,8 +1314,11 @@ window.__quizData['m111']=[
     <div class="block-label">Tell — What You Need to Know</div>
     <div class="block-body">
       <p>Sourcing is how candidates enter your pipeline. The goal is simple - find qualified New Zealand tradespeople who are keen to move to Australia and get them booked in for an internal interview. You have two ways to do this: AI sourcing and manual sourcing. Use both every day.</p>
-      <p style="margin-top:10px">Each recruiter at SUR has a dedicated AI bot set up by our Automation Team. The bot's job is to call candidates from our database, screen them on the basics, and book qualified candidates directly into your calendar for an internal interview.</p>
-      <p style="margin-top:10px">By the time a candidate appears in your calendar, they have already been called and agreed to meet you. Your job at this stage is to submit the sourcing form every morning to tell the bot what roles to source for that day.</p>
+      <p style="margin-top:10px">AI sourcing itself runs on two separate bots, built and maintained by our Automation Team. It's important to understand what each one does — they are not interchangeable.</p>
+      <div class="term-row"><div class="term-name">Bot 1 — Screening Bot</div><div class="term-def">Runs automatically. Calls every new candidate who applies through our Facebook job ads, screens them, and — if qualified — books them directly into your calendar for an internal interview. No action needed on your end to trigger it.</div></div>
+      <div class="term-row"><div class="term-name">Bot 2 — Sourcing Bot</div><div class="term-def">Activated manually using the Airtable sourcing form (Step 1 below). Used when there's a new job and you want to hook candidates with the Grand Slam offer — free temporary accommodation in Australia. It only calls candidates already tagged <strong>Screened</strong> or <strong>Called</strong>. It does not touch Hot List or Warm List candidates — those are strong leads you call yourself, directly.</div></div>
+      <p style="margin-top:10px">When Bot 2 successfully screens someone, it notifies you. Look the candidate up in JobAdder, confirm their status, and book a video internal interview.</p>
+      <p style="margin-top:10px">By the time a candidate appears in your calendar, they have already been called and agreed to meet you. Your job at this stage is to submit the sourcing form every morning to tell Bot 2 what roles to source for that day.</p>
       <div class="callout warn"><strong>The bot does not remember what it called yesterday.</strong> You must submit the form every day for every active role you want sourced.</div>
       <div class="term-row"><div class="term-name">What the bot does</div><div class="term-def">Calls candidates from the database, screens them on basic eligibility, and books qualified candidates directly into your Calendly. The booking appears as "Stand Up Recruitment — Internal Interview" with the candidate's name, date, time, and location already filled in.</div></div>
       <div class="term-row"><div class="term-name">What you do</div><div class="term-def">Fill out the Airtable sourcing form each morning, check your calendar throughout the day for new bookings, and check in with Trung if any candidates hung up or did not answer so you can follow up manually.</div></div>
@@ -1377,6 +1454,13 @@ window.__quizData['m111']=[
     <div class="quiz-option" id="opt-m121-4-2" onclick="selectOpt('m121',4,2)">C. A bullet list of 10 requirements</div>
     <div class="quiz-option" id="opt-m121-4-3" onclick="selectOpt('m121',4,3)">D. Just the job title</div>
   </div>
+  <div class="quiz-question">
+    <p>6. Which candidates does Bot 2 (the Sourcing Bot) actually call?</p>
+    <div class="quiz-option" id="opt-m121-5-0" onclick="selectOpt('m121',5,0)">A. Hot List and Warm List candidates</div>
+    <div class="quiz-option" id="opt-m121-5-1" onclick="selectOpt('m121',5,1)">B. Candidates already tagged Screened or Called</div>
+    <div class="quiz-option" id="opt-m121-5-2" onclick="selectOpt('m121',5,2)">C. Every candidate in JobAdder regardless of status</div>
+    <div class="quiz-option" id="opt-m121-5-3" onclick="selectOpt('m121',5,3)">D. Only brand new Facebook ad applicants</div>
+  </div>
 
   <button class="quiz-submit-btn" onclick="checkQuiz('m121')">Submit Answers</button>
   <div id="quiz-result-m121" class="quiz-result" style="display:none"></div>
@@ -1387,12 +1471,12 @@ window.__quizData['m111']=[
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <div class="callout" style="margin:10px 0"><strong>Complete this before moving to Stage 2.2.</strong></div>
-<p style="margin-top:10px"><strong>Using a live active role assigned by Recruiter:</strong></p>
+<p style="margin-top:10px"><strong>Using a live active role assigned by Les:</strong></p>
 <div class="step-row"><div class="step-num">1</div><div>Open the Airtable sourcing form and fill it in for the assigned role using the prompt formula</div></div>
 <div class="step-row"><div class="step-num">2</div><div>Submit the form</div></div>
 <div class="step-row"><div class="step-num">3</div><div>Check your calendar the following day and confirm at least one booking has come through</div></div>
 <div class="step-row"><div class="step-num">4</div><div>Check in with Trung and ask if any candidates hung up or did not answer — note them down for manual follow-up in Stage 2.2</div></div>
-<p>Show Recruiter your submitted form and your calendar booking before moving on.</p>
+<p>Show Les your submitted form and your calendar booking before moving on.</p>
 </div>
 </div>
 <div class="content-block">
@@ -1409,7 +1493,8 @@ window.__quizData['m121']=[
 {"q":"If you are sourcing for 3 roles at once, how many forms should you submit?","opts":["One combined form","Three separate forms","Two forms","None - the bot detects it automatically"],"ans":1},
 {"q":"What should you do about candidates who hung up or did not answer the bot?","opts":["Ignore them - the bot will retry","Check in with Trung and follow up manually","Delete them from JobAdder","Wait a week before doing anything"],"ans":1},
 {"q":"What is a Boolean search string used for in the Role field?","opts":["To narrow the search to one exact title","To widen the bot's net across related titles and synonyms","To block certain candidates","To set the pay rate"],"ans":1},
-{"q":"How long should the Job Description prompt on the Airtable form be?","opts":["A full page","One or two sentences","A bullet list of 10 requirements","Just the job title"],"ans":1}
+{"q":"How long should the Job Description prompt on the Airtable form be?","opts":["A full page","One or two sentences","A bullet list of 10 requirements","Just the job title"],"ans":1},
+{"q":"Which candidates does Bot 2 (the Sourcing Bot) actually call?","opts":["Hot List and Warm List candidates","Candidates already tagged Screened or Called","Every candidate in JobAdder regardless of status","Only brand new Facebook ad applicants"],"ans":1}
 ];
 </script>
 </div>
@@ -1472,7 +1557,7 @@ window.__quizData['m121']=[
       <div class="callout warn" style="margin-top:8px"><strong>Backend — every time, no exceptions:</strong>
         <ul style="margin-top:6px">
           <li>Update JobAdder notes with the timeframe given, target month, and any key objections or interests raised</li>
-          <li>Tag the candidate Hot List and log the date they'll be available again in the notes</li>
+          <li>Tag the candidate Warm List and log the date they'll be available again in the notes (this becomes Hot List instead if it comes up during or after the internal interview — see Stage 4)</li>
           <li>Send the Not Ready Yet — Follow-Up SMS template within 5 minutes of ending the call</li>
         </ul>
       </div>
@@ -1548,19 +1633,21 @@ window.__quizData['m121']=[
         <tbody>
           <tr><td>New / Unscreened</td><td>The default status for all new candidates. Do not leave it here after you've called them.</td></tr>
           <tr><td>In Process</td><td>The candidate is being progressed in any job card in JobAdder.</td></tr>
-          <tr><td>Screened - Active</td><td>You (or the AI) have spoken to the candidate and logged notes, but there is no current job that matches them. Use this status when a candidate doesn't qualify for the specific role you called about but is otherwise a fine candidate for future roles.</td></tr>
+          <tr><td>Screened</td><td>Screening completed, no current job matches, and the candidate is not a strong enough one to hold for future roles.</td></tr>
+          <tr><td>Warm List</td><td>Call disconnected before the screening completed — or a genuinely good candidate but no current job matches — or they told you during the <em>phone screening call</em> they're not ready yet but gave a target timeframe. No internal interview yet. Log the target date if "not ready yet."</td></tr>
           <tr><td>Unsuccessful - Internal</td><td>The candidate failed the screening call or the internal interview, and the reason suggests they are not a good fit for future roles either.</td></tr>
           <tr><td>Unsuccessful - Client</td><td>The candidate failed the client interview, and the reason suggests they are not a good fit for future roles either.</td></tr>
-          <tr><td>Hot List</td><td>The candidate completed an internal interview but there is no current job that matches their exact experience - or they failed a client interview for a reason that doesn't rule them out for future clients - or they've told you they're not ready to move yet but have given a target timeframe. These are strong candidates worth revisiting when the right role or the right time comes up. If it's a "not ready yet" candidate, log the date they'll be available again in the notes.</td></tr>
+          <tr><td>Hot List</td><td>Completed the internal interview but no current job matches their exact experience — or failed a client interview for a reason that doesn't rule them out for future clients — or told you during/after the <em>internal interview</em> they're not ready yet with a target timeframe. Log the target date if "not ready yet."</td></tr>
           <tr><td>Placed / Currently Employed</td><td>Self explanatory — the candidate has been placed.</td></tr>
           <tr><td>Do Not Use / Blacklisted</td><td>For serious cases only — rude, unreliable, or someone we do not want to work with again.</td></tr>
           <tr><td>Called</td><td>The candidate did not answer your call.</td></tr>
           <tr><td>Unresponsive</td><td>The candidate has been called 3 times - by the AI bot, a recruiter, or a combination of both - with no answer.</td></tr>
         </tbody>
       </table>
+      <div class="callout info" style="margin-top:10px"><strong>Key distinction — Screened vs Warm List.</strong> This is about candidate <em>quality</em>, not process stage — both mean "no current job matches." Screened = not a strong candidate. Warm List = genuinely good, just no role right now.</div>
       <div class="callout warn" style="margin-top:10px"><strong>Never click Reject on a job card.</strong> Rejecting a candidate directly from a job card automatically changes their overall status to Do Not Use / Blacklisted — even if they were simply not right for that specific role. This is a system quirk, not something we want. Always go to the candidate's profile and manually update their Status field instead. If a candidate is a duplicate across multiple job cards and you have moved them forward on one, just leave the other applications as they are — no action needed on those.</div>
-      <p style="margin-top:10px"><strong>If a candidate doesn't qualify for any current job, do not leave their status as New / Unscreened.</strong> Update it to Screened - Active and log your notes. This tells the AI bot and other recruiters that this candidate has already been spoken to, so they are considered correctly for future roles rather than called again from scratch.</p>
-      <div class="callout info" style="margin-top:10px">If there are no New / Unscreened candidates for the trade you're sourcing, filter for candidates tagged Hot List instead. These are strong candidates who have already been through an internal interview but didn't have a matching job at the time, or who missed out on a previous client but could still be a good fit elsewhere. Read through their notes to check if they fit the role you're currently sourcing for before calling.</div>
+      <p style="margin-top:10px"><strong>If a candidate doesn't qualify for any current job, do not leave their status as New / Unscreened.</strong> Update it to Screened or Warm List (whichever fits — see the distinction above) and log your notes. This tells the AI bot and other recruiters that this candidate has already been spoken to, so they are considered correctly for future roles rather than called again from scratch.</p>
+      <div class="callout info" style="margin-top:10px">If there are no New / Unscreened candidates for the trade you're sourcing, filter for candidates tagged Hot List or Warm List instead. Hot List = already had an internal interview but no matching job, or missed out on a previous client but could fit elsewhere. Warm List = good candidates, no internal interview yet, no matching job. Read their notes before calling to check they fit the role you're currently sourcing for.</div>
     </div>
   </div>
 
@@ -1571,13 +1658,15 @@ window.__quizData['m121']=[
         <thead><tr><th>Outcome</th><th>What to do</th><th>Status to set</th></tr></thead>
         <tbody>
           <tr><td>Qualified</td><td>Book internal interview — confirm time before hanging up</td><td>In Process</td></tr>
-          <tr><td>Unqualified — no current job matches</td><td>Log note with reason</td><td>Screened - Active</td></tr>
+          <tr><td>Unqualified — no job matches, not strong</td><td>Log note with reason</td><td>Screened</td></tr>
+          <tr><td>Unqualified — no job matches, genuinely good</td><td>Log note with reason</td><td>Warm List</td></tr>
+          <tr><td>Call disconnected before screening completed</td><td>Log note with what was covered</td><td>Warm List</td></tr>
           <tr><td>Unqualified — failed screening call, not suited to future roles</td><td>Log note with reason</td><td>Unsuccessful - Internal</td></tr>
           <tr><td>Unqualified — serious issue, do not call again</td><td>Log note with reason</td><td>Do Not Use / Blacklisted</td></tr>
-          <tr><td>Pipeline</td><td>Log note with timeframe. Revisit when closer.</td><td>Screened - Active</td></tr>
           <tr><td>Completed internal interview, no matching job right now</td><td>Log note with details</td><td>Hot List</td></tr>
           <tr><td>Failed client interview, but could suit a future client</td><td>Log note with client feedback</td><td>Hot List</td></tr>
           <tr><td>Failed client interview, not suited to future roles</td><td>Log note with client feedback</td><td>Unsuccessful - Client</td></tr>
+          <tr><td>Pipeline</td><td>Log note with timeframe, revisit when closer</td><td>Screened</td></tr>
           <tr><td>No answer — 1st or 2nd attempt</td><td>Log note. Send no answer SMS template.</td><td>Called</td></tr>
           <tr><td>No answer — 3rd attempt</td><td>Log note.</td><td>Unresponsive</td></tr>
         </tbody>
@@ -1690,10 +1779,10 @@ window.__quizData['m121']=[
     <div class="quiz-option" id="opt-m122-3-3" onclick="selectOpt('m122',3,3)">D. Post their profile to a job board</div>
   </div>
   <div class="quiz-question">
-    <p>5. A candidate is a great fit generally but doesn't match any current job. What status should you set?</p>
+    <p>5. A candidate is a genuinely good fit generally but doesn't match any current job. What status should you set?</p>
     <div class="quiz-option" id="opt-m122-4-0" onclick="selectOpt('m122',4,0)">A. New / Unscreened</div>
     <div class="quiz-option" id="opt-m122-4-1" onclick="selectOpt('m122',4,1)">B. Do Not Use / Blacklisted</div>
-    <div class="quiz-option" id="opt-m122-4-2" onclick="selectOpt('m122',4,2)">C. Screened - Active</div>
+    <div class="quiz-option" id="opt-m122-4-2" onclick="selectOpt('m122',4,2)">C. Warm List</div>
     <div class="quiz-option" id="opt-m122-4-3" onclick="selectOpt('m122',4,3)">D. Unsuccessful - Client</div>
   </div>
 
@@ -1706,13 +1795,13 @@ window.__quizData['m121']=[
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <div class="callout" style="margin:10px 0"><strong>Complete this before moving to Stage 3.</strong></div>
-<p>Using a live active role assigned by Recruiter:</p>
+<p>Using a live active role assigned by Les:</p>
 <div class="step-row"><div class="step-num">1</div><div>Open JobAdder, filter by NZ Citizen and the assigned trade, and call a minimum of 10 candidates</div></div>
 <div class="step-row"><div class="step-num">2</div><div>Log a note for every call using the correct note format — aim for at least one qualified, one unqualified, and one pipeline note</div></div>
 <div class="step-row"><div class="step-num">3</div><div>Book any qualified candidates in for an internal interview before hanging up</div></div>
 <div class="step-row"><div class="step-num">4</div><div>Open the SUR Candidate Database, filter by the assigned trade, select the first 50, and send Email 1 of the cold email sequence</div></div>
 <div class="step-row"><div class="step-num">5</div><div>Log into JobSmart, generate a Boolean search string using Claude, run the search, unlock at least 2 suitable profiles, download their CVs, and upload them to JobAdder</div></div>
-<p>Show Recruiter your JobAdder notes, Outlook outbox, and JobAdder uploads before moving on.</p>
+<p>Show Les your JobAdder notes, Outlook outbox, and JobAdder uploads before moving on.</p>
 </div>
 </div>
 <div class="content-block">
@@ -1729,7 +1818,7 @@ window.__quizData['m122']=[
 {"q":"What should you NEVER do when a candidate is not suitable for a job card?","opts":["Log a note","Click Reject on the job card","Update their Status field","Move on to the next candidate"],"ans":1},
 {"q":"What is the maximum batch size for cold email outreach?","opts":["10","25","50","100"],"ans":2},
 {"q":"After unlocking a headhunted candidate on JobSmart, what should you do before calling them?","opts":["Call them immediately","Send the cold email sequence first and wait for a reply","Nothing, JobSmart calls them automatically","Post their profile to a job board"],"ans":1},
-{"q":"A candidate is a great fit generally but doesn't match any current job. What status should you set?","opts":["New / Unscreened","Do Not Use / Blacklisted","Screened - Active","Unsuccessful - Client"],"ans":2}
+{"q":"A candidate is a genuinely good fit generally but doesn't match any current job. What status should you set?","opts":["New / Unscreened","Do Not Use / Blacklisted","Warm List","Unsuccessful - Client"],"ans":2}
 ];
 </script>
 </div>
@@ -1816,7 +1905,7 @@ window.__quizData['m122']=[
     <div class="block-title">Logging Notes After Every Call</div>
     <div class="block-body">
       <div class="formula">Date: DD/MM/YY<br>Job: [Job title]<br>Outcome: Qualified / Unqualified / Pipeline / No answer<br>Skills and experience: [2 to 3 sentences]<br>Readiness to move: [Their timeline]<br>Qualifications: [Tickets or qualifications confirmed]<br>Notes: [Anything worth flagging for the internal interview]</div>
-      <div class="callout info">Don't forget to update the candidate's overall Status in JobAdder as well — see the Candidate Status guide in Stage 1.2.2 for the full breakdown. If they don't qualify for any current job, set their status to Screened - Active rather than leaving it as New / Unscreened.</div>
+      <div class="callout info">Don't forget to update the candidate's overall Status in JobAdder as well — see the Candidate Status guide in Stage 2.2 for the full breakdown. If they don't qualify for any current job, set their status to Screened or Warm List rather than leaving it as New / Unscreened.</div>
     </div>
   </div>
 
@@ -1834,7 +1923,7 @@ window.__quizData['m122']=[
       <div class="callout warn" style="margin-top:8px"><strong>Backend — every time, no exceptions:</strong>
         <ul style="margin-top:6px">
           <li>Update JobAdder notes with the timeframe given, target month, and any key objections or interests raised</li>
-          <li>Tag the candidate Hot List and log the date they'll be available again in the notes</li>
+          <li>Tag the candidate Warm List and log the date they'll be available again in the notes (this becomes Hot List instead if it comes up during or after the internal interview — see Stage 4)</li>
           <li>Send the Not Ready Yet — Follow-Up SMS template within 5 minutes of ending the call</li>
         </ul>
       </div>
@@ -1848,7 +1937,7 @@ window.__quizData['m122']=[
       <div class="callout danger" style="margin-top:8px">Going too deep on experience — this is a quick qualification check, not a full interview</div>
       <div class="callout danger" style="margin-top:8px">Forgetting to log a note and update the candidate's status after every call</div>
       <div class="callout danger" style="margin-top:8px">Clicking Reject on a job card instead of updating the Status field — rejecting a job card auto-sets Do Not Use / Blacklisted regardless of the reason</div>
-      <div class="callout danger" style="margin-top:8px">Letting a "not ready yet" candidate go cold — always lock in a target month, tag Hot List, and send the follow-up text within 5 minutes</div>
+      <div class="callout danger" style="margin-top:8px">Letting a "not ready yet" candidate go cold — always lock in a target month, tag Warm List, and send the follow-up text within 5 minutes</div>
     </div>
   </div>
 
@@ -2095,7 +2184,7 @@ Stand Up Recruitment</div>
       <p style="margin-top:8px">Wait for a verbal yes before ending the call - don't just assume it and move on.</p>
       <p style="margin-top:8px"><strong>5. Close</strong></p>
       <div class="callout info" style="margin-top:8px"><strong>You:</strong> Perfect, talk soon [Name].</div>
-      <p style="margin-top:8px">This is a scaffold, not a script to recite word for word. Use what works, drop what doesn't, and make it sound like you. See the playbook for the backend steps that must happen after every one of these calls - JobAdder notes, the Hot List tag, and the follow-up text.</p>
+      <p style="margin-top:8px">This is a scaffold, not a script to recite word for word. Use what works, drop what doesn't, and make it sound like you. See the playbook for the backend steps that must happen after every one of these calls - JobAdder notes, the Warm List tag, and the follow-up text.</p>
     </div>
   </div><div class="content-block">
     <div class="block-title">5. Trade-Specific Qualifications - Confirm the Non-Negotiables</div>
@@ -2323,7 +2412,7 @@ window.__quizData['m131']=[
         </tbody>
       </table>
       <p style="margin-top:8px"><strong>Car:</strong> $4,000+ &nbsp; <strong>Total to be comfortable:</strong> ~$5,000+</p>
-      <div class="formula">"Moving over costs more than most people expect. Your flight alone is $500 to $1,000. Accommodation runs $350 to $850 a week. Most people need a car within the first few weeks. So realistically, before your first pay comes in, you're looking at around $5,000 all up. Does that align with where you're at financially?"</div>
+      <div class="formula">"Moving over costs more than most people expect. Depending where you land, your flight's a few hundred dollars, accommodation is a few hundred a week, and most people need a car within the first few weeks. So realistically, before your first pay comes in, you're looking at around $5,000 all up. Does that align with where you're at financially?"</div>
       <p style="margin-top:8px"><strong>Path 1 — Clearly ready:</strong> "Perfect. We also offer a relocation package if you want it handled for you - I'll send you the info. Totally optional. Right, let's keep going..."</p>
       <p><strong>Path 2 — Unsure:</strong> "I appreciate you being straight with me. Use the cool off period to sit down and work out the numbers - I'll send you a cost guide."</p>
       <p><strong>Path 3 — Clearly not ready:</strong> "Thanks for being honest. If the finances aren't there right now it's going to be tough to make this work. Let's pause, you get yourself in a better position, and we reconnect when the timing is right."</p>
@@ -2777,7 +2866,7 @@ Stand Up Recruitment</div>
       <div class="callout warn"><strong>This exists to protect the candidate, not to interrogate them. Frame it that way.</strong></div>
       <p style="margin-top:8px">This conversation exists to reduce dropouts after the offer - but if you frame it as "we need to check you can afford this," it feels transactional and a bit cold. Frame it instead as looking out for them: you'd rather they know the real numbers now than get blindsided later. That framing changes everything about how this lands.</p>
       <p style="margin-top:8px">Walk the candidate through the real costs - flights, accommodation, and a car, landing at roughly $5,000 all up to be comfortable.</p>
-      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Moving over costs more than most people expect. Your flight alone is $500 to $1,000. Accommodation runs $350 to $850 a week. Most people need a car within the first few weeks. So realistically, before your first pay comes in, you're looking at around $5,000 all up. (pause) Does that align with where you're at financially?</div>
+      <div class="callout info" style="margin-top:8px"><strong>You:</strong> Moving over costs more than most people expect. Depending where you land, your flight's a few hundred dollars, accommodation's a few hundred a week, and most people need a car within the first few weeks. So realistically, before your first pay comes in, you're looking at around $5,000 all up. (pause) Does that align with where you're at financially?</div>
       <p style="margin-top:8px">Pause before asking if it aligns. You've just given them a genuinely confronting number - rushing straight into the question doesn't give them a chance to actually process it. Let it sit for a second.</p>
       <div class="formula" style="margin-top:8px"><strong>Path 1 - Clearly ready:</strong> "Perfect. We also offer a relocation package if you want it handled for you - I'll send you the info. Totally optional. Right, let's keep going..."
         <br><br><strong>Path 2 - Unsure:</strong> "I appreciate you being straight with me. Use the cool off period to sit down and work out the numbers - I'll send you a cost guide."
@@ -3036,7 +3125,7 @@ window.__quizData['m141']=[
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <p>Complete this before moving to Stage 6.</p>
-<p style="margin-top:10px"><strong>For a real candidate assigned by Recruiter:</strong></p>
+<p style="margin-top:10px"><strong>For a real candidate assigned by Les:</strong></p>
 <div class="step-row"><div class="step-num">1</div><div>Call both referees using the reference check script — if no answer, recall in the afternoon and send the SMS if still no response</div></div>
 <div class="step-row"><div class="step-num">2</div><div>Log the outcome of each reference call in JobAdder</div></div>
 <div class="step-row"><div class="step-num">3</div><div>Submit the police check via the Airtable form with all 6 mandatory fields</div></div>
@@ -3366,7 +3455,7 @@ Name Rules (NON-NEGOTIABLE)
 <div class="block-body">
 <div class="callout" style="margin:10px 0"><strong>Complete this before moving to Stage 7.</strong></div>
 <div class="step-row"><div class="step-num">1</div><div>Set up your dedicated Claude CV formatting thread using the setup prompt and the SUR Formatted CV Template</div></div>
-<div class="step-row"><div class="step-num">2</div><div>Format a real candidate CV assigned by Recruiter using the SUR CV Formatting Prompt</div></div>
+<div class="step-row"><div class="step-num">2</div><div>Format a real candidate CV assigned by Les using the SUR CV Formatting Prompt</div></div>
 <div class="step-row"><div class="step-num">3</div><div>Review the formatted CV against the checklist above</div></div>
 <div class="step-row"><div class="step-num">4</div><div>Download as a Word document and upload to the candidate's profile in JobAdder</div></div>
 <p>Share the formatted CV with Recruiter for sign-off before submitting to any client.</p>
@@ -3659,7 +3748,7 @@ Stand Up Recruitment</div>
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <div class="callout" style="margin:10px 0"><strong>Complete this before moving to Stage 8.</strong></div>
-<p>Once you have sent a CV to a real client assigned by Recruiter, work through the full follow-up sequence until you get a confirmed interview time or a clear no from the client.</p>
+<p>Once you have sent a CV to a real client assigned by Les, work through the full follow-up sequence until you get a confirmed interview time or a clear no from the client.</p>
 <p>Log every touchpoint in JobAdder notes — date, method, and outcome of each step.</p>
 </div>
 </div>
@@ -3741,7 +3830,7 @@ window.__quizData['m221']=[
       <p style="margin-top:8px"><strong>Debrief with the client:</strong> "What did you think? Does [Candidate] tick the boxes for you?"</p>
       <p style="margin-top:8px"><strong>If the client says yes:</strong> Ask when they can send the offer letter. Update JobAdder status. Call the candidate to let them know they passed and that you will follow up once the offer letter comes through.</p>
       <p style="margin-top:8px"><strong>If the client says no:</strong> Ask for specific feedback: "Just so I can improve the next batch - what was missing for you?" Update JobAdder notes with the client's feedback. Update the candidate's Status to <strong>Unsuccessful - Client</strong> on their profile — do not click Reject on the job card. Send the candidate a rejection email using Claude to draft it with the client's specific feedback incorporated. If this is the second candidate rejected for this role, use the Endorse Candidate — 2nd Attempt template for your next submission.</p>
-      <div class="callout warn" style="margin-top:8px"><strong>If the client goes quiet after the interview:</strong> Every conversation ends with a locked-in date - not "I'll get back to you." Before you hang up from the debrief, always ask: "When can we expect a decision by?" If that date is missed, this is a separate follow-up sequence — see Stage 2.4.1 Contract Follow-Up. The same cadence applies whether you are waiting on a decision or a signed contract.</div>
+      <div class="callout warn" style="margin-top:8px"><strong>If the client goes quiet after the interview:</strong> Every conversation ends with a locked-in date - not "I'll get back to you." Before you hang up from the debrief, always ask: "When can we expect a decision by?" If that date is missed, this is a separate follow-up sequence — see Stage 9.1 Contract Follow-Up. The same cadence applies whether you are waiting on a decision or a signed contract.</div>
     </div>
   </div>
 
@@ -3871,7 +3960,7 @@ We'll open the call and set you up - just be yourself from there.</div>
     <p>4. If the client says no after the interview, what status should be set for the candidate?</p>
     <div class="quiz-option" id="opt-m231-3-0" onclick="selectOpt('m231',3,0)">A. Do Not Use / Blacklisted</div>
     <div class="quiz-option" id="opt-m231-3-1" onclick="selectOpt('m231',3,1)">B. Unsuccessful - Client</div>
-    <div class="quiz-option" id="opt-m231-3-2" onclick="selectOpt('m231',3,2)">C. Screened - Active</div>
+    <div class="quiz-option" id="opt-m231-3-2" onclick="selectOpt('m231',3,2)">C. Screened</div>
     <div class="quiz-option" id="opt-m231-3-3" onclick="selectOpt('m231',3,3)">D. In Process</div>
   </div>
   <div class="quiz-question">
@@ -3990,7 +4079,7 @@ window.__quizData['m231']=[
 {"q":"Who should the client interview calendar invite be sent to?","opts":["The candidate only","The client only","Both client and candidate","Les"],"ans":1},
 {"q":"What must you do before booking the client interview?","opts":["Send the offer letter","Call the candidate to confirm they are available","Run the police check","Nothing - just book it"],"ans":1},
 {"q":"What is the recruiter's role during the client interview?","opts":["Completely passive - just watch","Introduce, observe the flow, and step in when needed","Run the whole interview themselves","Leave the call once introductions are done"],"ans":1},
-{"q":"If the client says no after the interview, what status should be set for the candidate?","opts":["Do Not Use / Blacklisted","Unsuccessful - Client","Screened - Active","In Process"],"ans":1},
+{"q":"If the client says no after the interview, what status should be set for the candidate?","opts":["Do Not Use / Blacklisted","Unsuccessful - Client","Screened","In Process"],"ans":1},
 {"q":"What must every debrief end with, before you hang up?","opts":["A locked-in date for the next step","The invoice","A verbal contract","Nothing specific"],"ans":0}
 ];
 </script>
@@ -4083,6 +4172,7 @@ window.__quizData['m231']=[
       </table>
       <p style="margin-top:8px">If the client offers an annual salary inclusive of super: Annual salary × 1.12 (if super is 12%) × 15% = total fee. If the client states super separately: Annual salary × 15% = total fee — then add super on top separately.</p>
       <p style="margin-top:8px"><strong>Application status</strong> — select the correct relocation option: Full relocation package — East Coast; Full relocation package — SA; Full relocation package — WA; No relocation package.</p>
+      <div class="callout info" style="margin-top:8px">💡 <strong>Replacement placement</strong> — if this placement is replacing a candidate who didn't work out, select <strong>Replacement</strong> instead of a relocation option, and enter the full name of the candidate being replaced in the Replacement field. Double-check the name matches JobAdder exactly.</div>
       <p style="margin-top:8px"><strong>Signed offer</strong> — upload the signed contract document. Double check all four fields then click <strong>Create</strong>.</p>
     </div>
   </div>
@@ -4731,7 +4821,7 @@ window.__quizData['m251']=[
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Sourcer to Candidate</div><div class="email-template-subject">SUR Internal Interview with [Candidate Full Name] - [Trade] (Teams)</div></div>
+      <div><div class="email-template-label">Email - Sourcer to Candidate</div><div class="email-template-subject">SUR Internal Interview with [Candidate Full Name] - [Trade]</div></div>
       <button class="copy-btn" id="copy-m301-02" onclick="copyTemplate('m301-02')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-02">Hey [Name],
@@ -4765,7 +4855,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Sourcer to Candidate</div><div class="email-template-subject">SUR Internal Interview with [Candidate Full Name] - [Trade] (In-Person)</div></div>
+      <div><div class="email-template-label">Email - Sourcer to Candidate</div><div class="email-template-subject">SUR Internal Interview with [Candidate Full Name] - [Trade]</div></div>
       <button class="copy-btn" id="copy-m301-04" onclick="copyTemplate('m301-04')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-04">Hey [Name],
@@ -4825,7 +4915,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">No-Show Interview - Email</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">We missed you today, [Name]</div></div>
       <button class="copy-btn" id="copy-m301-07" onclick="copyTemplate('m301-07')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-07">Hey [Name],
@@ -4846,7 +4936,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Please Take a Few Days to Consider This Opportunity (Cool-Off Period Email)</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Please Take a Few Days to Consider This Opportunity</div></div>
       <button class="copy-btn" id="copy-m301-09" onclick="copyTemplate('m301-09')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-09">Hi [Candidate Name],
@@ -4884,7 +4974,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">One Quick Thing While You Wait (Document Request Email, send 24 hours after interview)</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate (send 24h after interview)</div><div class="email-template-subject">One Quick Thing While You Wait - [Candidate First Name]</div></div>
       <button class="copy-btn" id="copy-m301-10" onclick="copyTemplate('m301-10')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-10">Hey [Name],
@@ -4908,7 +4998,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Document Follow-Up 1 - Nothing Uploaded (48h after request)</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate (48h after request)</div><div class="email-template-subject">Still Need Your Documents - [Candidate First Name]</div></div>
       <button class="copy-btn" id="copy-m301-11" onclick="copyTemplate('m301-11')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-11">Hey [Name],
@@ -4930,7 +5020,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Document Follow-Up 2 (48h after Follow-Up 1)</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate (48h after Follow-Up 1)</div><div class="email-template-subject">Still Waiting on Your Documents - [Candidate First Name]</div></div>
       <button class="copy-btn" id="copy-m301-12" onclick="copyTemplate('m301-12')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-12">Hey [Name],
@@ -4952,7 +5042,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Document Follow-Up 3 - Final (hard stop, escalate to Les)</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Last Message from Me - [Candidate First Name]</div></div>
       <button class="copy-btn" id="copy-m301-13" onclick="copyTemplate('m301-13')">Copy</button>
     </div>
     <div class="callout warn">This is the final follow-up. After sending this email, do not contact the candidate again regarding documents. Escalate to Les - raise it in the morning meeting or email Les directly if time-sensitive.</div>
@@ -4971,7 +5061,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Document Follow-Up - Partial Upload</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Just a Couple More Documents - [Candidate First Name]</div></div>
       <button class="copy-btn" id="copy-m301-14" onclick="copyTemplate('m301-14')">Copy</button>
     </div>
     <div class="callout info">Check JobAdder before sending. Delete the items from the list below that have already been uploaded - only include what's still missing.</div>
@@ -5011,7 +5101,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">Candidate Endorsement + Suggest Meeting - [Candidate First Name], [Role Title]</div></div>
+      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">Candidate Endorsement - [Candidate First Name], [Role Title]</div></div>
       <button class="copy-btn" id="copy-m301-16" onclick="copyTemplate('m301-16')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-16">Hi [Client Name],
@@ -5032,7 +5122,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">Endorse Candidate - 2nd Attempt (use after 2 candidates didn't pass)</div></div>
+      <div><div class="email-template-label">Email - Placer to Client (use after 2 candidates didn't pass)</div><div class="email-template-subject">Candidate Endorsement - [Candidate First Name], [Role Title]</div></div>
       <button class="copy-btn" id="copy-m301-17" onclick="copyTemplate('m301-17')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-17">Hi [Client Name],
@@ -5051,7 +5141,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">Follow-Up Schedule Email</div></div>
+      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">SUR Follow Up - Interview Schedule for [Candidate First Name]</div></div>
       <button class="copy-btn" id="copy-m301-18" onclick="copyTemplate('m301-18')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-18">Hi [Client Name],
@@ -5070,7 +5160,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">CV Follow-Up Email (24h after CV, Monday if sent Friday)</div></div>
+      <div><div class="email-template-label">Email - Placer to Client (24h after CV, Monday if sent Friday)</div><div class="email-template-subject">[Candidate Name] - Wanted to Make Sure You Saw This</div></div>
       <button class="copy-btn" id="copy-m301-19" onclick="copyTemplate('m301-19')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-19">Hey [Client Name],
@@ -5086,7 +5176,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">CV Follow-Up - Missed Call Email (send immediately after unanswered call)</div></div>
+      <div><div class="email-template-label">Email - Placer to Client (send immediately after unanswered call)</div><div class="email-template-subject">Still need a [Job Title]?</div></div>
       <button class="copy-btn" id="copy-m301-20" onclick="copyTemplate('m301-20')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-20">Hey [Client Name],
@@ -5126,7 +5216,7 @@ If no or not a priority:
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">Meeting Invite Email</div></div>
+      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">SUR Client Interview with [Candidate First Name] and [Company Name]</div></div>
       <button class="copy-btn" id="copy-m301-22" onclick="copyTemplate('m301-22')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-22">Hi [Client Name],
@@ -5145,7 +5235,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Candidate Prep Email</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">SUR Prep for Your Interview with [Client Name]</div></div>
       <button class="copy-btn" id="copy-m301-23" onclick="copyTemplate('m301-23')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-23">Hi [Candidate Name],
@@ -5194,7 +5284,7 @@ We'll open the call and set you up - just be yourself from there.</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">Offer Letter Received Reply</div></div>
+      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">SUR Offer Letter Received - [Candidate First Name], [Role Title]</div></div>
       <button class="copy-btn" id="copy-m301-25" onclick="copyTemplate('m301-25')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-25">Hi [Client Contact],
@@ -5243,7 +5333,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Welcome &amp; Relocation Chat Email (send 2 days after offer)</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate (send 2 days after offer)</div><div class="email-template-subject">Welcome &amp; Relocation Chat with [Candidate Name] and Stand Up Recruitment</div></div>
       <button class="copy-btn" id="copy-m301-27" onclick="copyTemplate('m301-27')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-27">Hey [First Name],
@@ -5268,7 +5358,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Signed Contract Handover - Candidate</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Welcome to the Team [Candidate Name]</div></div>
       <button class="copy-btn" id="copy-m301-28" onclick="copyTemplate('m301-28')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-28">Hi [Candidate Name],
@@ -5292,7 +5382,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">Signed Contract Handover - Client</div></div>
+      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">Signed Contract &amp; Onboarding Handover - [Candidate Name]</div></div>
       <button class="copy-btn" id="copy-m301-29" onclick="copyTemplate('m301-29')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-29">Hi [Client Name],
@@ -5323,7 +5413,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">Contract Follow-Up - Check-In (sent next business day after missed date)</div></div>
+      <div><div class="email-template-label">Email - Placer to Client (sent next business day after missed date)</div><div class="email-template-subject">Following Up - [Candidate Name]</div></div>
       <button class="copy-btn" id="copy-m301-30" onclick="copyTemplate('m301-30')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-30">Hi [Client Contact],
@@ -5337,7 +5427,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">Contract Follow-Up - Urgency (sent when second date is also missed)</div></div>
+      <div><div class="email-template-label">Email - Placer to Client (sent when second date is also missed)</div><div class="email-template-subject">[Candidate Name] - Need to Confirm Timing</div></div>
       <button class="copy-btn" id="copy-m301-31" onclick="copyTemplate('m301-31')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-31">Hi [Client Contact],
@@ -5356,7 +5446,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">Float New Candidate Email</div></div>
+      <div><div class="email-template-label">Email - Placer to Client</div><div class="email-template-subject">New [Trade] Available</div></div>
       <button class="copy-btn" id="copy-m301-32" onclick="copyTemplate('m301-32')">Copy</button>
     </div>
     <div class="callout info">Do not send the CV on first email. Ask if they would like you to send it as shown below.</div>
@@ -5373,7 +5463,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Rejection - NZ PR Applicant</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Your Application at Stand Up Recruitment - [Role Title]</div></div>
       <button class="copy-btn" id="copy-m301-33" onclick="copyTemplate('m301-33')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-33">Hi [Candidate Name],
@@ -5391,7 +5481,7 @@ Stand Up Recruitment</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Criminal Conviction Inquiry Reply</div></div>
+      <div><div class="email-template-label">Email - Placer to Candidate</div><div class="email-template-subject">Re: Your Enquiry</div></div>
       <button class="copy-btn" id="copy-m301-34" onclick="copyTemplate('m301-34')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m301-34">Hi [Name],
@@ -6064,6 +6154,190 @@ Name Rules (NON-NEGOTIABLE)
 - Do NOT include candidate contact details (phone, email, address) anywhere in the output</div>
   </div>
 </div>
+</div>
+
+<div id="module-m303" style="display:none">
+<button class="back-btn" onclick="closeMod()">← Back to Playbooks</button>
+<div class="module-header">
+  <div class="module-eyebrow t0">Resources</div>
+  <h1 class="module-h1">SUR Candidate Tagging Helper</h1>
+  <p class="module-intro">A quick-reference decision tool. Click the situation that matches what just happened, and get the correct JobAdder Status tag plus the next action to take.</p>
+</div>
+<div class="tabs" id="tabs-m303">
+  <button class="tab-btn active" onclick="switchTab('m303','Overview')" id="tbtn-m303-Overview">Tagging Helper</button>
+</div>
+
+<div class="tab-panel active" id="panel-m303-Overview">
+  <div class="content-block">
+    <div class="block-body">
+      <div class="callout info">Click any situation below to reveal the correct Status tag and what to do next. See the full Candidate Status guide in Stage 2.2 for more detail.</div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="tag-helper-cat">
+      <div class="tag-helper-cat-title">No Answer</div>
+      <div class="tag-helper-option" onclick="toggleTagHelper('th1')">Didn't pick up — 1st or 2nd attempt</div>
+      <div class="tag-helper-result" id="th1"><span class="tag-pill">Called</span><br>Send the No Answer SMS template. If this becomes a 3rd unanswered attempt, switch the tag to Unresponsive instead.</div>
+
+      <div class="tag-helper-option" onclick="toggleTagHelper('th2')">Called 3 times with no answer (bot + recruiter combined)</div>
+      <div class="tag-helper-result" id="th2"><span class="tag-pill">Unresponsive</span><br>Three unanswered attempts across the AI bot, a recruiter, or a combination of both.</div>
+    </div>
+
+    <div class="tag-helper-cat">
+      <div class="tag-helper-cat-title">Screening Call Outcomes</div>
+      <div class="tag-helper-option" onclick="toggleTagHelper('th3')">Call disconnected/hung up before screening completed</div>
+      <div class="tag-helper-result" id="th3"><span class="tag-pill">Warm List</span><br>Regardless of how strong they seemed — keep the door open. Log a note with what was covered.</div>
+
+      <div class="tag-helper-option" onclick="toggleTagHelper('th4')">Screening completed, no job matches, not a strong candidate</div>
+      <div class="tag-helper-result" id="th4"><span class="tag-pill">Screened</span><br>Log a note with the reason.</div>
+
+      <div class="tag-helper-option" onclick="toggleTagHelper('th5')">Screening completed, no job matches, genuinely good candidate</div>
+      <div class="tag-helper-result" id="th5"><span class="tag-pill">Warm List</span><br>Log a note with details — this is a candidate worth holding onto for the next matching role.</div>
+
+      <div class="tag-helper-option" onclick="toggleTagHelper('th6')">Qualified, moving forward</div>
+      <div class="tag-helper-result" id="th6"><span class="tag-pill">In Process</span><br>Book the internal interview before hanging up.</div>
+
+      <div class="tag-helper-option" onclick="toggleTagHelper('th7')">Failed the screening call or internal interview, not suited to future roles either</div>
+      <div class="tag-helper-result" id="th7"><span class="tag-pill">Unsuccessful - Internal</span><br>Log the reason.</div>
+    </div>
+
+    <div class="tag-helper-cat">
+      <div class="tag-helper-cat-title">Internal Interview Outcomes</div>
+      <div class="tag-helper-option" onclick="toggleTagHelper('th8')">Completed internal interview, no current job matches their experience</div>
+      <div class="tag-helper-result" id="th8"><span class="tag-pill">Hot List</span><br>Log a note with details — these are strong candidates worth revisiting for the right role.</div>
+    </div>
+
+    <div class="tag-helper-cat">
+      <div class="tag-helper-cat-title">Client Interview Outcomes</div>
+      <div class="tag-helper-option" onclick="toggleTagHelper('th9')">Failed client interview but could still suit a future client</div>
+      <div class="tag-helper-result" id="th9"><span class="tag-pill">Hot List</span><br>Log the client's feedback in the note.</div>
+
+      <div class="tag-helper-option" onclick="toggleTagHelper('th10')">Failed client interview, not suited to future roles either</div>
+      <div class="tag-helper-result" id="th10"><span class="tag-pill">Unsuccessful - Client</span><br>Log the client's feedback.</div>
+    </div>
+
+    <div class="tag-helper-cat">
+      <div class="tag-helper-cat-title">Not Ready to Move</div>
+      <div class="tag-helper-option" onclick="toggleTagHelper('th11')">Said during the phone screening call, gave a target month</div>
+      <div class="tag-helper-result" id="th11"><span class="tag-pill">Warm List</span><br>Log the availability date — essential, don't skip. Send the Not Ready Yet — Follow-Up SMS within 5 minutes.</div>
+
+      <div class="tag-helper-option" onclick="toggleTagHelper('th12')">Said during/after the internal interview, gave a target month</div>
+      <div class="tag-helper-result" id="th12"><span class="tag-pill">Hot List</span><br>Same logging and SMS rule — log the availability date and send the Not Ready Yet SMS within 5 minutes.</div>
+    </div>
+
+    <div class="tag-helper-cat">
+      <div class="tag-helper-cat-title">Serious Issues</div>
+      <div class="tag-helper-option" onclick="toggleTagHelper('th13')">Serious issue, do not call again</div>
+      <div class="tag-helper-result" id="th13"><span class="tag-pill">Do Not Use / Blacklisted</span><br>Reserved for rude/unreliable/unwanted cases. Update the Status field directly on the candidate's profile — never click Reject on a job card.</div>
+    </div>
+
+    <div class="tag-helper-cat">
+      <div class="tag-helper-cat-title">Placed</div>
+      <div class="tag-helper-option" onclick="toggleTagHelper('th14')">Candidate placed and started</div>
+      <div class="tag-helper-result" id="th14"><span class="tag-pill">Placed / Currently Employed</span></div>
+    </div>
+  </div>
+</div>
+<script>
+function toggleTagHelper(id) {
+  var el = document.getElementById(id);
+  var opt = el.previousElementSibling;
+  var isOpen = el.classList.contains('show');
+  el.classList.toggle('show', !isOpen);
+  if (opt) opt.classList.toggle('open', !isOpen);
+}
+</script>
+</div>
+
+<div id="module-m304" style="display:none">
+<button class="back-btn" onclick="closeMod()">← Back to Playbooks</button>
+<div class="module-header">
+  <div class="module-eyebrow t0">Resources</div>
+  <h1 class="module-h1">SUR JobAdder Quick Reference</h1>
+  <p class="module-intro">Search or browse JobAdder actions grouped by where they live — the Candidates List, a Candidate Profile, or a Job Card — plus the most common mix-ups to avoid.</p>
+</div>
+<div class="tabs" id="tabs-m304">
+  <button class="tab-btn active" onclick="switchTab('m304','Overview')" id="tbtn-m304-Overview">Quick Reference</button>
+</div>
+
+<div class="tab-panel active" id="panel-m304-Overview">
+  <div class="content-block">
+    <div class="block-body">
+      <input type="text" class="ja-search-input" id="ja-search-input" placeholder="Search JobAdder actions (e.g. reject, status, schedule event, place candidate)..." oninput="filterJaRef(this.value)">
+      <div id="ja-search-status" style="font-size:12px;color:var(--muted);margin:-10px 0 6px"></div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="ja-group-title">Candidates List (Bulk / Search Actions)</div>
+    <div class="ja-item" data-search="filter candidates manual sourcing stage 2.2 date created working rights nz citizen category trade">
+      <strong>Filter candidates for manual sourcing (Stage 2.2):</strong> Candidates tab → sort by Date Created (descending) → filter Working Rights to NZ Citizen → filter Category to the trade you're sourcing for.
+    </div>
+    <div class="ja-item" data-search="send cold email batch stage 2.2 select all send message email the candidate ad hoc email">
+      <strong>Send a cold email batch (Stage 2.2):</strong> Candidates tab → filter as above → select all → Send Message (top right) → Email the Candidate → Send an Ad Hoc Email → paste subject and body → Send.
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="ja-group-title">Candidate Profile</div>
+    <div class="ja-item" data-search="check duplicate job matches applications tab stage 2.2">
+      <strong>Check for duplicate job matches (Stage 2.2):</strong> Open the candidate's Applications tab — shows every job card they're matched to.
+    </div>
+    <div class="ja-item" data-search="update candidate status tagging stage 2.2 3 4 8 status field never reject">
+      <strong>Update Candidate Status / tagging (Stage 2.2, also Stage 3 / 4 / 8):</strong> On the candidate's profile, update the Status field directly. Never use the Reject button on a job card to do this.
+    </div>
+    <div class="ja-item" data-search="log call note stage 2.2 stage 3 activity tab notes add note">
+      <strong>Log a call note (Stage 2.2 / Stage 3):</strong> Candidate profile → Activity tab → Notes → Add Note.
+    </div>
+    <div class="ja-item" data-search="upload documents cv licence passport trade certificate stage 4 stage 6 documents tab">
+      <strong>Upload documents — CV, licence, passport, trade certificate (Stage 4 / Stage 6):</strong> Candidate profile → Documents tab.
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="ja-group-title">Job Card</div>
+    <div class="ja-item" data-search="assign new job workflow stage 1 no applications details edit save">
+      <strong>Assign a new job to your workflow (Stage 1):</strong> JobAdder home page → find the job under No Applications → open it → Details tab → Edit → set Workflow → Save.
+    </div>
+    <div class="ja-item" data-search="move candidate new stage job card stage 3 stage 8 phone interview reference">
+      <strong>Move a candidate to a new stage (Stage 3 / Stage 8):</strong> On the job card, update the candidate's stage within that job (e.g. Phone Interview, Reference).
+    </div>
+    <div class="ja-item" data-search="book internal interview stage 3 schedule event three dots internal meeting">
+      <strong>Book an internal interview (Stage 3):</strong> Job card → hover the candidate's name → three dots → Schedule Event → Interview → fill in date/time → set "Looks like you are scheduling a..." to Internal Meeting → Save Event.
+    </div>
+    <div class="ja-item" data-search="book client interview stage 8 schedule event contact candidate meeting">
+      <strong>Book a client interview (Stage 8):</strong> Job card → hover the candidate's name → three dots → Schedule Event → Interview → fill in date/time → set "Looks like you are scheduling a..." to Contact Candidate Meeting → Save Event.
+    </div>
+    <div class="ja-item" data-search="place candidate offer accepted stage 9 start date total fee application status relocation replacement signed offer">
+      <strong>Place a candidate — offer accepted (Stage 9):</strong> Job card → candidate's three dots → Place Candidate → fill in Start Date, Total Fee, Application Status (relocation option or Replacement), upload signed offer → Create.
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Common Mix-Ups</div>
+    <div class="block-body">
+      <div class="callout danger">Rejecting a candidate on a job card automatically sets their overall Status to Do Not Use / Blacklisted — even if that's not what you meant. Always update Status directly on the candidate's profile instead.</div>
+      <div class="callout danger" style="margin-top:8px">"Internal Meeting" vs "Contact Candidate Meeting" in the Schedule Event dropdown — Internal Meeting is for your own internal interview with the candidate. Contact Candidate Meeting is for the client interview. Mixing these up sends the wrong meeting type.</div>
+      <div class="callout danger" style="margin-top:8px">Candidate Status vs Job Card Stage are two different things. Status lives on the candidate's profile and reflects their overall standing across the business. Stage lives on the job card and reflects where they are in that specific role's process.</div>
+    </div>
+  </div>
+</div>
+<script>
+function filterJaRef(query) {
+  var q = query.trim().toLowerCase();
+  var items = document.querySelectorAll('#panel-m304-Overview .ja-item');
+  var shown = 0;
+  items.forEach(function(el) {
+    var hay = (el.getAttribute('data-search') + ' ' + el.textContent).toLowerCase();
+    var match = !q || hay.indexOf(q) !== -1;
+    el.classList.toggle('ja-hidden', !match);
+    if (match) shown++;
+  });
+  var status = document.getElementById('ja-search-status');
+  if (status) status.textContent = q ? (shown + ' result' + (shown === 1 ? '' : 's') + ' for "' + query + '"') : '';
+}
+</script>
 </div>
 
 
