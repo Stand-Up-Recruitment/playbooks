@@ -357,72 +357,30 @@ body{
   </div>
 
   <div class="module-grid">
-    <div class="module-card" onclick="openModule('hiring-adminops')">
+    <div class="module-card" onclick="openModule('hiring-index')">
       <div class="module-status status-partial">Partial</div>
       <div class="module-num">01</div>
-      <div class="module-title">Hiring Process / Admin &amp; Ops</div>
-      <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the Admin &amp; Ops role.</div>
-      <div class="module-arrow">&rarr;</div>
-    </div>
-    <div class="module-card" onclick="openModule('hiring-marketing')">
-      <div class="module-status status-partial">Partial</div>
-      <div class="module-num">02</div>
-      <div class="module-title">Hiring Process / Marketing</div>
-      <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the Marketing role.</div>
-      <div class="module-arrow">&rarr;</div>
-    </div>
-    <div class="module-card" onclick="openModule('hiring-ea')">
-      <div class="module-status status-partial">Partial</div>
-      <div class="module-num">03</div>
-      <div class="module-title">Hiring Process / Executive Assistant</div>
-      <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the EA role.</div>
-      <div class="module-arrow">&rarr;</div>
-    </div>
-    <div class="module-card" onclick="openModule('hiring-pastoralcare')">
-      <div class="module-status status-partial">Partial</div>
-      <div class="module-num">04</div>
-      <div class="module-title">Hiring Process / Pastoral Care</div>
-      <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the Pastoral Care role.</div>
-      <div class="module-arrow">&rarr;</div>
-    </div>
-    <div class="module-card" onclick="openModule('hiring-sales')">
-      <div class="module-status status-partial">Partial</div>
-      <div class="module-num">05</div>
-      <div class="module-title">Hiring Process / Sales</div>
-      <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the Sales role.</div>
-      <div class="module-arrow">&rarr;</div>
-    </div>
-    <div class="module-card" onclick="openModule('hiring-recruitment')">
-      <div class="module-status status-ready">Ready</div>
-      <div class="module-num">06</div>
-      <div class="module-title">Hiring Process / Recruitment</div>
-      <div class="module-desc">Phone screening, interview, background &amp; reference checks, and the fully-built test project for hiring internal Recruitment team staff.</div>
-      <div class="module-arrow">&rarr;</div>
-    </div>
-    <div class="module-card" onclick="openModule('hiring-automation')">
-      <div class="module-status status-partial">Partial</div>
-      <div class="module-num">07</div>
-      <div class="module-title">Hiring Process / Automation</div>
-      <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the Automation role.</div>
+      <div class="module-title">Hiring Process</div>
+      <div class="module-desc">Screening call, interview, reference check, and test project &mdash; pick a department to see its hiring process.</div>
       <div class="module-arrow">&rarr;</div>
     </div>
     <div class="module-card" onclick="openModule('onboarding')">
       <div class="module-status status-soon">Coming Soon</div>
-      <div class="module-num">08</div>
+      <div class="module-num">02</div>
       <div class="module-title">Onboarding Process</div>
       <div class="module-desc">Pre-start setup, Day 1 plan, and 30/60/90-day goals for a new hire.</div>
       <div class="module-arrow">&rarr;</div>
     </div>
     <a class="module-card" href="admin-ops-playbook-final.html">
       <div class="module-status status-ready">Ready</div>
-      <div class="module-num">09</div>
+      <div class="module-num">03</div>
       <div class="module-title">Playbook</div>
       <div class="module-desc">Payroll, Xero &amp; finance admin, NZ business &amp; employees, AUS operations, and systems &amp; compliance &mdash; the full reference.</div>
       <div class="module-arrow">&rarr;</div>
     </a>
     <a class="module-card" href="how-to-create-a-playbook.html">
       <div class="module-status status-ready">Ready</div>
-      <div class="module-num">10</div>
+      <div class="module-num">04</div>
       <div class="module-title">How to Create a Playbook</div>
       <div class="module-desc">Record, build, and maintain playbook tiles using Claude &mdash; step-by-step guide and ready-to-use prompts.</div>
       <div class="module-arrow">&rarr;</div>
@@ -431,6 +389,65 @@ body{
 </div>
 
 <div id="module-view">
+  <div id="module-hiring-index" style="display:none">
+    <button class="back-btn" onclick="closeMod()">&#8592; Back to Admin &amp; Ops Hub</button>
+    <div class="module-header">
+      <div class="module-eyebrow">Hiring Process</div>
+      <h1 class="module-h1">Hiring Process &mdash; Choose a Department</h1>
+      <p class="module-intro">Every department follows the same 5-stage framework &mdash; screening call, interview, reference check, test project, final decision. Pick a department to see its version.</p>
+    </div>
+    <div class="module-grid">
+      <div class="module-card" onclick="openModule('hiring-adminops')">
+        <div class="module-status status-partial">Partial</div>
+        <div class="module-num">01</div>
+        <div class="module-title">Admin &amp; Ops</div>
+        <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the Admin &amp; Ops role.</div>
+        <div class="module-arrow">&rarr;</div>
+      </div>
+      <div class="module-card" onclick="openModule('hiring-marketing')">
+        <div class="module-status status-partial">Partial</div>
+        <div class="module-num">02</div>
+        <div class="module-title">Marketing</div>
+        <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the Marketing role.</div>
+        <div class="module-arrow">&rarr;</div>
+      </div>
+      <div class="module-card" onclick="openModule('hiring-ea')">
+        <div class="module-status status-partial">Partial</div>
+        <div class="module-num">03</div>
+        <div class="module-title">Executive Assistant</div>
+        <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the EA role.</div>
+        <div class="module-arrow">&rarr;</div>
+      </div>
+      <div class="module-card" onclick="openModule('hiring-pastoralcare')">
+        <div class="module-status status-partial">Partial</div>
+        <div class="module-num">04</div>
+        <div class="module-title">Pastoral Care</div>
+        <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the Pastoral Care role.</div>
+        <div class="module-arrow">&rarr;</div>
+      </div>
+      <div class="module-card" onclick="openModule('hiring-sales')">
+        <div class="module-status status-partial">Partial</div>
+        <div class="module-num">05</div>
+        <div class="module-title">Sales</div>
+        <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the Sales role.</div>
+        <div class="module-arrow">&rarr;</div>
+      </div>
+      <div class="module-card" onclick="openModule('hiring-recruitment')">
+        <div class="module-status status-ready">Ready</div>
+        <div class="module-num">06</div>
+        <div class="module-title">Recruitment</div>
+        <div class="module-desc">Phone screening, interview, background &amp; reference checks, and the fully-built test project for hiring internal Recruitment team staff.</div>
+        <div class="module-arrow">&rarr;</div>
+      </div>
+      <div class="module-card" onclick="openModule('hiring-automation')">
+        <div class="module-status status-partial">Partial</div>
+        <div class="module-num">07</div>
+        <div class="module-title">Automation</div>
+        <div class="module-desc">Screening call, interview, reference check, and test project for bringing someone new into the Automation role.</div>
+        <div class="module-arrow">&rarr;</div>
+      </div>
+    </div>
+  </div>
   <div id="module-hiring-adminops" style="display:none">
     <button class="back-btn" onclick="closeMod()">&#8592; Back to Admin &amp; Ops Hub</button>
     <div id="hiring-adminops-content"></div>
