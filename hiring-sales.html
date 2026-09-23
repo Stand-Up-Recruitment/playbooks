@@ -1116,6 +1116,425 @@ function hiringTemplatesTab(mid){
   `;
 }
 
+/* ============================================================
+   SALES-SPECIFIC HIRING PROCESS CONTENT (the fully-built
+   source-of-truth version, adapted from SUR-HR-PB-006 v1)
+   ============================================================ */
+function hiringOverviewTabSales(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">The full hiring journey at a glance &mdash; from the avatar and advertising through to a confirmed permanent hire, including the PRIOS personality benchmark as the final selection gate before a job offer.</span></div>
+  <div class="content-block">
+    <div class="block-label">Doc ref: SUR-HR-PB-006 &middot; v1</div>
+    <div class="block-title">Sourcing, then an eight-stage hiring framework</div>
+    <div class="step-row"><div class="step-num">0</div><div class="step-body"><strong>Avatar &amp; Advertising</strong> &mdash; define who you're fishing for, then post on Seek, TradeMe and LinkedIn around commission-heavy upside. See the Sourcing tab.</div></div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><strong>Phone Screen</strong> &mdash; quick, informal call; fluency and energy judged live.</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><strong>Interview + Live Cold-Call Test</strong> &mdash; real, uncoached cold calls sprung mid-interview. No internal material handed over yet.</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><strong>Script Handover &amp; Reference Check</strong> &mdash; run concurrently, not one after the other. Objection-handling sheet is held back.</div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body"><strong>Test Project &mdash; Recorded Call</strong> &mdash; one week later. The main pass/fail decision point, then the <strong>PRIOS Personality Benchmark</strong> as the final selection gate, checked against Les's own Commander profile.</div></div>
+    <div class="step-row"><div class="step-num">5</div><div class="step-body"><strong>Job Offer &mdash; 4-Week Paid Trial</strong> &mdash; real, paid employment from day one, then Weeks 1&ndash;4: ride-alongs, milestones, and building the calendar.</div></div>
+    <div class="step-row"><div class="step-num">&#10003;</div><div class="step-body"><strong>Final Decision</strong> &mdash; confirmed as a permanent hire, extension with remedial focus, or the employment ends under the trial clause. See the Stage 5 tab.</div></div>
+  </div>
+  <div class="callout"><span class="tag">Templates</span>Every candidate-facing message for this process &mdash; email and the full cold-call script reference &mdash; is ready to copy in the <strong>Templates</strong> tab.</div>
+  <div class="callout warn"><span class="tag">Training note</span>Traits remain the primary filter throughout this process (comfortable with rejection, money-motivated, coachable ego), but a real-world experience floor sits on top of them &mdash; the audience here is a busy, often blunt construction business owner who won't make allowances for nerves. See the Sourcing tab for exactly why, and the CV-screening reference for which backgrounds count.</div>
+  <div class="callout success"><span class="tag">Ready</span>This is the fully worked Sales division process &mdash; Les runs every stage personally. Don't skip stages, and don't hand over internal material (the script, the objection sheet) earlier than each stage says to.</div>
+  `;
+}
+
+function hiringSourcingTabSales(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">Who you're fishing for, before you write the ad &mdash; this isn't "someone with sales experience," CVs don't tell you what actually matters. What matters is temperament, and you can only test for it live.</span></div>
+  <div class="content-block">
+    <div class="block-label">The Avatar &mdash; What Good Looks Like</div>
+    <div class="block-body"><ul>
+      <li><strong>Comfortable with rejection and confrontation</strong> &mdash; pushes back on a customer without flinching, doesn't need to be liked.</li>
+      <li><strong>Money-motivated over security-motivated</strong> &mdash; genuinely wants low base / high commission, not just tolerating it.</li>
+      <li><strong>Talks fast and thinks on their feet</strong> &mdash; shows up in the first 10 seconds of the phone screen, and again in the live cold-call test.</li>
+      <li><strong>Coachable ego</strong> &mdash; takes on-the-spot feedback as information, not an attack. A rough performance with a coachable reaction beats a smooth performance with a defensive one. You can train skill. You can't train ego.</li>
+      <li><strong>Has sold something in-person and high-pressure before</strong> &mdash; see the CV-screening reference below for exactly which backgrounds count. A customer-service background usually doesn't transfer &mdash; too used to being liked, not used to pushing.</li>
+      <li><strong>Demonstrated experience holding their own in high-stakes, adult conversations</strong> &mdash; real proof they've been tested in a conversation where someone could say no to them, before this role, not on it. The buyer here is a busy, often blunt construction business owner who won't make allowances for nerves.</li>
+    </ul></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">CV-Screening Reference &mdash; Which Sales Backgrounds Actually Count</div>
+    <div class="block-body"><p>The through-line is "no hiding." A background where rejection happens to someone's face, in real time, with no script to retreat behind, is worth far more than one where the customer walked up already interested.</p></div>
+    <table class="data-table">
+      <thead><tr><th>Signal Strength</th><th>Backgrounds</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tier 1 &mdash; Strongest</strong></td><td>Door-to-door sales (any product); pest control sales; solar sales; in-home sales (alarm systems, Cutco-style); direct field sales</td><td>Cold, in-person, no hiding. Rejection happens to their face, in real time, with no script to retreat behind.</td></tr>
+        <tr><td><strong>Tier 2 &mdash; Strong</strong></td><td>Car sales (lot sales, not internet leads); retail commission sales (working a floor &mdash; furniture, mattresses, electronics)</td><td>Still in-person and commission-driven, but the customer usually walked in already somewhat interested.</td></tr>
+        <tr><td><strong>Tier 3 &mdash; Weaker, still worth a look</strong></td><td>Street fundraising</td><td>Good rejection tolerance, but usually scripted and low-stakes financially &mdash; doesn't test price-holding the same way.</td></tr>
+        <tr><td><strong>Doesn't count</strong></td><td>Trade show / expo booth sales</td><td>People walk up already curious. No cold approach, no real "no" to overcome.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Traits vs. Experience &mdash; The Call We're Making</div>
+    <div class="block-body"><p>The Sales Team Training Manual (Hormozi Method) says the opposite of what's above &mdash; "Hire for traits, not experience. Experience does not predict success," listing work ethic, coachability, competitiveness, emotional resilience and hunger for success as what actually matters. That's a legitimate position.</p>
+    <p style="margin-top:8px">The decision for this role: traits remain the primary filter, but a real-world experience floor is added on top of them &mdash; because the audience (construction business owners, cold, on the phone or in person) is less forgiving than a warmer B2C sale.</p></div>
+    <div class="callout warn"><span class="tag">Training note</span>This is deliberately framed as "proven experience in high-stakes adult conversations," not an age cut-off &mdash; an age-based bar creates legal risk (age discrimination) without actually testing the thing that matters. Someone young with real experience holding their own passes; someone older with none doesn't.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Where to Actually Find That Person</div>
+    <div class="block-body"><p>Job boards alone tend to surface generic applicants. Worth looking sideways at people already in commission-only or high-churn sales roles who are underpaid relative to their skill &mdash; real estate agents in a slow patch, car salespeople, insurance/mortgage brokers. They already have the temperament and are often looking for a better commission structure.</p></div>
+    <div class="callout"><span class="tag">Best channel</span>A direct LinkedIn message tends to work better than a passive ad for this group.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Disqualifiers</div>
+    <div class="block-body"><ul>
+      <li>Needs reassurance before acting</li>
+      <li>Gets defensive on feedback</li>
+      <li>Talks slowly or flatly on the phone screen</li>
+      <li>Can't explain why they want a sales role beyond "needed a job"</li>
+    </ul></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Advertise the Role</div>
+    <div class="block-body"><p>Post on all major job boards &mdash; Seek, TradeMe, LinkedIn. Keep the ad structured around commission-heavy, high-reward earning potential &mdash; low base, high commission &mdash; since that's the actual structure of the role, and it naturally filters toward people comfortable with performance-based pay.</p></div>
+    <div class="callout warn"><span class="tag">Not locked yet</span>Ad copy itself isn't locked yet &mdash; flag separately if a polished version needs to be written up.</div>
+  </div>
+  `;
+}
+
+function hiringStage1TabSales(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">A quick, informal call before inviting anyone in. Not a written check &mdash; you're judging fluency and energy live, by how the call actually goes. No script or company materials are shared at this point.</span></div>
+  <div class="content-block">
+    <div class="block-label">Opener</div>
+    <div class="formula">"Hey [Name], it's Les from Stand Up Recruitment &mdash; you applied for the sales role, got a quick minute?"</div>
+    <div class="block-body"><p><strong>Training note:</strong> This alone tells you fluency and energy in the first 10 seconds. If it's rough or flat here, you already have your answer.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Screening Questions</div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><strong>"Whereabouts are you based at the moment?"</strong><br>Training note: confirms NZ-based. Disqualify if not.</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><strong>"If this moved forward, how soon could you start?"</strong><br>Training note: checks realistic availability. Set your own cutoff (e.g. 2&ndash;4 weeks) &mdash; treat this as a flag, not an instant no. A vague answer with no reason is the real red flag.</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><strong>"What made you apply for a sales role specifically?"</strong><br>Training note: not graded for depth &mdash; you're checking whether they have any real answer at all, versus just applying to jobs.</div></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Close the Call</div>
+    <div class="formula">"Cool, that's all I needed &mdash; I'd like to get you in for a chat, keep an eye on your email."</div>
+    <div class="formula">If failing: "Thanks for your time, we'll keep your details on file."</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">What This Call Is Actually Screening &mdash; Pass/Fail, Not Scored</div>
+    <div class="block-body"><ul>
+      <li>Fluent, natural English (first language) &mdash; judged by how the conversation goes, never asked directly</li>
+      <li>Based in New Zealand</li>
+      <li>Realistic start availability</li>
+      <li>Baseline energy &mdash; bubbly and present vs. flat and disengaged</li>
+    </ul></div>
+    <div class="callout warn"><span class="tag">This gate protects everyone's time</span>Anyone who fails any of these doesn't get invited in &mdash; including the candidate's own time.</div>
+  </div>
+  `;
+}
+
+function hiringStage2TabSales(){
+  const sections = [
+    ["Warm-Up (Not CV, Just Them)","",`"Before we get into anything &mdash; just tell me about yourself. Not your CV, just you. What are you about?"<br>"What attracted you to apply for this role specifically?"`,""],
+    ["Sales Background","",`"What have you sold before, and how did that actually work &mdash; were you generating your own leads, or working off leads someone handed you?"<br>"Walk me through a sale you're genuinely proud of. What made it hard, and what did you do?"<br>"Tell me about a time a customer or prospect pushed back hard on price. What did you actually say?"`,"testing real experience vs. a rehearsed answer &mdash; listen for specifics, not general impressions."],
+    ["Pressure &amp; Resilience","",`"Tell me about the worst rejection you've had in a sales or customer-facing role. How did you handle it in the moment, and how did you feel an hour later?"<br>"What's something you've worked hard to get good at, and what actually drove you to keep going when it wasn't clicking?"<br>"Have you ever been part of a team &mdash; sport, work, anything &mdash; where you had to push through something hard together? What did it teach you?"`,"testing whether setbacks bounce off them or stick. Listen for ownership vs. blame."],
+    ["Money &amp; Motivation","",`"This role is base plus uncapped commission. How do you actually feel about that &mdash; not just 'yeah that's fine'?"<br>"If you joined us and your first month was rough &mdash; not clicking yet &mdash; what would you do?"`,""],
+    ["Persuasion","",`"Tell me about a time you had to persuade someone who genuinely didn't want to listen. What did you say, and how did it go?"`,""],
+    ["About Us &amp; The Role","",`"So let me tell you what we actually do here. Stand Up Recruitment places New Zealand tradies with construction business owners across Australia who are desperate for good workers and can't find them. We're not another agency cold-calling into the void &mdash; we send a video pitch ahead of every call, so by the time someone's actually talking to a business owner, that owner already knows who we are and what we do. Your job is to run that conversation and get the deal signed."<br><br>"This isn't sink-or-swim. You get real training &mdash; daily coaching, live call reviews, role-plays with real objections &mdash; and a genuine path to grow, both in what you earn and in your title, as you prove yourself."<br><br>"It's base salary plus uncapped commission, so there's a real, ceiling-free upside here for someone who's good at this. The only limit is how good you get."`,"this is you selling it to them, not just informing them &mdash; sell the role here, after testing."],
+    ["Their Questions","",`"What questions do you have for us?"`,""]
+  ];
+  let stepsHtml = sections.map((s,i) => `
+    <div class="step-row">
+      <div class="step-num">${i+1}</div>
+      <div class="step-body">
+        <strong>${s[0]}</strong>
+        ${s[2] ? `<div class="formula" style="margin:8px 0 4px">${s[2]}</div>` : ""}
+        ${s[3] ? `<div style="margin-top:4px">Training note: ${s[3]}</div>` : ""}
+      </div>
+    </div>
+  `).join("");
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">This replaces sending them a script and running a scripted roleplay. At this stage they have none of your internal material &mdash; no script, no objection sheet, nothing. You're testing raw, uncoached ability: what they walk in with, not what they can be taught.</span></div>
+  <div class="content-block">
+    <div class="block-label">Part A &mdash; The Interview</div>
+    <div class="block-body"><p>Sit down (in person or on video) and get a real picture of what they've actually done, beyond what the phone screen could tell you. Run in order &mdash; don't skip ahead.</p></div>
+    ${stepsHtml}
+  </div>
+  <div class="content-block">
+    <div class="block-label">Part B &mdash; Spring the Cold-Call Test</div>
+    <div class="block-body"><p>Partway through, shift without much warning:</p></div>
+    <div class="formula">"Look, what I like to do is just get people doing a couple of cold calls, just to see how you go."</div>
+    <div class="block-body"><p>Then have them make a couple of real cold calls on the spot &mdash; e.g. to Australian prospects &mdash; with no script and no prep time.</p></div>
+    <div class="callout warn"><span class="tag">Training note</span>This is deliberately uncoached. Do they freeze, or find something to say? Do they recover after a bad response, or spiral? Are they actually listening to the person on the other end, or running a mental monologue? This is the single best raw signal you get before investing a week of their time and yours in the script.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Decision</div>
+    <div class="step-row"><div class="step-num">&#10003;</div><div class="step-body"><strong>Happy with what you saw</strong> &mdash; move to the reference check (Stage 3)</div></div>
+    <div class="step-row"><div class="step-num">&#10005;</div><div class="step-body"><strong>Not there yet</strong> &mdash; end here; they were never given any internal material, so nothing needs to be walked back</div></div>
+  </div>
+  `;
+}
+
+function hiringStage3TabSales(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">Straight after the interview, if you're happy: hand over the Client Call Script on the spot and set a date one week out for the Test Project. Run the reference check the same day &mdash; the two run in parallel, not one after the other.</span></div>
+  <div class="content-block">
+    <div class="block-label">Suggested Memorisation Method (For the Candidate's Week)</div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body">Print two copies of the script.</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body">Read the full script out loud.</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body">Black out one word with a marker.</div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body">Say the script again &mdash; if they stuff up the blacked-out word, look at the clean copy and restart.</div></div>
+    <div class="step-row"><div class="step-num">5</div><div class="step-body">When they get it right, black out the next word. Repeat until every word is blacked out.</div></div>
+    <div class="callout"><span class="tag">Training note</span>A 400-word script means they say it 400 times. By the end they don't think about the words &mdash; they just say them. This is what allows natural delivery, real listening, and confident tone.</div>
+    <div class="callout warn"><span class="tag">Do NOT hand over the objection-handling sheet at this stage</span>That stays back until after the Test Project &mdash; holding it back is what makes the Test Project a real test rather than a memory test.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">The Reference Check</div>
+    <div class="block-body"><p>The same day (or as soon as possible after), run the reference check independently. Call their most recent sales manager directly, not a HR reference line:</p><ul>
+      <li>Did they generate their own pipeline, or only work leads that were handed to them?</li>
+      <li>How did they handle real pushback from a customer under pressure &mdash; an actual example, not a general impression?</li>
+      <li>Would you hire them again? Why or why not?</li>
+      <li>Is there a pattern in why they left &mdash; theirs or the employer's story, and do the two match?</li>
+    </ul></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Early Exit Rule</div>
+    <div class="callout warn"><span class="tag">If anything comes back bad at any point during that week</span>Call the candidate straight away &mdash; "Hey, look, we've decided to go with someone else" &mdash; rather than waiting for the Test Project. No point letting them spend the rest of the week learning a script for a role they're not getting.</div>
+  </div>
+  `;
+}
+
+function hiringStage4TabSales(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">One week later: a recorded Teams call, with Les or one of your staff playing the client. The main pass/fail decision point in the whole process &mdash; then the PRIOS Personality Benchmark as the final selection gate before a job offer.</span></div>
+  <div class="content-block">
+    <div class="block-label">Part 1 &mdash; Test Project: Recorded Call</div>
+    <div class="block-body"><p><strong>Opening line</strong> (say this once, before you start):</p></div>
+    <div class="formula">"Cool, thanks for jumping on. I'm going to play a client who's short on tradies, you run your pitch like a real call. I'll throw some pushback, that's normal. I'm not looking for perfect &mdash; I'm looking at how you move when things don't go exactly to plan. Ready?"</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Beat 1 &mdash; Vague Opener</div>
+    <div class="formula">"Yeah look, it's been a bit of a nightmare mate, we're short-staffed."</div>
+    <div class="block-body"><p>Training note: do they dig (ask 'in what way', 'how long', 'what have you tried') or jump straight into pitching? Jumping straight to the pitch is a red flag &mdash; they'll skip discovery on real calls too.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Beat 2 &mdash; One More Vague Answer, Then Force the Cut</div>
+    <div class="formula">"Yeah we've tried Seek, tried a few agencies, nothing's really landed." &mdash; then after 2&ndash;3 exchanges max, cut in: "So what can you actually do for me?"</div>
+    <div class="block-body"><p>Training note: can they pivot into the pitch on a shorter runway than the script implies, and do they hold the pause after the outcome line instead of filling the silence?</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Beat 3 &mdash; Cold Price Pushback (Not in the Script They Were Sent)</div>
+    <div class="formula">"$17K feels pretty steep for a recruiter, mate."</div>
+    <div class="callout warn"><span class="tag">Testing &mdash; the single highest-signal moment in the whole test</span>Do they hold the price and explain value, or immediately cave, discount, or over-justify?</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Beat 4 &mdash; Risk and Stall, Stacked On Top</div>
+    <div class="formula">"What if this guy doesn't even work out? ... Yeah... nah, that's a fair bit to think about, I might need to talk to my business partner."</div>
+    <div class="block-body"><p>Training note: can they handle more than one objection in the same call without losing frame? This tells you whether Beat 3 was a fluke or a real skill.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Beat 5 &mdash; Neutral, Non-Committal Response, Then Go Quiet</div>
+    <div class="block-body"><p>(Say nothing further. Let them fill the silence.)</p></div>
+    <div class="callout warn"><span class="tag">Testing &mdash; the strongest signal in the whole test</span>Do they sit and wait for permission, backpedal into re-justifying, or self-advance into the logical next step in their own words (Terms of Business, job description) without being asked? Self-advancing unprompted is the strongest signal in the whole test.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Beat 6 &mdash; End It, Give Feedback Out Loud, On the Spot</div>
+    <div class="formula">"Alright, that's the roleplay. Here's what I saw &mdash; [one strength], [one thing to work on]. That's it, we'll be in touch."</div>
+    <div class="block-body"><p>Training note: how they take feedback &mdash; defensive, blank, or 'got it, noted.' A rough performance with a coachable reaction beats a smooth performance with a defensive one.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Score It</div>
+    <table class="data-table">
+      <thead><tr><th>What to Score</th><th>Look For</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Discovery instinct</strong></td><td>Did they dig before pitching, or pitch blind?</td></tr>
+        <tr><td><strong>Pause discipline</strong></td><td>Did they let silence sit after the outcome line, or rush to fill it?</td></tr>
+        <tr><td><strong>Price nerve</strong></td><td>Did they hold the price, or cave/discount/over-justify?</td></tr>
+        <tr><td><strong>Self-advance</strong></td><td>Did they move to next steps unprompted, or wait to be told?</td></tr>
+      </tbody>
+    </table>
+    <div class="block-body" style="margin-top:8px"><p><strong>Rule:</strong> solid on at least 3 of the 4 &rarr; move to Part 2, PRIOS. Weak on all four &rarr; no hire.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Part 2 &mdash; PRIOS Personality Benchmark (Final Selection Gate)</div>
+    <div class="block-body"><p>Once a candidate has cleared the Test Project, the final stage before a job offer is the PRIOS Principles Assessment &mdash; checked against Les's own result (completed 1 September 2026) as the target profile: <strong>"The Commander"</strong> &mdash; driven and demanding, pragmatic and results-oriented, comfortable taking charge, leads through setting and applying high standards rather than emotional connection. A Sales Closer needs to hold their ground on price, push back on objections, and drive a conversation toward a decision without needing to be liked &mdash; that's the Commander profile, almost trait for trait.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Highest-Weight Traits &mdash; What Actually Predicts Sales Performance</div>
+    <div class="block-body"><p>The 17 PRIOS traits are pre-weighted toward what typically predicts sales performance for this role &mdash; the four below carry the most weight; traits like Humorous or Conceptual barely count.</p></div>
+    <table class="data-table">
+      <thead><tr><th>Trait</th><th>Les's Score</th><th>Why It Matters Here</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Determined</strong></td><td>89% Very High</td><td>Persistence through rejection and a rough patch &mdash; the core of surviving a low-base/high-commission role</td></tr>
+        <tr><td><strong>Tough</strong></td><td>94% Very High</td><td>Willing to fight for price, tell people what they really think, take critical feedback without flinching</td></tr>
+        <tr><td><strong>Extraverted</strong></td><td>79% High</td><td>Engaging and outgoing &mdash; thrives running conversation after conversation, cold</td></tr>
+        <tr><td><strong>Leadership</strong></td><td>94% Very High</td><td>Drives the conversation, holds the client to a decision, doesn't wait to be led</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><span class="tag">Caveat</span>Les scored low on Composed (26%) and Humble (7%) &mdash; his own acknowledged growth areas, not requirements for a hire. A candidate scoring higher than Les on either should be read as a plus, not a mismatch.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">How to Read the Result</div>
+    <div class="block-body"><p><strong>Strong match:</strong> a candidate doesn't need to mirror Les trait-for-trait. High on the four traits above is the real signal &mdash; low scores on Humorous or Conceptual are irrelevant, exactly as they are for Les.</p>
+    <p style="margin-top:8px"><strong>Weak match:</strong> low scores on Determined, Tough, or Leadership &mdash; or a profile leaning toward Peacekeeper/Helper archetypes rather than Commander/Shaper/Orchestrator &mdash; is a real flag for this role. It doesn't automatically mean decline; weigh it against the Test Project and interview rather than either signal alone.</p></div>
+    <div class="callout warn"><span class="tag">Important</span>PRIOS measures style and thinking tendencies, not skill or track record. It's a final cross-check on temperament, not the deciding vote &mdash; never a stand-alone hire/no-hire decision on its own.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Final Decision &mdash; Stage 4</div>
+    <table class="data-table">
+      <thead><tr><th>Outcome</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Test Project weak on all 4 scoring criteria</td><td>No hire &mdash; do not proceed to PRIOS</td></tr>
+        <tr><td>Test Project solid on 3+ of 4</td><td>Proceed to PRIOS Personality Benchmark</td></tr>
+        <tr><td>PRIOS &mdash; strong or acceptable match on highest-weighted traits</td><td>Extend job offer with 4-week paid trial (Stage 5)</td></tr>
+        <tr><td>PRIOS &mdash; weak match</td><td>Discuss with Les before proceeding &mdash; not an automatic decline</td></tr>
+      </tbody>
+    </table>
+  </div>
+  `;
+}
+
+function hiringStage5TabSales(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">The job offer, the 4-week paid trial, and what happens next for the candidate once they're confirmed.</span></div>
+  <div class="content-block">
+    <div class="block-label">Job Offer &mdash; With a 4-Week Paid Trial</div>
+    <div class="block-body"><p>If the PRIOS gate confirms them: extend the offer. It's paid, real employment, structured with a 4-week trial period from day one &mdash; not a separate unpaid or informal arrangement beforehand.</p></div>
+    <div class="callout warn"><span class="tag">Get it in writing first</span>Make sure the trial period is agreed to in writing before their first day; that's what makes it a valid trial period rather than just an early performance review.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">The Trial &mdash; Weeks 1 to 4</div>
+    <div class="block-body"><p>This is both the final proving ground and the start of onboarding &mdash; there's no separate onboarding process layered on top of it. No one talks to a real, valuable lead until they've earned it. Week 1: ride-alongs watching Les sell in real time, daily team training from Day 1, low-value leads only.</p></div>
+    <table class="data-table">
+      <thead><tr><th>Milestone</th><th>What It Tests</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1. Recaps</strong></td><td>Can take a prospect's stated pain and label it accurately into the right problem category. Tests listening and abstraction.</td></tr>
+        <tr><td><strong>2. Close &amp; objections</strong></td><td>Can ask for the decision and handle real objections without breaking frame.</td></tr>
+      </tbody>
+    </table>
+    <table class="data-table" style="margin-top:10px">
+      <thead><tr><th>Trigger</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Milestone 1 (Recaps) passed</td><td>More leads added, still low-value</td></tr>
+        <tr><td>Milestone 2 (Close &amp; objections) passed</td><td>Standard lead flow, though still monitored closely</td></tr>
+        <tr><td>Hitting KPI consistently through Week 4</td><td>Confirmed as a permanent hire</td></tr>
+        <tr><td>Not hitting KPI, or breakdowns on real calls</td><td>Either an extension with a specific remedial focus, or the employment ends under the trial clause</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Closer Career Progression &amp; Commission Tiers</div>
+    <div class="block-body"><p>Mirrors the Recruiter career path &mdash; a visible ladder with a reason to push for the next rung at every stage. Built around close rate rather than a raw TOB count. Tiers start counting from the very first TOB a rep is assigned, running alongside the 4-week trial &mdash; a strong performer could already be climbing before the trial period ends.</p></div>
+    <table class="data-table">
+      <thead><tr><th>Tier</th><th>Pay</th><th>Commission per TOB</th><th>To Advance</th></tr></thead>
+      <tbody>
+        <tr><td>Junior Closer 1</td><td>$26&ndash;29/hr</td><td>None</td><td>1st signed TOB</td></tr>
+        <tr><td>Junior Closer 2</td><td>$26&ndash;29/hr</td><td>None</td><td>2nd signed TOB</td></tr>
+        <tr><td>Intermediate Closer 1</td><td>$26&ndash;29/hr</td><td>$200/TOB</td><td>Sustain 20%+ close rate over a rolling 4 weeks</td></tr>
+        <tr><td>Intermediate Closer 2</td><td>+$2/hr</td><td>$300/TOB</td><td>Sustain 30%+ close rate over a rolling 4 weeks</td></tr>
+        <tr><td>Senior Closer</td><td>+$4/hr</td><td>$400/TOB + Bonus Boost</td><td>Sustain 40%+ close rate over a rolling 4 weeks</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn"><span class="tag">Confirm figures before use</span>These numbers ($200 / $300 / $400, and the 20% / 30% / 40% thresholds) are a starting structure, not fixed for good &mdash; revisit once you have a few reps' worth of real data. The exact Bonus Boost amount (extra pay above the 40% baseline for a Senior Closer) is still open &mdash; pick a number once the base tiers have run for a while.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">What Happens Next</div>
+    <div class="step-row"><div class="step-num">&#10003;</div><div class="step-body"><strong>Selected</strong> &mdash; send the <strong>Welcome on Board</strong> email, then follow up with the formal written offer and employment agreement, including the trial period terms, for the candidate to review and sign before their first day.</div></div>
+    <div class="step-row"><div class="step-num">&#10005;</div><div class="step-body"><strong>Not selected</strong> &mdash; send the <strong>Rejected &mdash; Process Update</strong> email from the Templates tab.</div></div>
+  </div>
+  `;
+}
+
+function hiringTemplatesTabSales(mid){
+  const emails = [
+    {id:"interview-conf", label:"Email &mdash; Interview Confirmation", subject:"Interview Confirmed &mdash; Sales Consultant Role &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nThis is to confirm your interview for the Sales Consultant role at Stand Up Recruitment.\n\nDate: [Date]\nTime: [Time]\nVenue: 41 Taharoto Road, Takapuna, Auckland 0622\n\nPlease arrive 5 minutes early and let us know if you need to make any changes.\n\nLooking forward to meeting you.\n\nThanks\n[Signature]"},
+    {id:"script-handover", label:"Email &mdash; Script Handover &amp; Test Project Date", subject:"Next Step &mdash; Sales Consultant Role &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nGreat to meet you — thanks for the conversation and for jumping on those cold calls with us.\n\nAttached is the Client Call Script. Please learn this thoroughly over the coming week — we'll be running a recorded live call together on:\n\nDate: [Date, one week out]\nTime: [Time]\n\nNo need to overthink it — just know it cold by the day.\n\nThanks\n[Signature]"},
+    {id:"prios-invite", label:"Email &mdash; PRIOS Assessment Invite", subject:"Final Step &mdash; Personality Assessment &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nGreat news — you've cleared the test project. The last step before we finalise things is a short personality assessment (PRIOS), which just takes about 15-20 minutes online.\n\nLink: [PRIOS Assessment Link]\n\nThere's no right or wrong answer — just go with your first instinct on each question.\n\nThanks\n[Signature]"},
+    {id:"rejected", label:"Email &mdash; Rejected / Process Update", subject:"Update on Your Application &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nThank you for the time and effort you've put into the process with us — we know that's a real commitment, and we don't take it lightly.\n\nAfter reviewing everything, we've decided not to move forward with your application at this stage. This wasn't an easy decision.\n\nWe'll keep your details on file and would welcome you applying again in the future if a role that suits you comes up.\n\nThanks again, and we wish you all the best.\n\nThanks\n[Signature]"},
+    {id:"welcome-onboard", label:"Email &mdash; Welcome on Board (Offer)", subject:"Welcome to Stand Up Recruitment &mdash; Sales Consultant",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nCongratulations — we'd like to offer you the Sales Consultant role with us, starting with a 4-week paid trial.\n\nWe'll follow this up with your formal offer and employment agreement, including the trial period terms, for you to review and sign before your first day.\n\nWelcome to the team.\n\nThanks\n[Signature]"}
+  ];
+  const emailBlocks = emails.map(e => `
+    <div class="email-template">
+      <div class="email-template-header">
+        <div>
+          <div class="email-template-label">${e.label}</div>
+          <div class="email-template-subject"><strong>Subject:</strong> ${e.subject}</div>
+        </div>
+        <button class="copy-btn" id="copy-${mid}-${e.id}" onclick="copyTemplate('${mid}-${e.id}')">Copy</button>
+      </div>
+      <div class="email-template-body" id="tmpl-${mid}-${e.id}">${e.body}</div>
+    </div>
+  `).join("");
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">Every candidate-facing touchpoint in the process, ready to copy and personalise. Keep the tone consistent &mdash; polite, direct, and warm without overselling.</span></div>
+  <div class="content-block">
+    <div class="block-label">Communication Touchpoint Map</div>
+    <table class="data-table">
+      <thead><tr><th>Trigger</th><th>Channel</th><th>Template</th></tr></thead>
+      <tbody>
+        <tr><td>Phone screen passed &mdash; booking interview</td><td>Email</td><td>Interview Confirmation</td></tr>
+        <tr><td>Interview + cold-call test passed &mdash; script handed over</td><td>Email</td><td>Script Handover &amp; Test Project Date</td></tr>
+        <tr><td>Reference check comes back bad mid-week</td><td>Phone call</td><td>Immediate call &mdash; no email template, see Stage 3</td></tr>
+        <tr><td>Test Project passed &mdash; PRIOS Assessment sent</td><td>Email</td><td>PRIOS Assessment Invite</td></tr>
+        <tr><td>Not proceeding after interview or test project</td><td>Email</td><td>Rejected &mdash; Process Update</td></tr>
+        <tr><td>Test Project + PRIOS both clear &mdash; job offer</td><td>Email</td><td>Welcome on Board (Offer)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Email Templates</div>
+    ${emailBlocks}
+    <div class="callout warn"><span class="tag">Not a formal offer letter</span>This email confirms verbal intent to hire only. It must be followed by the formal written offer and employment agreement &mdash; including the trial period terms in writing &mdash; before the candidate's start date.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Appendix A &mdash; Cold Call Script (Full Reference)</div>
+    <div class="block-body"><p>Hand this to the candidate only at the point marked in Stage 2 (Live Cold-Call Test) &mdash; not before.</p></div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><strong>Pattern Interrupt + Familiarity</strong> &mdash; say their name like you know them.<div class="formula" style="margin-top:6px">"Bob!" (Pause &mdash; let their brain catch up.) "Les here."</div></div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><strong>Take Away Their Time Objection First</strong><div class="formula" style="margin-top:6px">"Mate, I've only got about 20 seconds before I jump into another meeting, so I'll keep this sharp."</div></div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><strong>Take Away Their 'Send Me Info' Objection</strong> &mdash; don't pitch yet.<div class="formula" style="margin-top:6px">"Before I flick you some info…"</div></div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body"><strong>Take Away Their 'Not Interested' Objection</strong> &mdash; ask for help, don't pitch.<div class="formula" style="margin-top:6px">"…I've got two quick questions I need your help with around your [trade]. Then I'll get out of your hair."</div></div></div>
+    <div class="step-row"><div class="step-num">5</div><div class="step-body"><strong>Question 1 &mdash; Diagnose Their Pain</strong> &mdash; make them speak the problem out loud.<div class="formula" style="margin-top:6px">"How are you finding good [trade] right now? Actually getting them on the tools &mdash; is that currently easy, or a bit of a nightmare?"</div></div></div>
+    <div class="step-row"><div class="step-num">6</div><div class="step-body"><strong>Question 2 &mdash; Quantify the Consequence</strong> &mdash; show the cost without saying it yourself.<div class="formula" style="margin-top:6px">"And if you had the right guy starting next week &mdash; full-time, work-ready &mdash; what job or project would that let you attack properly?"</div></div></div>
+    <div class="step-row"><div class="step-num">7</div><div class="step-body"><strong>Deliver the Value in ONE Line</strong> &mdash; simple, direct, no hype.<div class="formula" style="margin-top:6px">"I help Aussie companies solve that exact problem by tapping into a pool of ready-to-move Kiwi tradies that 99% of your competitors don't even know exist." (Pause. Let it land.)</div></div></div>
+    <div class="step-row"><div class="step-num">8</div><div class="step-body"><strong>Micro-CTA (No Hard Ask)</strong><div class="formula" style="margin-top:6px">"I can send you 2-3 CVs to show you what the talent looks like. What roles are you actually desperate for right now?"</div></div></div>
+    <div class="step-row"><div class="step-num">9</div><div class="step-body"><strong>Book the Call Without Begging</strong> &mdash; lead it, don't ask permission.<div class="formula" style="margin-top:6px">"Sweet &mdash; easiest way to do this is a quick 10-minute Teams chat so I know exactly who you need. Does Tuesday afternoon or Wednesday morning work?"</div></div></div>
+    <div class="step-row"><div class="step-num">10</div><div class="step-body"><strong>If They Push Back</strong> &mdash; Hormozi-style objection system.</div></div>
+    <table class="data-table" style="margin-top:6px">
+      <thead><tr><th>Objection</th><th>Response</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Price</strong></td><td>"Fair — and honestly, staying short-staffed is costing you way more than any recruiter invoice. How long would it take you to get ROI on one good sparkie? A month?"</td></tr>
+        <tr><td><strong>Stall</strong></td><td>"Totally. What would happen if they said no?" (Flush the real objection.)</td></tr>
+        <tr><td><strong>Vehicle</strong></td><td>"100%. Plenty of good businesses have been burned by recruiters. If I landed you the exact guy you've been chasing, would that solve the problem or is there something deeper behind the hesitation?"</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><span class="tag">Companion document</span>The Objection Handling Script + Training Notes (the Defuse-Align-Future-Pace-Isolate-Reframe framework) is held back until after the Test Project &mdash; see Stage 3. It's a separate companion document, not reproduced here.</div>
+  </div>
+  `;
+}
+
+function hiringModuleHTMLSales(mid){
+  const tabs = ["Overview","Sourcing","Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Templates"];
+  const tabBtns = tabs.map((t,i) => `<button class="tab-btn${i===0?' active':''}" onclick="switchTab('${mid}','${t.replace(/[^a-zA-Z0-9]/g,'-')}')" id="tbtn-${mid}-${t.replace(/[^a-zA-Z0-9]/g,'-')}">${t}</button>`).join("");
+  const panels = [
+    ["Overview", hiringOverviewTabSales()],
+    ["Sourcing", hiringSourcingTabSales()],
+    ["Stage-1", hiringStage1TabSales()],
+    ["Stage-2", hiringStage2TabSales()],
+    ["Stage-3", hiringStage3TabSales()],
+    ["Stage-4", hiringStage4TabSales()],
+    ["Stage-5", hiringStage5TabSales()],
+    ["Templates", hiringTemplatesTabSales(mid)]
+  ].map(([name,html],i) => `<div class="tab-panel${i===0?' active':''}" id="panel-${mid}-${name}">${html}</div>`).join("");
+  return `
+    <div class="module-header">
+      <div class="module-eyebrow">Sales &middot; Hiring Process</div>
+      <h1 class="module-h1">Sales Consultant &mdash; Internal Hiring Process</h1>
+      <p class="module-intro">Phone screen &rarr; interview + live cold-call test &rarr; script handover &amp; reference check &rarr; recorded-call test project &rarr; PRIOS personality benchmark &rarr; job offer &amp; 4-week paid trial &rarr; final decision. Doc ref: SUR-HR-PB-006, v1.</p>
+    </div>
+    <div class="tabs" id="tabs-${mid}">${tabBtns}</div>
+    ${panels}
+  `;
+}
+
 function hiringModuleHTML(mid, deptName){
   const tabs = ["Overview","Sourcing","Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Templates"];
   const tabBtns = tabs.map((t,i) => `<button class="tab-btn${i===0?' active':''}" onclick="switchTab('${mid}','${t.replace(/[^a-zA-Z0-9]/g,'-')}')" id="tbtn-${mid}-${t.replace(/[^a-zA-Z0-9]/g,'-')}">${t}</button>`).join("");
@@ -1173,7 +1592,7 @@ function fallbackCopy(text, done){
   done();
 }
 
-document.getElementById('hiring-sales-content').innerHTML = hiringModuleHTML('hiring-sales', 'Sales');
+document.getElementById('hiring-sales-content').innerHTML = hiringModuleHTMLSales('hiring-sales');
 
 function toggleTheme() {
   const html = document.documentElement;
