@@ -929,7 +929,7 @@ body{
     <div class="module-card t2" data-mid="m241" data-search="2.4 offer docuseal cool down call place candidate jobadder total fee relocation package handover email" onclick="openModule('m241')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
       <div style="font-size:11px;font-weight:700;color:#a04af0;letter-spacing:.05em;margin-bottom:4px">2.4</div>
       <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">Offer</div>
-      <div style="font-size:12px;color:var(--text2);line-height:1.4">Acknowledge, send via DocuSeal, cool-down call, place the candidate, hand over cleanly.</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.4">Review the offer, acknowledge, send via DocuSeal, Welcome &amp; Relocation Chat, place the candidate, hand over cleanly.</div>
     </div>
     <div class="module-card t2" data-mid="m242" data-search="2.4.1 contract follow up locked in date follow up cadence email 1 email 2 call 1 call 2 escalate les weekend rule" onclick="openModule('m242')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
       <div style="font-size:11px;font-weight:700;color:#a04af0;letter-spacing:.05em;margin-bottom:4px">2.4.1</div>
@@ -1327,11 +1327,10 @@ window.__quizData['m111']=[
 
   <div class="content-block">
     <div class="block-label">Full Process Breakdown</div>
-    <div class="block-title">Using a Boolean search string in the Role field</div>
+    <div class="block-title">The Role field — exact job title only</div>
     <div class="block-body">
-      <p>Instead of typing a single job title in the Role field, you can use a Boolean search string to capture a wider pool of candidates. This expands the AI bot's parameters so it isn't limited to an exact title match — it can pick up related trades, alternate titles, and common variations.</p>
-      <p style="margin-top:8px">Run the Boolean Search String Generator prompt (see Prompts tab) in Claude, copy the output, and paste it into the Role field on the Airtable sourcing form instead of a single job title.</p>
-      <div class="formula"><strong>Example:</strong> For a carpenter role: <code>"Carpenter" OR "Chippy" OR "Framer" OR "Residential Builder"</code>. This tells the AI bot to widen its net across all of these related titles rather than only calling candidates who have "Carpenter" listed exactly.</div>
+      <p>Type the exact job title you are sourcing for into the Role field on the Airtable sourcing form (e.g. Electrician, Carpenter, Welder). Use the specific job title only — do not use a Boolean search string or a list of alternate titles.</p>
+      <div class="callout warn">This keeps the AI bot's matching precise and avoids booking candidates whose CV only happens to contain a related keyword without the actual experience. A Boolean string widens the net so far that it starts pulling in candidates who just have the word on their CV, not the real experience.</div>
     </div>
   </div>
 
@@ -1341,7 +1340,7 @@ window.__quizData['m111']=[
       <p>Open the Airtable sourcing form: <a href="https://airtable.com/appa05OOLs3y4DF14/pagUZmYnoV1iGIZLd/form" style="color:var(--accent)" target="_blank">airtable.com/appa05OOLs3y4DF14/pagUZmYnoV1iGIZLd/form</a></p>
       <p style="margin-top:8px">Fill in the following fields:</p>
       <ul>
-        <li><strong>Role</strong> — the job title you are sourcing for (e.g. Electrician, Carpenter, Welder)</li>
+        <li><strong>Role</strong> — the exact job title you are sourcing for (e.g. Electrician, Carpenter, Welder). Use the specific job title only — do not use a Boolean search string or a list of alternate titles</li>
         <li><strong>Job Description</strong> — a short plain English prompt telling the bot what kind of candidate you want</li>
         <li><strong>Recruiter</strong> — select your name from the dropdown</li>
       </ul>
@@ -1377,7 +1376,8 @@ window.__quizData['m111']=[
   <div class="content-block">
     <div class="block-label">Common Mistakes</div>
     <div class="block-body">
-      <div class="callout danger">Forgetting to submit the form — the bot does not carry over from the previous day</div>
+      <div class="callout danger">Using a Boolean search string or listing alternate job titles in the Role field — always use the exact job title only. Boolean search picks up candidates whose CV just happens to contain a related keyword without the actual experience, leading to unqualified bookings</div>
+      <div class="callout danger" style="margin-top:8px">Forgetting to submit the form — the bot does not carry over from the previous day</div>
       <div class="callout danger" style="margin-top:8px">Submitting one form for multiple roles — submit a separate form for each role</div>
       <div class="callout danger" style="margin-top:8px">Writing a long or complicated job description prompt — keep it to one or two sentences</div>
       <div class="callout danger" style="margin-top:8px">Ignoring hang-ups and no-answers — these are leads worth following up manually</div>
@@ -1406,12 +1406,10 @@ window.__quizData['m111']=[
 </div>
 
 <div class="tab-panel" id="panel-m121-Templates">
-  <div class="email-template">
-    <div class="email-template-header">
-      <div><div class="email-template-label">Prompt — AI Sourcing</div><div class="email-template-subject">Boolean Search String Generator</div></div>
-      <button class="copy-btn" id="copy-m121a" onclick="copyTemplate('m121a')">Copy</button>
+  <div class="content-block">
+    <div class="block-body">
+      <p style="color:var(--text2);font-size:13px">There are no dedicated prompts for AI Sourcing — the Role field on the Airtable form takes a plain job title only. The Boolean Search String Generator has moved to <strong>Manual Sourcing</strong>, where it's used for headhunting on Trade Me JobSmart, not the Airtable Role field.</p>
     </div>
-    <div class="email-template-body" id="tmpl-m121a">Create a Boolean search string for a [INSERT TRADE] that I can use to source candidates. Include common NZ job title variations, synonyms, and related trade titles. Keep it in standard Boolean search format using AND, OR, and quotation marks where needed.</div>
   </div>
 </div>
 
@@ -1441,11 +1439,11 @@ window.__quizData['m111']=[
     <div class="quiz-option" id="opt-m121-2-3" onclick="selectOpt('m121',2,3)">D. Wait a week before doing anything</div>
   </div>
   <div class="quiz-question">
-    <p>4. What is a Boolean search string used for in the Role field?</p>
-    <div class="quiz-option" id="opt-m121-3-0" onclick="selectOpt('m121',3,0)">A. To narrow the search to one exact title</div>
-    <div class="quiz-option" id="opt-m121-3-1" onclick="selectOpt('m121',3,1)">B. To widen the bot's net across related titles and synonyms</div>
-    <div class="quiz-option" id="opt-m121-3-2" onclick="selectOpt('m121',3,2)">C. To block certain candidates</div>
-    <div class="quiz-option" id="opt-m121-3-3" onclick="selectOpt('m121',3,3)">D. To set the pay rate</div>
+    <p>4. What should you put in the Role field on the Airtable sourcing form?</p>
+    <div class="quiz-option" id="opt-m121-3-0" onclick="selectOpt('m121',3,0)">A. A Boolean search string covering alternate titles and synonyms</div>
+    <div class="quiz-option" id="opt-m121-3-1" onclick="selectOpt('m121',3,1)">B. The exact job title only</div>
+    <div class="quiz-option" id="opt-m121-3-2" onclick="selectOpt('m121',3,2)">C. A list of every related trade</div>
+    <div class="quiz-option" id="opt-m121-3-3" onclick="selectOpt('m121',3,3)">D. The pay rate for the role</div>
   </div>
   <div class="quiz-question">
     <p>5. How long should the Job Description prompt on the Airtable form be?</p>
@@ -1492,7 +1490,7 @@ window.__quizData['m121']=[
 {"q":"How often must you submit the Airtable sourcing form?","opts":["Once, and it carries over","Every morning, for every active role","Once a week","Only when Trung asks"],"ans":1},
 {"q":"If you are sourcing for 3 roles at once, how many forms should you submit?","opts":["One combined form","Three separate forms","Two forms","None - the bot detects it automatically"],"ans":1},
 {"q":"What should you do about candidates who hung up or did not answer the bot?","opts":["Ignore them - the bot will retry","Check in with Trung and follow up manually","Delete them from JobAdder","Wait a week before doing anything"],"ans":1},
-{"q":"What is a Boolean search string used for in the Role field?","opts":["To narrow the search to one exact title","To widen the bot's net across related titles and synonyms","To block certain candidates","To set the pay rate"],"ans":1},
+{"q":"What should you put in the Role field on the Airtable sourcing form?","opts":["A Boolean search string covering alternate titles and synonyms","The exact job title only","A list of every related trade","The pay rate for the role"],"ans":1},
 {"q":"How long should the Job Description prompt on the Airtable form be?","opts":["A full page","One or two sentences","A bullet list of 10 requirements","Just the job title"],"ans":1},
 {"q":"Which candidates does Bot 2 (the Sourcing Bot) actually call?","opts":["Hot List and Warm List candidates","Candidates already tagged Screened or Called","Every candidate in JobAdder regardless of status","Only brand new Facebook ad applicants"],"ans":1}
 ];
@@ -1521,7 +1519,7 @@ window.__quizData['m121']=[
       <p>Manual sourcing runs alongside AI sourcing every day. There are three channels:</p>
       <ol>
         <li><strong>JobAdder candidate database</strong> — candidates already in our system who match the trade you are hiring for</li>
-        <li><strong>Cold email outreach</strong> — reaching out to past candidates in our Excel database via email</li>
+        <li><strong>Cold email outreach</strong> — reaching out to past candidates directly in JobAdder via email</li>
         <li><strong>Headhunting on Trade Me JobSmart</strong> — finding fresh candidates on Trade Me's database and unlocking their profiles</li>
       </ol>
       <p style="margin-top:10px">Your goal in each channel is the same — identify qualified NZ tradespeople who are keen to move to Australia and either book them for an internal interview or add them to your pipeline for future roles.</p>
@@ -1597,6 +1595,14 @@ window.__quizData['m121']=[
       <p>JobSmart is Trade Me's candidate sourcing tool. It lets you search their database and unlock candidate profiles directly. We have <strong>200 unlocks per month</strong> — use them wisely.</p>
       <div class="step-row"><div class="step-num">1</div><div>Log into JobSmart via Trade Me</div></div>
       <div class="step-row"><div class="step-num">2</div><div>Ask Claude to generate a Boolean search string for the trade you are sourcing for</div></div>
+      <div class="email-template" style="margin:10px 0">
+        <div class="email-template-header">
+          <div><div class="email-template-label">Prompt — Manual Sourcing / Trade Me JobSmart</div><div class="email-template-subject">Boolean Search String Generator</div></div>
+          <button class="copy-btn" id="copy-m122a" onclick="copyTemplate('m122a')">Copy</button>
+        </div>
+        <div class="email-template-body" id="tmpl-m122a">Create a Boolean search string for a [INSERT TRADE] that I can use to source candidates. Include common NZ job title variations, synonyms, and related trade titles. Keep it in standard Boolean search format using AND, OR, and quotation marks where needed.</div>
+      </div>
+      <div class="callout info">This prompt widens your Trade Me JobSmart search only — it's a different tool from the Airtable Role field, which always takes the exact job title, never a Boolean string.</div>
       <div class="step-row"><div class="step-num">3</div><div>Paste the Boolean search string into JobSmart and search</div></div>
       <div class="step-row"><div class="step-num">4</div><div>Review profiles — check experience and look for signs of NZ citizenship before unlocking</div></div>
       <div class="step-row"><div class="step-num">5</div><div>If a profile has been previously opened by another recruiter, do not unlock it again — check the activity history first</div></div>
@@ -2434,7 +2440,7 @@ window.__quizData['m131']=[
       <div class="formula"><strong>Cool off period:</strong> "Before we move you to the client interview stage, I want you to take the next 2 days to properly think this through. Relocating to Australia is a big decision. I'll send you an email with a summary of the role and the relocation information. We'll touch base in 2 days and decide together whether to move forward."</div>
       <p style="margin-top:8px"><strong>Referees:</strong> Ask for 2 previous supervisors — name, company, and contact number for each. Stay on the call to collect these. If the candidate says they will send them later, let them know the details need to come directly to you.</p>
       <p style="margin-top:8px"><strong>Police check details:</strong> Let the candidate know you will need: Full name, Email address, Date of birth, Gender, Contact number, Residential address.</p>
-      <p style="margin-top:8px">Do not progress the candidate during the cool off period. Wait for the 3-day follow-up call.</p>
+      <p style="margin-top:8px">Do not progress the candidate during the cool off period. Wait for the 2-day follow-up call.</p>
     </div>
   </div>
 
@@ -2513,7 +2519,7 @@ Write like a leading hand or site supervisor asking, not an HR professional. Sho
 
 Good to talk today. You've done well to get to this point, not everyone does.
 
-Before we go to the client, I need you to take the next 3 days and genuinely work through what's below. I'll be calling you at the end of that period and I'll be asking you directly about each of these. So don't just skim it, actually sit down and think it through.
+Before we go to the client, I need you to take the next 2 days and genuinely work through what's below. I'll be calling you at the end of that period and I'll be asking you directly about each of these. So don't just skim it, actually sit down and think it through.
 
 What I need you to work through:
 
@@ -2537,7 +2543,7 @@ Work Type / Hours: [insert information]
 Scope of Work: [insert information]
 Why It's Worth Considering: [insert information]
 
-When I call you in 3 days, I'll be asking you directly about your financial plan, whether your family is on board, and why this role and location makes sense for you right now. Candidates who can answer these clearly are the ones who make it work over there.
+When I call you in 2 days, I'll be asking you directly about your financial plan, whether your family is on board, and why this role and location makes sense for you right now. Candidates who can answer these clearly are the ones who make it work over there.
 
 [Placer Name]
 Stand Up Recruitment</div>
@@ -2733,7 +2739,7 @@ Stand Up Recruitment</div>
 <p style="margin-top:10px"><strong>Before the interview:</strong></p>
 <ul><li>Review the candidate's JobAdder profile and notes</li><li>Have the job brief open</li><li>Generate tailored interview questions using the Tailored Interview Guide Generator Prompt (needs the job brief and sales call transcript)</li><li>Have the Aus Video Interview Form open in JobAdder</li><li>Know whether the candidate is AI sourced or manually sourced — this determines how you open</li></ul>
 <p style="margin-top:10px"><strong>After the interview:</strong></p>
-<ul><li>Complete the Aus Video Interview Form in JobAdder</li><li>Send the Cool Off Period Email with the correct attachments</li><li>Send the Document Request Email</li><li>Schedule the follow-up call for day 3</li></ul>
+<ul><li>Complete the Aus Video Interview Form in JobAdder</li><li>Send the Cool Off Period Email with the correct attachments</li><li>Send the Document Request Email</li><li>Schedule the follow-up call for day 2</li></ul>
 <p>Check in with Les after your first solo interview before continuing independently.</p>
 </div>
 </div>
@@ -3458,7 +3464,7 @@ Name Rules (NON-NEGOTIABLE)
 <div class="step-row"><div class="step-num">2</div><div>Format a real candidate CV assigned by Les using the SUR CV Formatting Prompt</div></div>
 <div class="step-row"><div class="step-num">3</div><div>Review the formatted CV against the checklist above</div></div>
 <div class="step-row"><div class="step-num">4</div><div>Download as a Word document and upload to the candidate's profile in JobAdder</div></div>
-<p>Share the formatted CV with Recruiter for sign-off before submitting to any client.</p>
+<p>Share the formatted CV with Les for sign-off before submitting to any client.</p>
 </div>
 </div>
 <div class="content-block">
@@ -3499,19 +3505,29 @@ window.__quizData['m211']=[
   <div class="content-block">
     <div class="block-label">Tell — What You Need to Know</div>
     <div class="block-body">
-      <p>Client submission has two parts: sending the CV with a strong endorsement, and following up until you get a response. Clients are busy and CVs get missed — your job is to stay on it until you get a clear yes or a clean no. No maybes.</p>
+      <p>Client submission has three parts: lock in the candidate's availability, send the CV with a strong endorsement, and follow up until you get a response. Clients are busy and CVs get missed — your job is to stay on it until you get a clear yes or a clean no. No maybes.</p>
       <div class="callout warn"><strong>Once the CV is sent, the follow-up sequence starts immediately.</strong> Do not send the CV and then wait passively.</div>
     </div>
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 1 — Send the Endorsement Email (Day 0)</div>
+    <div class="block-title">Step 1 — Call the Candidate to Confirm Availability</div>
+    <div class="block-body">
+      <p>Before sending anything to the client, call the candidate and check their availability for the client interview. Pick a date yourself and give them a morning or afternoon option.</p>
+      <div class="formula">"Hey [Name], I'm about to send your CV through to [Client]. Are you available on Monday morning or afternoon for the client interview?"</div>
+      <p style="margin-top:8px">Once the candidate confirms, move to Step 2.</p>
+      <div class="callout warn">Never offer the client times you haven't already confirmed with the candidate.</div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-title">Step 2 — Send the Endorsement Email (Day 0)</div>
     <div class="block-body">
       <p>Use the <strong>Endorsing Candidate to Client + Suggesting Meeting</strong> email template (see Templates tab).</p>
       <ul>
         <li>Attach the formatted CV</li>
         <li>Include the 2-sentence client submission blurb generated during CV formatting</li>
-        <li>Suggest two interview time options — always use the <strong>client's timezone</strong></li>
+        <li>Offer interview times based on the candidate's confirmed availability from Step 1 — always use the <strong>client's timezone</strong></li>
         <li>Update the candidate's status in JobAdder to "Submitted to Client"</li>
       </ul>
       <div class="callout warn">Always use the client's timezone when suggesting times. This avoids confusion and keeps the process professional.</div>
@@ -3519,14 +3535,14 @@ window.__quizData['m211']=[
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 2 — Email Follow-Up (24 hours after CV)</div>
+    <div class="block-title">Step 3 — Email Follow-Up (24 hours after CV)</div>
     <div class="block-body">
       <p>If no response after 24 hours, send the <strong>CV Follow-Up Email</strong>. If the CV was sent on a Friday, send this on Monday.</p>
     </div>
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 3 — Phone Call (48 hours after Step 2)</div>
+    <div class="block-title">Step 4 — Phone Call (48 hours after Step 2)</div>
     <div class="block-body">
       <p>If still no response, call the client. The goal is a specific date and time locked in for the interview — a yes with a time, or a clean no. No maybes. Use the <strong>CV Follow-Up — Phone Call Script</strong> (see Templates tab).</p>
       <p style="margin-top:8px">If they are keen → confirm the day and time before you get off the call. If they are wishy-washy or vague → ask if they are still actively hiring for the role. If no or not a priority, let them know you will put the candidate in front of another client.</p>
@@ -3534,7 +3550,7 @@ window.__quizData['m211']=[
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 4 — Missed Call Email (immediately after unanswered call)</div>
+    <div class="block-title">Step 5 — Missed Call Email (immediately after unanswered call)</div>
     <div class="block-body">
       <p>If the call goes unanswered, send the <strong>CV Follow-Up — Missed Call Email</strong> straight away.</p>
     </div>
@@ -3552,7 +3568,8 @@ window.__quizData['m211']=[
     <div class="block-body">
       <div class="callout danger">Sending the CV and waiting passively — the follow-up sequence starts 24 hours after</div>
       <div class="callout danger" style="margin-top:8px">Accepting a vague maybe from the client — push for a specific time or a clean no</div>
-      <div class="callout danger" style="margin-top:8px">Skipping the phone call — email alone is not enough if there is no response after Step 2</div>
+      <div class="callout danger" style="margin-top:8px">Skipping the phone call — email alone is not enough if there is no response after Step 3</div>
+      <div class="callout danger" style="margin-top:8px">Sending the CV before confirming the candidate's own availability — never offer the client times the candidate hasn't confirmed</div>
       <div class="callout danger" style="margin-top:8px">Suggesting interview times in the wrong timezone</div>
       <div class="callout danger" style="margin-top:8px">Forgetting to update the candidate's status in JobAdder</div>
     </div>
@@ -3588,6 +3605,7 @@ window.__quizData['m211']=[
 </div>
 
 <div class="tab-panel" id="panel-m221-Templates">
+  <div class="callout warn" style="margin-bottom:10px"><strong>Before sending:</strong> call the candidate first and confirm their availability — e.g. "Are you available on Monday morning or afternoon for the client interview?" Only offer the client times the candidate has confirmed, always in the client's timezone.</div>
   <div class="email-template">
     <div class="email-template-header">
       <div><div class="email-template-label">Email — Placer to Client</div><div class="email-template-subject">Candidate Endorsement — [Candidate First Name], [Role Title]</div></div>
@@ -3704,11 +3722,11 @@ Stand Up Recruitment</div>
   <h3 style="font-family:var(--font-display);font-size:18px;margin-bottom:16px">Check your understanding</h3>
 
   <div class="quiz-question">
-    <p>1. What are the two parts of client submission?</p>
-    <div class="quiz-option" id="opt-m221-0-0" onclick="selectOpt('m221',0,0)">A. Formatting the CV and placing the candidate</div>
-    <div class="quiz-option" id="opt-m221-0-1" onclick="selectOpt('m221',0,1)">B. Sending the CV with an endorsement and following up until you get a response</div>
-    <div class="quiz-option" id="opt-m221-0-2" onclick="selectOpt('m221',0,2)">C. Reference checks and police checks</div>
-    <div class="quiz-option" id="opt-m221-0-3" onclick="selectOpt('m221',0,3)">D. Sourcing and screening</div>
+    <p>1. What are the three parts of client submission?</p>
+    <div class="quiz-option" id="opt-m221-0-0" onclick="selectOpt('m221',0,0)">A. Formatting the CV, placing the candidate, and handover</div>
+    <div class="quiz-option" id="opt-m221-0-1" onclick="selectOpt('m221',0,1)">B. Locking in the candidate's availability, sending the CV with an endorsement, and following up until you get a response</div>
+    <div class="quiz-option" id="opt-m221-0-2" onclick="selectOpt('m221',0,2)">C. Reference checks, police checks, and CV formatting</div>
+    <div class="quiz-option" id="opt-m221-0-3" onclick="selectOpt('m221',0,3)">D. Sourcing, screening, and the internal interview</div>
   </div>
   <div class="quiz-question">
     <p>2. When should the CV Follow-Up Email be sent if there's no response?</p>
@@ -3762,7 +3780,7 @@ Stand Up Recruitment</div>
 <script>
 window.__quizData=window.__quizData||{};
 window.__quizData['m221']=[
-{"q":"What are the two parts of client submission?","opts":["Formatting the CV and placing the candidate","Sending the CV with an endorsement and following up until you get a response","Reference checks and police checks","Sourcing and screening"],"ans":1},
+{"q":"What are the three parts of client submission?","opts":["Formatting the CV, placing the candidate, and handover","Locking in the candidate's availability, sending the CV with an endorsement, and following up until you get a response","Reference checks, police checks, and CV formatting","Sourcing, screening, and the internal interview"],"ans":1},
 {"q":"When should the CV Follow-Up Email be sent if there is no response?","opts":["Immediately after sending the CV","24 hours after the CV was sent","1 week later","Only if the client asks"],"ans":1},
 {"q":"What is the goal of the follow-up phone call?","opts":["To reintroduce the candidate","A specific date/time locked in, or a clean no - no maybes","To negotiate the fee","To send another CV"],"ans":1},
 {"q":"What must you always use when suggesting interview time options to a client?","opts":["NZ timezone","The client's timezone","GMT","UTC"],"ans":1},
@@ -4105,13 +4123,25 @@ window.__quizData['m231']=[
   <div class="content-block">
     <div class="block-label">Tell — What You Need to Know</div>
     <div class="block-body">
-      <p>Once the client confirms they want to proceed, you manage the offer process end to end — acknowledge the offer, send it to the candidate for review, run the day 2 follow-up call, send it for signature via DocuSeal, place the candidate in JobAdder, and hand over to the onboarding team.</p>
+      <p>Once the client confirms they want to proceed, you manage the offer process end to end — review the offer letter, acknowledge it, send it to the candidate for signature via DocuSeal, run the Welcome &amp; Relocation Chat, place the candidate in JobAdder, and hand over to the onboarding team.</p>
       <div class="callout warn"><strong>Your role ends the moment the handover email is sent.</strong> From that point, the onboarding team takes over.</div>
     </div>
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 1 — Acknowledge the Offer Letter to the Client</div>
+    <div class="block-title">Step 1 — Review the Offer Letter</div>
+    <div class="block-body">
+      <p>Before doing anything else, run the <strong>Offer Letter Review Prompt</strong> (see Templates tab) using the offer letter and the job brief for this role. It always tells you first whether the candidate is paid hourly or by salary, and shows the effective hourly rate if it's a salary. It then checks for hard stops: casual employment, no guaranteed hours, no probation notice, a salaried contract with no paid overtime, or an unclear pay type. Finally, it flags material gaps between what was promised and what's actually written: pay mismatches, super folded into the rate, a change from hourly to salary, promised benefits missing, mobility clauses that conflict with the pitch, harsh probation terms, and undisclosed deductions.</p>
+      <ul style="margin-top:8px">
+        <li><strong>Hard Stop flagged</strong> — do not proceed. Raise it with the client before anything else happens.</li>
+        <li><strong>Discuss with Client items flagged</strong> — review each one and decide which are worth raising. Items marked [Recommended] should generally be sent; items marked [Optional — your call] are your judgment call, often standard boilerplate that may never be invoked.</li>
+        <li><strong>Offer letter flagged as incomplete</strong> — get the full document before proceeding. Do not review a partial contract as if it were the whole thing.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-title">Step 2 — Acknowledge the Offer Letter to the Client</div>
     <div class="block-body">
       <p>Reply using the <strong>Offer Letter Received Reply</strong> template (see Templates tab) the same day the offer letter arrives. Let them know you will get it to the candidate that day and follow up once it is signed.</p>
       <div class="callout warn">Do this immediately. The client has moved quickly — acknowledge it the same day.</div>
@@ -4119,9 +4149,9 @@ window.__quizData['m231']=[
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 2 — Upload the Offer to DocuSeal and Send for Signature</div>
+    <div class="block-title">Step 3 — Upload the Offer to DocuSeal and Send for Signature</div>
     <div class="block-body">
-      <p>Upload the offer letter directly to DocuSeal — there is no separate PDF review step anymore. Once uploaded, DocuSeal automatically sends the candidate a cool-down email with the offer attached and a link to sign.</p>
+      <p>Once you've reviewed the offer letter in Step 1, upload it directly to DocuSeal. Once uploaded, DocuSeal automatically sends the candidate the Offer of Employment Email with the offer attached and a link to sign.</p>
       <div class="step-row"><div class="step-num">1</div><div>Log into DocuSeal</div></div>
       <div class="step-row"><div class="step-num">2</div><div>Click <strong>Create</strong> to start a new document template</div></div>
       <div class="step-row"><div class="step-num">3</div><div>Name the document <code>[Your Name] - contract for candidate</code></div></div>
@@ -4134,43 +4164,55 @@ window.__quizData['m231']=[
       <div class="step-row"><div class="step-num">10</div><div><strong>Untick "Send Email"</strong> — this is a required step for Trung's automation to work correctly</div></div>
       <div class="step-row"><div class="step-num">11</div><div>Click <strong>Add Recipients</strong></div></div>
       <p style="margin-top:8px">Once you click Add Recipients, DocuSeal automatically sends the candidate the <strong>Offer of Employment Email</strong> with the offer attached and a link to sign right away — you do not need to send this manually, Trung has automated it.</p>
-      <div class="callout warn">The candidate can sign immediately once they receive the DocuSeal email — there is nothing holding them back. This does not remove the need for the cool-down call in Step 3. Every candidate must have the cool-down call regardless of whether they have already signed.</div>
+      <div class="callout warn">The candidate can sign immediately once they receive the DocuSeal email — there is nothing holding them back. This does not remove the need for the Welcome &amp; Relocation Chat in Step 5. Every candidate must have this call regardless of whether they have already signed.</div>
     </div>
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 3 — The Cool-Down Call</div>
+    <div class="block-title">Step 4 — Call the Candidate to Inform Them and Book the Welcome &amp; Relocation Chat</div>
     <div class="block-body">
-      <p>The cool-down call is a video call with the <strong>recruiter, candidate, and the support team</strong>. This applies to every candidate, whether they have signed already or not.</p>
-      <p style="margin-top:8px">The purpose of this call is to properly discuss the candidate's relocation plan — their financial readiness, the start date, and the location — face to face with the support team who will be helping them through the move.</p>
+      <p>As soon as the offer has been sent through DocuSeal, call the candidate. This call has three purposes: let them know the offer has landed, explain the 48-hour cool-down period, and lock in the <strong>Welcome &amp; Relocation Chat</strong> 2 days from now.</p>
+      <p style="margin-top:8px">Confirm a day and time on the call before you hang up, then send the <strong>Welcome &amp; Relocation Chat Email</strong> (see Templates tab) confirming the date, time, and Teams link. See the Coaching Guide for the full word-for-word call script.</p>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-title">Step 5 — The Welcome &amp; Relocation Chat</div>
+    <div class="block-body">
+      <p>The Welcome &amp; Relocation Chat is a video call with the <strong>recruiter, candidate, and the support team</strong>. This applies to every candidate, whether they have signed already or not.</p>
+      <p style="margin-top:8px">The purpose of this call is to properly discuss the candidate's relocation plan — their financial readiness, the start date, and the location — face to face with the support team who will be helping them through the move, and to walk through the Relocation Guide together.</p>
       <p style="margin-top:8px">Book this call within a day or two of sending the offer. Do not skip it just because the candidate has already signed — signing does not replace this conversation. If concerns come up on the call that are a dealbreaker, notify the client and discuss next steps.</p>
     </div>
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 5 — Follow Up Until the Signed Contract Is Returned</div>
+    <div class="block-title">Step 6 — Follow Up Until the Signed Contract Is Returned</div>
     <div class="block-body">
       <p>Do not wait passively. Follow up with a call or message if the signed contract has not come back within a reasonable timeframe.</p>
     </div>
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 6 — Place the Candidate in JobAdder</div>
+    <div class="block-title">Step 7 — Place the Candidate in JobAdder</div>
     <div class="block-body">
       <p>Once the signed contract and ID are received, place the candidate immediately — this triggers the placement automations.</p>
       <div class="step-row"><div class="step-num">1</div><div>Go to the candidate's profile in JobAdder</div></div>
       <div class="step-row"><div class="step-num">2</div><div>Click the <strong>three dots</strong> menu</div></div>
       <div class="step-row"><div class="step-num">3</div><div>Select <strong>Place Candidate</strong></div></div>
       <div class="step-row"><div class="step-num">4</div><div>Fill in the four fields: Start date, Total fee, Application status, Signed offer</div></div>
-      <p style="margin-top:8px"><strong>Total fee</strong> — check the job brief to confirm which structure applies:</p>
+      <p style="margin-top:8px"><strong>Total fee</strong> — SUR charges either a flat fee or 15% of the candidate's full annual package, including super. Check the job brief for which payment structure applies and for the client's super rate. Super rates vary by client, so never assume. If the rate isn't in the job brief, confirm it with the client before placing.</p>
       <table class="data-table">
-        <thead><tr><th>Payment structure</th><th>How to calculate</th></tr></thead>
+        <thead><tr><th>Payment structure</th><th>Formula</th></tr></thead>
         <tbody>
           <tr><td>Flat fee</td><td>$16,000 AUD</td></tr>
-          <tr><td>15% of annual salary</td><td>Hourly rate × weekly hours × 52 weeks × super rate (default 12% unless client specified otherwise)</td></tr>
+          <tr><td>15% — hourly rate</td><td>Hourly rate × weekly hours × 52 × (1 + super rate) × 15%</td></tr>
+          <tr><td>15% — annual salary, super stated separately</td><td>Annual salary × (1 + super rate) × 15%</td></tr>
+          <tr><td>15% — annual salary, super already included</td><td>Annual salary × 15%</td></tr>
         </tbody>
       </table>
-      <p style="margin-top:8px">If the client offers an annual salary inclusive of super: Annual salary × 1.12 (if super is 12%) × 15% = total fee. If the client states super separately: Annual salary × 15% = total fee — then add super on top separately.</p>
+      <p style="margin-top:8px"><strong>Converting the super rate:</strong> 12% super → × 1.12. 11% super → × 1.11.</p>
+      <div class="formula"><strong>Worked example:</strong> $45/hr, 40 hours a week, 12% super<br>$45 × 40 × 52 = $93,600<br>$93,600 × 1.12 = $104,832<br>$104,832 × 15% = <strong>$15,724.80</strong><br><br>At 11% super, the same role comes to $93,600 × 1.11 × 15% = <strong>$15,584.40</strong></div>
+      <p style="margin-top:8px">If the client states super separately: Annual salary × 15% = total fee — then add super on top separately.</p>
       <p style="margin-top:8px"><strong>Application status</strong> — select the correct relocation option: Full relocation package — East Coast; Full relocation package — SA; Full relocation package — WA; No relocation package.</p>
       <div class="callout info" style="margin-top:8px">💡 <strong>Replacement placement</strong> — if this placement is replacing a candidate who didn't work out, select <strong>Replacement</strong> instead of a relocation option, and enter the full name of the candidate being replaced in the Replacement field. Double-check the name matches JobAdder exactly.</div>
       <p style="margin-top:8px"><strong>Signed offer</strong> — upload the signed contract document. Double check all four fields then click <strong>Create</strong>.</p>
@@ -4178,7 +4220,7 @@ window.__quizData['m231']=[
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 7 — Send the Handover Email &amp; Step 8 — Update JobAdder</div>
+    <div class="block-title">Step 8 — Send the Handover Email &amp; Update JobAdder</div>
     <div class="block-body">
       <p>Send the <strong>Signed Contract Handover — Client</strong> email with the signed contract attached and the admin CC'd. From this point, admin is the main point of contact. Send the <strong>Signed Contract Handover — Candidate</strong> email to the candidate letting them know onboarding will take it from here.</p>
       <p style="margin-top:8px">Confirm placement status is updated in JobAdder.</p>
@@ -4188,10 +4230,12 @@ window.__quizData['m231']=[
   <div class="content-block">
     <div class="block-label">Common Mistakes</div>
     <div class="block-body">
-      <div class="callout danger">Delaying the acknowledgement to the client — reply the same day</div>
-      <div class="callout danger" style="margin-top:8px">Skipping the cool-down call because the candidate has already signed — every candidate must have this call regardless</div>
+      <div class="callout danger">Skipping the Offer Letter Review before acknowledging or sending anything to the candidate</div>
+      <div class="callout danger" style="margin-top:8px">Delaying the acknowledgement to the client — reply the same day</div>
+      <div class="callout danger" style="margin-top:8px">Forgetting to call the candidate right after sending the offer — they should hear it from you before they see the email</div>
+      <div class="callout danger" style="margin-top:8px">Skipping the Welcome &amp; Relocation Chat because the candidate has already signed — every candidate must have this call regardless</div>
       <div class="callout danger" style="margin-top:8px">Forgetting to untick "Send Email" in DocuSeal — this breaks the automation</div>
-      <div class="callout danger" style="margin-top:8px">Using the wrong payment structure — always check the job brief</div>
+      <div class="callout danger" style="margin-top:8px">Using the wrong payment structure or super rate — always check the job brief, and confirm the super rate with the client if it isn't stated</div>
       <div class="callout danger" style="margin-top:8px">Forgetting to upload the signed offer before clicking Create in JobAdder</div>
       <div class="callout danger" style="margin-top:8px">Forgetting to CC admin on the handover email</div>
     </div>
@@ -4234,6 +4278,74 @@ window.__quizData['m231']=[
 </div>
 
 <div class="tab-panel" id="panel-m241-Templates">
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt — Offer</div><div class="email-template-subject">SUR Offer Letter Review</div></div>
+      <button class="copy-btn" id="copy-m241-review" onclick="copyTemplate('m241-review')">Copy</button>
+    </div>
+    <div class="email-template-body" id="tmpl-m241-review">PROMPT: SUR Offer Letter Review
+
+Input:
+- Offer Letter: [PASTE OFFER LETTER HERE]
+- Job Brief: [PASTE JOB BRIEF HERE]
+
+Role: You are reviewing this offer letter on behalf of Stand Up Recruitment, a NZ-based recruitment agency placing NZ tradespeople into Australian roles. Your job is to catch genuine gaps between what was promised to the candidate during the recruitment process (as captured in the job brief) and what is actually written in the offer letter - not to nitpick standard contract language or flag things simply because they exist.
+
+BEFORE YOU START: Check whether the offer letter looks complete. If it ends mid-sentence, is missing an expected section (no termination clause, no leave entitlements, no remuneration section, etc.), or references parts/clauses that were not actually provided, say so clearly at the top of your response before doing anything else: "This offer letter appears incomplete - [what's missing or where it cuts off]. Treat the following review as provisional, based only on what was provided." Do not silently review a partial document as if it were the whole thing.
+
+PAY STRUCTURE CHECK - ALWAYS REPORT THIS FIRST
+Before the tiers, always state how the candidate is being paid, even if there are no issues. Report:
+- Pay type: Hourly, Salary, or Unclear
+- Ordinary hours per week as stated in the offer letter
+- Overtime: how the offer letter treats hours worked beyond ordinary hours - paid separately (state the rate if given), absorbed into the salary (including any "reasonable additional hours" clause), or not mentioned
+
+If the pay type is Salary, also calculate the effective hourly rate (use the base salary excluding super):
+- At ordinary hours: Annual salary / (ordinary weekly hours x 52)
+- At expected hours: if the job brief mentions longer hours, overtime, or a typical working week above ordinary hours, repeat the calculation using those hours
+Show both figures side by side so the drop in effective pay is obvious.
+
+If the pay type is Unclear (the offer letter does not clearly say whether the candidate is paid hourly or by salary), flag it as a Hard Stop - the pay structure must be confirmed with the client before the offer goes to the candidate.
+
+Sort every finding into exactly one of two tiers below. Do not invent issues that aren't genuinely present in the documents.
+
+TIER 1 - HARD STOPS
+Flag any of the following if present. These always require a conversation with the client before the offer goes anywhere near the candidate:
+- Casual employment (as opposed to permanent full-time or part-time)
+- No guaranteed minimum hours specified anywhere in the contract
+- No notice period at all during probation (i.e. termination with zero notice permitted)
+- Salaried contract with no paid overtime - this includes a salary where overtime is stated to be covered by the salary, a "reasonable additional hours" clause with no separate payment, or a salary where overtime is not mentioned at all
+- Pay type unclear (see Pay Structure Check above)
+
+For the salaried-with-no-overtime Hard Stop, also output one short, plain-English, client-ready sentence the recruiter can use to raise it - for example, asking whether the role can be moved to an hourly rate or whether hours beyond the ordinary weekly hours will be paid.
+
+TIER 2 - DISCUSS WITH CLIENT
+Only flag something here if it represents a genuine, material deviation between what the job brief promised and what the offer letter actually states. Do not flag standard or expected contract terms. Check specifically for:
+- The pay rate in the offer letter does not match the pay rate stated in the job brief
+- The job brief pitched an hourly rate but the offer letter is a salary with paid overtime - flag this as [Recommended] because the pay structure has changed from what the candidate was told
+- The offer letter is a salary with paid overtime, but the effective hourly rate at ordinary hours is lower than the hourly rate in the job brief
+- Superannuation appears to be included within the headline pay rate rather than paid on top of it (e.g. "$45/hr inclusive of super" rather than "$45/hr + super")
+- Any benefit or selling point explicitly promised in the job brief (e.g. temporary housing, a company vehicle, an accommodation subsidy) that does not appear anywhere in the offer letter
+- The offer letter includes a mobility or multi-site clause (candidate can be required to work at other locations, including interstate or overseas) AND the job brief describes the role as single-site, workshop-based, or leans heavily on long-term settlement in one specific location - only flag if these two things genuinely conflict
+- Probation length or termination terms are notably harsher than a reasonable standard (e.g. very long probation, minimal notice after probation ends) and nothing in the job brief indicated this was expected
+- The offer letter includes deductions from pay (for accommodation, uniforms, tools, training, or similar) that are not mentioned anywhere in the job brief
+
+For every Tier 2 finding, label it with how strongly it should be raised with the client:
+- [Recommended] - a clear, material gap between what was promised and what's written. These should be raised.
+- [Optional - your call] - technically a deviation, but often standard boilerplate language that may never actually be invoked (this applies especially to mobility clauses). Flag it, explain why it might matter, but make clear the recruiter can decide whether it's worth raising.
+
+Do NOT write a single merged email combining every finding into one narrative paragraph. Instead, for each Tier 2 finding, output:
+1. The label ([Recommended] or [Optional - your call])
+2. One short, plain-English, client-ready sentence the recruiter can copy directly into an email if they choose to raise it
+
+Keep each one short and standalone so the recruiter can pick and choose which lines to actually send - do not pre-decide that for them by merging everything into one message.
+
+If nothing under Tier 2 is a genuine issue, simply state "No material issues found" - do not include reassurance statements about things that checked out fine (e.g. do not say "pay rate matches, no issues there"). Only report actual findings, not confirmations. The Pay Structure Check is the one exception - always report it.
+
+OUTPUT FORMAT:
+1. Pay Structure (pay type, ordinary hours, overtime treatment, and effective hourly rates if salaried)
+2. Tier 1 - Hard Stops (list any found, or state "None found")
+3. Tier 2 - Discuss with Client (one labeled, standalone line per finding, or state "No material issues found")</div>
+  </div>
   <div class="email-template">
     <div class="email-template-header">
       <div><div class="email-template-label">Email — Placer to Client</div><div class="email-template-subject">Offer Letter Received Reply</div></div>
@@ -4379,7 +4491,7 @@ Stand Up Recruitment</div>
     <div class="quiz-option" id="opt-m241-1-3" onclick="selectOpt('m241',1,3)">D. Detailed tab</div>
   </div>
   <div class="quiz-question">
-    <p>3. Does the cool-down call still need to happen if the candidate has already signed?</p>
+    <p>3. Does the Welcome &amp; Relocation Chat still need to happen if the candidate has already signed?</p>
     <div class="quiz-option" id="opt-m241-2-0" onclick="selectOpt('m241',2,0)">A. No, signing replaces it</div>
     <div class="quiz-option" id="opt-m241-2-1" onclick="selectOpt('m241',2,1)">B. Yes, every candidate must have this call regardless</div>
     <div class="quiz-option" id="opt-m241-2-2" onclick="selectOpt('m241',2,2)">C. Only if the client requests it</div>
@@ -4409,14 +4521,14 @@ Stand Up Recruitment</div>
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <p>This stage requires a live placement — you will not be able to action this in your first week. When you reach this point in a live role:</p>
-<div class="step-row"><div class="step-num">1</div><div>Acknowledge the offer letter to the client same day</div></div>
-<div class="step-row"><div class="step-num">2</div><div>Send the offer letter to the candidate for review with clear next steps</div></div>
-<div class="step-row"><div class="step-num">3</div><div>Run the day 2 follow-up call</div></div>
-<div class="step-row"><div class="step-num">4</div><div>Send the offer via DocuSeal once the candidate confirms</div></div>
-<div class="step-row"><div class="step-num">5</div><div>Follow up until the signed contract and ID are returned</div></div>
-<div class="step-row"><div class="step-num">6</div><div>Place the candidate in JobAdder — confirm start date, calculate the correct fee, select relocation status or replacement, upload signed offer</div></div>
-<div class="step-row"><div class="step-num">7</div><div>Send the handover emails to both client and candidate with admin CC'd</div></div>
-<div class="step-row"><div class="step-num">8</div><div>Confirm placement automations have triggered in JobAdder</div></div>
+<div class="step-row"><div class="step-num">1</div><div>Run the Offer Letter Review prompt using the offer letter and job brief — act on any hard stops or discuss items before proceeding</div></div>
+<div class="step-row"><div class="step-num">2</div><div>Acknowledge the offer letter to the client same day</div></div>
+<div class="step-row"><div class="step-num">3</div><div>Upload the offer to DocuSeal and send to the candidate for signature</div></div>
+<div class="step-row"><div class="step-num">4</div><div>Call the candidate to inform them the offer has been sent and book the Welcome &amp; Relocation Chat</div></div>
+<div class="step-row"><div class="step-num">5</div><div>Attend the Welcome &amp; Relocation Chat with the candidate and support team</div></div>
+<div class="step-row"><div class="step-num">6</div><div>Follow up until the signed contract and ID are returned</div></div>
+<div class="step-row"><div class="step-num">7</div><div>Place the candidate in JobAdder — confirm start date, calculate the correct fee, select relocation status or replacement, upload signed offer</div></div>
+<div class="step-row"><div class="step-num">8</div><div>Send the handover emails to both client and candidate with admin CC'd</div></div>
 </div>
 </div>
 <div class="content-block">
@@ -4487,7 +4599,7 @@ window.__quizData=window.__quizData||{};
 window.__quizData['m241']=[
 {"q":"When should you acknowledge the offer letter to the client?","opts":["Within a week","The same day it arrives","Only after the candidate signs","Never - it's automatic"],"ans":1},
 {"q":"What must you untick in DocuSeal for the automation to work correctly?","opts":["Signature Field","Send Email","Add Recipients","Detailed tab"],"ans":1},
-{"q":"Does the cool-down call still need to happen if the candidate has already signed?","opts":["No, signing replaces it","Yes, every candidate must have this call regardless","Only if the client requests it","Only for East Coast placements"],"ans":1},
+{"q":"Does the Welcome & Relocation Chat still need to happen if the candidate has already signed?","opts":["No, signing replaces it","Yes, every candidate must have this call regardless","Only if the client requests it","Only for East Coast placements"],"ans":1},
 {"q":"What is the flat fee payment structure amount?","opts":["$10,000 AUD","$16,000 AUD","15% of annual salary always","$20,000 AUD"],"ans":1},
 {"q":"When does the recruiter's role in a placement end?","opts":["When the offer is sent","The moment the handover email is sent","On the candidate's start date","It never ends"],"ans":1}
 ];
@@ -4949,7 +5061,7 @@ Stand Up Recruitment</div>
 
 Good to talk today. You've done well to get to this point, not everyone does.
 
-Before we go to the client, I need you to take the next 3 days and genuinely work through what's below. I'll be calling you at the end of that period and I'll be asking you directly about each of these. So don't just skim it, actually sit down and think it through.
+Before we go to the client, I need you to take the next 2 days and genuinely work through what's below. I'll be calling you at the end of that period and I'll be asking you directly about each of these. So don't just skim it, actually sit down and think it through.
 
 What I need you to work through:
 
@@ -4973,7 +5085,7 @@ Work Type / Hours: [insert information]
 Scope of Work: [insert information]
 Why It's Worth Considering: [insert information]
 
-When I call you in 3 days, I'll be asking you directly about your financial plan, whether your family is on board, and why this role and location makes sense for you right now. Candidates who can answer these clearly are the ones who make it work over there.
+When I call you in 2 days, I'll be asking you directly about your financial plan, whether your family is on board, and why this role and location makes sense for you right now. Candidates who can answer these clearly are the ones who make it work over there.
 
 [Placer Name]
 Stand Up Recruitment</div>
@@ -5835,21 +5947,20 @@ Keep everything practical, recruiter-focused, and written so it can be used imme
   </div>
 
   <div class="content-block">
-    <div class="block-label">Stage 2.1 - AI Sourcing</div>
+    <div class="block-label">Stage 2.2 - Manual Sourcing</div>
     <div class="block-title">Boolean Search String Generator</div>
-    <div class="block-body">Generates a Boolean search string to paste into the Role field on the Airtable sourcing form. This widens the AI bot's parameters so it captures related trades, alternate titles, and common variations instead of only an exact job title match.</div>
-    <div class="callout info" style="margin-top:8px">Input required: The trade you are sourcing for. Paste the output directly into the Role field on the Airtable sourcing form.</div>
+    <div class="block-body">Generates a Boolean search string to paste into Trade Me JobSmart when headhunting (Channel 3). This widens JobSmart's search so it captures related trades, alternate titles, and common variations. Do not use this for the Airtable sourcing form Role field — that field always takes the exact job title only, never a Boolean string.</div>
+    <div class="callout info" style="margin-top:8px">Input required: The trade you are sourcing for. Paste the output directly into the JobSmart search bar.</div>
   </div>
   <div class="email-template">
     <div class="email-template-header">
-      <div><div class="email-template-label">Prompt - AI Sourcing</div><div class="email-template-subject">Boolean Search String Generator</div></div>
+      <div><div class="email-template-label">Prompt - Manual Sourcing</div><div class="email-template-subject">Boolean Search String Generator</div></div>
       <button class="copy-btn" id="copy-m302-05" onclick="copyTemplate('m302-05')">Copy</button>
     </div>
     <div class="email-template-body" id="tmpl-m302-05">Create a Boolean search string for a [INSERT TRADE] that I can use to source candidates. Include common NZ job title variations, synonyms, and related trade titles. Keep it in standard Boolean search format using AND, OR, and quotation marks where needed.</div>
   </div>
 
   <div class="content-block">
-    <div class="block-label">Stage 2.2 - Manual Sourcing</div>
     <div class="block-title">Cold Outreach Role Blurb</div>
     <div class="block-body">Writes short, curiosity-driven role blurbs to sit inside cold outreach emails. The goal is to hook the candidate into booking a call - not to describe the full job.</div>
     <div class="callout info" style="margin-top:8px">Inputs required: Role name and location for each role you want a blurb for.</div>
@@ -5968,6 +6079,81 @@ Questions designed to surface whether the candidate has genuinely thought throug
 Anchored directly to the client's specific must-haves or pain points from the job description and transcript - not generic trade questions. For each question, include what a strong answer looks like (specific tasks, tools, systems, or sites, clear understanding of process and sequence, genuine hands-on ownership) and what a red flag answer looks like (vague or generic answers, buzzwords without explanation, describing what "the team" did without personal ownership).
 
 Write like a leading hand or site supervisor asking, not an HR professional. Short, plain, conversational language throughout. If a leading hand wouldn't say it on site, reword it.</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Stage 9 - Offer</div>
+    <div class="block-title">Offer Letter Review</div>
+    <div class="block-body">Reviews the client's offer letter against the job brief. Always reports first whether the candidate is paid hourly or by salary — including overtime treatment and the effective hourly rate if salaried — then catches genuine gaps between what was promised to the candidate and what's actually written in the contract. Outputs short, standalone, client-ready lines per finding — labeled Recommended or Optional — so you can pick and choose what to actually send rather than getting one long merged email. Run this as soon as the client sends through the offer letter, before acknowledging it or sending it to the candidate.</div>
+    <div class="callout info" style="margin-top:8px">Inputs required: the client's Offer Letter and the original Job Brief for this role. Do not include a separate job scope document even if the client provided one — these are typically generic templates and cause false positives. If pasting a long contract, check that the full document actually comes through — the prompt will flag if it looks incomplete, but it's worth double-checking large pastes or PDF attachments render in full.</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt - Offer</div><div class="email-template-subject">SUR Offer Letter Review</div></div>
+      <button class="copy-btn" id="copy-m302-095" onclick="copyTemplate('m302-095')">Copy</button>
+    </div>
+    <div class="email-template-body" id="tmpl-m302-095">PROMPT: SUR Offer Letter Review
+
+Input:
+- Offer Letter: [PASTE OFFER LETTER HERE]
+- Job Brief: [PASTE JOB BRIEF HERE]
+
+Role: You are reviewing this offer letter on behalf of Stand Up Recruitment, a NZ-based recruitment agency placing NZ tradespeople into Australian roles. Your job is to catch genuine gaps between what was promised to the candidate during the recruitment process (as captured in the job brief) and what is actually written in the offer letter - not to nitpick standard contract language or flag things simply because they exist.
+
+BEFORE YOU START: Check whether the offer letter looks complete. If it ends mid-sentence, is missing an expected section (no termination clause, no leave entitlements, no remuneration section, etc.), or references parts/clauses that were not actually provided, say so clearly at the top of your response before doing anything else: "This offer letter appears incomplete - [what's missing or where it cuts off]. Treat the following review as provisional, based only on what was provided." Do not silently review a partial document as if it were the whole thing.
+
+PAY STRUCTURE CHECK - ALWAYS REPORT THIS FIRST
+Before the tiers, always state how the candidate is being paid, even if there are no issues. Report:
+- Pay type: Hourly, Salary, or Unclear
+- Ordinary hours per week as stated in the offer letter
+- Overtime: how the offer letter treats hours worked beyond ordinary hours - paid separately (state the rate if given), absorbed into the salary (including any "reasonable additional hours" clause), or not mentioned
+
+If the pay type is Salary, also calculate the effective hourly rate (use the base salary excluding super):
+- At ordinary hours: Annual salary / (ordinary weekly hours x 52)
+- At expected hours: if the job brief mentions longer hours, overtime, or a typical working week above ordinary hours, repeat the calculation using those hours
+Show both figures side by side so the drop in effective pay is obvious.
+
+If the pay type is Unclear (the offer letter does not clearly say whether the candidate is paid hourly or by salary), flag it as a Hard Stop - the pay structure must be confirmed with the client before the offer goes to the candidate.
+
+Sort every finding into exactly one of two tiers below. Do not invent issues that aren't genuinely present in the documents.
+
+TIER 1 - HARD STOPS
+Flag any of the following if present. These always require a conversation with the client before the offer goes anywhere near the candidate:
+- Casual employment (as opposed to permanent full-time or part-time)
+- No guaranteed minimum hours specified anywhere in the contract
+- No notice period at all during probation (i.e. termination with zero notice permitted)
+- Salaried contract with no paid overtime - this includes a salary where overtime is stated to be covered by the salary, a "reasonable additional hours" clause with no separate payment, or a salary where overtime is not mentioned at all
+- Pay type unclear (see Pay Structure Check above)
+
+For the salaried-with-no-overtime Hard Stop, also output one short, plain-English, client-ready sentence the recruiter can use to raise it - for example, asking whether the role can be moved to an hourly rate or whether hours beyond the ordinary weekly hours will be paid.
+
+TIER 2 - DISCUSS WITH CLIENT
+Only flag something here if it represents a genuine, material deviation between what the job brief promised and what the offer letter actually states. Do not flag standard or expected contract terms. Check specifically for:
+- The pay rate in the offer letter does not match the pay rate stated in the job brief
+- The job brief pitched an hourly rate but the offer letter is a salary with paid overtime - flag this as [Recommended] because the pay structure has changed from what the candidate was told
+- The offer letter is a salary with paid overtime, but the effective hourly rate at ordinary hours is lower than the hourly rate in the job brief
+- Superannuation appears to be included within the headline pay rate rather than paid on top of it (e.g. "$45/hr inclusive of super" rather than "$45/hr + super")
+- Any benefit or selling point explicitly promised in the job brief (e.g. temporary housing, a company vehicle, an accommodation subsidy) that does not appear anywhere in the offer letter
+- The offer letter includes a mobility or multi-site clause (candidate can be required to work at other locations, including interstate or overseas) AND the job brief describes the role as single-site, workshop-based, or leans heavily on long-term settlement in one specific location - only flag if these two things genuinely conflict
+- Probation length or termination terms are notably harsher than a reasonable standard (e.g. very long probation, minimal notice after probation ends) and nothing in the job brief indicated this was expected
+- The offer letter includes deductions from pay (for accommodation, uniforms, tools, training, or similar) that are not mentioned anywhere in the job brief
+
+For every Tier 2 finding, label it with how strongly it should be raised with the client:
+- [Recommended] - a clear, material gap between what was promised and what's written. These should be raised.
+- [Optional - your call] - technically a deviation, but often standard boilerplate language that may never actually be invoked (this applies especially to mobility clauses). Flag it, explain why it might matter, but make clear the recruiter can decide whether it's worth raising.
+
+Do NOT write a single merged email combining every finding into one narrative paragraph. Instead, for each Tier 2 finding, output:
+1. The label ([Recommended] or [Optional - your call])
+2. One short, plain-English, client-ready sentence the recruiter can copy directly into an email if they choose to raise it
+
+Keep each one short and standalone so the recruiter can pick and choose which lines to actually send - do not pre-decide that for them by merging everything into one message.
+
+If nothing under Tier 2 is a genuine issue, simply state "No material issues found" - do not include reassurance statements about things that checked out fine (e.g. do not say "pay rate matches, no issues there"). Only report actual findings, not confirmations. The Pay Structure Check is the one exception - always report it.
+
+OUTPUT FORMAT:
+1. Pay Structure (pay type, ordinary hours, overtime treatment, and effective hourly rates if salaried)
+2. Tier 1 - Hard Stops (list any found, or state "None found")
+3. Tier 2 - Discuss with Client (one labeled, standalone line per finding, or state "No material issues found")</div>
   </div>
 
   <div class="content-block">
@@ -6181,6 +6367,12 @@ Name Rules (NON-NEGOTIABLE)
   </div>
 
   <div class="content-block">
+    <div class="tag-helper-cat">
+      <div class="tag-helper-cat-title">Brand New Candidate</div>
+      <div class="tag-helper-option" onclick="toggleTagHelper('th0')">Just added to JobAdder, not called yet</div>
+      <div class="tag-helper-result" id="th0"><span class="tag-pill">New / Unscreened</span><br>The default status for every new candidate. Do not leave it here once you've called them — update it to whichever status matches the outcome of that call.</div>
+    </div>
+
     <div class="tag-helper-cat">
       <div class="tag-helper-cat-title">No Answer</div>
       <div class="tag-helper-option" onclick="toggleTagHelper('th1')">Didn't pick up — 1st or 2nd attempt</div>

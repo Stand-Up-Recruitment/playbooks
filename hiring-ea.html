@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support'];
+  if(VALID_ROLES.indexOf(sessionStorage.getItem('playbook-auth')) === -1){
+    window.location.href = 'login.html';
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Assistant Hiring Process — Stand Up Recruitment</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.22)}
+
+:root{
+  --bg:#0a0a0a;
+  --surface:#111111;
+  --surface2:#181818;
+  --surface3:#1f1f1f;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(255,255,255,0.12);
+  --border3:rgba(255,255,255,0.18);
+  --text:#f2ede5;
+  --text2:#c8c4bc;
+  --muted:#6e6a64;
+  --accent:#c8f04a;
+  --ready:#34d399;
+  --dept-accent:#4ac8f0;
+  --dept-accent-rgb:74,200,240;
+  --font-head:'DM Serif Display',serif;
+  --font-body:'Syne',sans-serif;
+  --font-mono:'DM Mono',monospace;
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow:0 1px 3px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.3);
+  --shadow-lg:0 2px 8px rgba(0,0,0,.5),0 12px 40px rgba(0,0,0,.4);
+  --transition:.18s ease;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:15px;
+  line-height:1.65;
+  min-height:100vh;
+}
+
+#dashboard{max-width:880px;margin:0 auto;padding:64px 28px 100px}
+
+.hero{margin-bottom:56px;position:relative}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-60px;left:-40px;right:-40px;
+  height:340px;
+  background:radial-gradient(ellipse 60% 50% at 30% 40%,rgba(var(--dept-accent-rgb),.08) 0%,transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+.hero>*{position:relative;z-index:1}
+.hero-eyebrow{
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.18em;
+  color:var(--dept-accent);
+  text-transform:uppercase;
+  margin-bottom:20px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.hero-eyebrow::before{
+  content:'';
+  display:inline-block;
+  width:24px;height:1px;
+  background:var(--dept-accent);
+  opacity:.6;
+}
+.hero-title{
+  font-family:var(--font-head);
+  font-size:clamp(32px,5.5vw,50px);
+  line-height:1.1;
+  color:var(--text);
+  margin-bottom:16px;
+  letter-spacing:-.01em;
+}
+.hero-sub{
+  font-size:15px;
+  color:var(--muted);
+  max-width:520px;
+  line-height:1.75;
+}
+
+.module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.module-card{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+  background:var(--surface);
+  border:.5px solid var(--border);
+  border-radius:var(--radius);
+  padding:22px 22px 52px;
+  cursor:pointer;
+  transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition),background var(--transition);
+  position:relative;
+  overflow:hidden;
+}
+.module-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2.5px;
+  opacity:0;
+  transition:opacity var(--transition);
+  background:linear-gradient(90deg,var(--dept-accent),transparent);
+}
+.module-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity var(--transition);
+  pointer-events:none;
+  background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(var(--dept-accent-rgb),.06),transparent);
+}
+.module-card:hover{
+  border-color:var(--border3);
+  background:var(--surface2);
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-lg),0 0 30px rgba(var(--dept-accent-rgb),.08);
+}
+.module-card:hover::before,.module-card:hover::after{opacity:1}
+.module-num{
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.08em;
+  margin-bottom:10px;
+  color:var(--dept-accent);
+  opacity:.85;
+}
+.module-title{font-size:17px;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.35}
+.module-desc{font-size:12px;color:var(--muted);line-height:1.6}
+.module-arrow{
+  position:absolute;
+  bottom:18px;right:20px;
+  font-size:18px;
+  color:var(--border2);
+  transition:color var(--transition),transform var(--transition);
+}
+.module-card:hover .module-arrow{color:var(--muted);transform:translateX(3px)}
+
+.module-status{
+  position:absolute;
+  top:16px;right:16px;
+  font-family:var(--font-mono);
+  font-size:8.5px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  padding:2px 8px;
+  border-radius:10px;
+}
+.status-ready{background:rgba(52,211,153,.12);color:var(--ready);border:.5px solid rgba(52,211,153,.3)}
+.status-soon{background:rgba(255,255,255,.06);color:var(--muted);border:.5px solid var(--border2)}
+
+#module-view{display:none;max-width:780px;margin:0 auto;padding:44px 28px 100px}
+
+.back-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:.06em;
+  color:var(--muted);
+  background:var(--surface);
+  border:.5px solid var(--border2);
+  border-radius:20px;
+  padding:8px 16px;
+  cursor:pointer;
+  margin-bottom:40px;
+  transition:color var(--transition),border-color var(--transition),background var(--transition);
+}
+.back-btn:hover{color:var(--text);border-color:var(--border3);background:var(--surface2)}
+
+.empty-state{text-align:center;padding:56px 20px;border:1.5px dashed var(--border2);border-radius:var(--radius);background:var(--surface2)}
+.empty-state .icon{font-size:30px;color:var(--dept-accent);margin-bottom:10px}
+.empty-state h3{font-family:var(--font-head);font-size:20px;margin-bottom:8px;color:var(--text)}
+.empty-state p{color:var(--muted);max-width:460px;margin:0 auto;font-size:13.5px;line-height:1.7}
+
+#theme-toggle{
+  position:fixed;
+  top:20px;right:20px;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 16px;
+  border-radius:20px;
+  border:.5px solid var(--border2);
+  background:rgba(17,17,17,.85);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  color:var(--muted);
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.08em;
+  cursor:pointer;
+  transition:all var(--transition);
+  box-shadow:0 2px 12px rgba(0,0,0,.3);
+  user-select:none;
+}
+#theme-toggle:hover{background:var(--surface2);color:var(--text);border-color:var(--border3)}
+#theme-toggle .toggle-icon{font-size:13px;line-height:1}
+
+#hub-back{
+  position:fixed;
+  top:20px;left:20px;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 16px;
+  border-radius:20px;
+  border:.5px solid var(--border2);
+  background:rgba(17,17,17,.85);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  color:var(--muted);
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.08em;
+  cursor:pointer;
+  transition:all var(--transition);
+  box-shadow:0 2px 12px rgba(0,0,0,.3);
+  user-select:none;
+  text-decoration:none;
+}
+#hub-back:hover{background:var(--surface2);color:var(--text);border-color:var(--border3)}
+[data-theme="light"] #hub-back{background:rgba(255,255,255,.9)}
+
+.status-partial{background:rgba(240,160,74,.12);color:#f0a04a;border:.5px solid rgba(240,160,74,.3)}
+
+.module-header{background:linear-gradient(135deg,var(--surface) 0%,rgba(var(--dept-accent-rgb),.07) 100%);border:.5px solid var(--border2);border-radius:var(--radius);padding:32px 28px 26px;margin-bottom:28px}
+.module-eyebrow{font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;color:var(--dept-accent)}
+.module-h1{font-family:var(--font-head);font-size:clamp(22px,4vw,30px);line-height:1.15;margin-bottom:10px;color:var(--text)}
+.module-intro{font-size:14.5px;color:var(--muted);max-width:600px;line-height:1.7}
+
+.tabs{display:flex;gap:4px;padding:4px;background:var(--surface2);border-radius:10px;margin-bottom:18px;flex-wrap:wrap}
+.tab-btn{padding:8px 14px;border-radius:7px;font-size:12px;font-weight:600;background:transparent;color:var(--muted);border:none;cursor:pointer;transition:all .15s;white-space:nowrap;font-family:var(--font-body)}
+.tab-btn:hover{color:var(--text);background:var(--surface3)}
+.tab-btn.active{background:var(--dept-accent);color:#000;box-shadow:0 1px 6px rgba(var(--dept-accent-rgb),.3)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+.topic-banner{display:flex;gap:12px;background:rgba(var(--dept-accent-rgb),.07);border:.5px solid rgba(var(--dept-accent-rgb),.22);border-radius:10px;padding:12px 16px;margin-bottom:16px}
+.topic-banner .topic-tag{font-family:var(--font-mono);font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--dept-accent);flex-shrink:0}
+.topic-banner .topic-text{font-size:13.5px;color:var(--muted);line-height:1.55}
+
+.content-block{background:var(--surface2);border:.5px solid var(--border2);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.block-label{display:inline-block;font-family:var(--font-mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dept-accent);background:rgba(var(--dept-accent-rgb),.1);border:.5px solid rgba(var(--dept-accent-rgb),.2);padding:3px 9px;border-radius:20px;margin-bottom:9px}
+.block-title{font-size:16.5px;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.3}
+.block-body{font-size:13.5px;color:var(--muted);line-height:1.75}
+.block-body strong{color:var(--text);font-weight:600}
+.block-body ul,.block-body ol{padding-left:18px;margin-top:8px}
+.block-body li{margin-bottom:6px;line-height:1.6}
+
+.callout{border-radius:9px;padding:12px 16px;font-size:13px;line-height:1.65;border-left:3px solid var(--dept-accent);margin:10px 0;background:rgba(var(--dept-accent-rgb),.06);color:var(--muted)}
+.callout .tag{font-family:var(--font-mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:4px;color:var(--dept-accent)}
+.callout.warn{background:rgba(240,160,74,.1);border-color:#f0a04a}
+.callout.warn .tag{color:#f0a04a}
+.callout.success{background:rgba(52,211,153,.1);border-color:var(--ready)}
+.callout.success .tag{color:var(--ready)}
+.callout strong{color:var(--text)}
+
+.formula{background:rgba(var(--dept-accent-rgb),.06);border:.5px solid rgba(var(--dept-accent-rgb),.18);border-left:3px solid var(--dept-accent);border-radius:0 8px 8px 0;padding:13px 16px;font-size:13px;color:var(--muted);line-height:1.7;font-style:italic;margin:10px 0}
+.formula strong{color:var(--text);font-style:normal}
+
+.step-row{display:flex;gap:12px;align-items:flex-start;padding:9px 14px;background:var(--surface3);border:.5px solid var(--border2);border-radius:8px;margin-bottom:6px}
+.step-num{width:24px;height:24px;min-width:24px;border-radius:50%;background:var(--dept-accent);color:#000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-mono)}
+.step-body{font-size:13.5px;color:var(--muted);line-height:1.6}
+.step-body strong{color:var(--text)}
+.step-meta{font-size:11px;color:var(--muted);font-family:var(--font-mono);margin-bottom:3px}
+
+.data-table{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0;border-radius:8px;overflow:hidden}
+.data-table thead tr{background:rgba(var(--dept-accent-rgb),.08)}
+.data-table th{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:9px 12px;text-align:left;border-bottom:.5px solid var(--border2);font-family:var(--font-mono)}
+.data-table td{font-size:13px;padding:9px 12px;border-bottom:.5px solid var(--border);vertical-align:top;color:var(--muted)}
+.data-table td strong{color:var(--text)}
+.data-table tr:last-child td{border-bottom:none}
+
+.email-template{background:var(--surface);border:.5px solid var(--border2);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+.email-template-header{padding:14px 18px;border-bottom:.5px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:12px;background:var(--surface3)}
+.email-template-label{font-family:var(--font-mono);font-size:9px;color:var(--dept-accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.email-template-subject{font-size:12.5px;color:var(--muted);line-height:1.4}
+.email-template-body{padding:18px;font-size:13px;color:var(--muted);line-height:1.85;white-space:pre-wrap;font-family:var(--font-body)}
+.copy-btn{font-family:var(--font-mono);font-size:9px;letter-spacing:.06em;color:var(--muted);border:.5px solid var(--border2);border-radius:20px;padding:5px 12px;cursor:pointer;background:transparent;flex-shrink:0}
+.copy-btn:hover{color:var(--dept-accent);border-color:var(--dept-accent)}
+
+@media(max-width:640px){
+  #dashboard{padding:48px 18px 80px}
+  #module-view{padding:32px 18px 80px}
+  .module-grid{grid-template-columns:1fr}
+}
+
+[data-theme="light"]{
+  --bg:#f4f2ee;
+  --surface:#ffffff;
+  --surface2:#edeae5;
+  --surface3:#e5e2dc;
+  --border:rgba(0,0,0,0.07);
+  --border2:rgba(0,0,0,0.13);
+  --border3:rgba(0,0,0,0.22);
+  --text:#18160f;
+  --text2:#4a4641;
+  --muted:#7a756e;
+  --accent:#4a6600;
+  --ready:#059669;
+  --dept-accent:#0284c7;
+  --dept-accent-rgb:2,132,199;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+  --shadow-lg:0 2px 8px rgba(0,0,0,.1),0 12px 40px rgba(0,0,0,.08);
+}
+[data-theme="light"] body{background:var(--bg)}
+[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15)}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.25)}
+[data-theme="light"] .module-card{box-shadow:0 1px 4px rgba(0,0,0,.06)}
+[data-theme="light"] #theme-toggle{background:rgba(255,255,255,.9)}
+[data-theme="light"] .status-soon{background:rgba(0,0,0,.04)}
+</style>
+</head>
+<body>
+<a id="hub-back" href="admin-ops-hub.html" title="Back to Admin &amp; Ops Hub">
+  <span class="toggle-icon">&#8592;</span>
+  <span>Hub</span>
+</a>
+<button id="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+  <span class="toggle-icon" id="toggle-icon">&#9728;&#65039;</span>
+  <span id="toggle-label">Light</span>
+</button>
+
+<div id="module-view" style="display:block">
+  <button class="back-btn" onclick="location.href='admin-ops-hub.html'">&#8592; Back to Hiring Process</button>
+  <div id="hiring-ea-content"></div>
+</div>
+
+<script>
+/* ============================================================
+   HIRING PROCESS CONTENT (shared framework, adapted from the
+   org-wide reference design)
+   ============================================================ */
+function hiringOverviewTab(deptName){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">The full hiring journey at a glance &mdash; from sourcing the role through to the final decision.</span></div>
+  <div class="content-block">
+    <div class="block-label">Process at a Glance</div>
+    <div class="block-title">Sourcing, then a five-stage hiring framework</div>
+    <div class="step-row"><div class="step-num">0</div><div class="step-body"><strong>Sourcing &amp; Requisition</strong> &mdash; need identified, job card raised, adverts posted, applications land in JobAdder. See the Sourcing tab.</div></div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><strong>Screening Call</strong> &mdash; 5-10 min phone filter, decides who comes in for an interview.</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><strong>In-Person Interview</strong> &mdash; 30 min structured interview, decides who gets the test project.</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><strong>Reference Check</strong> &mdash; two reference checks on the candidate.</div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body"><strong>Test Project</strong> &mdash; hands-on, observable, Yes/No scoring. Placeholder &mdash; pending confirmation with the ${deptName} lead.</div></div>
+    <div class="step-row"><div class="step-num">5</div><div class="step-body"><strong>Final Hiring Decision</strong> &mdash; made with input from everyone who ran a stage.</div></div>
+  </div>
+  <div class="callout"><span class="tag">Templates</span>Every candidate-facing message for this process &mdash; SMS and email &mdash; is ready to copy in the <strong>Templates</strong> tab.</div>
+  <div class="callout warn"><span class="tag">Placeholder</span>Stages 1, 2, 3 and 5 below are the shared framework used across Stand Up Recruitment. <strong>Stage 4 (Test Project)</strong> is still a placeholder for ${deptName}, pending confirmation with the department lead &mdash; see that tab for details.</div>
+  `;
+}
+
+function hiringSourcingTab(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">How a role gets opened, advertised, and starts pulling in applications &mdash; everything before the first call.</span></div>
+  <div class="content-block">
+    <div class="block-label">Before Stage 1</div>
+    <div class="block-title">Sourcing &amp; Requisition</div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><strong>Need identified</strong> &mdash; department lead flags an open position.</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><strong>Job card created in JobAdder</strong>.</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><strong>Adverts posted</strong> via JobAdder to Seek, TradeMe, and the company website; social media content used if extra reach is needed.</div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body"><strong>All applications/resumes land in JobAdder</strong>.</div></div>
+  </div>
+  <div class="callout"><span class="tag">Handoff</span>Once applications are landing in JobAdder, move into Stage 1 &mdash; Screening Call.</div>
+  `;
+}
+
+function hiringStage1Tab(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">The phone screening call &mdash; a fast, low-stakes filter that decides who's worth bringing in for an interview.</span></div>
+  <div class="content-block">
+    <div class="block-label">Purpose &amp; Format</div>
+    <div class="block-body">
+      <p><strong>Purpose:</strong> low-stakes filter only. This call isn't deciding a hire &mdash; it's deciding whether to bring them in for an in-person interview. If they sound clearly bad on the phone, don't bring them in. If they pass, move to in-person.</p>
+      <p><strong>Length:</strong> 5-10 minutes. Keep it short &mdash; you are not selling yet, this is a filter, not a pitch.</p>
+      <p><strong>Who runs it:</strong> department lead or the person responsible for internal hiring.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Opener</div>
+    <div class="formula">"Hi, is this [Name]? You applied here at Stand Up Recruitment for the [role] role &mdash; have you got a quick five minutes to talk?"</div>
+    <div class="block-body"><p><strong>Training note:</strong> They applied, so this isn't a cold call &mdash; don't over-explain who you are or what Stand Up does yet. Confirm identity, confirm the role, ask for the five minutes, then move straight into Q1.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Screening Questions</div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><strong>Why are you looking for a new role right now?</strong><br>Training note: this goes first every time. You're listening for a genuine, specific reason vs something vague or evasive.</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><strong>What hours can you work or are you looking for fulltime work?</strong><br>Training note: non-negotiable filter. If it doesn't match what the role needs, end the process here.</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><strong>Where do you live?</strong><br>Training note: distance is a reliability filter &mdash; too far to realistically commute means it's not going to work.</div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body"><strong>What's your minimum required income?</strong><br>Training note: don't skip this. Ask plainly so you're not wasting time later.</div></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Scoring the Call</div>
+    <table class="data-table">
+      <thead><tr><th>Signal</th><th>Pass</th><th>Fail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Energy / tone</strong></td><td>Present, engaged, sounds like they want to be there</td><td>Flat, monotone, sounds checked out</td></tr>
+        <tr><td><strong>Listening</strong></td><td>Answers the actual question asked</td><td>Rambles, pitches themselves, ignores the question</td></tr>
+        <tr><td><strong>Conversation flow</strong></td><td>Can hold a back-and-forth naturally</td><td>You're doing all the work to keep it moving</td></tr>
+        <tr><td><strong>Directness</strong></td><td>Gives real, specific answers</td><td>Hedges, vague, non-answers</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Close &amp; Decision</div>
+    <div class="formula">"Appreciate it &mdash; I'll be in touch within [X days] either way."</div>
+    <div class="block-body"><p><strong>Good candidate &mdash; lock in an interview, on this call:</strong></p></div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body">Ask when he/she can come in for an interview.</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body">Check your own calendar for availability.</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body">Check the department lead's calendar for availability.</div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body">Confirm the time with the candidate over the phone, before you hang up.</div></div>
+    <div class="step-row"><div class="step-num">5</div><div class="step-body">Send the calendar invite &mdash; use the <strong>Interview Confirmation</strong> template (see the Templates tab).</div></div>
+    <div class="block-body" style="margin-top:6px"><p><strong>Not a good candidate &mdash; end the call.</strong> Decline, note reason on the file &mdash; no interview is booked.</p></div>
+  </div>
+  `;
+}
+
+function hiringStage2Tab(){
+  const sections = [
+    ["Icebreaker","4 min",`"Before we get into anything &mdash; just tell me about yourself. Not your CV, just you. What are you about?"<br>"What attracted you to apply at Stand Up Recruitment?"`,""],
+    ["Hunger &amp; Competitiveness","5 min",`"What's something you've worked really hard to get good at &mdash; and what drove you to keep going?"<br>"Tell me about a time you had to put in serious extra hours or effort to hit something that mattered &mdash; what did that actually look like, and how did you feel about it afterward?"`,""],
+    ["Overcoming Challenges","4 min",`"What's the biggest challenge you've had to work through &mdash; whether in your studies, work, or life in general? How did you approach it?"`,""],
+    ["Team &amp; Resilience Background","4 min",`"Have you ever been part of a team &mdash; sport, work, community, anything &mdash; where you had to push through something hard together? Tell me about it and what it taught you about yourself."`,""],
+    ["Thinking Under Pressure","4 min",`"If you joined us and had a tough first month &mdash; things weren't clicking yet &mdash; what would you do?"`,""],
+    ["Persuasion &amp; Handling Pushback","5 min",`Warm-up: "Tell me about a time you had to persuade someone who really didn't want to listen &mdash; what did you say, and how did it go?"<br>Live roleplay: "Quick one &mdash; pretend I'm a mate and I say I'm not interested in something you're trying to get me to do. Convince me." (Push back once or twice.)`,"Tests real-time thinking and handling pushback directly. Zero prior industry experience required &mdash; it's testing raw skill, not domain knowledge."],
+    ["About Us &amp; The Role","3 min","","Sell the role here, after testing &mdash; not before. Selling first risks candidates shaping earlier answers to match what they've just heard you're excited about."],
+    ["Closing","3 min",`"Is there anything about you that we wouldn't know from your CV &mdash; something you want us to know before we wrap up?"<br>"What questions do you have for us?"`,""]
+  ];
+  let stepsHtml = sections.map((s,i) => `
+    <div class="step-row">
+      <div class="step-num">${i+1}</div>
+      <div class="step-body">
+        <div class="step-meta">${s[1]}</div>
+        <strong>${s[0]}</strong>
+        ${s[2] ? `<div class="formula" style="margin:8px 0 4px">${s[2]}</div>` : ""}
+        ${s[3] ? `<div style="margin-top:4px">Training note: ${s[3]}</div>` : ""}
+      </div>
+    </div>
+  `).join("");
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">The in-person interview &mdash; a structured 30-minute conversation to assess mindset, communication, and real-world fit.</span></div>
+  <div class="content-block">
+    <div class="block-label">Format</div>
+    <div class="block-body"><p>Estimated duration: 30 minutes. Interviewer use only.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Interview Sections</div>
+    ${stepsHtml}
+  </div>
+  <div class="content-block">
+    <div class="block-label">Scoring Anchor</div>
+    <table class="data-table">
+      <thead><tr><th>Score</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><strong>5 &mdash; Strong Yes</strong></td><td>Blew us away &mdash; clear yes, progress immediately</td></tr>
+        <tr><td><strong>4 &mdash; Good</strong></td><td>Strong candidate &mdash; worth progressing</td></tr>
+        <tr><td><strong>3 &mdash; Uncertain</strong></td><td>Solid but uncertain in one or two areas &mdash; discuss with team</td></tr>
+        <tr><td><strong>2 &mdash; Concern</strong></td><td>Some concern &mdash; discuss before deciding</td></tr>
+        <tr><td><strong>1 &mdash; No</strong></td><td>Significant concern &mdash; not the right fit at this time</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Interviewer Scorecard</div>
+    <table class="data-table">
+      <thead><tr><th>Competency</th><th>Rating (1-5)</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Mindset &amp; Attitude</td><td></td><td></td></tr>
+        <tr><td>Hunger &amp; Competitiveness</td><td></td><td></td></tr>
+        <tr><td>Communication &amp; People Skills</td><td></td><td></td></tr>
+        <tr><td>Team &amp; Resilience Background</td><td></td><td></td></tr>
+        <tr><td>Thinking Under Pressure</td><td></td><td></td></tr>
+        <tr><td>Persuasion &amp; Handling Pushback</td><td></td><td></td></tr>
+        <tr><td>Overall Impression</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="block-body" style="margin-top:10px">
+      <p>Candidate Name: ______________ &nbsp; Date: ______________ &nbsp; Interviewer: ______________</p>
+      <p><strong>Recommended Next Step:</strong> Strong yes &nbsp; / &nbsp; Good &nbsp; / &nbsp; Uncertain &nbsp; / &nbsp; Concern &nbsp; / &nbsp; Not suitable</p>
+      <ul>
+        <li>Pass &mdash; move to Stage 3: reference check, then Stage 4: test project</li>
+        <li>Fail &mdash; decline, note reason on the file</li>
+      </ul>
+    </div>
+  </div>
+  `;
+}
+
+function hiringStage3Tab(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">Reference checks &mdash; verifying reliability and fit with people who've actually worked alongside the candidate.</span></div>
+  <div class="content-block">
+    <div class="block-label">Reference Check</div>
+    <div class="block-body"><p>Two reference checks on the candidate, ideally a direct manager or supervisor from their most recent two roles. Use the questions below as a guide &mdash; let the referee talk, and probe on anything vague.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Reference Check Questions</div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body">How would you rate their reliability &mdash; attendance, punctuality, following through on commitments?</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body">How did they handle pressure, pushback, or a difficult conversation?</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body">Would you rehire them if the opportunity came up? Why or why not?</div></div>
+  </div>
+  <div class="callout warn"><span class="tag">Flag</span>Any hesitation on the rehire question, or answers that contradict what the candidate told you, are worth a follow-up question before moving on.</div>
+  `;
+}
+
+function hiringStage4TabRecruitment(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">~3 hours, at the Stand Up Recruitment office with the relevant department. Every item is Yes/No &mdash; observable, not a feeling. Two different people running this should land on the same score for the same candidate.</span></div>
+  <div class="content-block">
+    <div class="block-label">Part 1 &mdash; Department Core Task (hard gate)</div>
+    <div class="callout warn"><span class="tag">Confirmed &mdash; Recruitment</span>Live candidate calls from the pipeline &mdash; laborer-tier leads only, not high-quality leads.<br><br><strong>Gate rule:</strong> 2+ "No"s on the 4 call signals below &rarr; end the test project.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">SUR Recruiter Test Project &mdash; Sourcing Assessment</div>
+    <div class="block-body">
+      <p><strong>Time limit:</strong> 1 to 1.5 hours. <strong>Access:</strong> JobAdder (admin access provided).</p>
+      <p><strong>Objective:</strong> a practical assessment of the candidate's ability to source, call, screen, and correctly log candidates in JobAdder &mdash; the core day-to-day skill of a recruiter at Stand Up Recruitment. They'll be sourcing real candidates from the live database &mdash; treat every call as a genuine outreach call, not a simulation.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">The Brief</div>
+    <div class="block-body"><p>We're looking for <strong>Labourers with experience in Civil Construction</strong>. Here's what the client told us on the sales call:</p></div>
+    <div class="formula">"We've got a solid pipeline of infrastructure work coming up over the next 6 months &mdash; road works, drainage, footpaths, some earthworks. We need reliable hands-on people who can work as part of a crew, take direction from a leading hand, and aren't afraid of physical work outdoors in all conditions. No trade ticket required, but anyone who's worked around civil sites before is exactly what we're after. We've had bad luck in the past with people who show up for a week and disappear, so genuine reliability matters more to us than experience on paper."</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Step 1 &mdash; Source</div>
+    <div class="block-body"><ul>
+      <li>Go to the <strong>Candidates</strong> tab</li>
+      <li>Sort by <strong>Date Created</strong>, descending</li>
+      <li>Filter <strong>Working Rights</strong> to NZ Citizen</li>
+      <li>Filter <strong>Category</strong> to whatever fits the brief above</li>
+      <li>Build a call list from the filtered results</li>
+    </ul></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Step 2 &mdash; Call</div>
+    <div class="formula">Opening: "Hey [Name]! It's [Your Name] from Stand Up Recruitment. You showed interest in work in Australia, is that right?"</div>
+    <table class="data-table">
+      <thead><tr><th>Area</th><th>What you're finding out</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The Why</strong></td><td>Why do they want to move to Australia? Don't accept a surface answer &mdash; dig a little deeper.</td></tr>
+        <tr><td><strong>Skills and Experience</strong></td><td>What kind of work have they actually been doing? Does it match what the brief is asking for?</td></tr>
+        <tr><td><strong>Readiness to Move</strong></td><td>When are they realistically able to make the move?</td></tr>
+        <tr><td><strong>Trade-Specific Fit</strong></td><td>Any relevant experience or exposure to civil sites specifically.</td></tr>
+        <tr><td><strong>Anything to Add</strong></td><td>Give them a chance to raise anything else worth knowing.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Step 3 &mdash; Tag</div>
+    <div class="block-body"><p>After every call, update the candidate's Status on their JobAdder profile to reflect the outcome.</p></div>
+    <table class="data-table">
+      <thead><tr><th>Status</th><th>When to use it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>New / Unscreened</strong></td><td>The default status for all new candidates. Do not leave it here after they've been called.</td></tr>
+        <tr><td><strong>In Process</strong></td><td>The candidate is being progressed for this role.</td></tr>
+        <tr><td><strong>Screened - Active</strong></td><td>Spoken to the candidate and logged notes, but they don't match this specific role.</td></tr>
+        <tr><td><strong>Unsuccessful - Internal</strong></td><td>The candidate isn't a good fit for this or future roles based on the call.</td></tr>
+        <tr><td><strong>Called</strong></td><td>The candidate did not answer.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Step 4 &mdash; Add Notes</div>
+    <div class="formula">Date: DD/MM/YY<br>Job: [Role title you determined from the brief]<br>Outcome: [Qualified / Unqualified / Pipeline / No answer]<br>Skills and experience: [2 to 3 sentences]<br>Readiness to move: [Their timeline]<br>Qualifications: [Tickets or qualifications confirmed]<br>Notes: [Anything worth flagging]</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">What to Submit at the End of the Session</div>
+    <div class="block-body"><ul>
+      <li>What role title and category was searched for, based on the brief</li>
+      <li>The number of candidates called</li>
+      <li>The JobAdder profiles of each candidate called, with status and notes updated</li>
+      <li>Any candidates unable to be reached, noted accordingly</li>
+    </ul>
+    <p style="margin-top:8px"><strong>Rule:</strong> all four submission items present and complete = Pass. Missing or incomplete = Discuss.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Part 2 &mdash; Systems Task</div>
+    <div class="block-body"><p>Pure systems/navigation test &mdash; can they figure out a core system task unaided (JobAdder, Xero, Airtable, Notion, whichever the role uses day-to-day)?</p></div>
+    <table class="data-table">
+      <thead><tr><th>Check</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Completed all assigned tasks without being shown twice</td><td>Yes / No</td></tr>
+        <tr><td>Asked sensible clarifying questions when stuck (rather than guessing blindly or freezing)</td><td>Yes / No</td></tr>
+        <tr><td>Finished within a reasonable time (Recruitment Team Lead to set benchmark)</td><td>Yes / No</td></tr>
+      </tbody>
+    </table>
+    <div class="block-body" style="margin-top:8px"><p><strong>Rule:</strong> all three checked = Pass. Any unchecked = Discuss.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Part 3 &mdash; Ambient Team Fit</div>
+    <div class="block-body"><p>No separate task needed &mdash; because they're with the team for the full session, the team is naturally exposed to them. At the end, ask every team member who shared time with them, independently, the same question:</p></div>
+    <div class="formula">"Would you want to work next to this person every day? &mdash; Yes / No"</div>
+    <div class="block-body" style="margin-top:8px"><p><strong>Rule:</strong> majority Yes = Pass.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Final Decision Matrix</div>
+    <table class="data-table">
+      <thead><tr><th>Outcome</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Part 1 gate fails</td><td>No hire &mdash; stop immediately; send the "Rejected &mdash; After Project" email the next business day</td></tr>
+        <tr><td>Part 1 gate passes, Parts 2 and 3 both pass</td><td>Hire &mdash; share career ladder &amp; commission structure, then send offer</td></tr>
+        <tr><td>Part 1 gate passes, one of Parts 2/3 fails</td><td>Discuss as a team &mdash; not an automatic yes or no</td></tr>
+        <tr><td>Ambient Team Fit fails on its own, everything else passes</td><td>Discuss as a team before deciding &mdash; this is a real signal, not a tie-breaker to ignore</td></tr>
+      </tbody>
+    </table>
+  </div>
+  `;
+}
+
+function hiringStage4TabGeneric(deptName){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">The test project &mdash; a hands-on, observable task that shows how a candidate actually performs, not just how they interview.</span></div>
+  <div class="callout warn">
+    <span class="tag">Placeholder &mdash; pending department lead</span>
+    ${deptName}'s test-project task hasn't been defined yet. The test project should run <strong>1 to 1.5 hours</strong>, in line with every other department. Recruitment's version &mdash; a hands-on, real-tools sourcing assessment with a clear brief, an observable task, and a defined submission &mdash; is the model to adapt from. Open the Recruiter Hub's Hiring Process (Stage 4) to see the fully worked example.
+    <br><br>
+    Once confirmed with the ${deptName} lead, this stage should include: a realistic task using the actual tools of the role, a clear brief or scenario, and a defined list of what the candidate needs to submit at the end.
+  </div>
+  <div class="content-block">
+    <div class="block-label">Format (draft)</div>
+    <div class="block-body"><p><strong>Time limit:</strong> 1 to 1.5 hours. <strong>Access:</strong> [tools/systems specific to the role] &mdash; TBC with the ${deptName} lead.</p></div>
+  </div>
+  `;
+}
+
+function hiringStage5Tab(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">The final call &mdash; deciding to hire or not, and what happens next for the candidate.</span></div>
+  <div class="content-block">
+    <div class="block-label">Final Hiring Decision</div>
+    <div class="block-body"><p>Final decision on whether to hire, made with input from everyone who ran a stage of the process.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">What Happens Next</div>
+    <div class="step-row"><div class="step-num">&#10003;</div><div class="step-body"><strong>Selected</strong> &mdash; call the candidate with the verbal offer (see the <strong>Selected for Position &mdash; Call Script</strong> in Templates), then follow up with the <strong>Welcome on Board</strong> email. The candidate then moves into the <strong>Onboarding Process</strong>.</div></div>
+    <div class="step-row"><div class="step-num">&#10005;</div><div class="step-body"><strong>Not selected</strong> &mdash; send the <strong>Rejected &mdash; After Project</strong> email from the Templates tab.</div></div>
+  </div>
+  `;
+}
+
+/* ============================================================
+   RECRUITMENT-SPECIFIC HIRING PROCESS CONTENT (the fully-built
+   source-of-truth version, moved here from recruiter-hub.html)
+   ============================================================ */
+function hiringOverviewTabRecruitment(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">The full hiring journey at a glance &mdash; from sourcing the role through to the final decision. Any two people running this process for the same candidate should reach the same outcome.</span></div>
+  <div class="content-block">
+    <div class="block-label">Doc ref: SUR-HR-PB-001 &middot; v2.1</div>
+    <div class="block-title">Sourcing, then a four-stage hiring framework</div>
+    <div class="step-row"><div class="step-num">0</div><div class="step-body"><strong>Sourcing &amp; Requisition</strong> &mdash; need identified, job card raised, adverts posted, applications land in JobAdder. See the Sourcing tab.</div></div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><strong>Phone Screening</strong> &mdash; 5-10 min, low-stakes filter. Decides who comes in for an interview, not who gets hired.</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><strong>In-Person Interview</strong> &mdash; ~30 min, Les + Recruitment Team Lead. Decides who goes to background &amp; reference checks.</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><strong>Background &amp; Reference Checks</strong> &mdash; criminal record check, 2 references, 2 independent checks. No exceptions, no shortcuts.</div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body"><strong>Test Project</strong> &mdash; ~3 hrs, hands-on, observable, Yes/No scoring. Fully built for Recruitment.</div></div>
+    <div class="step-row"><div class="step-num">&#10003;</div><div class="step-body"><strong>Final Decision</strong> &mdash; career ladder &amp; commission shared with the successful candidate before the offer goes out. See the Stage 5 tab.</div></div>
+  </div>
+  <div class="callout"><span class="tag">Response time</span>Aim to communicate an outcome within <strong>2 business days</strong> of each stage &mdash; phone screening, interview, and test project &mdash; even when the answer is no. Default guideline, confirm with Les.</div>
+  <div class="callout"><span class="tag">Templates</span>Every candidate-facing message for this process &mdash; SMS and email &mdash; is ready to copy in the <strong>Templates</strong> tab.</div>
+  <div class="callout warn"><span class="tag">Training note</span>This is a filter at every stage, not a funnel you have to complete. If someone is clearly wrong at any point, end it there &mdash; don't carry them forward out of politeness.</div>
+  <div class="callout success"><span class="tag">Ready</span>This is the fully worked Recruitment division process &mdash; the model every other department adapts from.</div>
+  `;
+}
+
+function hiringStage1TabRecruitment(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">The phone screening call &mdash; a fast, low-stakes filter that decides who's worth bringing in for an interview.</span></div>
+  <div class="content-block">
+    <div class="block-label">Purpose &amp; Format</div>
+    <div class="block-body">
+      <p><strong>Purpose:</strong> low-stakes filter only. This call isn't deciding a hire &mdash; it's deciding whether to bring them in for an in-person interview. If they sound clearly bad on the phone, don't bring them in. If they pass, move to in-person.</p>
+      <p><strong>Length:</strong> 5-10 minutes. Keep it short &mdash; you are not selling yet, this is a filter, not a pitch.</p>
+      <p><strong>Who runs it:</strong> department lead or the person responsible for internal hiring.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Opener</div>
+    <div class="formula">"Hi, is this [Name]? You applied here at Stand Up Recruitment for the [role] role &mdash; have you got a quick five minutes to talk?"</div>
+    <div class="block-body"><p><strong>Training note:</strong> They applied, so this isn't a cold call &mdash; don't over-explain who you are or what Stand Up does yet. Confirm identity, confirm the role, ask for the five minutes, then move straight into Q1.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Screening Questions</div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><strong>Why are you looking for a new role right now?</strong><br>Training note: this goes first every time. You're listening for a genuine, specific reason vs something vague or evasive. Leaving a bad situation is fine &mdash; dodging the question or badmouthing every past employer is the flag.</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><strong>Are you looking for a full-time role?</strong><br>Training note: non-negotiable filter for this role. Part-time or casual only &mdash; end the process here, don't carry a scheduling mismatch into later stages.</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><strong>Where do you live?</strong> <em>(only ask if it isn't already on their CV)</em><br>Training note: a reliability filter &mdash; too far to realistically commute means it's not going to work regardless of how good they are elsewhere.</div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body"><strong>Are you a NZ citizen?</strong> <em>(only ask if not already clear)</em> &mdash; if not, what visa category are you on?<br>Training note: don't ask a NZ citizen about visa status, it's not relevant. If on a visa or new to the country, the category (work / resident / student) affects how soon they can start and whether the role is even open to them.</div></div>
+    <div class="step-row"><div class="step-num">5</div><div class="step-body"><strong>What are you looking to earn &mdash; and what's the minimum that would make the move worthwhile?</strong><br>Training note: don't skip this. Ask it plainly: "so we're not wasting time later &mdash; what's the minimum you'd need for this role?" If it's outside budget, better to know now.</div></div>
+    <div class="step-row"><div class="step-num">6</div><div class="step-body"><strong>What's your notice period &mdash; and realistically, how soon could you start if this moves forward?</strong><br>Training note: a notice period that doesn't line up with when we need someone is a genuine constraint &mdash; flag it, don't ignore it because everything else sounds good.</div></div>
+    <div class="step-row"><div class="step-num">7</div><div class="step-body"><strong>Tell me about a time something didn't go your way at work &mdash; what did you do next?</strong><br>Training note: your grit/attitude read. Listen for ownership and action, not blame. "That's just how it was" with no next step is a flag; "I changed my approach / asked for help / kept going" is what you want.</div></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Scoring the Call</div>
+    <table class="data-table">
+      <thead><tr><th>Signal</th><th>Pass</th><th>Fail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Energy / tone</strong></td><td>Present, engaged, sounds like they want to be there</td><td>Flat, monotone, sounds checked out</td></tr>
+        <tr><td><strong>Listening</strong></td><td>Answers the actual question asked</td><td>Rambles, pitches themselves, ignores the question</td></tr>
+        <tr><td><strong>Conversation flow</strong></td><td>Can hold a back-and-forth naturally</td><td>You're doing all the work to keep it moving</td></tr>
+        <tr><td><strong>Directness</strong></td><td>Gives real, specific answers</td><td>Hedges, vague, non-answers</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Close</div>
+    <div class="formula">"Look, based on our chat I'd love to get you in for a quick in-person interview &mdash; have you got some time this week? Would [Day, Time] or [Day, Time] work for you?"</div>
+    <div class="formula">If you need more time to decide: "Appreciate it &mdash; I'll be in touch within [X days] either way."</div>
+    <div class="block-body"><p>Training note: if you're locking in a time, get the day and time confirmed before you hang up, then send the Interview Confirmation email as a calendar invite so it lands in their diary, not just their inbox. If you're not ready to commit yet, no hype, no over-promising &mdash; keep the fallback line flat and professional.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Decision</div>
+    <div class="step-row"><div class="step-num">&#10003;</div><div class="step-body"><strong>Sounds good, strong energy &amp; communication</strong> &mdash; lock in an interview time on the call, then send the Interview Confirmation email as a calendar invite.</div></div>
+    <div class="step-row"><div class="step-num">&#10005;</div><div class="step-body"><strong>Sounds clearly bad</strong> &mdash; decline, note reason on file. No email required.</div></div>
+  </div>
+  `;
+}
+
+function hiringStage2TabRecruitment(){
+  const sections = [
+    ["Icebreaker &amp; Getting to Know Them","5 min",`"Before we get into anything &mdash; just tell me about yourself. Not your CV, just you. What are you about?"<br>What does life outside of work look like at the moment &mdash; who's in your corner, family, flatmates, whoever keeps you grounded?<br>"What attracted you to apply at Stand Up Recruitment?"`,"Follow their energy here. If they light up talking about a partner, kids, a parent, a sport, or a mate, stay there an extra beat and ask one genuine follow-up before moving on. This is about understanding who they are and what's grounding them, not assessing their personal circumstances &mdash; a short answer is a fine answer."],
+    ["Hunger &amp; Competitiveness","4 min",`"What's something you've worked really hard to get good at &mdash; and what drove you to keep going?"<br>"Tell me about a time you had to put in serious extra hours or effort to hit something that mattered &mdash; what did that actually look like, and how did you feel about it afterward?"`,""],
+    ["Overcoming Challenges","4 min",`"What's the biggest challenge you've had to work through &mdash; whether in your studies, work, or life in general? How did you approach it?"`,""],
+    ["Handling Feedback","4 min",`"Tell me about a time someone gave you tough feedback, or pulled you up on something you got wrong. What did they say, and what did you do with it?"`,"You're testing for a can-do reaction to being corrected, not perfection in the story. Defensiveness or blame-shifting here is a real flag &mdash; this role will involve regular feedback."],
+    ["Team &amp; Resilience Background","4 min",`"Have you ever been part of a team &mdash; sport, work, community, anything &mdash; where you had to push through something hard together? Tell me about it and what it taught you about yourself."`,""],
+    ["Role-Relevant Scenario","4 min",`Live scenario, run by the Recruitment Team Lead &mdash; see Appendix A in the Templates tab. Confirmed for Recruitment: "Pretend I'm a candidate who's not interested &mdash; convince me." Push back once or twice.`,"Zero role-specific experience required &mdash; this is testing raw thinking and composure under a bit of pressure, not industry knowledge."],
+    ["About Us &amp; The Role","1 min","","Sell the company here, after testing &mdash; not before. Selling first risks candidates shaping earlier answers to match what they've just heard you're excited about."],
+    ["Closing","2 min",`"Is there anything about you that we wouldn't know from your CV &mdash; something you want us to know before we wrap up?"<br>"What questions do you have for us?"<br>Just a practical one before we wrap up &mdash; what's your notice period at the moment, and realistically, how soon could you start if this moves forward?`,""],
+    ["Next Steps","2 min",`"Before you go, here's what happens next on our end: if we'd like to move forward, we run a criminal record check, two reference checks, and two independent checks &mdash; that's standard for every hire. If you haven't already sent through two referees, could you flag your two most recent supervisors for us?"`,"If they haven't provided referees yet, get two now &mdash; ideally direct supervisors from their two most recent roles. If you don't already have what you need for the criminal record check (full name, date of birth, residential address, driving licence number), ask for it here rather than chasing it later by email. Strong candidate &mdash; lock in the test-project date before they leave. Clear no &mdash; let them go warmly; a clean, kind close beats a vague 'we'll be in touch.'"]
+  ];
+  let stepsHtml = sections.map((s,i) => `
+    <div class="step-row">
+      <div class="step-num">${i+1}</div>
+      <div class="step-body">
+        <div class="step-meta">${s[1]}</div>
+        <strong>${s[0]}</strong>
+        ${s[2] ? `<div class="formula" style="margin:8px 0 4px">${s[2]}</div>` : ""}
+        ${s[3] ? `<div style="margin-top:4px">Training note: ${s[3]}</div>` : ""}
+      </div>
+    </div>
+  `).join("");
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">The in-person interview &mdash; a structured ~30-minute conversation to assess mindset, communication, and real-world fit. Les + Recruitment Team Lead. Interviewer use only &mdash; not shared with the candidate.</span></div>
+  <div class="callout"><span class="tag">Training note</span>Run it like a conversation, not an interrogation. Let the candidate talk more than you do, let silences sit instead of rushing to fill them, and when something real comes up &mdash; a name, a hobby, a frustration, a throwaway comment &mdash; stay on it a beat longer before moving to the next line. That's usually where the more honest, less rehearsed answers come from.</div>
+  <div class="content-block">
+    <div class="block-label">Interview Sections</div>
+    ${stepsHtml}
+  </div>
+  <div class="content-block">
+    <div class="block-label">Scoring Anchor</div>
+    <table class="data-table">
+      <thead><tr><th>Score</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><strong>5 &mdash; Strong Yes</strong></td><td>Blew us away &mdash; clear yes, progress immediately</td></tr>
+        <tr><td><strong>4 &mdash; Good</strong></td><td>Strong candidate &mdash; worth progressing</td></tr>
+        <tr><td><strong>3 &mdash; Uncertain</strong></td><td>Solid but uncertain in one or two areas &mdash; discuss with team</td></tr>
+        <tr><td><strong>2 &mdash; Concern</strong></td><td>Some concern &mdash; discuss before deciding</td></tr>
+        <tr><td><strong>1 &mdash; No</strong></td><td>Significant concern &mdash; not the right fit at this time</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Interviewer Scorecard</div>
+    <table class="data-table">
+      <thead><tr><th>Competency</th><th>Rating (1-5)</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Mindset &amp; Attitude</td><td></td><td></td></tr>
+        <tr><td>Hunger &amp; Competitiveness</td><td></td><td></td></tr>
+        <tr><td>Communication &amp; People Skills</td><td></td><td></td></tr>
+        <tr><td>Handling Feedback</td><td></td><td></td></tr>
+        <tr><td>Team &amp; Resilience Background</td><td></td><td></td></tr>
+        <tr><td>Role-Relevant Thinking</td><td></td><td></td></tr>
+        <tr><td>Overall Impression</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="block-body" style="margin-top:10px">
+      <p>Candidate Name: ______________ &nbsp; Role Applied For: ______________ &nbsp; Date: ______________ &nbsp; Interviewer(s): ______________</p>
+      <p><strong>Recommended Next Step:</strong> Strong Yes &nbsp; / &nbsp; Good &nbsp; / &nbsp; Uncertain &nbsp; / &nbsp; Concern &nbsp; / &nbsp; Not Suitable</p>
+      <ul>
+        <li>Pass &mdash; move to Stage 3: background &amp; reference checks</li>
+        <li>Fail &mdash; let them go warmly on the day, note the reason on file, and send the "Rejected &mdash; After Interview" email within 1&ndash;2 business days</li>
+      </ul>
+    </div>
+  </div>
+  `;
+}
+
+function hiringStage3TabRecruitment(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">Standard due diligence before we invest the team's time in a live test project. 2&ndash;5 business days, owned by Nihanga. Every candidate who passes Stage 2 goes through all five checks below &mdash; no exceptions, no shortcuts for a candidate who "seems great."</span></div>
+  <div class="content-block">
+    <div class="block-label">Check 1 &mdash; Criminal Record Check</div>
+    <div class="block-body"><p>Requested through the Ministry of Justice Criminal Record Check service once the candidate has given written consent (see the Checks Consent Request email in Templates). The candidate applies online or via the paper form; results are typically returned within a few working days.</p></div>
+    <div class="callout"><span class="tag">Training note</span>A conviction on record isn't an automatic decline &mdash; read it in context (what, how long ago, how relevant to the role) and discuss with Les before deciding either way. We're screening for undisclosed risk, not making moral judgements on someone's past.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Checks 2 &amp; 3 &mdash; Reference Checks (x2)</div>
+    <div class="block-body"><p>Minimum two, both from supervisors the candidate provided at Stage 2. Do not call one referee and wait to hear back &mdash; batch your calls and work through the list efficiently.</p></div>
+    <table class="data-table">
+      <thead><tr><th>Time</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Morning</td><td>Call all referees on your list</td></tr>
+        <tr><td>Afternoon</td><td>Recall anyone who did not answer in the morning</td></tr>
+        <tr><td>After 2nd no answer</td><td>Send the reference no-answer SMS (see Templates) and wait for a reply</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">The Reference Check Call Script</div>
+    <div class="block-body"><p>Keep it casual &mdash; you want the referee to open up naturally, not feel like they're being formally interviewed.</p></div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><strong>Open</strong> &mdash; own the familiarity. Say their name first, confident, not a question.<div class="formula" style="margin-top:6px">"[Referee First Name]." (They respond) "Hey, it's [Your Name] &mdash; [Candidate Full Name] gave me your number, said it's okay to run a bit of a reference check."</div>If they want context or two minutes &mdash; answer plainly and keep moving. Don't over-explain.</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><strong>The rundown</strong> &mdash; the most important part. Ask it open, then stop talking. Let them run.<div class="formula" style="margin-top:6px">"Can you give me a full rundown please &mdash; the good, the bad, and the ugly?"</div>Listen for: attitude (on the tools, with the team, under pressure), attendance (reliable, punctual, red flags), and anything volunteered unprompted &mdash; usually the most honest signal. If short or vague, try: "Yeah? What was that like day to day?"</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><strong>Skills and experience</strong> &mdash; get specific to the role, don't accept a general answer. "What kind of work was he actually doing for you?" "Was he good at it?" "Any muck-ups or mistakes worth mentioning?" Push once if the answer is too smooth: "Genuinely no issues at all?"</div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body"><strong>If they're hesitant</strong> &mdash; if they seem cagey or want to loop in HR, don't push. Respect it and note it as a flag: "No worries at all &mdash; appreciate you letting me know. If you think of anything after we hang up, feel free to flag it."</div></div>
+    <div class="step-row"><div class="step-num">5</div><div class="step-body"><strong>The close</strong> &mdash; force the real answer. Say it slow, let the cost of a bad hire land before the ask.<div class="formula" style="margin-top:6px">"Look [Name], I'm sure you've made bad hires before and know how much it can cost in lost time and money. That's all I'm trying to avoid here. With that in mind, do you think [Candidate Full Name] would be a good addition to my company?"</div>Whatever they say next &mdash; silence, hesitation, a flat yes &mdash; that's your answer. Don't fill the silence.</div></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Handling Red Flags and Lukewarm Responses</div>
+    <table class="data-table">
+      <thead><tr><th>Outcome</th><th>What to Do</th></tr></thead>
+      <tbody>
+        <tr><td>1 red flag or lukewarm response</td><td>Ask the candidate for an additional referee &mdash; don't tell them why</td></tr>
+        <tr><td>2 or more red flags out of 3</td><td>Do not progress. Inform the candidate we will not be moving forward</td></tr>
+        <tr><td>All clear</td><td>Proceed to independent checks below</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Checks 4 &amp; 5 &mdash; Independent Checks (x2)</div>
+    <div class="block-body"><p>Two further, informal checks with people who worked alongside the candidate but weren't nominated by them as referees. The referees a candidate gives you are usually their strongest supporters &mdash; friendly, positive, naturally biased in their favour. An independent check gets you an honest, unprimed reaction instead: the person you reach isn't expecting your call and hasn't been coached on what to say.</p></div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body">Go through the candidate's CV and identify their two most recent employers, excluding whichever companies their own referees came from. Search for the company's phone number online and call the general line &mdash; don't use a number the candidate has given you.</div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body">Ask reception (or whoever answers) to put you through to someone who can speak to the candidate's time there &mdash; ideally a supervisor, team lead, or manager. A colleague who worked alongside them is fine too.</div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body">If nobody currently there remembers them, ask if anyone still on staff was working during that period. If you can't get anyone useful, move to the next most recent employer and repeat &mdash; keep working down the list until you land two independent checks with someone who actually worked with the candidate.</div></div>
+    <div class="callout"><span class="tag">Training note</span>Use the same call script as the nominated reference checks above &mdash; the goal is the same honest rundown, just from someone the candidate didn't hand-pick. Be professional and discreet; you're checking someone's work history, not gossiping about them.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Stage 3 Checklist</div>
+    <table class="data-table">
+      <thead><tr><th>Check</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Criminal record check requested &mdash; cleared, or flagged item discussed with Les</td><td>Clear / Discuss</td></tr>
+        <tr><td>Reference 1 completed &mdash; no concerns raised</td><td>Clear / Discuss</td></tr>
+        <tr><td>Reference 2 completed &mdash; no concerns raised</td><td>Clear / Discuss</td></tr>
+        <tr><td>Independent check 1 completed &mdash; no concerns raised</td><td>Clear / Discuss</td></tr>
+        <tr><td>Independent check 2 completed &mdash; no concerns raised</td><td>Clear / Discuss</td></tr>
+      </tbody>
+    </table>
+    <div class="block-body" style="margin-top:10px"><p><strong>Rule:</strong> all five Clear = proceed to Stage 4. Any Discuss = talk it through with Les before booking the test project &mdash; don't default to decline, and don't default to progress either.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Decision</div>
+    <ul>
+      <li><strong>All clear</strong> &mdash; send "Selected for Project" email, book Stage 4: test project</li>
+      <li><strong>Concern raised</strong> &mdash; discuss with Les before proceeding; if not proceeding, send "Rejected &mdash; After Checks" email</li>
+    </ul>
+  </div>
+  `;
+}
+
+function hiringStage5TabRecruitment(){
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">The final call &mdash; deciding to hire or not, sharing the career ladder, and what happens next for the candidate.</span></div>
+  <div class="content-block">
+    <div class="block-label">Final Hiring Decision</div>
+    <div class="block-body"><p>Made with input from everyone who ran a stage of the process. The goal across all three stages is the same: correct mindset, genuine can-do attitude, takes challenges on, takes feedback well, and shows grit under pressure. Skills can be trained &mdash; this cannot.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Career Ladder &amp; Commission Structure &mdash; Shared With the Successful Candidate</div>
+    <div class="block-body"><p>Once the team decides to hire, walk the candidate through the recruitment career ladder and commission structure <strong>before</strong> the formal written offer goes out. Les or the Recruitment Team Lead presents this in person; Nihanga keeps the figures current. This gives them a real picture of where the role can take them and is a strong close to a good process.</p></div>
+    <table class="data-table">
+      <thead><tr><th>Level</th><th>Core Responsibilities</th></tr></thead>
+      <tbody>
+        <tr><td>Trainee Recruitment Consultant</td><td>Sourcing, candidate calls, admin support</td></tr>
+        <tr><td>Recruitment Consultant</td><td>Own desk, candidate &amp; client management</td></tr>
+        <tr><td>Senior Recruitment Consultant</td><td>Key accounts, mentoring juniors</td></tr>
+        <tr><td>Team Lead / Principal Consultant</td><td>Team targets, hiring input, escalations</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn"><span class="tag">Template &mdash; confirm figures before use</span>Timeframes and dollar/percentage figures for each level, and the full commission tier structure, are placeholders pending confirmation from Les and the Recruitment Team Lead &mdash; check with Nihanga for the current version before presenting this to a candidate.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">What Happens Next</div>
+    <div class="step-row"><div class="step-num">&#10003;</div><div class="step-body"><strong>Selected</strong> &mdash; call the candidate with the verbal offer (see the <strong>Selected for Position &mdash; Call Script</strong> in Templates), then follow up with the <strong>Welcome on Board</strong> email. This confirms verbal intent only &mdash; it must be followed by the formal written offer and employment agreement (via Peninsula) before the candidate's start date. The candidate then moves into the <strong>Onboarding Process</strong>.</div></div>
+    <div class="step-row"><div class="step-num">&#10005;</div><div class="step-body"><strong>Not selected</strong> &mdash; send the <strong>Rejected &mdash; After Project</strong> email from the Templates tab.</div></div>
+  </div>
+  `;
+}
+
+function hiringTemplatesTabRecruitment(mid){
+  const emails = [
+    {id:"interview-conf", label:"Email &mdash; Interview Confirmation", subject:"Interview Confirmed &mdash; [Position] &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nThis is to confirm your interview for the [Position] role at Stand Up Recruitment.\n\nDate: [Date]\nTime: [Time]\nVenue: 41 Taharoto Road, Takapuna, Auckland 0622\n\nThe interview will run approximately 30 minutes. Please arrive 5 minutes early and let us know if you need to make any changes.\n\nIf you need any assistance getting here, please don't hesitate to call us on 027 335 4981.\n\nLooking forward to meeting you.\n\nThanks\n[Signature]"},
+    {id:"checks-consent", label:"Email &mdash; Checks Consent Request", subject:"Next Step &mdash; Reference &amp; Background Checks &mdash; [Position] &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nThanks again for coming in — we enjoyed the conversation and would like to move you forward to the next step.\n\nBefore we get you in for the project session, we run three standard checks for every offer at this stage: a Ministry of Justice criminal record check, two reference checks, and two independent checks with people who know your work.\n\nCould you please reply with the contact details for two referees, and confirm you're happy for us to run an MOJ check? We'll send the consent form through separately.\n\nIf you have any questions about this step, feel free to call us on 027 335 4981.\n\nThanks\n[Signature]"},
+    {id:"selected-project", label:"Email &mdash; Selected for Project", subject:"Great News &mdash; Next Step for [Position] &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nThanks for taking the time to meet with us — we enjoyed the conversation and would like to invite you to the next step.\n\nThis next step is a short project session with our team, so you can see how we work and we can see you in action.\n\nDate: [Date]\nTime: [Time]\nDuration: approximately 3 hours\nVenue: 41 Taharoto Road, Takapuna, Auckland 0622\n\nNo preparation needed — just bring yourself. Please let us know if you have any access requirements.\n\nIf you need to make any changes, or have questions beforehand, give us a call on 027 335 4981.\n\nLooking forward to having you in.\n\nThanks\n[Signature]"},
+    {id:"rejected-interview", label:"Email &mdash; Rejected After Interview", subject:"Interview Update &mdash; [Position] &mdash; Stand Up Recruitment",
+      body:"Hi there,\n\nFirst off — thank you for coming in. It genuinely takes guts to put yourself out there, and we don't take that lightly.\n\nAfter reflecting on our conversation and where we're at as a business, we've decided not to move forward with your application at this stage. It wasn't an easy call, and it's not a reflection of your potential.\n\nAs a small team, we assess each application carefully against what the role requires at this stage of our growth.\n\nWe wish you all the best with your future career — we're rooting for you.\n\nThanks\n[Signature]"},
+    {id:"rejected-checks", label:"Email &mdash; Rejected After Checks", subject:"Update on Your Application &mdash; [Position] &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nThank you for your patience while we completed our standard reference and background checks.\n\nHaving completed this step, we've decided not to move forward with your application at this stage. This isn't a reflection of your potential, and we appreciate the time you've put into the process so far.\n\nWe wish you all the best with your future career.\n\nThanks\n[Signature]"},
+    {id:"rejected-project", label:"Email &mdash; Rejected After Project", subject:"Update on Your Application &mdash; [Position] &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nThank you for the time and effort you put into the project session with us — we know that's a real commitment, and we don't take it lightly.\n\nAfter reviewing how the day went against what the role needs right now, we've decided not to move forward with your application at this stage. This wasn't an easy decision, and it doesn't take away from the effort you showed on the day.\n\nWe'll keep your details on file and would welcome you applying again in the future if a role that suits you comes up.\n\nThanks again for your time, and we wish you all the best.\n\nThanks\n[Signature]"},
+    {id:"welcome-onboard", label:"Email &mdash; Selected / Hired", subject:"Welcome to Stand Up Recruitment &mdash; [Position]",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nWe really enjoyed having you in for the project session, and the team enjoyed working alongside you. We'd like to offer you the [Position] role with us.\n\nWe'll follow this up shortly with your formal offer and employment agreement — in the meantime, congratulations and welcome to the team.\n\nIf you have any questions before then, feel free to call us on 027 335 4981.\n\nLooking forward to having you on board.\n\nThanks\n[Signature]"}
+  ];
+  const emailBlocks = emails.map(e => `
+    <div class="email-template">
+      <div class="email-template-header">
+        <div>
+          <div class="email-template-label">${e.label}</div>
+          <div class="email-template-subject"><strong>Subject:</strong> ${e.subject}</div>
+        </div>
+        <button class="copy-btn" id="copy-${mid}-${e.id}" onclick="copyTemplate('${mid}-${e.id}')">Copy</button>
+      </div>
+      <div class="email-template-body" id="tmpl-${mid}-${e.id}">${e.body}</div>
+    </div>
+  `).join("");
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">Every candidate-facing message and call script for this process, ready to copy and personalise.</span></div>
+  <div class="content-block">
+    <div class="block-label">Communication Touchpoint Map</div>
+    <table class="data-table">
+      <thead><tr><th>Trigger</th><th>Channel</th><th>Template</th></tr></thead>
+      <tbody>
+        <tr><td>Candidate doesn't answer during Stage 1 outreach</td><td>SMS</td><td>Couldn't Reach You</td></tr>
+        <tr><td>Phone screening passed &mdash; booking Stage 2</td><td>Email</td><td>Interview Confirmation</td></tr>
+        <tr><td>Stage 2 interview passed &mdash; request checks consent</td><td>Email</td><td>Checks Consent Request</td></tr>
+        <tr><td>Referee doesn't answer after 2 call attempts (Stage 3)</td><td>SMS</td><td>Reference No Answer</td></tr>
+        <tr><td>Checks clear &mdash; invite to Stage 4</td><td>Email</td><td>Selected for Project</td></tr>
+        <tr><td>Checks raise a concern &mdash; not proceeding</td><td>Email</td><td>Rejected &mdash; After Checks</td></tr>
+        <tr><td>Stage 2 interview &mdash; not proceeding</td><td>Email</td><td>Rejected &mdash; After Interview</td></tr>
+        <tr><td>Stage 4 project &mdash; not proceeding</td><td>Email</td><td>Rejected &mdash; After Project</td></tr>
+        <tr><td>Stage 4 project passed &mdash; offering the role</td><td>Phone</td><td>Selected for Position &mdash; Call Script</td></tr>
+        <tr><td>Stage 4 project passed &mdash; hire</td><td>Email</td><td>Welcome on Board (Offer)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Message Templates (SMS)</div>
+    <div class="email-template">
+      <div class="email-template-header">
+        <div><div class="email-template-label">SMS &mdash; Couldn't Reach You (Stage 1)</div></div>
+        <button class="copy-btn" id="copy-${mid}-sms1" onclick="copyTemplate('${mid}-sms1')">Copy</button>
+      </div>
+      <div class="email-template-body" id="tmpl-${mid}-sms1">Hi [Name],\n\n[Your name] from Stand Up Recruitment. You have applied for [position]. Please give me a call back when you are free.</div>
+    </div>
+    <div class="email-template" style="margin-top:14px">
+      <div class="email-template-header">
+        <div><div class="email-template-label">SMS &mdash; Reference No Answer (Stage 3)</div></div>
+        <button class="copy-btn" id="copy-${mid}-sms2" onclick="copyTemplate('${mid}-sms2')">Copy</button>
+      </div>
+      <div class="email-template-body" id="tmpl-${mid}-sms2">Hi [Referee Name],\n\n[Your name] from Stand Up Recruitment. I'm trying to reach you for a quick reference check on [Candidate Full Name] — could you give me a call back when you get a chance? Thanks.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Appendix A &mdash; Department Scenario &amp; Task Bank</div>
+    <div class="block-body"><p>Reference for the Stage 2 role-relevant scenario and the Stage 4 core task &mdash; both already confirmed for Recruitment.</p></div>
+    <table class="data-table">
+      <thead><tr><th>Department</th><th>Stage 2 Scenario (5 min)</th><th>Stage 4 Core Task</th></tr></thead>
+      <tbody>
+        <tr><td>Recruitment</td><td>Roleplay: "Pretend I'm a candidate who's not interested — convince me." Push back once or twice.</td><td>Live calls to laborer-tier pipeline leads</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><span class="tag">Keep this appendix current</span>If the Recruitment scenario or core task changes, update the row above with the confirmed version — this becomes the standard for next time.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Phone / Call Scripts</div>
+    <div class="email-template">
+      <div class="email-template-header">
+        <div><div class="email-template-label">Call Script &mdash; Selected for Project (Stage 3 invite)</div></div>
+        <button class="copy-btn" id="copy-${mid}-call-project" onclick="copyTemplate('${mid}-call-project')">Copy</button>
+      </div>
+      <div class="email-template-body" id="tmpl-${mid}-call-project">"Hi [Candidate Name], it's [Your Name] from Stand Up Recruitment — have you got a couple of minutes?\n\nGood news — we really enjoyed the conversation, and we'd like to move you on to the next step. That's a short project session with our team here, so you can see how we work and we can see you in action. It runs about 3 hours.\n\nDoes [Date] at [Time] work for you? ... Great, I'll send that through by email now with the address and everything you need. No preparation required — just bring yourself.\n\nAny questions before I let you go?"</div>
+    </div>
+    <div class="email-template" style="margin-top:14px">
+      <div class="email-template-header">
+        <div><div class="email-template-label">Call Script &mdash; Selected for Position (job offer)</div></div>
+        <button class="copy-btn" id="copy-${mid}-call-offer" onclick="copyTemplate('${mid}-call-offer')">Copy</button>
+      </div>
+      <div class="email-template-body" id="tmpl-${mid}-call-offer">"Hi [Candidate Name], it's [Your Name] from Stand Up Recruitment — have you got a few minutes?\n\nI've got some great news — we'd like to offer you the [Position] role with us. The team really enjoyed having you in for the project session, and we think you'll be a great fit.\n\n[Pause for their reaction.]\n\nWe'll follow this up shortly by email with the formal offer and employment agreement — nothing for you to do right now except let us know if you have any questions.\n\nWelcome to the team — looking forward to having you on board."</div>
+    </div>
+    <div class="callout warn"><span class="tag">Not a formal offer</span>This call and the Welcome on Board email confirm verbal intent to hire only. The formal written offer and employment agreement must follow before the candidate's start date, and before the candidate moves into the Onboarding Process.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Email Templates</div>
+    ${emailBlocks}
+    <div class="callout warn"><span class="tag">Not a formal offer letter</span>This email confirms verbal intent to hire only. It must be followed by the formal written offer and employment agreement before the candidate's start date.</div>
+  </div>
+  `;
+}
+
+function hiringModuleHTMLRecruitment(mid){
+  const tabs = ["Overview","Sourcing","Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Templates"];
+  const tabBtns = tabs.map((t,i) => `<button class="tab-btn${i===0?' active':''}" onclick="switchTab('${mid}','${t.replace(/[^a-zA-Z0-9]/g,'-')}')" id="tbtn-${mid}-${t.replace(/[^a-zA-Z0-9]/g,'-')}">${t}</button>`).join("");
+  const panels = [
+    ["Overview", hiringOverviewTabRecruitment()],
+    ["Sourcing", hiringSourcingTab()],
+    ["Stage-1", hiringStage1TabRecruitment()],
+    ["Stage-2", hiringStage2TabRecruitment()],
+    ["Stage-3", hiringStage3TabRecruitment()],
+    ["Stage-4", hiringStage4TabRecruitment()],
+    ["Stage-5", hiringStage5TabRecruitment()],
+    ["Templates", hiringTemplatesTabRecruitment(mid)]
+  ].map(([name,html],i) => `<div class="tab-panel${i===0?' active':''}" id="panel-${mid}-${name}">${html}</div>`).join("");
+  return `
+    <div class="module-header">
+      <div class="module-eyebrow">Recruitment &middot; Hiring Process</div>
+      <h1 class="module-h1">Recruitment &mdash; Internal Hiring Process</h1>
+      <p class="module-intro">Phone screening &rarr; in-person interview &rarr; background &amp; reference checks &rarr; test project &rarr; career ladder reveal &rarr; final decision. Doc ref: SUR-HR-PB-001, v2.1.</p>
+    </div>
+    <div class="tabs" id="tabs-${mid}">${tabBtns}</div>
+    ${panels}
+  `;
+}
+
+function hiringTemplatesTab(mid){
+  const emails = [
+    {id:"interview-conf", label:"Email &mdash; Interview Confirmation", subject:"Interview Confirmed &mdash; [Position] &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nThis is to confirm your interview for the [Position] role at Stand Up Recruitment.\n\nDate: [Date]\nTime: [Time]\nVenue: 41 Taharoto Road, Takapuna, Auckland 0622\n\nThe interview will run approximately 30 minutes. Please arrive 5 minutes early and let us know if you need to make any changes.\n\nIf you need any assistance getting here, please don't hesitate to call us on 027 335 4981.\n\nLooking forward to meeting you.\n\nThanks\n[Signature]"},
+    {id:"selected-project", label:"Email &mdash; Selected for Project", subject:"Great News &mdash; Next Step for [Position] &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nThanks for taking the time to meet with us — we enjoyed the conversation and would like to invite you to the next step.\n\nThis next step is a short project session with our team, so you can see how we work and we can see you in action.\n\nDate: [Date]\nTime: [Time]\nDuration: approximately 1 to 1.5 hours\nVenue: 41 Taharoto Road, Takapuna, Auckland 0622\n\nNo preparation needed — just bring yourself. Please let us know if you have any access requirements.\n\nIf you need to make any changes, or have questions beforehand, give us a call on 027 335 4981.\n\nLooking forward to having you in.\n\nThanks\n[Signature]"},
+    {id:"rejected-interview", label:"Email &mdash; Rejected After Interview", subject:"Interview Update &mdash; [Position] &mdash; Stand Up Recruitment",
+      body:"Hi there,\n\nFirst off — thank you for coming in. It genuinely takes guts to put yourself out there, and we don't take that lightly.\n\nAfter reflecting on our conversation and where we're at as a business, we've decided not to move forward with your application at this stage. It wasn't an easy call, and it's not a reflection of your potential.\n\nAs a small team, we assess each application carefully against what the role requires at this stage of our growth.\n\nWe wish you all the best with your future career — we're rooting for you.\n\nThanks\n[Signature]"},
+    {id:"rejected-project", label:"Email &mdash; Rejected After Project", subject:"Update on Your Application &mdash; [Position] &mdash; Stand Up Recruitment",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nThank you for the time and effort you put into the project session with us — we know that's a real commitment, and we don't take it lightly.\n\nAfter reviewing how the day went against what the role needs right now, we've decided not to move forward with your application at this stage. This wasn't an easy decision, and it doesn't take away from the effort you showed on the day.\n\nWe'll keep your details on file and would welcome you applying again in the future if a role that suits you comes up.\n\nThanks again for your time, and we wish you all the best.\n\nThanks\n[Signature]"},
+    {id:"welcome-onboard", label:"Email &mdash; Selected / Hired", subject:"Welcome to Stand Up Recruitment &mdash; [Position]",
+      body:"Hi [Candidate Name],\n\nHope you're doing well.\n\nWe really enjoyed having you in for the project session, and the team enjoyed working alongside you. We'd like to offer you the [Position] role with us.\n\nWe'll follow this up shortly with your formal offer and employment agreement — in the meantime, congratulations and welcome to the team.\n\nIf you have any questions before then, feel free to call us on 027 335 4981.\n\nLooking forward to having you on board.\n\nThanks\n[Signature]"}
+  ];
+  const emailBlocks = emails.map(e => `
+    <div class="email-template">
+      <div class="email-template-header">
+        <div>
+          <div class="email-template-label">${e.label}</div>
+          <div class="email-template-subject"><strong>Subject:</strong> ${e.subject}</div>
+        </div>
+        <button class="copy-btn" id="copy-${mid}-${e.id}" onclick="copyTemplate('${mid}-${e.id}')">Copy</button>
+      </div>
+      <div class="email-template-body" id="tmpl-${mid}-${e.id}">${e.body}</div>
+    </div>
+  `).join("");
+  return `
+  <div class="topic-banner"><span class="topic-tag">Topic</span><span class="topic-text">Every candidate-facing message and call script for this process, ready to copy and personalise.</span></div>
+  <div class="content-block">
+    <div class="block-label">Communication Touchpoint Map</div>
+    <table class="data-table">
+      <thead><tr><th>Trigger</th><th>Channel</th><th>Template</th></tr></thead>
+      <tbody>
+        <tr><td>Candidate doesn't answer during Stage 1 outreach</td><td>SMS</td><td>Couldn't Reach You</td></tr>
+        <tr><td>Phone screening passed &mdash; booking Stage 2</td><td>Email</td><td>Interview Confirmation</td></tr>
+        <tr><td>Stage 2 interview passed &mdash; invite to Stage 3</td><td>Email</td><td>Selected for Project</td></tr>
+        <tr><td>Stage 2 interview &mdash; not proceeding</td><td>Email</td><td>Rejected &mdash; After Interview</td></tr>
+        <tr><td>Stage 3 project &mdash; not proceeding</td><td>Email</td><td>Rejected &mdash; After Project</td></tr>
+        <tr><td>Stage 3 project passed &mdash; offering the role</td><td>Phone</td><td>Selected for Position &mdash; Call Script</td></tr>
+        <tr><td>Stage 3 project passed &mdash; hire</td><td>Email</td><td>Welcome on Board (Offer)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Message Templates (SMS)</div>
+    <div class="email-template">
+      <div class="email-template-header">
+        <div><div class="email-template-label">SMS &mdash; Couldn't Reach You (Stage 1)</div></div>
+        <button class="copy-btn" id="copy-${mid}-sms1" onclick="copyTemplate('${mid}-sms1')">Copy</button>
+      </div>
+      <div class="email-template-body" id="tmpl-${mid}-sms1">Hi [Name],\n\n[Your name] from Stand Up Recruitment. You have applied for [position]. Please give me a call back when you are free.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Phone / Call Scripts</div>
+    <div class="email-template">
+      <div class="email-template-header">
+        <div><div class="email-template-label">Call Script &mdash; Selected for Project (Stage 3 invite)</div></div>
+        <button class="copy-btn" id="copy-${mid}-call-project" onclick="copyTemplate('${mid}-call-project')">Copy</button>
+      </div>
+      <div class="email-template-body" id="tmpl-${mid}-call-project">"Hi [Candidate Name], it's [Your Name] from Stand Up Recruitment — have you got a couple of minutes?\n\nGood news — we really enjoyed the conversation, and we'd like to move you on to the next step. That's a short project session with our team here, so you can see how we work and we can see you in action. It runs about 1 to 1.5 hours.\n\nDoes [Date] at [Time] work for you? ... Great, I'll send that through by email now with the address and everything you need. No preparation required — just bring yourself.\n\nAny questions before I let you go?"</div>
+    </div>
+    <div class="email-template" style="margin-top:14px">
+      <div class="email-template-header">
+        <div><div class="email-template-label">Call Script &mdash; Selected for Position (job offer)</div></div>
+        <button class="copy-btn" id="copy-${mid}-call-offer" onclick="copyTemplate('${mid}-call-offer')">Copy</button>
+      </div>
+      <div class="email-template-body" id="tmpl-${mid}-call-offer">"Hi [Candidate Name], it's [Your Name] from Stand Up Recruitment — have you got a few minutes?\n\nI've got some great news — we'd like to offer you the [Position] role with us. The team really enjoyed having you in for the project session, and we think you'll be a great fit.\n\n[Pause for their reaction.]\n\nWe'll follow this up shortly by email with the formal offer and employment agreement — nothing for you to do right now except let us know if you have any questions.\n\nWelcome to the team — looking forward to having you on board."</div>
+    </div>
+    <div class="callout warn"><span class="tag">Not a formal offer</span>This call and the Welcome on Board email confirm verbal intent to hire only. The formal written offer and employment agreement must follow before the candidate's start date, and before the candidate moves into the Onboarding Process.</div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Email Templates</div>
+    ${emailBlocks}
+    <div class="callout warn"><span class="tag">Not a formal offer letter</span>This email confirms verbal intent to hire only. It must be followed by the formal written offer and employment agreement before the candidate's start date.</div>
+  </div>
+  `;
+}
+
+function hiringModuleHTML(mid, deptName){
+  const tabs = ["Overview","Sourcing","Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Templates"];
+  const tabBtns = tabs.map((t,i) => `<button class="tab-btn${i===0?' active':''}" onclick="switchTab('${mid}','${t.replace(/[^a-zA-Z0-9]/g,'-')}')" id="tbtn-${mid}-${t.replace(/[^a-zA-Z0-9]/g,'-')}">${t}</button>`).join("");
+  const panels = [
+    ["Overview", hiringOverviewTab(deptName)],
+    ["Sourcing", hiringSourcingTab()],
+    ["Stage-1", hiringStage1Tab()],
+    ["Stage-2", hiringStage2Tab()],
+    ["Stage-3", hiringStage3Tab()],
+    ["Stage-4", hiringStage4TabGeneric(deptName)],
+    ["Stage-5", hiringStage5Tab()],
+    ["Templates", hiringTemplatesTab(mid)]
+  ].map(([name,html],i) => `<div class="tab-panel${i===0?' active':''}" id="panel-${mid}-${name}">${html}</div>`).join("");
+  return `
+    <div class="module-header">
+      <div class="module-eyebrow">${deptName} &middot; Hiring Process</div>
+      <h1 class="module-h1">${deptName} &mdash; Internal Hiring Process</h1>
+      <p class="module-intro">Screening call &rarr; interview &rarr; reference check &rarr; test project &rarr; final decision.</p>
+    </div>
+    <div class="tabs" id="tabs-${mid}">${tabBtns}</div>
+    ${panels}
+  `;
+}
+
+function switchTab(mid, tabName){
+  const panels = document.querySelectorAll('[id^="panel-' + mid + '-"]');
+  const btns = document.querySelectorAll('[id^="tbtn-' + mid + '-"]');
+  panels.forEach(p => p.classList.remove('active'));
+  btns.forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById('panel-' + mid + '-' + tabName);
+  const btn = document.getElementById('tbtn-' + mid + '-' + tabName);
+  if(panel) panel.classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+
+function copyTemplate(id){
+  const el = document.getElementById('tmpl-' + id);
+  if(!el) return;
+  const text = el.innerText;
+  const btn = document.getElementById('copy-' + id);
+  function done(){ if(btn){ btn.textContent = 'Copied!'; setTimeout(()=>{ btn.textContent = 'Copy'; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text,done));
+  } else {
+    fallbackCopy(text,done);
+  }
+}
+function fallbackCopy(text, done){
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch(e) {}
+  document.body.removeChild(ta);
+  done();
+}
+
+document.getElementById('hiring-ea-content').innerHTML = hiringModuleHTML('hiring-ea', 'Executive Assistant');
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') !== 'light';
+  if (isDark) {
+    html.setAttribute('data-theme', 'light');
+    document.getElementById('toggle-icon').textContent = '🌙';
+    document.getElementById('toggle-label').textContent = 'Dark';
+    localStorage.setItem('playbook-theme', 'light');
+  } else {
+    html.removeAttribute('data-theme');
+    document.getElementById('toggle-icon').textContent = '☀️';
+    document.getElementById('toggle-label').textContent = 'Light';
+    localStorage.setItem('playbook-theme', 'dark');
+  }
+}
+
+(function() {
+  const saved = localStorage.getItem('playbook-theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.addEventListener('DOMContentLoaded', function() {
+      const icon = document.getElementById('toggle-icon');
+      const label = document.getElementById('toggle-label');
+      if (icon) icon.textContent = '🌙';
+      if (label) label.textContent = 'Dark';
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
