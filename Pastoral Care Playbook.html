@@ -1862,6 +1862,48 @@ CLOSE: "Teams invite on its way. It's a great session — a chance to reflect on
 AFTER: Complete both pre-calls (candidate + client) before sending Teams invite.</div>
   </div>
 
+  <div class="sec-hdr">Call Scripts — Employment Ended by Client</div>
+  <div class="note-red"><strong style="color:#5e1a14">Before you call:</strong> Client has already told the candidate. You have the reason, last day and final pay date. Scenario confirmed — <strong style="color:#5e1a14">A</strong> = fit or circumstance, we can help. <strong style="color:#5e1a14">B</strong> = conduct (no-shows, fighting, attitude), we can't help — Les signs off first. Keep the call to 5–10 minutes.</div>
+
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-END-A</span><span class="badge badge-call">Call · Same day</span></div><div class="script-title">Employment Ended — We Can Help</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>OPEN: "Hi [Name], it's [Your Name] from Stand Up. [Client] has let us know they've ended your employment. I'm calling to confirm where things stand and what happens next."
+
+REASON: "The reason they've given is [reason]."
+
+NEXT: "We're happy to put you forward for other roles. I can't promise a job or a timeframe, but [RC Name] will be in touch by [day]."
+
+PAY: "Your final pay comes from [Client] on [date]. Any questions on that, go to them directly."
+
+CLOSE: "Anything else you need from me? ... Okay, [RC Name] will be in touch by [day]. Take care."
+
+IF THEY PUSH BACK: "The decision's been made and it's final."
+
+AFTER: Log in Airtable + JobAdder. Pause n8n check-ins. Hand over to RC same day. Guarantee Claim Process if within 3 months.</div>
+  </div>
+
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">CAN-END-B</span><span class="badge badge-crit">Les sign-off · Same day</span></div><div class="script-title">Employment Ended — We Can't Help</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>OPEN: "Hi [Name], it's [Your Name] from Stand Up. [Client] has let us know they've ended your employment. I'm calling to confirm where things stand and what happens next."
+
+REASON: "The reason they've given is [reason]."
+
+OUTCOME: "Because of that, Stand Up won't be putting you forward for any further roles. That decision is final."
+
+PAY: "Your final pay comes from [Client] on [date]. Any questions on that, go to them directly. You're still free to work in Australia and apply for jobs yourself."
+
+CLOSE: "That's everything from our end. All the best, [Name]."
+
+IF THEY PUSH BACK:
+- "That's not what happened" → "Noted, I'll record that. The decision stands."
+- "Give me another chance" → "No. The decision's final."
+- Going in circles → "I've given you everything I've got. I'm going to wrap up now. Take care."
+- Abusive → "I'm ending the call now." Hang up, flag to Les.
+- Genuine distress → Lifeline AU 13 11 14. Escalate to Les immediately.
+
+AFTER: Log in Airtable + JobAdder. Flag "Do Not Re-place". Pause n8n check-ins. Guarantee Claim Process if within 3 months. No further contact unless they reach out.</div>
+  </div>
+
 </div>
 </div>
 
