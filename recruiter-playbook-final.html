@@ -882,7 +882,7 @@ body{
     <div style="width:4px;height:28px;background:#4ac8f0;border-radius:2px;flex-shrink:0"></div>
     <div>
       <div style="font-size:13px;font-weight:800;color:#4ac8f0;letter-spacing:.06em;text-transform:uppercase">1. Candidate Pipeline</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:2px">6 modules</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px">7 modules</div>
     </div>
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
@@ -910,6 +910,11 @@ body{
       <div style="font-size:11px;font-weight:700;color:#4ac8f0;letter-spacing:.05em;margin-bottom:4px">1.4</div>
       <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">Internal Interview</div>
       <div style="font-size:12px;color:var(--text2);line-height:1.4">The most important conversation before the client meets the candidate. Shadowing required.</div>
+    </div>
+    <div class="module-card" data-mid="m142" data-search="1.4.1 not ready yet keeping candidates warm availability date notice period recruiter data current employment relocation date reminder 4 weeks warm list hot list follow-up sms" onclick="openModule('m142')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+      <div style="font-size:11px;font-weight:700;color:#4ac8f0;letter-spacing:.05em;margin-bottom:4px">1.4.1</div>
+      <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">Not Ready Yet: Keeping Candidates Warm</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.4">Record the relocation date in the Availability Date field so JobAdder reminds you to call 4 weeks before.</div>
     </div>
     <div class="module-card" data-mid="m151" data-search="1.5 reference police checks referee call script airtable police check form six fields cool off period reference check checklist" onclick="openModule('m151')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
       <div style="font-size:11px;font-weight:700;color:#4ac8f0;letter-spacing:.05em;margin-bottom:4px">1.5</div>
@@ -1924,11 +1929,11 @@ window.__quizData['m121']=[
         <li>Lock in a rough month — get something specific, not "sometime next year"</li>
         <li>Confirm you'll check back in around that time, and send your details via text so they can reach you sooner if their plans change</li>
       </ul>
-      <p style="margin-top:8px">See the Script Coaching Guide for the full word-for-word script and tone notes on this one.</p>
+      <p style="margin-top:8px">See the Script Coaching Guide for the full word-for-word script and tone notes on this one. For recording the date and setting up the reminder, see <a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">→ 1.4.1 Not Ready Yet</a>.</p>
       <div class="callout warn" style="margin-top:8px"><strong>Backend — every time, no exceptions:</strong>
         <ul style="margin-top:6px">
           <li>Update JobAdder notes with the timeframe given, target month, and any key objections or interests raised</li>
-          <li>Tag the candidate Warm List and log the date they'll be available again in the notes (this becomes Hot List instead if it comes up during or after the internal interview — see Stage 4)</li>
+          <li>Tag the candidate Warm List and record the date they'll be available again in the <strong>Availability Date</strong> field — not just the notes (this becomes Hot List instead if it comes up during or after the internal interview — see Stage 4)</li>
           <li>Send the Not Ready Yet — Follow-Up SMS template within 5 minutes of ending the call</li>
         </ul>
       </div>
@@ -2015,10 +2020,10 @@ window.__quizData['m121']=[
           <tr><td>In Process</td><td>The candidate is being progressed in any job card in JobAdder.</td></tr>
           <tr><td>No Show-Up</td><td>The candidate booked an internal interview but didn't attend. Send the No-Show email and SMS asking them to rebook. If they rebook, set them back to In Process.</td></tr>
           <tr><td>Screened</td><td>Screening completed, no current job matches, and the candidate is not a strong enough one to hold for future roles.</td></tr>
-          <tr><td>Warm List</td><td>The call disconnected before screening was completed — or a genuinely good candidate with no matching job — or they said on the <em>screening call</em> they're not ready yet but gave a timeframe. They have not had an internal interview. Log the "available again" date in the notes.</td></tr>
+          <tr><td>Warm List</td><td>The call disconnected before screening was completed — or a genuinely good candidate with no matching job — or they said on the <em>screening call</em> they're not ready yet but gave a timeframe. They have not had an internal interview. Record the "available again" date in the Availability Date field (<a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">see 1.4.1</a>).</td></tr>
           <tr><td>Unsuccessful - Internal</td><td>Failed the internal interview, and the reason suggests they are not a good fit for future roles either.</td></tr>
           <tr><td>Unsuccessful - Client</td><td>The candidate failed the client interview, and the reason suggests they are not a good fit for future roles either.</td></tr>
-          <tr><td>Hot List</td><td>Completed an internal interview but no current job matches — or failed a client interview for a reason that doesn't rule them out — or said during/after the <em>internal interview</em> they're not ready yet but gave a timeframe. Log the "available again" date in the notes.</td></tr>
+          <tr><td>Hot List</td><td>Completed an internal interview but no current job matches — or failed a client interview for a reason that doesn't rule them out — or said during/after the <em>internal interview</em> they're not ready yet but gave a timeframe. Record the "available again" date in the Availability Date field (<a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">see 1.4.1</a>).</td></tr>
           <tr><td>Placed / Currently Employed</td><td>The candidate has been placed.</td></tr>
           <tr><td>Do Not Use / Blacklisted</td><td>For serious cases only — rude, unreliable, or someone we do not want to work with again.</td></tr>
           <tr><td>Called</td><td>The candidate did not answer your call.</td></tr>
@@ -2304,11 +2309,11 @@ window.__quizData['m122']=[
         <li>Lock in a rough month — get something specific, not "sometime next year"</li>
         <li>Confirm you'll check back in around that time, and send your details via text so they can reach you sooner if their plans change</li>
       </ul>
-      <p style="margin-top:8px">See the Script Coaching Guide for the full word-for-word script and tone notes on this one.</p>
+      <p style="margin-top:8px">See the Script Coaching Guide for the full word-for-word script and tone notes on this one. For recording the date and setting up the reminder, see <a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">→ 1.4.1 Not Ready Yet</a>.</p>
       <div class="callout warn" style="margin-top:8px"><strong>Backend — every time, no exceptions:</strong>
         <ul style="margin-top:6px">
           <li>Update JobAdder notes with the timeframe given, target month, and any key objections or interests raised</li>
-          <li>Tag the candidate Warm List and log the date they'll be available again in the notes (this becomes Hot List instead if it comes up during or after the internal interview — see Stage 4)</li>
+          <li>Tag the candidate Warm List and record the date they'll be available again in the <strong>Availability Date</strong> field — not just the notes (this becomes Hot List instead if it comes up during or after the internal interview — see Stage 4)</li>
           <li>Send the Not Ready Yet — Follow-Up SMS template within 5 minutes of ending the call</li>
         </ul>
       </div>
@@ -2799,7 +2804,7 @@ window.__quizData['m131']=[
         <li>Do you have any planned vacations or commitments in the next few months?</li>
       </ul>
       <p style="margin-top:8px">If anything disqualifying comes up — close the call professionally before continuing.</p>
-      <div class="callout warn" style="margin-top:8px"><strong>If the candidate says they're not ready yet:</strong> acknowledge it, reiterate the Grand Slam offer, lock in a rough month, and confirm you'll check back around that time. See the Coaching Guide for the full script. <strong>Backend — every time:</strong> update JobAdder notes with the timeframe and target month, tag the candidate <strong>Hot List</strong> with the date they'll be available again, and send the Not Ready Yet — Follow-Up SMS within 5 minutes.</div>
+      <div class="callout warn" style="margin-top:8px"><strong>If the candidate says they're not ready yet:</strong> acknowledge it, reiterate the Grand Slam offer, lock in a rough month, and confirm you'll check back around that time. See the Coaching Guide for the full script. <strong>Backend — every time:</strong> update JobAdder notes with the timeframe and target month, tag the candidate <strong>Hot List</strong>, record the date they'll be available again in the <strong>Availability Date</strong> field, and send the Not Ready Yet — Follow-Up SMS within 5 minutes. Full steps: <a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">→ 1.4.1 Not Ready Yet</a>.</div>
     </div>
   </div>
 
@@ -3378,6 +3383,200 @@ window.__quizData['m141']=[
 {"q":"What must you do before asking any interview questions on the call?","opts":["Start the Teams recording","Send the offer letter","Submit the police check form","Book the client interview"],"ans":0},
 {"q":"How long is the cool off period before moving a candidate to the client interview stage?","opts":["Same day","2 days","1 week","1 month"],"ans":1},
 {"q":"You finish the internal interview and you rate the candidate. When do you start the police and reference checks?","opts":["The same day, while they are in the cool off period","After the Day 2 follow-up call","After the client interview","Only once the offer letter arrives"],"ans":0}
+];
+</script>
+</div>
+
+<div id="module-m142" style="display:none">
+<button class="back-btn" onclick="closeMod()">← Back to Playbooks</button>
+<div class="module-header">
+  <div class="module-eyebrow t0">1.4.1</div>
+  <h1 class="module-h1">Not Ready Yet: Keeping Candidates Warm</h1>
+  <p class="module-intro">When a candidate is keen but not ready to move for another few months, we don't want to lose them. This stage keeps them warm so JobAdder reminds you to call at the right time.</p>
+</div>
+<div class="tabs" id="tabs-m142">
+  <button class="tab-btn active" onclick="switchTab('m142','Overview')" id="tbtn-m142-Overview">Overview</button>
+  <button class="tab-btn" onclick="switchTab('m142','Watch')" id="tbtn-m142-Watch">Watch</button>
+  <button class="tab-btn" onclick="switchTab('m142','Templates')" id="tbtn-m142-Templates">SMS Templates</button>
+  <button class="tab-btn" onclick="switchTab('m142','Quiz')" id="tbtn-m142-Quiz">Quiz</button>
+  <button class="tab-btn" onclick="switchTab('m142','Practice-Activity')" id="tbtn-m142-Practice-Activity">Practice Activity</button>
+</div>
+
+<div class="tab-panel active" id="panel-m142-Overview">
+  <div class="content-block">
+    <div class="block-label">Tell — What You Need to Know</div>
+    <div class="block-body">
+      <p><strong>When to use this:</strong> after a screening call or an internal interview, if the candidate says they can't relocate within the next 1 to 2 months.</p>
+      <p style="margin-top:8px">The goal is to make sure they come back through us when they're ready, instead of quietly self-applying for a job in Australia later on. Two things make that happen:</p>
+      <ul>
+        <li>A specific relocation date recorded in JobAdder</li>
+        <li>A reminder to call them 4 weeks before it</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-title">Step 1 — Handle It on the Call</div>
+    <div class="block-body">
+      <p>Don't treat "not ready yet" as a dead end.</p>
+      <div class="step-row"><div class="step-num">1</div><div>Acknowledge it — this is common, no pressure</div></div>
+      <div class="step-row"><div class="step-num">2</div><div>Reiterate the Grand Slam offer — a job sorted before they leave New Zealand, free temporary accommodation, and a free flight</div></div>
+      <div class="step-row"><div class="step-num">3</div><div>Ask when they expect to be ready to move, and pin them down to at least a month before you end the call. If they say something vague like "early next year" or "after Christmas," push for a month. If they genuinely can't give one, pick the earliest realistic month.</div></div>
+      <div class="step-row"><div class="step-num">4</div><div>Confirm you'll check back in around that time, and let them know you'll text your details so they can reach you sooner if their plans change</div></div>
+      <p style="margin-top:8px">See the <a href="#" onclick="openModule('m141');switchTab('m141','Coaching-Guide');return false" style="color:var(--accent)">Script Coaching Guide</a> for the full word-for-word Not Ready Yet script.</p>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-title">Step 2 — Record Their Relocation Date in JobAdder</div>
+    <div class="block-body">
+      <table class="data-table">
+        <thead><tr><th>What they tell you</th><th>What to enter</th></tr></thead>
+        <tbody>
+          <tr><td>A specific date — e.g. 15 March 2027</td><td>That exact date — 15 March 2027</td></tr>
+          <tr><td>Only a month — e.g. June 2027</td><td>The 1st of that month — 1 June 2027</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:8px">You can update it in either of these places — both update the same field:</p>
+      <div class="step-row"><div class="step-num">1</div><div><strong>Candidate profile:</strong> open the candidate's profile, go to the <strong>Recruiter Data</strong> tab, and under <strong>Current Employment</strong> update the <strong>Availability Date</strong></div></div>
+      <div class="step-row"><div class="step-num">2</div><div><strong>Candidates database:</strong> in the candidate list view, update the <strong>Notice Period</strong> column</div></div>
+      <div class="callout warn" style="margin-top:8px"><strong>Important:</strong> the reminder only works off this field. A date written only in the notes won't trigger anything.</div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-title">Step 3 — Tag, Note, and Text</div>
+    <div class="block-body">
+      <div class="callout warn"><strong>Every time, no exceptions:</strong>
+        <ul style="margin-top:6px">
+          <li>Tag the candidate <strong>Warm List</strong> after a screening call, or <strong>Hot List</strong> after an internal interview</li>
+          <li>Update the JobAdder notes with the timeframe, target date, and any key objections or interests raised</li>
+          <li>Send the Not Ready Yet — Follow-Up SMS within 5 minutes of ending the call</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-title">Step 4 — Wait for Your Reminder</div>
+    <div class="block-body">
+      <p>Around 4 weeks before the date you entered, you'll get an email reminder to call the candidate. For example, if you entered 15 March 2027, you'd get it around 15 February 2027.</p>
+      <p style="margin-top:8px">If you update the date, the reminder resets automatically. If a reminder you're expecting doesn't arrive, flag it to the Automation team.</p>
+      <div class="callout info" style="margin-top:8px"><strong>Until the reminder automation is live:</strong> set yourself a reminder for 4 weeks before the date you entered — a JobAdder task or an Outlook calendar reminder — so no candidate slips through.</div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-title">Step 5 — Make the Call</div>
+    <div class="block-body">
+      <p>When the reminder comes through, call the candidate and confirm they're still on track.</p>
+      <ul>
+        <li><strong>Still on track</strong> → proceed with next steps — match them to a live role and book them in</li>
+        <li><strong>Timing has changed</strong> → update the date in JobAdder (the reminder resets) and log the new timeframe in the notes</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Common Mistakes</div>
+    <div class="block-body">
+      <div class="callout danger">Ending the call with a vague timeframe — always get at least a month</div>
+      <div class="callout danger" style="margin-top:8px">Writing the date in the notes only — it must go in the Availability Date field or Notice Period column</div>
+      <div class="callout danger" style="margin-top:8px">Entering a month without a day — use the 1st of the month</div>
+      <div class="callout danger" style="margin-top:8px">Forgetting to send the follow-up text within 5 minutes</div>
+      <div class="callout danger" style="margin-top:8px">Not updating the date when the candidate's timing changes</div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-m142-Watch">
+  <div class="content-block">
+    <div class="block-label">Video Walkthrough</div>
+    <div class="block-body">
+      <div class="callout info"><strong>No video for this stage.</strong> The steps are straightforward to follow. If you have questions, check in with Les.</div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-m142-Templates">
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS · Sourcer / Placer → Candidate · Send within 5 minutes of ending the call</div><div class="email-template-subject">Not Ready Yet — Follow-Up SMS</div></div>
+      <button class="copy-btn" id="copy-m142a" onclick="copyTemplate('m142a')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant stage:</strong> Stage 3 — Screening Call and Stage 4 — Internal Interview<br><strong>Use this when:</strong> The candidate says they're not ready to move yet (3, 6, or 12 months out) — send this right after the Not Ready Yet sub-script.</div>
+    <div class="email-template-body" id="tmpl-m142a">Hey [Name], [Recruiter] from Stand Up Recruitment here. Good chatting today. We'll touch base around [month] but call/text me anytime if your plans move earlier — we'll get your job sorted before you leave NZ, plus accommodation and flights. Save my number and we'll talk soon.</div>
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-m142-Quiz">
+  <div class="quiz-wrap" style="padding:0">
+  <h3 style="font-family:var(--font-display);font-size:18px;margin-bottom:16px">Check your understanding</h3>
+
+  <div class="quiz-question">
+    <p>1. A candidate says they'll be ready to move in "June 2027". What do you enter in JobAdder?</p>
+    <div class="quiz-option" id="opt-m142-0-0" onclick="selectOpt('m142',0,0)">A. 30 June 2027</div>
+    <div class="quiz-option" id="opt-m142-0-1" onclick="selectOpt('m142',0,1)">B. 1 June 2027</div>
+    <div class="quiz-option" id="opt-m142-0-2" onclick="selectOpt('m142',0,2)">C. Just "June 2027" in the notes</div>
+    <div class="quiz-option" id="opt-m142-0-3" onclick="selectOpt('m142',0,3)">D. 15 June 2027</div>
+  </div>
+  <div class="quiz-question">
+    <p>2. Where must the relocation date be recorded for the reminder to work?</p>
+    <div class="quiz-option" id="opt-m142-1-0" onclick="selectOpt('m142',1,0)">A. In the candidate's notes</div>
+    <div class="quiz-option" id="opt-m142-1-1" onclick="selectOpt('m142',1,1)">B. The Availability Date field (or the Notice Period column)</div>
+    <div class="quiz-option" id="opt-m142-1-2" onclick="selectOpt('m142',1,2)">C. On the job card</div>
+    <div class="quiz-option" id="opt-m142-1-3" onclick="selectOpt('m142',1,3)">D. In the Not Ready Yet SMS</div>
+  </div>
+  <div class="quiz-question">
+    <p>3. When will the reminder email arrive?</p>
+    <div class="quiz-option" id="opt-m142-2-0" onclick="selectOpt('m142',2,0)">A. On the date you entered</div>
+    <div class="quiz-option" id="opt-m142-2-1" onclick="selectOpt('m142',2,1)">B. Around 4 weeks before the date you entered</div>
+    <div class="quiz-option" id="opt-m142-2-2" onclick="selectOpt('m142',2,2)">C. 1 week before the date you entered</div>
+    <div class="quiz-option" id="opt-m142-2-3" onclick="selectOpt('m142',2,3)">D. 3 months before the date you entered</div>
+  </div>
+  <div class="quiz-question">
+    <p>4. A candidate says they're not ready yet during the internal interview. Which tag do they get?</p>
+    <div class="quiz-option" id="opt-m142-3-0" onclick="selectOpt('m142',3,0)">A. Warm List</div>
+    <div class="quiz-option" id="opt-m142-3-1" onclick="selectOpt('m142',3,1)">B. Hot List</div>
+    <div class="quiz-option" id="opt-m142-3-2" onclick="selectOpt('m142',3,2)">C. Screened</div>
+    <div class="quiz-option" id="opt-m142-3-3" onclick="selectOpt('m142',3,3)">D. Unresponsive</div>
+  </div>
+  <div class="quiz-question">
+    <p>5. When should the Not Ready Yet — Follow-Up SMS be sent?</p>
+    <div class="quiz-option" id="opt-m142-4-0" onclick="selectOpt('m142',4,0)">A. When the reminder comes through</div>
+    <div class="quiz-option" id="opt-m142-4-1" onclick="selectOpt('m142',4,1)">B. Within 5 minutes of ending the call</div>
+    <div class="quiz-option" id="opt-m142-4-2" onclick="selectOpt('m142',4,2)">C. The next business day</div>
+    <div class="quiz-option" id="opt-m142-4-3" onclick="selectOpt('m142',4,3)">D. Only if the candidate asks for it</div>
+  </div>
+
+  <button class="quiz-submit-btn" onclick="checkQuiz('m142')">Submit Answers</button>
+  <div id="quiz-result-m142" class="quiz-result" style="display:none"></div>
+  </div>
+</div>
+<div class="tab-panel" id="panel-m142-Practice-Activity">
+<div class="content-block">
+<div class="block-label">Upcoming Task</div>
+<div class="block-body">
+<p>The next time a candidate tells you they're not ready yet:</p>
+<div class="step-row"><div class="step-num">1</div><div>Work through Steps 1 to 3 on and straight after the call</div></div>
+<div class="step-row"><div class="step-num">2</div><div>Check the Availability Date is showing in JobAdder</div></div>
+</div>
+</div>
+<div class="content-block">
+<div class="block-label">Resources</div>
+<div class="block-body">
+<ul><li>Email &amp; SMS Template Library — Not Ready Yet — Follow-Up SMS</li><li>Script Coaching Guide — Not Ready Yet script</li></ul>
+</div>
+</div>
+</div>
+<script>
+window.__quizData=window.__quizData||{};
+window.__quizData['m142']=[
+{"q": "A candidate says they'll be ready to move in \"June 2027\". What do you enter in JobAdder?", "opts": ["30 June 2027", "1 June 2027", "Just \"June 2027\" in the notes", "15 June 2027"], "ans": 1},
+{"q": "Where must the relocation date be recorded for the reminder to work?", "opts": ["In the candidate's notes", "The Availability Date field (or the Notice Period column)", "On the job card", "In the Not Ready Yet SMS"], "ans": 1},
+{"q": "When will the reminder email arrive?", "opts": ["On the date you entered", "Around 4 weeks before the date you entered", "1 week before the date you entered", "3 months before the date you entered"], "ans": 1},
+{"q": "A candidate says they're not ready yet during the internal interview. Which tag do they get?", "opts": ["Warm List", "Hot List", "Screened", "Unresponsive"], "ans": 1},
+{"q": "When should the Not Ready Yet — Follow-Up SMS be sent?", "opts": ["When the reminder comes through", "Within 5 minutes of ending the call", "The next business day", "Only if the candidate asks for it"], "ans": 1}
 ];
 </script>
 </div>
@@ -6961,10 +7160,10 @@ OUTPUT FORMAT:
     <div class="tag-helper-cat">
       <div class="tag-helper-cat-title">Not Ready to Move</div>
       <div class="tag-helper-option" onclick="toggleTagHelper('th11')">Said during the phone screening call, gave a target month</div>
-      <div class="tag-helper-result" id="th11"><span class="tag-pill">Warm List</span><br>Log the availability date — essential, don't skip. Send the Not Ready Yet — Follow-Up SMS within 5 minutes.</div>
+      <div class="tag-helper-result" id="th11"><span class="tag-pill">Warm List</span><br>Enter the date in the Availability Date field (Recruiter Data tab) — essential, don't skip, the reminder only works off this field. Send the Not Ready Yet — Follow-Up SMS within 5 minutes. See <a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">→ 1.4.1 Not Ready Yet</a>.</div>
 
       <div class="tag-helper-option" onclick="toggleTagHelper('th12')">Said during/after the internal interview, gave a target month</div>
-      <div class="tag-helper-result" id="th12"><span class="tag-pill">Hot List</span><br>Same logging and SMS rule — log the availability date and send the Not Ready Yet SMS within 5 minutes.</div>
+      <div class="tag-helper-result" id="th12"><span class="tag-pill">Hot List</span><br>Same rule — enter the date in the Availability Date field (Recruiter Data tab) and send the Not Ready Yet SMS within 5 minutes. See <a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">→ 1.4.1 Not Ready Yet</a>.</div>
     </div>
 
     <div class="tag-helper-cat">
@@ -7033,6 +7232,9 @@ function toggleTagHelper(id) {
     </div>
     <div class="ja-item" data-search="upload documents cv licence passport trade certificate stage 4 stage 6 documents tab">
       <strong>Upload documents — CV, licence, passport, trade certificate (Stage 4 / Stage 6):</strong> Candidate profile → Documents tab.
+    </div>
+    <div class="ja-item" data-search="availability date notice period not ready yet relocation date reminder stage 4.1 recruiter data current employment">
+      <strong>Record a not-ready-yet relocation date (Stage 4.1):</strong> Candidate profile → Recruiter Data tab → Current Employment → Availability Date. Or update the Notice Period column in the Candidates list view — both update the same field. Only a month given → enter the 1st of that month. The reminder only works off this field, not the notes.
     </div>
   </div>
 
