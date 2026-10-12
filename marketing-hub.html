@@ -3,7 +3,7 @@
 <head>
 <script>
 (function(){
-  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support'];
+  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support', 'marketing2'];
   if(VALID_ROLES.indexOf(sessionStorage.getItem('playbook-auth')) === -1){
     window.location.href = 'login.html';
   }
@@ -344,6 +344,11 @@ body{
   <span class="toggle-icon">&#8592;</span>
   <span>Hub</span>
 </a>
+<script>
+if(sessionStorage.getItem('playbook-auth') === 'marketing2'){
+  document.getElementById('hub-back').style.display = 'none';
+}
+</script>
 <button id="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
   <span class="toggle-icon" id="toggle-icon">&#9728;&#65039;</span>
   <span id="toggle-label">Light</span>
@@ -364,13 +369,13 @@ body{
       <div class="module-desc">Pre-start setup, Day 1 plan, and 30/60/90-day goals for a new hire.</div>
       <div class="module-arrow">&rarr;</div>
     </div>
-    <div class="module-card" onclick="openModule('playbook')">
-      <div class="module-status status-soon">Coming Soon</div>
+    <a class="module-card" href="marketing-playbook.html">
+      <div class="module-status status-ready">Ready</div>
       <div class="module-num">02</div>
       <div class="module-title">Playbook</div>
       <div class="module-desc">Day-to-day SOPs, tools, and reference material for the Marketing role.</div>
       <div class="module-arrow">&rarr;</div>
-    </div>
+    </a>
   </div>
 </div>
 
@@ -381,14 +386,6 @@ body{
       <div class="icon">&#9998;</div>
       <h3>Coming Soon</h3>
       <p>The Onboarding Process for this role hasn't been built yet &mdash; check back once it's published, or ask your department lead for the current interim process.</p>
-    </div>
-  </div>
-  <div id="module-playbook" style="display:none">
-    <button class="back-btn" onclick="closeMod()">&#8592; Back to Marketing Hub</button>
-    <div class="empty-state">
-      <div class="icon">&#9998;</div>
-      <h3>Coming Soon</h3>
-      <p>The Marketing Playbook hasn't been built yet &mdash; check back once it's published, or ask your department lead for the current interim process.</p>
     </div>
   </div>
 </div>

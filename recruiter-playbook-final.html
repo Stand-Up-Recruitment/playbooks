@@ -829,7 +829,7 @@ body{
 <div class="hero">
   <div class="hero-eyebrow">Stand Up Recruitment</div>
   <h1 class="hero-title">The <em>Recruiter</em> Playbook</h1>
-  <p class="hero-sub">Everything you need to run the recruiter role at Stand Up Recruitment — sourcing New Zealand tradespeople, screening and interviewing them, and placing them with Australian clients through JobAdder. Read every Tell section, watch the videos, then complete the Practice Activity before moving on. Do not skip ahead. Already trained? Use <strong>New Job — 7 Steps to Close</strong> as your day-to-day checklist and come back to each module for the detail. This is a living document — if something is not covered here, speak to Les.</p>
+  <p class="hero-sub">Everything you need to run the recruiter role at Stand Up Recruitment — sourcing New Zealand tradespeople, screening and interviewing them, and placing them with Australian clients through JobAdder. Read every Tell section, watch the videos, then complete the Practice Activity before moving on. Do not skip ahead. Already trained? Use <strong>New Job to Close</strong> below as your day-to-day map. Come back to the modules for the detail on any step. This is a living document — if something is not covered here, speak to Les.</p>
 </div>
 
 <div id="search-container" style="margin:0 0 28px 0">
@@ -855,12 +855,370 @@ body{
   <div id="search-status" style="margin-top:8px;font-size:12px;color:var(--muted);min-height:18px"></div>
 </div>
 
+<section class="sur-flow" aria-labelledby="sur-flow-title">
+  <style>
+    .sur-flow {
+      --sur-flow-display: var(--font-display);
+      --sur-flow-label: var(--font-body);
+      --sur-flow-body: var(--font-body);
+      --sur-flow-ink: #ecece6;
+      --sur-flow-muted: #9b9b94;
+      --sur-flow-rail: #2a2a2a;
+      --sur-flow-chip-bg: #161616;
+      --sur-flow-chip-line: #2c2c2c;
+      --sur-flow-setup: #4af0a0;
+      --sur-flow-pipeline: #4ac8f0;
+      --sur-flow-placement: #a04af0;
+      font-family: var(--sur-flow-body);
+      color: var(--sur-flow-ink);
+      max-width: 640px;
+      margin: 56px 0 72px;
+    }
+    body.light .sur-flow, html.light .sur-flow, [data-theme="light"] .sur-flow {
+      --sur-flow-ink: #161616;
+      --sur-flow-muted: #5e5e58;
+      --sur-flow-rail: #d9d9d2;
+      --sur-flow-chip-bg: #ffffff;
+      --sur-flow-chip-line: #d6d6cf;
+      --sur-flow-setup: #0e8a55;
+      --sur-flow-pipeline: #0b7fb0;
+      --sur-flow-placement: #7a2fd6;
+    }
+    .sur-flow__title {
+      font-family: var(--sur-flow-display);
+      font-weight: 400;
+      font-size: clamp(30px, 4.4vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin: 0 0 14px;
+    }
+    .sur-flow__intro {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--sur-flow-muted);
+      margin: 0 0 40px;
+      max-width: 58ch;
+    }
+
+    /* Phases: each phase colours its own stretch of the rail */
+    .sur-flow__phase { --accent: var(--sur-flow-setup); }
+    .sur-flow__phase--pipeline { --accent: var(--sur-flow-pipeline); }
+    .sur-flow__phase--placement { --accent: var(--sur-flow-placement); }
+
+    .sur-flow__phase-name {
+      font-family: var(--sur-flow-label);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+      color: var(--accent);
+      margin: 0;
+      padding: 0 0 18px 44px;
+      position: relative;
+    }
+    .sur-flow__phase-name::before {
+      content: "";
+      position: absolute;
+      left: 13px; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--accent);
+      opacity: 0.35;
+    }
+    .sur-flow__phase:first-of-type .sur-flow__phase-name::before { top: 0.6em; }
+
+    .sur-flow__steps { list-style: none; margin: 0; padding: 0; }
+
+    .sur-flow__step {
+      position: relative;
+      padding: 0 0 22px 44px;
+    }
+    /* the rail */
+    .sur-flow__step::before {
+      content: "";
+      position: absolute;
+      left: 13px; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--accent);
+      opacity: 0.35;
+    }
+    .sur-flow__phase:last-of-type .sur-flow__step:last-child::before { bottom: auto; height: 14px; }
+
+    /* the stop on the rail */
+    .sur-flow__num {
+      position: absolute;
+      left: 0; top: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #0a0a0a;
+      font-family: var(--sur-flow-label);
+      font-weight: 700;
+      font-size: 13px;
+      display: grid;
+      place-items: center;
+    }
+    body.light .sur-flow__num, html.light .sur-flow__num, [data-theme="light"] .sur-flow__num { color: #ffffff; }
+
+    .sur-flow__step-title {
+      font-family: var(--sur-flow-label);
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.3;
+      margin: 3px 0 6px;
+    }
+    .sur-flow__list { padding-left: 20px; }
+    .sur-flow__list li { margin: 0 0 6px; }
+    .sur-flow__list li strong { color: var(--sur-flow-ink); font-weight: 600; }
+    .sur-flow__step-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--sur-flow-muted);
+      margin: 0 0 10px;
+      max-width: 56ch;
+    }
+
+
+    /* Collapsible steps: names only until opened */
+    .sur-flow__step details > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 6px;
+    }
+    .sur-flow__step details > summary::-webkit-details-marker { display: none; }
+    .sur-flow__step details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .sur-flow__step details > summary:hover .sur-flow__step-title { color: var(--accent); }
+    .sur-flow__step-title { margin: 3px 0 0; }
+    .sur-flow__chev {
+      flex: none;
+      width: 8px; height: 8px;
+      margin-top: 10px;
+      border-right: 2px solid var(--sur-flow-muted);
+      border-bottom: 2px solid var(--sur-flow-muted);
+      transform: rotate(45deg);
+      transition: transform 0.15s ease;
+    }
+    .sur-flow__step details[open] .sur-flow__chev { transform: rotate(225deg); margin-top: 13px; }
+    .sur-flow__body { padding-top: 8px; }
+    @media (prefers-reduced-motion: reduce) { .sur-flow__chev { transition: none; } }
+
+    .sur-flow__links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .sur-flow__link {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1;
+      padding: 7px 11px;
+      border-radius: 6px;
+      border: 1px solid var(--sur-flow-chip-line);
+      background: var(--sur-flow-chip-bg);
+      color: var(--sur-flow-ink);
+      text-decoration: none;
+    }
+    .sur-flow__link span { color: var(--accent); margin-right: 6px; }
+    .sur-flow__link:hover { border-color: var(--accent); }
+    .sur-flow__link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* side roads: where the journey branches or loops back */
+    .sur-flow__aside {
+      margin: 14px 0 0;
+      padding: 10px 14px;
+      border-left: 2px dashed var(--accent);
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--sur-flow-muted);
+      max-width: 54ch;
+    }
+    .sur-flow__aside strong { color: var(--sur-flow-ink); font-weight: 600; }
+    .sur-flow__aside a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .sur-flow__aside a:hover { text-decoration: underline; }
+    .sur-flow__aside a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    @media (max-width: 520px) {
+      .sur-flow { margin: 40px 0 56px; }
+      .sur-flow__step, .sur-flow__phase-name { padding-left: 40px; }
+      .sur-flow__step-title { font-size: 16px; }
+    }
+  </style>
+
+  <h2 class="sur-flow__title" id="sur-flow-title">New Job to Close</h2>
+  <p class="sur-flow__intro">The journey of one job, from landing in your inbox to a tradie starting work in Australia. Read it once to see how the stages fit together, then open any step and follow the link to its module for the full detail.</p>
+
+  <div class="sur-flow__phase sur-flow__phase--setup">
+    <p class="sur-flow__phase-name">Set up the job (10 to 15 mins)</p>
+    <ol class="sur-flow__steps" start="1">
+      <li class="sur-flow__step">
+        <details>
+          <summary>
+            <span class="sur-flow__num" aria-hidden="true">1</span>
+            <h3 class="sur-flow__step-title">A new job lands</h3>
+            <span class="sur-flow__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="sur-flow__body">
+            <p class="sur-flow__step-text">Sales closes a client and the job is emailed to recruiters. The appropriate recruiter takes the job and assigns it to their workflow in JobAdder.</p>
+            <ul class="sur-flow__links">
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m111');return false"><span>1.1</span>Job Creation</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+      <li class="sur-flow__step">
+        <details>
+          <summary>
+            <span class="sur-flow__num" aria-hidden="true">2</span>
+            <h3 class="sur-flow__step-title">Understand the job</h3>
+            <span class="sur-flow__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="sur-flow__body">
+            <ol class="sur-flow__step-text sur-flow__list">
+              <li>Go to the job card in JobAdder and review the job description and the interview guide.</li>
+              <li>Go to Airtable, download the sales call transcript, and run it through Claude using the prompt.</li>
+              <li>Make sure you understand the job. Anything that doesn't line up, especially pay, gets raised with the sales team before you source anyone.</li>
+            </ol>
+            <ul class="sur-flow__links">
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m111');return false"><span>1.1</span>Job Creation</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+    </ol>
+  </div>
+
+  <div class="sur-flow__phase sur-flow__phase--pipeline">
+    <p class="sur-flow__phase-name">Candidate pipeline</p>
+    <ol class="sur-flow__steps" start="3">
+      <li class="sur-flow__step">
+        <details>
+          <summary>
+            <span class="sur-flow__num" aria-hidden="true">3</span>
+            <h3 class="sur-flow__step-title">Fill the pipeline</h3>
+            <span class="sur-flow__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="sur-flow__body">
+            <p class="sur-flow__step-text">Start with the Hot List and Warm List. If that's not enough, set the sourcing bot out and work the database, cold email and Trade Me.</p>
+            <ul class="sur-flow__links">
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m121');return false"><span>1.2.1</span>AI Sourcing</a></li>
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m122');return false"><span>1.2.2</span>Manual Sourcing</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+      <li class="sur-flow__step">
+        <details>
+          <summary>
+            <span class="sur-flow__num" aria-hidden="true">4</span>
+            <h3 class="sur-flow__step-title">Screen and interview</h3>
+            <span class="sur-flow__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="sur-flow__body">
+            <p class="sur-flow__step-text">A quick screening call for candidates you sourced yourself, then the internal interview. This is where you decide if they're right for the role.</p>
+            <ul class="sur-flow__links">
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m131');return false"><span>1.3</span>Screening Call</a></li>
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m141');return false"><span>1.4</span>Internal Interview</a></li>
+            </ul>
+            <p class="sur-flow__aside"><strong>Keen but not ready to move yet?</strong> Record their date so JobAdder reminds you, and pick them up again closer to the time. <a href="#" onclick="openModule('m142');return false">1.4.1 Not Ready Yet</a></p>
+          </div>
+        </details>
+      </li>
+      <li class="sur-flow__step">
+        <details>
+          <summary>
+            <span class="sur-flow__num" aria-hidden="true">5</span>
+            <h3 class="sur-flow__step-title">Checks and cool off</h3>
+            <span class="sur-flow__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="sur-flow__body">
+            <p class="sur-flow__step-text">The candidate takes 2 days to think it over. If you rate them, run the reference and police checks during those same 2 days, not after.</p>
+            <ul class="sur-flow__links">
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m151');return false"><span>1.5</span>Reference &amp; Police Checks</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+    </ol>
+  </div>
+
+  <div class="sur-flow__phase sur-flow__phase--placement">
+    <p class="sur-flow__phase-name">Placement</p>
+    <ol class="sur-flow__steps" start="6">
+      <li class="sur-flow__step">
+        <details>
+          <summary>
+            <span class="sur-flow__num" aria-hidden="true">6</span>
+            <h3 class="sur-flow__step-title">Submit to the client</h3>
+            <span class="sur-flow__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="sur-flow__body">
+            <p class="sur-flow__step-text">Format the CV, send the endorsement, and give the candidate a heads-up. Then call the client until the interview is booked.</p>
+            <ul class="sur-flow__links">
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m211');return false"><span>2.1</span>CV Formatting</a></li>
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m221');return false"><span>2.2</span>Client Submission</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+      <li class="sur-flow__step">
+        <details>
+          <summary>
+            <span class="sur-flow__num" aria-hidden="true">7</span>
+            <h3 class="sur-flow__step-title">Client interview</h3>
+            <span class="sur-flow__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="sur-flow__body">
+            <p class="sur-flow__step-text">Sit in, help the conversation along, and debrief with the client once the candidate drops off. Never hang up without a date for the decision.</p>
+            <ul class="sur-flow__step-text sur-flow__list sur-flow__list--bullets">
+              <li><strong>Passed:</strong> after the debrief, email the client the candidate's full name and possible start date.</li>
+            </ul>
+            <ul class="sur-flow__links">
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m231');return false"><span>2.3</span>Client Interview</a></li>
+            </ul>
+            <p class="sur-flow__aside"><strong>Client says no?</strong> Log their feedback. It becomes part of your screening for the next candidate, back at step 4.</p>
+          </div>
+        </details>
+      </li>
+      <li class="sur-flow__step">
+        <details>
+          <summary>
+            <span class="sur-flow__num" aria-hidden="true">8</span>
+            <h3 class="sur-flow__step-title">Offer</h3>
+            <span class="sur-flow__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="sur-flow__body">
+            <p class="sur-flow__step-text">Review the offer letter, send it through DocuSeal, and give the candidate a second 2-day cool off. If the client goes quiet, follow the contract follow-up cadence.</p>
+            <ul class="sur-flow__links">
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m241');return false"><span>2.4</span>Offer</a></li>
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m242');return false"><span>2.4.1</span>Contract Follow-Up</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+      <li class="sur-flow__step">
+        <details>
+          <summary>
+            <span class="sur-flow__num" aria-hidden="true">9</span>
+            <h3 class="sur-flow__step-title">Placed</h3>
+            <span class="sur-flow__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="sur-flow__body">
+            <p class="sur-flow__step-text">Place the candidate in JobAdder. That triggers onboarding, and the job is closed.</p>
+            <ul class="sur-flow__links">
+              <li><a class="sur-flow__link" href="#" onclick="openModule('m241');return false"><span>2.4</span>Offer</a></li>
+            </ul>
+          </div>
+        </details>
+      </li>
+    </ol>
+  </div>
+
+</section>
+
 <div class="tier-block" style="margin-bottom:32px">
   <div class="tier-header" style="display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)">
     <div style="width:4px;height:28px;background:#4af0a0;border-radius:2px;flex-shrink:0"></div>
     <div>
       <div style="font-size:13px;font-weight:800;color:#4af0a0;letter-spacing:.06em;text-transform:uppercase">0. Start Here</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:2px">2 modules</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px">1 module</div>
     </div>
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
@@ -868,11 +1226,6 @@ body{
       <div style="font-size:11px;font-weight:700;color:#4af0a0;letter-spacing:.05em;margin-bottom:4px">0.1</div>
       <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">Recruiter Ramp</div>
       <div style="font-size:12px;color:var(--text2);line-height:1.4">New here? Your four-week plan to running the full placement process solo.</div>
-    </div>
-    <div class="module-card" data-mid="m002" data-search="0.2 new job 7 steps to close checklist day to day aligned pipeline hot list warm list bot 2 interview police check reference submit client heads-up interview result offer docuseal place candidate" onclick="openModule('m002')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-      <div style="font-size:11px;font-weight:700;color:#4af0a0;letter-spacing:.05em;margin-bottom:4px">0.2</div>
-      <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">New Job — 7 Steps to Close</div>
-      <div style="font-size:12px;color:var(--text2);line-height:1.4">Your day-to-day checklist from a new job landing to placing the candidate.</div>
     </div>
   </div>
 </div>
@@ -919,7 +1272,7 @@ body{
     <div class="module-card" data-mid="m151" data-search="1.5 reference police checks referee call script airtable police check form six fields cool off period reference check checklist" onclick="openModule('m151')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
       <div style="font-size:11px;font-weight:700;color:#4ac8f0;letter-spacing:.05em;margin-bottom:4px">1.5</div>
       <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">Reference &amp; Police Checks</div>
-      <div style="font-size:12px;color:var(--text2);line-height:1.4">Run both checks the same day for every candidate you rate. Both must be clear before CV formatting.</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.4">Run both checks the same day for every candidate you rate. Both must be clear before you submit to a client.</div>
     </div>
   </div>
 </div>
@@ -1082,7 +1435,7 @@ body{
         <li>Checkpoints are short — a 10-minute check-in or debrief, not a formal review. The purpose is to catch someone falling behind in week 1, not week 4.</li>
         <li>This playbook is expected to be refined after each of the first two or three ramps as real problems and fixes surface.</li>
       </ul>
-      <div class="callout info">Already trained? Use <a href="#" onclick="openModule('m002');return false" style="color:var(--accent)">New Job — 7 Steps to Close</a> as your day-to-day checklist.</div>
+      <div class="callout info">Already trained? Use <a href="#" onclick="closeMod();document.getElementById('sur-flow-title').scrollIntoView();return false" style="color:var(--accent)">New Job to Close</a> on the home page as your day-to-day map.</div>
     </div>
   </div>
 </div>
@@ -1133,78 +1486,6 @@ window.__quizData['m001']=[
 {"q":"How long is a typical ramp checkpoint?","opts":["A 10-minute check-in or debrief","A half-day formal review","An hour with the whole team","There are no checkpoints"],"ans":0}
 ];
 </script>
-</div>
-
-<div id="module-m002" style="display:none">
-<button class="back-btn" onclick="closeMod()">← Back to Playbooks</button>
-<div class="module-header">
-  <div class="module-eyebrow t0">0.2</div>
-  <h1 class="module-h1">New Job — 7 Steps to Close</h1>
-  <p class="module-intro">The seven steps from getting a new job to closing it. Use this as your day-to-day checklist. For the detail on any step, open the module linked beside it. This section will be added to as we go.</p>
-</div>
-<div class="tabs" id="tabs-m002">
-  <button class="tab-btn active" onclick="switchTab('m002','Overview')" id="tbtn-m002-Overview">Checklist</button>
-</div>
-
-<div class="tab-panel active" id="panel-m002-Overview">
-  <div class="content-block">
-    <div class="block-title">1. Check the job is aligned</div>
-    <div class="block-body">
-      <p>Open the job in JobAdder. Review the job brief, the Tailored Interview Guide and the sales call transcript, and check they line up, especially on pay. Anything that doesn't match → raise it with the sales team before sourcing.</p>
-      <p style="margin-top:8px"><a href="#" onclick="openModule('m111');return false" style="color:var(--accent)">→ 1.1 Job Creation</a></p>
-    </div>
-  </div>
-  <div class="content-block">
-    <div class="block-title">2. Fill the pipeline</div>
-    <div class="block-body">
-      <p>Start with the Hot List and Warm List candidates who fit the profile. If there aren't enough, set Bot 2 sourcing through the Airtable form. Post a Trade Me ad if needed.</p>
-      <p style="margin-top:8px"><a href="#" onclick="openModule('m122');return false" style="color:var(--accent)">→ 1.2.2 Manual Sourcing</a> &nbsp;·&nbsp; <a href="#" onclick="openModule('m121');return false" style="color:var(--accent)">→ 1.2.1 AI Sourcing</a></p>
-    </div>
-  </div>
-  <div class="content-block">
-    <div class="block-title">3. Interview and check</div>
-    <div class="block-body">
-      <p>Run the internal interview. If you rate the candidate, run the police check and reference checks. Give them the 2-day cool off.</p>
-      <p style="margin-top:8px"><a href="#" onclick="openModule('m131');return false" style="color:var(--accent)">→ 1.3 Screening Call</a> &nbsp;·&nbsp; <a href="#" onclick="openModule('m141');return false" style="color:var(--accent)">→ 1.4 Internal Interview</a> &nbsp;·&nbsp; <a href="#" onclick="openModule('m151');return false" style="color:var(--accent)">→ 1.5 Reference &amp; Police Checks</a></p>
-    </div>
-  </div>
-  <div class="content-block">
-    <div class="block-title">4. Submit to the client</div>
-    <div class="block-body">
-      <p>Format the CV and send the endorsement email. Text the candidate the heads-up. Once the client confirms a time, book the interview as a Contact Candidate Meeting.</p>
-      <p style="margin-top:8px"><a href="#" onclick="openModule('m211');return false" style="color:var(--accent)">→ 2.1 CV Formatting</a> &nbsp;·&nbsp; <a href="#" onclick="openModule('m221');return false" style="color:var(--accent)">→ 2.2 Client Submission</a></p>
-    </div>
-  </div>
-  <div class="content-block">
-    <div class="block-title">5. Get the interview result</div>
-    <div class="block-body">
-      <ul>
-        <li><strong>Passed:</strong> after the debrief, email the client the candidate's full name and possible start date.</li>
-        <li><strong>Failed:</strong> get the client's specific feedback and add it to your screening questions for the next candidates.</li>
-      </ul>
-      <p style="margin-top:8px"><a href="#" onclick="openModule('m231');return false" style="color:var(--accent)">→ 2.3 Client Interview</a></p>
-    </div>
-  </div>
-  <div class="content-block">
-    <div class="block-title">6. Manage the offer</div>
-    <div class="block-body">
-      <p>Run the offer letter through the Offer Letter Review Prompt.</p>
-      <ul>
-        <li><strong>Hard stop:</strong> raise it with the client before the candidate sees anything.</li>
-        <li><strong>Discuss items:</strong> raise the ones worth raising.</li>
-        <li><strong>All clear:</strong> send the offer to the candidate via DocuSeal and give them the 2-day cool off.</li>
-      </ul>
-      <p style="margin-top:8px"><a href="#" onclick="openModule('m241');return false" style="color:var(--accent)">→ 2.4 Offer</a> &nbsp;·&nbsp; <a href="#" onclick="openModule('m242');return false" style="color:var(--accent)">→ 2.4.1 Contract Follow-Up</a></p>
-    </div>
-  </div>
-  <div class="content-block">
-    <div class="block-title">7. Place the candidate</div>
-    <div class="block-body">
-      <p>Place the candidate in JobAdder. This triggers onboarding and the handover emails.</p>
-      <p style="margin-top:8px"><a href="#" onclick="openModule('m241');return false" style="color:var(--accent)">→ 2.4 Offer — Step 7</a></p>
-    </div>
-  </div>
-</div>
 </div>
 
 <div id="module-m111" style="display:none">
@@ -1920,27 +2201,6 @@ window.__quizData['m121']=[
   </div>
 
   <div class="content-block">
-    <div class="block-title">If the Candidate Says They're Not Ready Yet</div>
-    <div class="block-body">
-      <p>(e.g. not looking to move for 3, 6, or 12 months) Don't treat this as a dead end. The goal is to keep them warm so they come back through us when they are ready, instead of quietly self-applying for a job in Australia later on.</p>
-      <ul>
-        <li>Acknowledge it — this is common, no pressure</li>
-        <li>Reiterate the Grand Slam offer — a job sorted before they even leave New Zealand, free temporary accommodation, and a free flight</li>
-        <li>Lock in a rough month — get something specific, not "sometime next year"</li>
-        <li>Confirm you'll check back in around that time, and send your details via text so they can reach you sooner if their plans change</li>
-      </ul>
-      <p style="margin-top:8px">See the Script Coaching Guide for the full word-for-word script and tone notes on this one. For recording the date and setting up the reminder, see <a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">→ 1.4.1 Not Ready Yet</a>.</p>
-      <div class="callout warn" style="margin-top:8px"><strong>Backend — every time, no exceptions:</strong>
-        <ul style="margin-top:6px">
-          <li>Update JobAdder notes with the timeframe given, target month, and any key objections or interests raised</li>
-          <li>Tag the candidate Warm List and record the date they'll be available again in the <strong>Availability Date</strong> field — not just the notes (this becomes Hot List instead if it comes up during or after the internal interview — see Stage 4)</li>
-          <li>Send the Not Ready Yet — Follow-Up SMS template within 5 minutes of ending the call</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-block">
     <div class="block-title">Channel 2 — Cold Email Outreach</div>
     <div class="block-body">
       <p>Cold email outreach is done directly in JobAdder.</p>
@@ -2303,21 +2563,7 @@ window.__quizData['m122']=[
   <div class="content-block">
     <div class="block-title">If the Candidate Says They're Not Ready Yet</div>
     <div class="block-body">
-      <p>(e.g. not looking to move for 3, 6, or 12 months) Don't treat this as a dead end. The goal is to keep them warm so they come back through us when they are ready, instead of quietly self-applying for a job in Australia later on.</p>
-      <ul>
-        <li>Acknowledge it — this is common, no pressure</li>
-        <li>Reiterate the Grand Slam offer — a job sorted before they even leave New Zealand, free temporary accommodation, and a free flight</li>
-        <li>Lock in a rough month — get something specific, not "sometime next year"</li>
-        <li>Confirm you'll check back in around that time, and send your details via text so they can reach you sooner if their plans change</li>
-      </ul>
-      <p style="margin-top:8px">See the Script Coaching Guide for the full word-for-word script and tone notes on this one. For recording the date and setting up the reminder, see <a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">→ 1.4.1 Not Ready Yet</a>.</p>
-      <div class="callout warn" style="margin-top:8px"><strong>Backend — every time, no exceptions:</strong>
-        <ul style="margin-top:6px">
-          <li>Update JobAdder notes with the timeframe given, target month, and any key objections or interests raised</li>
-          <li>Tag the candidate Warm List and record the date they'll be available again in the <strong>Availability Date</strong> field — not just the notes (this becomes Hot List instead if it comes up during or after the internal interview — see Stage 4)</li>
-          <li>Send the Not Ready Yet — Follow-Up SMS template within 5 minutes of ending the call</li>
-        </ul>
-      </div>
+      <p>If the candidate can't relocate within the next 1 to 2 months, follow <a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">→ 1.4.1 Not Ready Yet: Keeping Candidates Warm</a>. After a screening call, tag them <strong>Warm List</strong>.</p>
     </div>
   </div>
 
@@ -3050,7 +3296,7 @@ window.__quizData['m131']=[
         <li>Do you have any planned vacations or commitments in the next few months?</li>
       </ul>
       <p style="margin-top:8px">If anything disqualifying comes up — close the call professionally before continuing.</p>
-      <div class="callout warn" style="margin-top:8px"><strong>If the candidate says they're not ready yet:</strong> acknowledge it, reiterate the Grand Slam offer, lock in a rough month, and confirm you'll check back around that time. See the Coaching Guide for the full script. <strong>Backend — every time:</strong> update JobAdder notes with the timeframe and target month, tag the candidate <strong>Hot List</strong>, record the date they'll be available again in the <strong>Availability Date</strong> field, and send the Not Ready Yet — Follow-Up SMS within 5 minutes. Full steps: <a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">→ 1.4.1 Not Ready Yet</a>.</div>
+      <div class="callout warn" style="margin-top:8px"><strong>If the candidate says they're not ready yet:</strong> if they can't relocate within the next 1 to 2 months, follow <a href="#" onclick="openModule('m142');return false" style="color:var(--accent)">→ 1.4.1 Not Ready Yet: Keeping Candidates Warm</a>. After an internal interview, tag them <strong>Hot List</strong>.</div>
     </div>
   </div>
 
@@ -3832,7 +4078,7 @@ window.__quizData['m142']=[
 <div class="module-header">
   <div class="module-eyebrow t0">1.5</div>
   <h1 class="module-h1">Reference &amp; Police Checks</h1>
-  <p class="module-intro">Two checks, running at the same time. Neither is optional. Both must be clear before you move to CV formatting.</p>
+  <p class="module-intro">Two checks, running at the same time, for every candidate you rate after the internal interview. Both must be clear before you submit the candidate to a client.</p>
 </div>
 <div class="tabs" id="tabs-m151">
   <button class="tab-btn active" onclick="switchTab('m151','Overview')" id="tbtn-m151-Overview">Overview</button>
@@ -4469,7 +4715,7 @@ window.__quizData['m211']=[
 <div class="module-header">
   <div class="module-eyebrow t2">2.2</div>
   <h1 class="module-h1">Client Submission</h1>
-  <p class="module-intro">The formatted CV is ready. Now get it in front of the client and keep the momentum going until they confirm an interview time.</p>
+  <p class="module-intro">The formatted CV is ready. Now get it in front of the client and get the interview booked as fast as possible.</p>
 </div>
 <div class="tabs" id="tabs-m221">
   <button class="tab-btn active" onclick="switchTab('m221','Overview')" id="tbtn-m221-Overview">Overview</button>
@@ -4504,7 +4750,7 @@ window.__quizData['m211']=[
   </div>
 
   <div class="content-block">
-    <div class="block-title">Step 2 — Send the candidate a heads-up</div>
+    <div class="block-title">Step 2 — Send the candidate a heads-up (Day 0)</div>
     <div class="block-body">
       <p>Straight after sending the endorsement email, text the candidate using the <strong>Candidate Heads-Up SMS</strong>. Let them know the interview day, and ask them to block out both the morning and afternoon while you wait for the client to confirm the exact time.</p>
       <div class="callout warn">Convert the morning and afternoon windows to <strong>NZ time</strong>. NZ is 2 to 5 hours ahead of Australia, depending on the state and daylight saving — a Perth morning can be a NZ afternoon.</div>
@@ -4562,9 +4808,10 @@ window.__quizData['m211']=[
     <div class="block-body">
       <div class="callout danger">Forgetting to text the candidate after sending the endorsement email — they need to block out the day before the client confirms a time</div>
       <div class="callout danger" style="margin-top:8px">Writing the interview day in NZ time for the client, or in Australian time for the candidate</div>
-      <div class="callout danger" style="margin-top:8px">Sending the CV and waiting passively — the follow-up sequence starts 24 hours after</div>
+      <div class="callout danger" style="margin-top:8px">Following up by email instead of calling — emails only go out after a missed call</div>
+      <div class="callout danger" style="margin-top:8px">Hanging up without trying to book the interview on the call</div>
       <div class="callout danger" style="margin-top:8px">Accepting a vague maybe from the client — push for a specific time or a clean no</div>
-      <div class="callout danger" style="margin-top:8px">Skipping the phone call — email alone is not enough if there's no response after Step 3</div>
+      <div class="callout danger" style="margin-top:8px">Holding a candidate for an unresponsive client when another client could meet them now</div>
       <div class="callout danger" style="margin-top:8px">Forgetting to update the candidate's status in JobAdder</div>
     </div>
   </div>
@@ -4752,7 +4999,7 @@ Stand Up Recruitment</div>
 <div class="block-label">Practice Activity</div>
 <div class="block-body">
 <div class="callout" style="margin:10px 0"><strong>Complete this before moving to Stage 8.</strong></div>
-<p>Once you've sent a CV to a real client assigned by Les, send the candidate heads-up and work through the follow-up sequence until you get a confirmed interview time or a clear no.</p>
+<p>Once you've sent a CV to a real client assigned by Les, send the candidate heads-up and work through the call sequence until the interview is booked or you move the candidate on.</p>
 <p>Log every touchpoint in JobAdder notes — date, method, and outcome.</p>
 </div>
 </div>
@@ -5188,7 +5435,7 @@ window.__quizData['m231']=[
       <div class="step-row"><div class="step-num">5</div><div>Add a <strong>Signature Field</strong> for the candidate on the document</div></div>
       <div class="step-row"><div class="step-num">6</div><div>Click <strong>Send</strong></div></div>
       <div class="step-row"><div class="step-num">7</div><div>Go to the <strong>Detailed</strong> tab</div></div>
-      <div class="step-row"><div class="step-num">8</div><div>Fill in: Candidate Name, Name of the Company, Location, Start Date</div></div>
+      <div class="step-row"><div class="step-num">8</div><div>Fill in: Candidate Name, Name of the Company, Location, Start Date, Client First Name</div></div>
       <div class="step-row"><div class="step-num">9</div><div>In the email fields, add both the <strong>candidate's email</strong> and the <strong>client's email</strong></div></div>
       <div class="step-row"><div class="step-num">10</div><div><strong>Untick "Send Email"</strong> — this is required for the Automation team's automation to work correctly</div></div>
       <div class="step-row"><div class="step-num">11</div><div>Click <strong>Add Recipients</strong></div></div>
@@ -5201,7 +5448,12 @@ window.__quizData['m231']=[
     <div class="block-title">Step 4 — Call the Candidate to Inform Them and Book the Welcome &amp; Relocation Chat</div>
     <div class="block-body">
       <p>As soon as the offer has been sent through DocuSeal, call the candidate. This call has three purposes: let them know the offer has landed, explain the 2-day cool-down period, and lock in the <strong>Welcome &amp; Relocation Chat</strong> 2 days from now.</p>
-      <p style="margin-top:8px">Confirm a day and time on the call before you hang up, then send the <strong>Welcome &amp; Relocation Chat Email</strong> (see Templates tab) confirming the date, time, and Teams link. See the Coaching Guide for the full word-for-word call script.</p>
+      <div class="step-row"><div class="step-num">1</div><div><strong>Open with the exciting news.</strong> &quot;Hey [Name], it's [Recruiter] from Stand Up. Good news — we've got your letter of offer through from [Client]. This is the big one. This means [Client] wants to bring you on board in Australia.&quot;</div></div>
+      <div class="step-row"><div class="step-num">2</div><div><strong>Explain the cool-down period.</strong> &quot;Now before anything gets signed, we give you a 48-hour cool-down period. That's non-negotiable on our end, and it's there for you. It's your time to sit with the contract properly, talk to your partner or family, and be honest with yourself about timing, location, and what this move actually means for your life. We'd rather you take those 48 hours and be certain than rush it and regret it.&quot;</div></div>
+      <div class="step-row"><div class="step-num">3</div><div><strong>Explain what's in the email.</strong> &quot;You'll get an email from us in the next few minutes with three things in it: your letter of offer from [Client] — the actual job offer, pay, start date, all of it. Our terms of business — standard Stand Up terms. And a relocation guide — have a proper read of it, because it covers your bank details, your tax file number, and all the admin you'll need sorted. In 48 hours you'll be on a call with me and our pastoral care person, going through that guide step by step — so if you're already familiar with it, that call moves a lot faster.&quot;</div></div>
+      <div class="step-row"><div class="step-num">4</div><div><strong>Book the Welcome &amp; Relocation Chat.</strong> &quot;So let's lock that in now — we're talking [today], which means 48 hours takes us to [day]. What time suits you on [day]? Great, I'll send you a Teams invite for [day] at [time]. That's you, me, and pastoral care.&quot;</div></div>
+      <div class="step-row"><div class="step-num">5</div><div><strong>Close on a high note.</strong> &quot;[Name], before I let you go — we're genuinely excited to have you on board. This is a massive step and we can't wait to see you thrive over there. Talk soon!&quot;</div></div>
+      <p style="margin-top:8px">Once the call is booked, send the <strong>Welcome &amp; Relocation Chat Email</strong> (see Templates tab) to confirm the date, time, and Teams link. See the Coaching Guide for the full call script with tone notes.</p>
     </div>
   </div>
 
