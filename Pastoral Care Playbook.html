@@ -161,6 +161,22 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <h2 style="font-family:'Archivo';font-weight:800;font-size:26px;color:#102a43;margin-bottom:6px">Overview</h2>
   <p style="font-size:14px;line-height:1.65;color:#52708a;max-width:700px;margin-bottom:20px">Foundation rules, system setup, automation flow, and check-in calendar. Every Support Team member must know this section before running a placement.</p>
 
+  <div class="sec-hdr">Glossary</div>
+  <table class="info-table" style="margin-bottom:28px">
+    <tr><th>Term</th><th>Meaning</th></tr>
+    <tr><td><strong>TOB</strong></td><td>Terms of Business — the signed agreement covering fees/terms. Candidate signs it at the same time they sign the client employment contract.</td></tr>
+    <tr><td><strong>JobAdder</strong></td><td>The recruitment CRM/ATS — placement records, status tracking, document storage.</td></tr>
+    <tr><td><strong>Airtable</strong></td><td>The operational database that drives automation — candidate records, invoice plans, check-in calendar triggers.</td></tr>
+    <tr><td><strong>RC</strong></td><td>Recruitment Consultant — the recruiter who sourced/placed the candidate (e.g. Ian, Ayn). Handles referral and re-hire leads post-placement.</td></tr>
+    <tr><td><strong>NEA</strong></td><td>Invoice plan name (13% of gross annual, 2 invoices) — <em style="color:#856404">unconfirmed whether this is a client/account name or stands for something specific, flag if wrong</em>.</td></tr>
+    <tr><td><strong>Adroit</strong></td><td>Invoice plan name — $16,000, 3 instalments.</td></tr>
+    <tr><td><strong>n8n</strong></td><td>The workflow automation tool running behind the scenes — triggers calendar events, syncs Airtable/JobAdder/Xero.</td></tr>
+    <tr><td><strong>TL</strong></td><td>Trade Licensing — the trade-specific licence/certification a candidate needs to legally work on site in their state (TL-1 = the summary + application form sent to candidates).</td></tr>
+    <tr><td><strong>DocuSeal</strong></td><td>The e-signature tool used for TOB and contract signing.</td></tr>
+    <tr><td><strong>Pathway A / B</strong></td><td>A = self-managed (candidate arranges own flights/accommodation). B = full relocation (SUR sources accommodation via AI-ACCOM, books flights/transfer).</td></tr>
+  </table>
+  <div class="note-blue" style="margin-bottom:28px">Best-effort definitions built from how these terms are used across the playbook — flag anything wrong or missing.</div>
+
   <div class="video-card" style="display:block">
     <video controls preload="metadata" style="width:100%;display:block;background:#000;max-height:420px">
       <source src="System_Overview_Video.mp4" type="video/mp4">
@@ -189,8 +205,8 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <tr class="hs-5"><td><strong style="color:#157347">5</strong></td><td>Thriving</td><td>Continue as scheduled</td></tr>
     <tr class="hs-4"><td><strong style="color:#1c4fc4">4</strong></td><td>Settled</td><td>Monitor, revisit at next check-in</td></tr>
     <tr class="hs-3"><td><strong style="color:#b7791f">3</strong></td><td>Needs attention</td><td>Flag to RC, increase call frequency</td></tr>
-    <tr class="hs-2"><td><strong style="color:#c0392b">2</strong></td><td>At risk</td><td>Escalate to Les immediately</td></tr>
-    <tr class="hs-1"><td><strong style="color:#7a241b">1</strong></td><td>Critical</td><td>Notify Les same day, no delay</td></tr>
+    <tr class="hs-2"><td><strong style="color:#c0392b">2</strong></td><td>At risk</td><td>Rachel takes over immediately, action plan same day</td></tr>
+    <tr class="hs-1"><td><strong style="color:#7a241b">1</strong></td><td>Critical</td><td>Rachel actions same day, no delay</td></tr>
   </table>
 
   <div class="sec-hdr">Automation &amp; System Overview</div>
@@ -198,10 +214,10 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div style="display:flex;flex-direction:column;gap:0;margin-bottom:22px">
     <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-sys">Trigger</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Recruiter submits candidate form in JobAdder</div><div style="font-size:13px;color:#52708a;line-height:1.6">Automation wakes up. No manual trigger needed.</div></div></div>
     <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-auto">Step 1</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Candidate record created in Airtable</div><div style="font-size:13px;color:#52708a;line-height:1.6">Data verified across Airtable, Xero, and JobAdder.</div></div></div>
-    <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-auto">Step 2</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Invoice plan selected, Xero contact and invoice generated</div><div style="font-size:13px;color:#52708a;line-height:1.6">Adroit, NEA, General 1, or General 2 — drives the full milestone schedule.</div></div></div>
-    <div style="display:flex;gap:14px;padding:14px;background:#fff7ed;border:1px solid #f6e0c3;border-radius:10px;margin-bottom:0"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-auto">Step 3</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Two emails fire + New Placement Notice to Support Team <span style="color:#b7791f">★ You start here</span></div><div style="font-size:13px;color:#52708a;line-height:1.6">Email 1 to candidate + alert to Support Team. Send Email 2B to client same day.</div></div></div>
+    <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-auto">Step 2</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Invoice plan selected, Xero contact and invoice generated</div><div style="font-size:13px;color:#52708a;line-height:1.6">Adroit, NEA, General 1, General 2, or General 3 — drives the full milestone schedule.</div></div></div>
+    <div style="display:flex;gap:14px;padding:14px;background:#fff7ed;border:1px solid #f6e0c3;border-radius:10px;margin-bottom:0"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-auto">Step 3</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Two emails fire + New Placement Notice to Support Team <span style="color:#b7791f">★ You start here</span></div><div style="font-size:13px;color:#52708a;line-height:1.6">Email 1 to candidate + alert to Support Team. Email 2B to client fires automatically same day.</div></div></div>
     <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-auto">Step 4</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Invoice email to candidate (Pathway B only)</div><div style="font-size:13px;color:#52708a;line-height:1.6">Invoice + ASB bank details sent to candidate automatically.</div></div></div>
-    <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-manual">Step 5</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Candidate signs and pays</div><div style="font-size:13px;color:#52708a;line-height:1.6">DocuSeal → Signed. Xero reconciliation → Paid. These don't always happen in the same order.</div></div></div>
+    <div style="display:flex;gap:14px;padding:14px;border-bottom:1px solid #eef2f6"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-manual">Step 5</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Candidate pays</div><div style="font-size:13px;color:#52708a;line-height:1.6">Candidate signs the TOB when they sign the client employment contract — signing isn't a separate action here. Xero reconciliation → Paid.</div></div></div>
     <div style="display:flex;gap:14px;padding:14px"><div style="flex-shrink:0;padding-top:2px"><span class="badge badge-manual">Step 6</span></div><div><div style="font-weight:700;color:#102a43;font-size:13.5px;margin-bottom:2px">Client pays invoice</div><div style="font-size:13px;color:#52708a;line-height:1.6">Xero reconciles, client record updates, recruiter commission triggered.</div></div></div>
   </div>
   <div class="note-red"><strong style="color:#7a241b">Do not manually update Signed or Paid in Airtable.</strong> These are driven by automation. Manual edits corrupt payroll on next sync. Raise anything incorrect with <strong style="color:#5e1a14">Nihanga</strong>.</div>
@@ -214,13 +230,14 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
       <tr><td>NEA</td><td>13% Gross Annual</td><td>2 invoices, %</td></tr>
       <tr><td>General 1</td><td>$16,000</td><td>2 invoices, fixed</td></tr>
       <tr><td>General 2</td><td>$2,000 + $500/wk</td><td>Onboarding + weekly</td></tr>
+      <tr><td>General 3</td><td>$17,000</td><td>2 instalments</td></tr>
     </table>
   </div>
 
   <div class="note-blue" style="margin-bottom:20px"><strong style="color:#1c4fc4">Escalation Contacts, the Payment-Gap Rule, Post-Departure Escalation Protocol, and Guarantee Claim Process now live in their own tab</strong> — see Tab 2 · Escalation Protocol.</div>
 
   <div class="sec-hdr">Check-In Calendar Schedule</div>
-  <div class="note-blue">Every check-in is pinned to a specific week offset. Rachel enters arrival date in Airtable → n8n auto-creates Day 1 event in Outlook. All other events are created from start date using the offsets below.<br><br><strong style="color:#1c4fc4">Touchpoint weight:</strong> Day 1, Week 11 = <span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text or email</span> — quick, casual, no call required. &nbsp; Week 1 (Day 5), Week 2, Week 6 = <span style="background:#e4ebf3;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Call First</span> — 2 call attempts same day (~11am / ~3pm), text only if both go unanswered. &nbsp; Week 4, Week 8, Week 14.5, Week 15 = <span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Call or email</span> — these four protect the 4-month guarantee period.</div>
+  <div class="note-blue">Every check-in is pinned to a specific week offset. Rachel enters arrival date in Airtable → n8n auto-creates Day 1 event in Outlook. All other events are created from start date using the offsets below.<br><br><strong style="color:#1c4fc4">Touchpoint weight:</strong> Day 1 = <span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Text or email</span> — quick, casual, no call required. &nbsp; Week 1 (Day 5), Week 2, Week 6, Week 11 = <span style="background:#e4ebf3;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Call First</span> — 2 call attempts same day (~11am / ~3pm), fallback (text for Wk 1/2/6, email for Wk 11) only if both go unanswered. &nbsp; Week 4, Week 8, Week 14.5, Week 15 = <span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Call or email</span> — these four protect the 4-month guarantee period.</div>
   <div class="note-red"><strong style="color:#5e1a14">Any bad result, at any check-in = urgent, same day, no exceptions.</strong> Run the Concern Resolution Protocol (Tab 2) immediately — don't wait for the next scheduled touchpoint. A bad reply by text is never resolved in writing — reply asking for a quick call and get on the phone that day. <strong style="color:#5e1a14">The call itself takes precedence over CRM/Airtable logging — make the call first, log it after, not the other way round.</strong></div>
   <table class="info-table" style="margin-bottom:20px">
     <tr><th>Check-in</th><th>Calculated from</th><th>Weight</th></tr>
@@ -235,7 +252,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <tr><td style="font-weight:700;color:#c0392b">Week 4 review</td><td>Start date + 28 days</td><td><span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Deep call</span></td></tr>
     <tr><td>Week 6 check-in — call first, text fallback</td><td>Start date + 42 days</td><td><span style="background:#e4ebf3;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Call First</span></td></tr>
     <tr><td style="font-weight:700;color:#c0392b">Week 8 review</td><td>Start date + 56 days</td><td><span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Deep call</span></td></tr>
-    <tr><td>Week 11 light check-in email</td><td>Start date + 77 days</td><td><span style="background:#e8f4fd;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Light / Email</span></td></tr>
+    <tr><td>Week 11 check-in — call first, email fallback</td><td>Start date + 77 days</td><td><span style="background:#e4ebf3;color:#1f4e79;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Call First</span></td></tr>
     <tr><td>Week 14.5 prep call</td><td>Start date + 101 days</td><td><span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Call</span></td></tr>
     <tr><td style="font-weight:700;color:#c0392b">Week 15 three-way review</td><td>Start date + 105 days</td><td><span style="background:#fdeceb;color:#c0392b;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap">Serious / Deep call</span></td></tr>
   </table>
@@ -246,7 +263,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div class="checklist-card">
     <div class="check-section-title">Setup &amp; Gate <span style="font-weight:400;text-transform:none;color:#829ab1">— detail in Tab 5</span></div>
     <div class="check-item"><input type="checkbox"><span>Pathway confirmed — A (self-managed) or B (full package)</span></div>
-    <div class="check-item"><input type="checkbox"><span>Auto emails fired (1A/1B), Airtable record correct — Email 2A + 2B sent same day</span></div>
+    <div class="check-item"><input type="checkbox"><span>Auto emails fired (1A/1B, 2B), Airtable record correct — Email 2A sent same day</span></div>
     <div class="check-item"><input type="checkbox"><span>Documents Call done — 15-week program set, Welcome Pack, TOB check, origin-story testimonial ask</span></div>
     <div class="check-item"><input type="checkbox"><span>TL-1 sent — trade licensing summary + application form, same day as Documents Call</span></div>
     <div class="check-item"><input type="checkbox"><span>GATE — TOB signed AND invoice paid before any relocation work</span></div>
@@ -267,9 +284,9 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <div class="check-item"><input type="checkbox"><span>Day 1 — arrival email confirmed, AU number received (candidate only)</span></div>
     <div class="check-item"><input type="checkbox"><span>Week 1 &amp; Week 2 — call check-ins both sides (2 attempts, text fallback), logged in JobAdder</span></div>
     <div class="check-item"><input type="checkbox"><span>Week 3 — conditional follow-up call, only if Week 2 flagged a negative from either side</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 4 &amp; Week 8 — questionnaire + deep call both sides, health score logged, score ≤3 → escalate to Les within 24 hrs</span></div>
+    <div class="check-item"><input type="checkbox"><span>Week 4 &amp; Week 8 — questionnaire + deep call both sides, health score logged, score ≤3 → Rachel actions within 24 hrs</span></div>
     <div class="check-item"><input type="checkbox"><span>Week 6 — call check-in both sides (2 attempts, text fallback)</span></div>
-    <div class="check-item"><input type="checkbox"><span>Week 11 — light check-in email both sides</span></div>
+    <div class="check-item"><input type="checkbox"><span>Week 11 — call check-in both sides (2 attempts, email fallback)</span></div>
     <div class="check-item"><input type="checkbox"><span>Week 14.5 — pre-calls done both sides, Week 15 format decided</span></div>
     <div class="check-item"><input type="checkbox"><span>Week 15 — three-way review held, Google review + referral ask done, summaries sent within 24 hrs</span></div>
     <div class="check-section-title">Closeout</div>
@@ -326,20 +343,18 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 <text x="412.0" y="414.0" font-size="13" fill="#2C2C2A">Close loop -&gt; written summary +</text>
 <text x="412.0" y="437.0" font-size="13" fill="#2C2C2A">praise both sides, CC'd</text>
 <text x="412.0" y="458.0" font-size="13" fill="#2C2C2A">Repeat bad -&gt; 3-way call/site visit;</text>
-<text x="412.0" y="481.0" font-size="13" fill="#2C2C2A">2 bad running -&gt; escalate to Les</text>
+<text x="412.0" y="481.0" font-size="13" fill="#2C2C2A">2 bad running -&gt; Rachel steps in</text>
 <path d="M1025.0 164 L1025.0 186.0 L862.0 186.0 L862.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="712" y="204" width="300" height="46" rx="8" fill="#0F6E56" stroke="none"/>
 <text x="862.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Communication channel</text>
-<rect x="712" y="258" width="300" height="194" rx="6" fill="#F3FAF7" stroke="#1D9E75" stroke-width="1"/>
-<rect x="712" y="258" width="5" height="194" fill="#1D9E75"/>
-<text x="738.0" y="282.0" font-size="13" fill="#2C2C2A">Call-first (Wk 1,2,6) -&gt; 2 call</text>
-<text x="738.0" y="303.0" font-size="13" fill="#2C2C2A">attempts, text fallback only</text>
-<text x="738.0" y="326.0" font-size="13" fill="#2C2C2A">Light check-in (Wk 11) -&gt; text or</text>
-<text x="738.0" y="347.0" font-size="13" fill="#2C2C2A">email</text>
-<text x="738.0" y="370.0" font-size="13" fill="#2C2C2A">Deep review (Wk 4,8,14.5,15) -&gt;</text>
-<text x="738.0" y="391.0" font-size="13" fill="#2C2C2A">call or Teams</text>
-<text x="738.0" y="414.0" font-size="13" fill="#2C2C2A">Concern arrives by text/email -&gt;</text>
-<text x="738.0" y="435.0" font-size="13" fill="#2C2C2A">always call back</text>
+<rect x="712" y="258" width="300" height="154" rx="6" fill="#F3FAF7" stroke="#1D9E75" stroke-width="1"/>
+<rect x="712" y="258" width="5" height="154" fill="#1D9E75"/>
+<text x="738.0" y="282.0" font-size="13" fill="#2C2C2A">Call-first (Wk 1,2,6,11) -&gt; 2 call</text>
+<text x="738.0" y="303.0" font-size="13" fill="#2C2C2A">attempts, text/email fallback only</text>
+<text x="738.0" y="326.0" font-size="13" fill="#2C2C2A">Deep review (Wk 4,8,14.5,15) -&gt;</text>
+<text x="738.0" y="347.0" font-size="13" fill="#2C2C2A">call or Teams</text>
+<text x="738.0" y="370.0" font-size="13" fill="#2C2C2A">Concern arrives by text/email -&gt;</text>
+<text x="738.0" y="391.0" font-size="13" fill="#2C2C2A">always call back</text>
 <path d="M1025.0 164 L1025.0 186.0 L1188.0 186.0 L1188.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="1038" y="204" width="300" height="46" rx="8" fill="#0F6E56" stroke="none"/>
 <text x="1188.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">No-response ladder</text>
@@ -353,18 +368,16 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 <path d="M1025.0 164 L1025.0 186.0 L1514.0 186.0 L1514.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="1364" y="204" width="300" height="46" rx="8" fill="#0F6E56" stroke="none"/>
 <text x="1514.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Escalation contacts</text>
-<rect x="1364" y="258" width="300" height="238" rx="6" fill="#F3FAF7" stroke="#1D9E75" stroke-width="1"/>
-<rect x="1364" y="258" width="5" height="238" fill="#1D9E75"/>
+<rect x="1364" y="258" width="300" height="196" rx="6" fill="#F3FAF7" stroke="#1D9E75" stroke-width="1"/>
+<rect x="1364" y="258" width="5" height="196" fill="#1D9E75"/>
 <text x="1390.0" y="282.0" font-size="13" fill="#2C2C2A">Candidate data missing -&gt; Recruiter,</text>
 <text x="1390.0" y="303.0" font-size="13" fill="#2C2C2A">backup Rachel</text>
-<text x="1390.0" y="326.0" font-size="13" fill="#2C2C2A">Client TOB not signing -&gt; Nihanga,</text>
-<text x="1390.0" y="347.0" font-size="13" fill="#2C2C2A">backup Rachel</text>
-<text x="1390.0" y="370.0" font-size="13" fill="#2C2C2A">Candidate contract not signing -&gt;</text>
-<text x="1390.0" y="391.0" font-size="13" fill="#2C2C2A">Recruiter, backup Les</text>
-<text x="1390.0" y="414.0" font-size="13" fill="#2C2C2A">Paid but Airtable shows unpaid -&gt;</text>
-<text x="1390.0" y="435.0" font-size="13" fill="#2C2C2A">Nihanga, backup Trung</text>
-<text x="1390.0" y="458.0" font-size="13" fill="#2C2C2A">Automation broken -&gt; Trung, backup</text>
-<text x="1390.0" y="479.0" font-size="13" fill="#2C2C2A">Nihanga</text>
+<text x="1390.0" y="326.0" font-size="13" fill="#2C2C2A">Candidate contract not signing -&gt;</text>
+<text x="1390.0" y="347.0" font-size="13" fill="#2C2C2A">Recruiter, backup Les</text>
+<text x="1390.0" y="370.0" font-size="13" fill="#2C2C2A">Paid but Airtable shows unpaid -&gt;</text>
+<text x="1390.0" y="391.0" font-size="13" fill="#2C2C2A">Nihanga, backup Trung</text>
+<text x="1390.0" y="414.0" font-size="13" fill="#2C2C2A">Automation broken -&gt; Trung, backup</text>
+<text x="1390.0" y="435.0" font-size="13" fill="#2C2C2A">Nihanga</text>
 <path d="M1025.0 164 L1025.0 186.0 L1840.0 186.0 L1840.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="1690" y="204" width="300" height="46" rx="8" fill="#0F6E56" stroke="none"/>
 <text x="1840.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Payment-gap rule</text>
@@ -377,46 +390,44 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 <path d="M2210.0 164 L2210.0 186.0 L2210.0 186.0 L2210.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="2060" y="204" width="300" height="46" rx="8" fill="#854F0B" stroke="none"/>
 <text x="2210.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Operational scenarios</text>
-<rect x="2060" y="258" width="300" height="280" rx="6" fill="#FDF6EC" stroke="#BA7517" stroke-width="1"/>
-<rect x="2060" y="258" width="5" height="280" fill="#BA7517"/>
-<text x="2086.0" y="282.0" font-size="13" fill="#2C2C2A">Candidate pulls out -&gt; recruiter + Les</text>
-<text x="2086.0" y="303.0" font-size="13" fill="#2C2C2A">same day</text>
+<rect x="2060" y="258" width="300" height="236" rx="6" fill="#FDF6EC" stroke="#BA7517" stroke-width="1"/>
+<rect x="2060" y="258" width="5" height="236" fill="#BA7517"/>
+<text x="2086.0" y="282.0" font-size="13" fill="#2C2C2A">Candidate pulls out -&gt; Rachel + recruiter</text>
+<text x="2086.0" y="303.0" font-size="13" fill="#2C2C2A">same day, Les FYI</text>
 <text x="2086.0" y="326.0" font-size="13" fill="#2C2C2A">Airport transfer no-show -&gt; emergency</text>
 <text x="2086.0" y="347.0" font-size="13" fill="#2C2C2A">taxi, log incident</text>
 <text x="2086.0" y="370.0" font-size="13" fill="#2C2C2A">Accommodation falls through -&gt; re-search</text>
 <text x="2086.0" y="391.0" font-size="13" fill="#2C2C2A">/ temp hotel</text>
 <text x="2086.0" y="414.0" font-size="13" fill="#2C2C2A">Flights not booked by deadline -&gt;</text>
 <text x="2086.0" y="435.0" font-size="13" fill="#2C2C2A">recruiter, then Les</text>
-<text x="2086.0" y="458.0" font-size="13" fill="#2C2C2A">Property manager unresponsive -&gt; run</text>
-<text x="2086.0" y="479.0" font-size="13" fill="#2C2C2A">parallel search</text>
-<text x="2086.0" y="502.0" font-size="13" fill="#2C2C2A">Trade licensing not actioned or rejected</text>
-<text x="2086.0" y="523.0" font-size="13" fill="#2C2C2A">-&gt; recruiter + Les</text>
+<text x="2086.0" y="458.0" font-size="13" fill="#2C2C2A">Trade licensing not actioned or rejected</text>
+<text x="2086.0" y="479.0" font-size="13" fill="#2C2C2A">-&gt; recruiter + Les</text>
 <path d="M2906.0 164 L2906.0 186.0 L2580.0 186.0 L2580.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="2430" y="204" width="300" height="46" rx="8" fill="#993C1D" stroke="none"/>
 <text x="2580.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Immediate escalation</text>
 <rect x="2430" y="258" width="300" height="175" rx="6" fill="#FCF1EC" stroke="#D85A30" stroke-width="1"/>
 <rect x="2430" y="258" width="5" height="175" fill="#D85A30"/>
-<text x="2456.0" y="282.0" font-size="13" fill="#2C2C2A">Safety or welfare issue -&gt; Les</text>
+<text x="2456.0" y="282.0" font-size="13" fill="#2C2C2A">Safety or welfare -&gt; Rachel, Les FYI</text>
 <text x="2456.0" y="303.0" font-size="13" fill="#2C2C2A">immediately</text>
-<text x="2456.0" y="326.0" font-size="13" fill="#2C2C2A">Serious conduct issue -&gt; Les immediately</text>
-<text x="2456.0" y="349.0" font-size="13" fill="#2C2C2A">Medical emergency -&gt; Les immediately</text>
-<text x="2456.0" y="372.0" font-size="13" fill="#2C2C2A">Client wants to terminate -&gt; Les same</text>
-<text x="2456.0" y="393.0" font-size="13" fill="#2C2C2A">day</text>
-<text x="2456.0" y="416.0" font-size="13" fill="#2C2C2A">Candidate wants to quit -&gt; Les same day</text>
+<text x="2456.0" y="326.0" font-size="13" fill="#2C2C2A">Serious conduct -&gt; Rachel immediately</text>
+<text x="2456.0" y="349.0" font-size="13" fill="#2C2C2A">Medical emergency -&gt; Rachel, Les FYI</text>
+<text x="2456.0" y="372.0" font-size="13" fill="#2C2C2A">Client wants to terminate -&gt; Rachel</text>
+<text x="2456.0" y="393.0" font-size="13" fill="#2C2C2A">same day</text>
+<text x="2456.0" y="416.0" font-size="13" fill="#2C2C2A">Candidate wants to quit -&gt; Rachel</text>
 <path d="M2906.0 164 L2906.0 186.0 L2906.0 186.0 L2906.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="2756" y="204" width="300" height="46" rx="8" fill="#993C1D" stroke="none"/>
 <text x="2906.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Standard escalation</text>
 <rect x="2756" y="258" width="300" height="220" rx="6" fill="#FCF1EC" stroke="#D85A30" stroke-width="1"/>
 <rect x="2756" y="258" width="5" height="220" fill="#D85A30"/>
-<text x="2782.0" y="282.0" font-size="13" fill="#2C2C2A">No response, either side -&gt; Les directly</text>
-<text x="2782.0" y="305.0" font-size="13" fill="#2C2C2A">Health score declining trend -&gt; flag to</text>
-<text x="2782.0" y="326.0" font-size="13" fill="#2C2C2A">Les early</text>
+<text x="2782.0" y="282.0" font-size="13" fill="#2C2C2A">No response, either side -&gt; ladder</text>
+<text x="2782.0" y="305.0" font-size="13" fill="#2C2C2A">Health score declining trend -&gt; Rachel</text>
+<text x="2782.0" y="326.0" font-size="13" fill="#2C2C2A">acts early</text>
 <text x="2782.0" y="349.0" font-size="13" fill="#2C2C2A">Milestone invoice unpaid -&gt; Les, same as</text>
 <text x="2782.0" y="370.0" font-size="13" fill="#2C2C2A">payment-gap</text>
 <text x="2782.0" y="393.0" font-size="13" fill="#2C2C2A">Issue surfaces live in Week 15 review -&gt;</text>
 <text x="2782.0" y="414.0" font-size="13" fill="#2C2C2A">pause, escalate same day</text>
 <text x="2782.0" y="437.0" font-size="13" fill="#2C2C2A">Repeat bad result, either side, 2 in a</text>
-<text x="2782.0" y="458.0" font-size="13" fill="#2C2C2A">row -&gt; escalate to Les</text>
+<text x="2782.0" y="458.0" font-size="13" fill="#2C2C2A">row -&gt; Rachel steps in</text>
 <path d="M2906.0 164 L2906.0 186.0 L3232.0 186.0 L3232.0 204" fill="none" stroke="#B4B2A9" stroke-width="1.3" marker-end="url(#arrow)"/>
 <rect x="3082" y="204" width="300" height="46" rx="8" fill="#993C1D" stroke="none"/>
 <text x="3232.0" y="232.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Guarantee claim process</text>
@@ -424,11 +435,11 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 <rect x="3082" y="258" width="5" height="238" fill="#D85A30"/>
 <text x="3108.0" y="282.0" font-size="13" fill="#2C2C2A">Confirm inside 4-month window from start</text>
 <text x="3108.0" y="303.0" font-size="13" fill="#2C2C2A">date</text>
-<text x="3108.0" y="326.0" font-size="13" fill="#2C2C2A">Escalate to Les same day</text>
-<text x="3108.0" y="349.0" font-size="13" fill="#2C2C2A">Les presents client's choice: refund or</text>
+<text x="3108.0" y="326.0" font-size="13" fill="#2C2C2A">Rachel runs it same day, Les FYI</text>
+<text x="3108.0" y="349.0" font-size="13" fill="#2C2C2A">Rachel presents client's choice: refund or</text>
 <text x="3108.0" y="370.0" font-size="13" fill="#2C2C2A">replacement</text>
-<text x="3108.0" y="393.0" font-size="13" fill="#2C2C2A">Refund -&gt; Les to Nihanga, processed via</text>
-<text x="3108.0" y="414.0" font-size="13" fill="#2C2C2A">Xero</text>
+<text x="3108.0" y="393.0" font-size="13" fill="#2C2C2A">Refund -&gt; Rachel to Nihanga, processed via</text>
+<text x="3108.0" y="414.0" font-size="13" fill="#2C2C2A">online banking</text>
 <text x="3108.0" y="437.0" font-size="13" fill="#2C2C2A">Replacement -&gt; recruiter sources</text>
 <text x="3108.0" y="458.0" font-size="13" fill="#2C2C2A">candidate</text>
 <text x="3108.0" y="481.0" font-size="13" fill="#2C2C2A">Log outcome in JobAdder</text>
@@ -455,7 +466,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   </table>
 
   <div class="sec-hdr">Concern Resolution Protocol</div>
-  <div class="note-blue">Applies from Week 2 onward, any check-in, either direction — client→candidate or candidate→client. This is separate from the escalation-to-Les scenarios below; most concerns resolve here and never need to go further.</div>
+  <div class="note-blue">Applies from Week 2 onward, any check-in, either direction — client→candidate or candidate→client. This is separate from the escalation scenarios below; most concerns resolve here and never need to go further.</div>
   <div class="note-red" style="margin-bottom:14px"><strong style="color:#5e1a14">Week 1 stays light.</strong> Simple call; no pickup → email. Don't dig for issues yet — both sides are still settling in.</div>
   <div class="note-red" style="margin-bottom:14px"><strong style="color:#5e1a14">Any bad result is urgent — same day, full stop.</strong> If it comes in by text, don't resolve it in writing: reply "thanks for that — can I give you a quick call in 15?" and get on the phone that day.</div>
   <table class="info-table" style="margin-bottom:14px">
@@ -476,8 +487,8 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <table class="info-table" style="margin-bottom:28px">
     <tr><th>Trigger</th><th>Action</th></tr>
     <tr><td>1st bad result, any issue</td><td>Run the Concern Resolution Protocol above. Tell both sides you'll follow up in a week.</td></tr>
-    <tr><td style="font-weight:700;color:#c0392b">2nd bad result in a row, same issue ("double whammy")</td><td>This is now serious — treat it as triple-red. Request a 3-way call or site visit to sort it face to face. Either side declines → still red alert, escalate to Les same day regardless.</td></tr>
-    <tr><td style="font-weight:700;color:#c0392b">2 bad results running, either side, any issue</td><td>Escalate to Les — this is a relationship-risk signal now, not a one-off, even if no single score has hit the ≤3 threshold yet.</td></tr>
+    <tr><td style="font-weight:700;color:#c0392b">2nd bad result in a row, same issue ("double whammy")</td><td>This is now serious — treat it as triple-red. Request a 3-way call or site visit to sort it face to face. Either side declines → still red alert. Rachel decides next steps same day regardless.</td></tr>
+    <tr><td style="font-weight:700;color:#c0392b">2 bad results running, either side, any issue</td><td>Rachel steps in directly — this is a relationship-risk signal now, not a one-off, even if no single score has hit the ≤3 threshold yet.</td></tr>
   </table>
 
   <div class="sec-hdr">Self-Resolved Concerns — When Client and Candidate Sort It Out Themselves</div>
@@ -493,8 +504,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div class="sec-hdr">Communication Channel Protocol</div>
   <table class="info-table" style="margin-bottom:14px">
     <tr><th>Situation</th><th>Channel</th></tr>
-    <tr><td>Call-first check-in (Week 1, 2, 6)</td><td>2 call attempts same day (~11am / ~3pm) — text only if both go unanswered</td></tr>
-    <tr><td>Routine light check-in (Week 11)</td><td>Text or email first</td></tr>
+    <tr><td>Call-first check-in (Week 1, 2, 6, 11)</td><td>2 call attempts same day (~11am / ~3pm) — fallback (text for Wk 1/2/6, email for Wk 11) only if both go unanswered</td></tr>
     <tr><td>Deep review or critical week (4, 8, 14.5, 15)</td><td>Call or Teams — not text/email</td></tr>
     <tr><td>A concern or issue comes in</td><td>Always respond by calling, even if it arrived by text or email — never resolve a concern in writing</td></tr>
   </table>
@@ -514,7 +524,6 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <table class="info-table" style="margin-bottom:28px">
     <tr><th>Issue</th><th>First</th><th>Backup</th></tr>
     <tr><td>Candidate data missing</td><td>Recruiter</td><td>Rachel</td></tr>
-    <tr><td>Client TOB not signing</td><td>Nihanga</td><td>Rachel</td></tr>
     <tr><td>Candidate contract not signing</td><td>Recruiter</td><td>Les</td></tr>
     <tr><td>Paid but Airtable shows unpaid</td><td>Nihanga</td><td>Trung</td></tr>
     <tr><td>Automation broken</td><td>Trung</td><td>Nihanga</td></tr>
@@ -523,42 +532,42 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div class="note-red" style="margin-bottom:28px"><strong style="color:#5e1a14">Payment-gap escalation:</strong> TOB signed but invoice unpaid after 5 business days → Rachel escalates to Nihanga. Still unpaid at 10 business days → escalate to Les. No relocation work starts regardless, per the Non-Negotiables gate (Tab 1).</div>
 
   <div class="sec-hdr">Post-Departure Escalation Protocol</div>
-  <div class="note-blue">Applies across all 15 weeks, both sides. No recruiter tier here — Support Team (Rachel) escalates straight to Les. This sits alongside the score ≤3 and mismatch rules already built into each check-in — see Tabs 4 and 6.</div>
+  <div class="note-blue">Applies across all 15 weeks, both sides. No recruiter tier here — <strong style="color:#1c4fc4">Rachel owns every at-risk and drop-off decision.</strong> Les is available for guidance when needed, not a required escalation step. Safety/welfare and medical: Rachel handles it, Les gets an FYI same day. This sits alongside the score ≤3 and mismatch rules already built into each check-in — see Tabs 4 and 6.</div>
 
   <div style="font-family:'Archivo';font-weight:700;font-size:13px;color:#c0392b;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px">Immediate — same day, no waiting period</div>
   <table class="info-table" style="margin-bottom:20px">
     <tr><th>Scenario</th><th>Protocol</th></tr>
-    <tr><td>Candidate raises a safety/welfare issue (injury, harassment, unsafe site, discrimination)</td><td>Escalate to Les immediately, same call if possible. Do not wait for a scheduled check-in.</td></tr>
-    <tr><td>Client raises a serious conduct issue (safety violation, misconduct)</td><td>Escalate to Les immediately.</td></tr>
-    <tr><td>Candidate has a medical emergency, accident, or hospitalisation</td><td>Escalate to Les immediately. Rachel handles immediate welfare support in parallel, not instead of.</td></tr>
-    <tr><td>Client wants to terminate the candidate</td><td>Escalate to Les same day, before responding to client. Les decides next steps — see Guarantee Claim Process below.</td></tr>
-    <tr><td>Candidate wants to quit the job / leave the placement</td><td>Escalate to Les same day. Don't try to talk them out of it yourself — Les owns that conversation.</td></tr>
-    <tr><td>Candidate no-shows on a rostered start day, no contact</td><td>Escalate to Les within the hour — no waiting period, this is binary. Call the candidate immediately in parallel; the client relationship needs attention at the same time, not after.</td></tr>
+    <tr><td>Candidate raises a safety/welfare issue (injury, harassment, unsafe site, discrimination)</td><td>Rachel handles immediately, same call if possible. Do not wait for a scheduled check-in. Les FYI same day.</td></tr>
+    <tr><td>Client raises a serious conduct issue (safety violation, misconduct)</td><td>Rachel handles immediately. Get both sides' account same day and decide next steps.</td></tr>
+    <tr><td>Candidate has a medical emergency, accident, or hospitalisation</td><td>Rachel handles immediately, welfare support first. Les FYI same day.</td></tr>
+    <tr><td>Client wants to terminate the candidate</td><td>Rachel handles same day, before responding to client. Rachel decides next steps — see Guarantee Claim Process below.</td></tr>
+    <tr><td>Candidate wants to quit the job / leave the placement</td><td>Rachel owns that conversation, same day. Get the real reason, then decide next steps.</td></tr>
+    <tr><td>Candidate no-shows on a rostered start day, no contact</td><td>Rachel actions within the hour — no waiting period, this is binary. Call the candidate immediately in parallel; the client relationship needs attention at the same time, not after.</td></tr>
   </table>
 
   <div style="font-family:'Archivo';font-weight:700;font-size:13px;color:#334e68;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px">Standard — attempt resolution first, then escalate</div>
   <table class="info-table" style="margin-bottom:20px">
     <tr><th>Scenario</th><th>Protocol</th></tr>
-    <tr><td>No response from client at any check-in</td><td>Text/email again, call same day if no reply. Still no response next day → keep going, don't drop it. If it's dragging on, ask directly: "is there anyone else on your side I should be in touch with?" — flag we'll keep trying regardless. Still no response → escalate to Les directly.</td></tr>
-    <tr><td>No response from candidate at any check-in</td><td>Text again + call, repeat next day. Still no response → escalate to Les directly.</td></tr>
-    <tr><td>Health score declining trend, not yet ≤3 (e.g. 5→4→3 across two checks)</td><td>Flag to Les as an early warning at the next natural touchpoint — don't wait for it to hit ≤3.</td></tr>
+    <tr><td>No response from client at any check-in</td><td>Text/email again, call same day if no reply. Still no response next day → keep going, don't drop it. If it's dragging on, ask directly: "is there anyone else on your side I should be in touch with?" — flag we'll keep trying regardless. Still no response → run the No-Response Ladder above.</td></tr>
+    <tr><td>No response from candidate at any check-in</td><td>Text again + call, repeat next day. Still no response → run the No-Response Ladder above.</td></tr>
+    <tr><td>Health score declining trend, not yet ≤3 (e.g. 5→4→3 across two checks)</td><td>Rachel acts early — increase call frequency and dig into the cause. Don't wait for it to hit ≤3.</td></tr>
     <tr><td>Milestone invoice unpaid (Week 4 / Week 8 triggers)</td><td>Unpaid 5 business days after trigger → escalate to Les. Same shape as the pre-departure payment-gap rule.</td></tr>
-    <tr><td>Serious issue surfaces live during the Week 15 review</td><td>Pause the meeting, don't try to resolve on the spot. Close professionally, escalate to Les same day, reconvene once handled.</td></tr>
-    <tr><td>Candidate raises a pay or hours dispute</td><td>Contact the client the same day to clarify and resolve — treat as urgent regardless of dollar amount, this erodes trust fast. Second time it happens with the same candidate/client → escalate to Les, may need his call on how it's handled.</td></tr>
-    <tr><td>Client gives vague or lukewarm feedback with no specifics at a check-in</td><td>Push for specifics before ending the call — clients rarely say "this isn't working" outright until they've already decided. Still vague after asking directly, or vague two check-ins running → flag to Les as an early relationship-risk signal, even without a low health score.</td></tr>
+    <tr><td>Serious issue surfaces live during the Week 15 review</td><td>Pause the meeting, don't try to resolve on the spot. Close professionally, Rachel actions same day, reconvene once handled.</td></tr>
+    <tr><td>Candidate raises a pay or hours dispute</td><td>Contact the client the same day to clarify and resolve — treat as urgent regardless of dollar amount, this erodes trust fast. Second time it happens with the same candidate/client → Rachel steps in personally and runs the Repeat-Issue Ladder.</td></tr>
+    <tr><td>Client gives vague or lukewarm feedback with no specifics at a check-in</td><td>Push for specifics before ending the call — clients rarely say "this isn't working" outright until they've already decided. Still vague after asking directly, or vague two check-ins running → Rachel treats it as an early relationship-risk signal and acts on it, even without a low health score.</td></tr>
     <tr><td>Candidate needs to temporarily return home (family emergency, bereavement)</td><td>Support first, this is a person before it's a process. Loop in the client proactively so it's not a surprise. Track the expected return date against the guarantee clock. If it becomes permanent, this converts into the "candidate wants to quit" protocol above.</td></tr>
   </table>
 
-  <div class="note-blue" style="margin-bottom:28px"><strong style="color:#1c4fc4">Already covered elsewhere, no change needed:</strong> Score ≤3 at Week 4/8/15 → Les within 24 hours. Mismatch between candidate/client answers → Les same day. Automation broken → Trung/Nihanga (see Escalation Contacts above).</div>
+  <div class="note-blue" style="margin-bottom:28px"><strong style="color:#1c4fc4">Already covered elsewhere, no change needed:</strong> Score ≤3 at Week 4/8/15 → Rachel within 24 hours. Mismatch between candidate/client answers → Rachel same day. Automation broken → Trung/Nihanga (see Escalation Contacts above).</div>
 
   <div class="sec-hdr">Guarantee Claim Process</div>
   <div class="note-red" style="margin-bottom:14px"><strong style="color:#5e1a14">Guarantee window: 4 months from candidate start date.</strong> This is what actually happens when a client invokes it — typically triggered by the "client terminates" or "candidate quits" scenarios above.</div>
   <table class="info-table">
     <tr><th>Step</th><th>Action</th></tr>
     <tr><td>1</td><td>Confirm the claim is inside the 4-month window from the candidate's start date.</td></tr>
-    <tr><td>2</td><td>Escalate to Les same day.</td></tr>
-    <tr><td>3</td><td>Les determines validity and presents the client with their choice — refund or replacement candidate.</td></tr>
-    <tr><td>4 — if refund</td><td>Les → Nihanga processes via Xero.</td></tr>
+    <tr><td>2</td><td>Rachel runs it same day. Les FYI.</td></tr>
+    <tr><td>3</td><td>Rachel determines validity and presents the client with their choice — refund or replacement candidate.</td></tr>
+    <tr><td>4 — if refund</td><td>Rachel → Nihanga processes via online banking (not Xero). Les FYI.</td></tr>
     <tr><td>4 — if replacement</td><td>Les/Nihanga handle the commercial side (contract amendment, any fee adjustment). Recruiter (Ian or Ayn) sources the replacement candidate.</td></tr>
     <tr><td>5</td><td>Log the outcome in JobAdder — client's choice, date, resolution.</td></tr>
   </table>
@@ -567,11 +576,10 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div class="note-blue" style="margin-bottom:14px">Logistics failures before the candidate lands — separate from the concern/conflict scenarios above, but they follow the same rule: something time-critical gets Les's visibility fast, not at the next scheduled catch-up.</div>
   <table class="info-table">
     <tr><th>Scenario</th><th>Protocol</th></tr>
-    <tr><td>Candidate pulls out</td><td>Log in JobAdder and notify recruiter same day. Recruiter notifies client within 24 hours. Escalate to Les same day regardless of reason — revenue impact needs his visibility immediately. Les determines refund/replacement per contract terms with client. <strong>Preventive:</strong> the Pre-Departure Waiting Period Check-In Cadence (Tab 5) exists to catch wavering before it gets here — any hesitation flagged in those check-ins triggers this same protocol early.</td></tr>
+    <tr><td>Candidate pulls out</td><td>Log in JobAdder and notify recruiter same day. Recruiter notifies client within 24 hours. Rachel owns it same day regardless of reason. Les FYI same day — revenue impact needs his visibility. Rachel runs refund/replacement per the Guarantee Claim Process. <strong>Preventive:</strong> the Pre-Departure Waiting Period Check-In Cadence (Tab 5) exists to catch wavering before it gets here — any hesitation flagged in those check-ins triggers this same protocol early.</td></tr>
     <tr><td>Airport transfer no-show</td><td>Time-critical — candidate calls you directly, not email. Book emergency taxi/rideshare on the spot, reimburse the candidate. Log the incident with the transfer provider same day. Second no-show ever from the same provider → escalate to Les to review the provider relationship.</td></tr>
     <tr><td>Accommodation falls through</td><td>Pre-departure (host backs out before flight): re-run AI-ACCOM immediately. No alternative found within 48 hours of flight → escalate to Les. Post-arrival (host backs out after landing): urgent, same-day — book a temporary hotel while re-searching, escalate to Les immediately given cost and candidate welfare.</td></tr>
     <tr><td>Flights not booked by deadline</td><td>Day 5, no flights booked → call the candidate directly, understand the blocker. Day 7 (deadline), still not booked → escalate to recruiter — this is now a client-relationship risk. Recruiter unresolved within 24 hours → escalate to Les.</td></tr>
-    <tr><td>Property manager unresponsive</td><td>No response within 24–48 hours → run 2 more properties in parallel rather than waiting single-threaded on one. Deal falls through inside 2 weeks of the candidate's flight → escalate to Les.</td></tr>
     <tr><td>Trade licensing not actioned / rejected</td><td>Check at the Week 1 check-in that the application has been started. No action taken 3 weeks out from start date → escalate to recruiter, client may need a heads-up if the licence is required to legally start on site. Application rejected or stalled at any point → escalate to recruiter AND Les same day. Les decides with client: reapply, appeal, or push the start date.</td></tr>
   </table>
 </div>
@@ -587,7 +595,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div class="sec-hdr" style="margin-top:0">SOP — Both Pathways</div>
   <div class="step-row" style="border-bottom:none">
     <div class="step-num">1</div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send Email 2B — Support Team Introduction</span><span class="badge badge-manual">Manual · Same day as Email 1</span></div><div class="step-body">First formal introduction to the Support Team program. Send manually same day the automated Email 1 fires to the candidate. Client needs to know who you are and what to expect before the candidate arrives.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Email 2B Fires — Support Team Introduction</span><span class="badge badge-auto">Automated · Same day as Email 1</span></div><div class="step-body">First formal introduction to the Support Team program. Fires automatically same day as Email 1. Check Airtable to confirm it sent and data is correct — client needs to know who you are and what to expect before the candidate arrives.</div></div>
   </div>
 
   <div class="sec-hdr" style="background:#1f4e79">Pathway A — Self-Managed</div>
@@ -596,14 +604,13 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 
   <div class="sec-hdr" style="background:#157347">Pathway B — Full Relocation</div>
   <div class="note-green">SUR sources accommodation before flights. Client-facing emails include accommodation details.</div>
-  <div class="step-row"><div class="step-num">B1</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Property Manager Call</span><span class="badge badge-call">Call Script — PM Call</span></div><div class="step-body">Source accommodation before anything else moves. Call property managers directly. Looking for: private room or self-contained studio, under 30-minute commute to client address, short-term lease (4–8 weeks minimum), budget-friendly. Log all details in JobAdder.</div></div></div>
-  <div class="step-row" style="border-bottom:none"><div class="step-num">B2</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">TC-B fires automatically to client</span><span class="badge badge-auto">Automated · Triggered on Airtable entry + status change</span></div><div class="step-body">Enter accommodation + flight + contact details in Airtable and set JobAdder status to "Flight Booked" — automated email fires to client with flight, contact, and accommodation details, and confirms airport transfer is sorted.</div></div></div>
+  <div class="step-row" style="border-bottom:none"><div class="step-num">B1</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">TC-B fires automatically to client</span><span class="badge badge-auto">Automated · Triggered on Airtable entry + status change</span></div><div class="step-body">Enter accommodation + flight + contact details in Airtable and set JobAdder status to "Flight Booked" — automated email fires to client with flight, contact, and accommodation details, and confirms airport transfer is sorted.</div></div></div>
 
   <div class="sec-hdr">Email Templates — Client Pre-Departure</div>
-  <div class="note-blue">Email 2B is sent manually same day as Email 1, both pathways. TC-A/TC-B fire automatically once flight + contact details are entered in Airtable and JobAdder status is set to "Flight Booked" — grab the one matching the candidate's pathway.</div>
+  <div class="note-blue">Email 2B fires automatically same day as Email 1, both pathways. TC-A/TC-B fire automatically once flight + contact details are entered in Airtable and JobAdder status is set to "Flight Booked" — grab the one matching the candidate's pathway.</div>
 
   <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">Email 2B</span><span class="badge badge-manual">Manual</span><span class="badge badge-client">Client</span><span style="font-size:11px;color:#829ab1">Same day as Email 1 · Both pathways</span></div><div class="email-title">Here Is What The Next 15 Weeks Look Like</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">Email 2B</span><span class="badge badge-auto">Automated</span><span class="badge badge-client">Client</span><span style="font-size:11px;color:#829ab1">Same day as Email 1 · Both pathways</span></div><div class="email-title">Here Is What The Next 15 Weeks Look Like</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
     <div class="email-body" data-email-body>Hey [First Name],
 
 Now that [Candidate Name] is confirmed and on their way, I wanted to introduce myself as your point of contact from here on. I'm [Name] and I run the Support Team at Stand Up Recruitment.
@@ -619,7 +626,7 @@ Week 2 — same again, call first, both sides.
 Week 4 — one-month review, questionnaire.
 Week 6 — quick call, same as Weeks 1 and 2.
 Week 8 — two-month review, questionnaire. Checking both sides are tracking well.
-Week 11 — quick check-in as we head into the final stretch.
+Week 11 — quick call as we head into the final stretch.
 Week 14.5 — prep call ahead of the three-way review.
 Week 15 — 30-minute Teams review with you, [Candidate Name], and me.
 
@@ -657,29 +664,6 @@ Note: Their New Zealand number won't be valid once they land in Australia, so it
 Thank you and please let me know if there is anything else you need from my end.</div>
   </div>
 
-  <div class="sec-hdr">Call Scripts — Client Pre-Departure</div>
-
-  <div class="script-card">
-    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">PM Call</span><span class="badge badge-pw" style="background:#332200;color:#ffe69c;border-color:#665500">Pathway B Only</span></div><div class="script-title">Property Manager Call</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="script-body" data-email-body>OPEN: "Hi, I'm calling from Stand Up Recruitment about the property listed at [address] — is now a good time for a couple of quick questions?"
-
-If no — "No problem, when's a better time to call back?"
-
-QUESTIONS:
-1. "What is the weekly rent?"
-2. "And what's the bond — how many weeks?"
-3. "Is the room furnished, and is bedding included?"
-4. "Are utilities included in the weekly rent, or are they separate?"
-
-CLOSE: "That's really helpful, thank you. I'm placing a candidate from New Zealand relocating for work — they'd need short-term accommodation, ideally one to two months to start. Is that something you'd be open to?"
-
-If yes — "Perfect. I'll pass the details to the candidate and come back to you shortly. What's the best way to reach you?"
-If no — "No worries at all — appreciate your time."
-
-AFTER — log in JobAdder:
-Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilities Y/N, short-term lease Y/N, property manager name and contact.</div>
-  </div>
-
   <div class="sec-hdr">AI Prompts</div>
   <div class="note-blue">The accommodation search prompt lives in Tab 5 — Candidate Pre-Departure (AI-ACCOM) since that's where the search is actually run from. One copy, one place to update.</div>
 
@@ -692,7 +676,7 @@ Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilitie
   <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap"><span class="badge badge-client">Client</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#829ab1">Post-Departure</span></div>
   <h2 style="font-family:'Archivo';font-weight:800;font-size:26px;color:#102a43;margin-bottom:8px">Employer Check-Ins &amp; Review</h2>
   <p style="font-size:14px;line-height:1.65;color:#52708a;max-width:700px;margin-bottom:22px">Client-facing touchpoints across the full 15-week program. Every response cross-referenced against the candidate's — any mismatch is a red flag.</p>
-  <div class="note-red"><strong style="color:#5e1a14">Weeks 4, 8, and 15 are critical.</strong> Score ≤3 → escalate to Les within 24 hours. Any mismatch between candidate and client at any stage → escalate to Les same day.</div>
+  <div class="note-red"><strong style="color:#5e1a14">Weeks 4, 8, and 15 are critical.</strong> Score ≤3 → Rachel actions within 24 hours. Any mismatch between candidate and client at any stage → Rachel actions same day.</div>
 
   <div class="sec-hdr" style="margin-top:0">SOP — Client Touchpoint Timeline</div>
 
@@ -705,13 +689,13 @@ Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilitie
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">2</div></div>
     <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Call First C-T2</span><span class="badge badge-call">Call · C-T2</span></div>
-    <div class="step-body">Call first — 2 attempts same day. No answer either attempt → send fallback text with 4 rated statements (1–5). Cross-reference against candidate Week 2 answers. Mismatch = red flag → escalate to Les same day. Any concern raised → run Concern Resolution Protocol (Tab 2). Both sides good → Week 3 skipped. Either side bad → mandatory Week 3 follow-up call. Log in JobAdder with health score.</div></div>
+    <div class="step-body">Call first — 2 attempts same day. No answer either attempt → send fallback text with 4 rated statements (1–5). Cross-reference against candidate Week 2 answers. Mismatch = red flag → Rachel actions same day. Any concern raised → run Concern Resolution Protocol (Tab 2). Both sides good → Week 3 skipped. Either side bad → mandatory Week 3 follow-up call. Log in JobAdder with health score.</div></div>
   </div>
 
   <div class="touch-row crit-row">
     <div class="touch-week"><div class="touch-label" style="color:#c0392b">WEEK</div><div class="touch-num" style="color:#c0392b">4</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">One-Month Review — Questionnaire + Deep Call</span><span class="badge badge-crit">Critical</span><span class="badge badge-manual">Email A8</span><span class="badge badge-call">Call Script</span></div>
-    <div class="step-body">Send questionnaire link by email. Read response before calling. Deep call 15–20 minutes referencing answers directly. Cross-reference with candidate. <strong style="color:#c0392b">Score ≤3 → escalate to Les within 24 hours.</strong> No response within 24 hrs → send follow-up email, call same day. Adroit Milestone 1 invoice triggered.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">One-Month Review — Questionnaire + Deep Call</span><span class="badge badge-crit">Critical</span><span class="badge badge-auto">Email A8</span><span class="badge badge-call">Call Script</span></div>
+    <div class="step-body">Questionnaire link auto-sends by email. Read response before calling. Deep call 15–20 minutes referencing answers directly. Cross-reference with candidate. <strong style="color:#c0392b">Score ≤3 → Rachel actions within 24 hours.</strong> No response within 24 hrs → automated follow-up email (A8-F) fires, call same day. Adroit Milestone 1 invoice triggered.</div></div>
   </div>
 
   <div class="touch-row">
@@ -722,14 +706,14 @@ Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilitie
 
   <div class="touch-row crit-row">
     <div class="touch-week"><div class="touch-label" style="color:#c0392b">WEEK</div><div class="touch-num" style="color:#c0392b">8</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Two-Month Review — Questionnaire + Deep Call</span><span class="badge badge-crit">Critical</span><span class="badge badge-manual">Email A14</span><span class="badge badge-call">Call Script</span></div>
-    <div class="step-body"><strong style="color:#334e68">Confirm Milestone 2 invoice sent before contacting client.</strong> 5 rated statements including NPS indicators. If client signals upcoming hire → pass to RC (Ian or Ayn) same day. No response within 24 hrs → follow-up email, call same day. Milestone 2 invoice triggered.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Two-Month Review — Questionnaire + Deep Call</span><span class="badge badge-crit">Critical</span><span class="badge badge-auto">Email A14</span><span class="badge badge-call">Call Script</span></div>
+    <div class="step-body"><strong style="color:#334e68">Confirm Milestone 2 invoice sent before contacting client.</strong> 5 rated statements including NPS indicators. If client signals upcoming hire → pass to RC (Ian or Ayn) same day. No response within 24 hrs → automated follow-up email (A14-F) fires, call same day. Milestone 2 invoice triggered.</div></div>
   </div>
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">11</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Light Check-In — Email A16</span><span class="badge badge-manual">Email · A16</span></div>
-    <div class="step-body">Quick check-in as we head into the final stretch — no action needed, just flags we're closing in on the Week 15 review. Log in JobAdder.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Call First A16</span><span class="badge badge-call">Call · A16</span></div>
+    <div class="step-body">Call first — 2 attempts same day (~11am / ~3pm). No answer either attempt → send fallback email. Good → log health score, no further action, flags we're closing in on the Week 15 review. Bad → run Concern Resolution Protocol (Tab 2). Log in JobAdder.</div></div>
   </div>
 
   <div class="touch-row">
@@ -739,7 +723,7 @@ Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilitie
     <strong style="color:#102a43">Format options:</strong><br>
     Option A — Three-way Teams (default). Both sides positive, no unresolved issues.<br>
     Option B — Private calls first, three-way after. One side flagged a concern the other doesn't know about.<br>
-    Option C — Private calls only. Issue too serious for joint meeting. Escalate to Les if unresolved.</div></div>
+    Option C — Private calls only. Issue too serious for joint meeting. Rachel decides next steps if unresolved.</div></div>
   </div>
 
   <div class="touch-row crit-row" style="border-bottom:none">
@@ -749,10 +733,10 @@ Property address, weekly rent, bond amount, furnished Y/N, bedding Y/N, utilitie
   </div>
 
   <div class="sec-hdr">Email Templates — Client Post-Departure</div>
-  <div class="note-blue">All emails sent manually. Follow-up emails only sent if no questionnaire response within 24 hours. <strong>Numbering note:</strong> A-codes run as one shared sequence across this tab and Tab 6 (Candidate) — e.g. A8 (client, Week 4) and A9 (candidate, Week 4) are the same touchpoint, different recipient. Not a typo if the numbers look non-sequential within one tab.</div>
+  <div class="note-blue">A8 and A14 are automated (questionnaire link fires by email, follow-up A8-F/A14-F fires automatically if no response within 24 hours). A17 and A19 remain manual. <strong>Numbering note:</strong> A-codes run as one shared sequence across this tab and Tab 6 (Candidate) — e.g. A8 (client, Week 4) and A9 (candidate, Week 4) are the same touchpoint, different recipient. Not a typo if the numbers look non-sequential within one tab.</div>
 
   <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A8</span><span class="badge badge-manual">Manual · Week 4</span><span class="badge badge-client">Client</span></div><div class="email-title">[Candidate Name] — One Month In</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A8</span><span class="badge badge-auto">Automated · Week 4</span><span class="badge badge-client">Client</span></div><div class="email-title">[Candidate Name] — One Month In</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
     <div class="email-body" data-email-body>Hi [First Name],
 
 [Candidate Name] has hit the one-month mark. Can you take 2 minutes to share how things are going from your end?
@@ -766,7 +750,7 @@ Stand Up Recruitment</div>
   </div>
 
   <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A8-F</span><span class="badge badge-manual">Manual · 24hr follow-up</span><span class="badge badge-client">Client</span></div><div class="email-title">[Candidate Name] — One Month Review, Still Waiting</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A8-F</span><span class="badge badge-auto">Automated · 24hr follow-up</span><span class="badge badge-client">Client</span></div><div class="email-title">[Candidate Name] — One Month Review, Still Waiting</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
     <div class="email-body" data-email-body>Hi [First Name],
 
 I haven't received your Week 4 response for [Candidate Name] yet and this is our most important check-in of the placement.
@@ -782,7 +766,7 @@ Stand Up Recruitment</div>
   </div>
 
   <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A14</span><span class="badge badge-manual">Manual · Week 8</span><span class="badge badge-client">Client</span></div><div class="email-title">[Candidate Name] — Two Months In</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A14</span><span class="badge badge-auto">Automated · Week 8</span><span class="badge badge-client">Client</span></div><div class="email-title">[Candidate Name] — Two Months In</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
     <div class="email-body" data-email-body>Hi [First Name],
 
 [Candidate Name] has hit the two-month mark. Can you take 2 minutes to share how things are tracking?
@@ -796,7 +780,7 @@ Stand Up Recruitment</div>
   </div>
 
   <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A14-F</span><span class="badge badge-manual">Manual · 24hr follow-up</span><span class="badge badge-client">Client</span></div><div class="email-title">[Candidate Name] — Two-Month Review, Following Up</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A14-F</span><span class="badge badge-auto">Automated · 24hr follow-up</span><span class="badge badge-client">Client</span></div><div class="email-title">[Candidate Name] — Two-Month Review, Following Up</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
     <div class="email-body" data-email-body>Hi [First Name],
 
 Following up on the two-month review questionnaire for [Candidate Name]. I haven't received your response yet.
@@ -811,16 +795,20 @@ If it's quicker to talk, happy to jump on a call.
 Stand Up Recruitment</div>
   </div>
 
-  <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A16</span><span class="badge badge-manual">Manual · Week 11</span><span class="badge badge-client">Client</span></div><div class="email-title">Quick One As We Head Into The Final Stretch</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="email-body" data-email-body>Hi [First Name],
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">A16</span><span class="badge badge-call">Call · Week 11</span></div><div class="script-title">Week 11 Client Check-In — Call First</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>CALL — 2 attempts same day (~11am, then ~3pm).
 
-Quick one as we head into the final stretch with [Candidate Name] — no action needed, just flagging we're on the home straight toward the Week 15 review.
+OPEN: "Hi [First Name], quick one as we head into the final stretch with [Candidate Name] — how's it all going from your side?"
 
-Anything on your mind before then, just reply.
+GOOD → Log health score in JobAdder. No further action, just flags we're on the home straight toward the Week 15 review.
 
-[Your Name]
-Stand Up Recruitment</div>
+BAD → Run the Concern Resolution Protocol (Tab 2). First-Response Rule applies — client bad about candidate = call candidate immediately, same day.
+
+NO ANSWER on either attempt → send this fallback email:
+"Hi [First Name], quick one as we head into the final stretch with [Candidate Name] — no action needed, just flagging we're on the home straight toward the Week 15 review. Anything on your mind before then, keen to hear back today. [Your Name], Stand Up Recruitment"
+
+AFTER: Log in JobAdder. Any bad result is urgent, same day.</div>
   </div>
 
   <div class="email-card">
@@ -885,7 +873,7 @@ BAD → run the Concern Resolution Protocol (Tab 2). Get the specific issue. If 
 NO ANSWER on either attempt → send this fallback text:
 "Hi [First Name], quick two-week check on [Candidate Name] — rate 1-5 (1 = not at all, 5 = absolutely): 1. Getting on well overall 2. Fitting into the team and culture 3. Quality of work meets expectations 4. Happy with how the placement is progressing. Reply with your numbers today if you can — takes 30 seconds."
 
-AFTER: Cross-reference with candidate Week 2 answers. Mismatch → red flag → escalate to Les same day. Log health score in JobAdder. Either side bad → mandatory Week 3 follow-up call.</div>
+AFTER: Cross-reference with candidate Week 2 answers. Mismatch → red flag → Rachel actions same day. Log health score in JobAdder. Either side bad → mandatory Week 3 follow-up call.</div>
   </div>
 
   <div class="script-card">
@@ -896,7 +884,7 @@ OPEN: "Hi [First Name], following up like I said I would — how's [Candidate Na
 
 BETTER → Log the improvement. Also call the candidate to relay it and give them credit — close-loop-with-praise (Concern Resolution Protocol, Tab 2).
 
-STILL BAD → This is the "double whammy." Request a 3-way call or site visit — treat as triple-red. Either side declines → still escalate to Les same day regardless.
+STILL BAD → This is the "double whammy." Request a 3-way call or site visit — treat as triple-red. Either side declines → Rachel decides next steps same day regardless.
 
 AFTER: Log in JobAdder with health score.</div>
   </div>
@@ -927,11 +915,11 @@ OPEN: "Hi [First Name] — one month in. I've read through your answers and just
 
 Reference their responses. Start with what's going well. Ask follow-up questions where needed.
 
-If answers don't match the candidate's → log the mismatch. Do NOT disclose either side's account. Escalate to Les same day.
+If answers don't match the candidate's → log the mismatch. Do NOT disclose either side's account. Rachel actions same day.
 
 CLOSE: "Appreciate the honesty — that's exactly what helps us make this work long term. I'll be in touch at Week 6."
 
-AFTER: Log immediately. Health score. Score ≤3 → escalate to Les within 24 hours.</div>
+AFTER: Log immediately. Health score. Score ≤3 → Rachel actions within 24 hours.</div>
   </div>
 
   <div class="script-card">
@@ -1008,6 +996,44 @@ AFTER — within 24 hours:
 - Log meeting notes + health score in JobAdder</div>
   </div>
 
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">3W-FINAL</span><span class="badge badge-crit">Critical · Final Review</span><span style="font-size:10px;color:#9cc4e8">Candidate + Client + Les · Rachel runs it</span></div><div class="script-title">3-Way Final Review Call Script</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>Rachel runs it. Candidate + client + Les. Target: 10 minutes.
+
+BEFORE THE CALL
+- Check the last checkpoint note in JobAdder. If any issues are open, sort them in a 1:1 first, not on the 3-way.
+
+1. OPEN
+- "Hi everyone, thanks for making the time. [Candidate] has now reached the 3-month mark, so this is our final review to close off the placement."
+- "It's a quick one. We'll hear from you both, confirm everything's tracking well, and wrap it up."
+
+2. CLIENT
+- "[Client], we've had great feedback through the check-ins. How's [candidate] settled into the team?"
+- "What's been the biggest win from having [him/her] on board?"
+- "Great. So you're happy to continue as is going forward?"
+
+3. CANDIDATE
+- "[Candidate], how have you found settling in, with the role, the team and life in [city]?"
+- "What have you enjoyed most so far?"
+- "Awesome. Sounds like you're well set up here."
+
+4. CONFIRM
+- "Fantastic. It sounds like both sides are happy and everything's in a good place."
+- "It's been really great being part of this journey with you both. [Candidate], from the first chat to now being settled in [city], it's awesome to see. [Client], thank you for working so closely with us and backing [him/her] the whole way."
+
+5. CLOSE
+- Rachel: "It's been a pleasure seeing this placement come together. [Client], thank you for your support throughout. [Candidate], we're really proud of how you've settled in, and we wish you all the best going forward."
+- Les (optional): "Thanks, both. All the best."
+- Rachel: "That's everything from our end. Thanks so much for your time today, everyone. Take care."
+
+IF SOMETHING COMES UP
+- Don't problem-solve it live. Say: "Thanks for raising that. I'll touch base with you directly after this call."
+- End the call politely, then action it same day.
+
+AFTER THE CALL
+- Log the Final Review checkpoint note in JobAdder.</div>
+  </div>
+
 </div>
 </div>
 
@@ -1030,7 +1056,7 @@ AFTER — within 24 hours:
     <div class="step-num">2</div>
     <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send Email 2A + Intro Call</span><span class="badge badge-manual">Manual · Same day</span></div>
     <div class="step-body">Send Email 2A (Support Team intro) same day as Email 1. Then call the candidate same day or next day — confirm emails received, answer questions, book the Pre-Departure Documents Call.<br><br>
-    <strong style="color:#334e68">No answer:</strong> Call + text. Repeat next day. Still no response after 2 attempts → escalate to recruiter same day. Recruiter also no response within 24 hrs → escalate to Les.</div></div>
+    <strong style="color:#334e68">No answer:</strong> Call + text. Repeat next day. Still no response after 2 attempts → escalate to recruiter same day. Recruiter also no response within 24 hrs → Rachel takes it back and decides next steps.</div></div>
   </div>
 
   <div class="step-row">
@@ -1077,8 +1103,8 @@ AFTER — within 24 hours:
   </div>
   <div class="step-row">
     <div class="step-num" style="background:#7b341e">3</div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Escalate to Les — if still unresolved after recruiter involvement</span><span class="badge badge-crit">Final escalation → Les</span></div>
-    <div class="step-body">If the recruiter cannot resolve it, escalate to Les directly. Do not delay — if the placement is at risk, Les needs to know same day. Log everything: dates, what was tried, who was involved, what the outstanding issue is.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Rachel owns it — if still unresolved after recruiter involvement</span><span class="badge badge-crit">Final call → Rachel</span></div>
+    <div class="step-body">If the recruiter cannot resolve it, Rachel takes it back and decides next steps same day. Les available for guidance, not a required step. Log everything: dates, what was tried, who was involved, what the outstanding issue is.</div></div>
   </div>
   <div class="step-row" style="border-bottom:none;margin-bottom:22px">
     <div class="step-num" style="background:#7b341e">4</div>
@@ -1118,7 +1144,7 @@ AFTER — within 24 hours:
   <div class="step-row" style="border-bottom:none"><div class="step-num">B5</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Update Airtable + save all documents to JobAdder</span></div><div class="step-body">Full relocation record complete. Airtable updated. All booking confirmations saved to JobAdder before candidate departs.</div></div></div>
 
   <div class="sec-hdr">Email Templates — Candidate Pre-Departure</div>
-  <div class="note-blue">Email 1A and 1B are automated. Email 2A, Email 3, CE-A1/CE-A2, TL-1, and A20 are sent manually. TOB follow-up email and text are only sent if TOB unsigned after Documents Call. CE-A has a Pathway A and Pathway B version — grab the one matching the candidate's pathway. TL-1 goes out to every candidate, same day as the Documents Call. A20 (Week 11 light check-in) mirrors client email A16 — same touchpoint, different recipient.</div>
+  <div class="note-blue">Email 1A and 1B are automated. Email 2A, Email 3, CE-A1/CE-A2, TL-1, and A20 are sent manually. TOB follow-up email and text are only sent if TOB unsigned after Documents Call. CE-A has a Pathway A and Pathway B version — grab the one matching the candidate's pathway. TL-1 goes out to every candidate, same day as the Documents Call. A20 (Week 11 call-first check-in) mirrors client script A16 — same touchpoint, different recipient.</div>
 
   <div class="email-card">
     <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">Email 1A</span><span class="badge badge-auto">Automated</span><span class="badge badge-cand">Candidate</span><span class="badge badge-pw">Pathway A</span></div><div class="email-title">Congratulations On The Offer — Here Are Your Next Steps</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
@@ -1181,7 +1207,7 @@ Week 2 — Same again, a call with you and your employer.
 Week 4 — One-month review, questionnaire.
 Week 6 — Quick call, same as Weeks 1 and 2.
 Week 8 — Two-month review, questionnaire.
-Week 11 — Quick check-in email.
+Week 11 — Quick call as we head into the final stretch.
 Week 14.5 — Prep call ahead of the three-way review.
 Week 15 — Three-way Teams review with you and your employer.
 
@@ -1325,16 +1351,20 @@ Any questions on any of this, just reply here or call me directly.
 Stand Up Recruitment</div>
   </div>
 
-  <div class="email-card">
-    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">A20</span><span class="badge badge-manual">Manual · Week 11</span><span class="badge badge-cand">Candidate</span></div><div class="email-title">Quick One As We Head Into The Final Stretch</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
-    <div class="email-body" data-email-body>Hey [First Name],
+  <div class="script-card">
+    <div class="script-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="script-code">A20</span><span class="badge badge-call">Call · Week 11</span></div><div class="script-title">Week 11 Candidate Check-In — Call First</div></div><button class="script-copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="script-body" data-email-body>CALL — 2 attempts same day (~11am, then ~3pm).
 
-Quick one as we head into the final stretch — no action needed, just letting you know we're closing in on the Week 15 review with you and [Client Company].
+OPEN: "Hey [Name], quick one as we head into the final stretch — how's it all going?"
 
-Anything on your mind before then, give us a shout.
+GOOD → Log health score in JobAdder. No further action, just closing in on the Week 15 review with you and [Client Company].
 
-[Your Name]
-Stand Up Recruitment</div>
+BAD → Run the Concern Resolution Protocol (Tab 2). First-Response Rule applies — candidate bad about client, give it a week before looping in the client (safety/welfare excepted).
+
+NO ANSWER on either attempt → send this fallback email:
+"Hey [First Name], quick one as we head into the final stretch — no action needed, just letting you know we're closing in on the Week 15 review with you and [Client Company]. Anything on your mind before then, keen to hear back today. [Your Name], Stand Up Recruitment"
+
+AFTER: Log in JobAdder. Any bad result is urgent, same day.</div>
   </div>
 
   <div class="sec-hdr">Call Scripts — Candidate Pre-Departure</div>
@@ -1387,7 +1417,7 @@ Give them the shape of it in your own words, don't recite it:
 - Week 4 (deep call) — one-month review, real call, both sides, honest picture — most important check-in of the placement
 - Week 6 (light/text) — quick text, anything on your mind
 - Week 8 (deep call) — two-month review, call, both sides
-- Week 11 (light/email) — quick check-in as we head into the final stretch
+- Week 11 (call-first/email fallback) — quick call as we head into the final stretch
 - Week 14.5 (call) — prep call ahead of the three-way review
 - Week 15 (deep call) — three-way Teams review, you, them, and the client, 30 minutes — wraps the guarantee period
 
@@ -1541,8 +1571,8 @@ AFTER: No reply within a few hours → call directly. Still unreachable → foll
 <div class="panel-body">
   <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap"><span class="badge badge-cand">Candidate</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#829ab1">Post-Departure</span></div>
   <h2 style="font-family:'Archivo';font-weight:800;font-size:26px;color:#102a43;margin-bottom:8px">Candidate 15-Week Support Program</h2>
-  <p style="font-size:14px;line-height:1.65;color:#52708a;max-width:700px;margin-bottom:22px">9 structured touchpoints from landing to three-way review. Every call logged with a health score. Any score ≤3 triggers immediate escalation to Les.</p>
-  <div class="note-red"><strong style="color:#5e1a14">Weeks 4, 8, and 15 are critical.</strong> Score ≤3 → escalate to Les within 24 hours. No response after 2 attempts → escalate to Les directly. Candidate/client mismatch at any stage → escalate to Les same day.</div>
+  <p style="font-size:14px;line-height:1.65;color:#52708a;max-width:700px;margin-bottom:22px">9 structured touchpoints from landing to three-way review. Every call logged with a health score. Any score ≤3 triggers immediate action from Rachel.</p>
+  <div class="note-red"><strong style="color:#5e1a14">Weeks 4, 8, and 15 are critical.</strong> Score ≤3 → Rachel actions within 24 hours. No response after 2 attempts → run the No-Response Ladder (Tab 2). Candidate/client mismatch at any stage → Rachel actions same day.</div>
 
   <div class="sec-hdr" style="margin-top:0">SOP — Candidate 15-Week Timeline</div>
 
@@ -1561,13 +1591,13 @@ AFTER: No reply within a few hours → call directly. Still unreachable → foll
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">2</div></div>
     <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Call First CAN-T2</span><span class="badge badge-call">Call · CAN-T2</span></div>
-    <div class="step-body">Call first — 2 attempts same day. No answer either attempt → send fallback text with 5 rated statements (1–5). Cross-reference against client Week 2 answers. Mismatch = red flag → escalate to Les same day. Any concern raised → run Concern Resolution Protocol (Tab 2). Both sides good → Week 3 skipped. Either side bad → mandatory Week 3 follow-up call. Log in JobAdder with health score.</div></div>
+    <div class="step-body">Call first — 2 attempts same day. No answer either attempt → send fallback text with 5 rated statements (1–5). Cross-reference against client Week 2 answers. Mismatch = red flag → Rachel actions same day. Any concern raised → run Concern Resolution Protocol (Tab 2). Both sides good → Week 3 skipped. Either side bad → mandatory Week 3 follow-up call. Log in JobAdder with health score.</div></div>
   </div>
 
   <div class="touch-row crit-row">
     <div class="touch-week"><div class="touch-label" style="color:#c0392b">WEEK</div><div class="touch-num" style="color:#c0392b">4</div></div>
     <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">One-Month Review — Questionnaire + Deep Call</span><span class="badge badge-crit">Critical</span><span class="badge badge-manual">Email A9</span><span class="badge badge-call">Call Script</span></div>
-    <div class="step-body">Send questionnaire link by email. Read response before calling. Deep call 15–20 minutes. <strong style="color:#c0392b">Score ≤3 → escalate to Les within 24 hours. No exceptions.</strong> No response within 24 hrs → send follow-up email. Call same day after sending. Cross-reference with client.</div></div>
+    <div class="step-body">Send questionnaire link by email. Read response before calling. Deep call 15–20 minutes. <strong style="color:#c0392b">Score ≤3 → Rachel actions within 24 hours. No exceptions.</strong> No response within 24 hrs → send follow-up email. Call same day after sending. Cross-reference with client.</div></div>
   </div>
 
   <div class="touch-row">
@@ -1584,8 +1614,8 @@ AFTER: No reply within a few hours → call directly. Still unreachable → foll
 
   <div class="touch-row">
     <div class="touch-week"><div class="touch-label" style="color:#829ab1">WEEK</div><div class="touch-num" style="color:#1f4e79">11</div></div>
-    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Light Check-In — Email A20</span><span class="badge badge-manual">Email · A20</span></div>
-    <div class="step-body">Quick check-in as we head into the final stretch — no action needed, just flags we're closing in on the Week 15 review. Log in JobAdder.</div></div>
+    <div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Check-In — Call First A20</span><span class="badge badge-call">Call · A20</span></div>
+    <div class="step-body">Call first — 2 attempts same day (~11am / ~3pm). No answer either attempt → send fallback email. Good → log health score, no further action, flags we're closing in on the Week 15 review. Bad → run Concern Resolution Protocol (Tab 2). Log in JobAdder.</div></div>
   </div>
 
   <div class="touch-row">
@@ -1730,7 +1760,7 @@ Talking points if needed: clear on what's expected, getting on with the team, se
 
 GOOD → Log health score in JobAdder. No further action.
 
-BAD → Get the specific issue. Tell them: "Leave it with me — I'll have a look into it and check back in with you next week." Give it a week before looping in the client (First-Response Rule, Tab 2) — don't try to talk them out of it or resolve it on this call. Exception: safety/welfare issues escalate to Les immediately, no waiting period.
+BAD → Get the specific issue. Tell them: "Leave it with me — I'll have a look into it and check back in with you next week." Give it a week before looping in the client (First-Response Rule, Tab 2) — don't try to talk them out of it or resolve it on this call. Exception: safety/welfare issues are actioned immediately by Rachel (Les FYI), no waiting period.
 
 NO ANSWER on either attempt → send this fallback text:
 "Hey [Name], first week done — how'd it go? Quick one from me — what's going well, and are there any concerns from your side? Keen to hear back today if you can."
@@ -1758,7 +1788,7 @@ BAD → run the Concern Resolution Protocol (Tab 2). If this was already flagged
 NO ANSWER on either attempt → send this fallback text:
 "Hey [Name], Week 2 — how's it all going? Rate these 1-5 (1 = not at all, 5 = absolutely): 1. Glad I made the move to Australia 2. Role is what I expected it to be 3. Comfortable with my supervisor and team 4. Settling in well outside of work 5. Happy with how things are going overall. Reply with your numbers today if you can."
 
-AFTER: Cross-reference with client Week 2 answers. Mismatch = red flag → escalate to Les same day. Log in JobAdder with health score. Either side bad → mandatory Week 3 follow-up call.</div>
+AFTER: Cross-reference with client Week 2 answers. Mismatch = red flag → Rachel actions same day. Log in JobAdder with health score. Either side bad → mandatory Week 3 follow-up call.</div>
   </div>
 
   <div class="script-card">
@@ -1769,7 +1799,7 @@ OPEN: "Hey [Name], following up like I said I would — how's it going with [the
 
 BETTER → Log the improvement. Also call the client to let them know it's been addressed and give the candidate credit — close-loop-with-praise (Concern Resolution Protocol, Tab 2). Tell the candidate directly: "The client's noticed the change, keep it up."
 
-STILL BAD → This is the "double whammy." Escalate — request a 3-way call or site visit if it's a client-side issue, or escalate to Les same day if it's still unresolved on the candidate side.
+STILL BAD → This is the "double whammy." Escalate — request a 3-way call or site visit if it's a client-side issue, or Rachel decides next steps same day if it's still unresolved on the candidate side.
 
 AFTER: Log in JobAdder with health score.</div>
   </div>
@@ -1823,7 +1853,7 @@ CLOSE — RECONFIRM CONSENT: "Honestly [Name] — and just to check, you're stil
 If they push back: "Fair enough — but I think you'd regret not sharing this. There's a guy in the exact same spot you were, scared to make the jump, and your story might be the thing that gets him to go for it."
 If they still say no: "No worries at all, appreciate you considering it."
 
-AFTER: Cross-reference with client Week 4. Score ≤3 → escalate to Les within 24 hours. Log health score. If consent given → log in JobAdder, send notes to Brinda (Marketing) same day.</div>
+AFTER: Cross-reference with client Week 4. Score ≤3 → Rachel actions within 24 hours. Log health score. If consent given → log in JobAdder, send notes to Brinda (Marketing) same day.</div>
   </div>
 
   <div class="script-card">
