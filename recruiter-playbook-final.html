@@ -1279,7 +1279,7 @@ body{
       <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">Not Ready Yet: Keeping Candidates Warm</div>
       <div style="font-size:12px;color:var(--text2);line-height:1.4">Record the relocation date in the Availability Date field so JobAdder reminds you to call 4 weeks before.</div>
     </div>
-    <div class="module-card" data-mid="m151" data-search="1.5 reference police checks referee call script airtable police check form six fields cool off period reference check checklist" onclick="openModule('m151')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+    <div class="module-card" data-mid="m151" data-search="1.5 reference police checks referee call script criminal check portal ministry of justice request id airtable police checks tab pc@standuprecruitment cool off period reference check checklist" onclick="openModule('m151')" style="cursor:pointer;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
       <div style="font-size:11px;font-weight:700;color:#4ac8f0;letter-spacing:.05em;margin-bottom:4px">1.5</div>
       <div style="font-weight:700;font-size:14px;color:var(--text);line-height:1.3;margin-bottom:6px">Reference &amp; Police Checks</div>
       <div style="font-size:12px;color:var(--text2);line-height:1.4">Run both checks the same day for every candidate you rate. Both must be clear before you submit to a client.</div>
@@ -3004,7 +3004,7 @@ Stand Up Recruitment</div>
     <div class="block-title">Part 6: Close</div>
     <div class="block-body">
       <div class="callout info"><strong>Cool off period:</strong> "Before we move you to the client interview stage, I want you to take the next 2 days to properly think this through. Relocating to Australia is a big decision. I'll send you an email with a summary of the role and the relocation information. We'll touch base in 2 days and decide together whether to move forward."</div>
-      <p style="margin-top:8px"><em>Then collect 2 referees (name, company, contact number) and the 6 police check details before ending the call.</em></p>
+      <p style="margin-top:8px"><em>Then collect 2 referees (name, company, contact number) and the police check details (full name, DOB, gender, email, phone, address, driver's licence) before ending the call.</em></p>
     </div>
   </div>
 
@@ -4093,6 +4093,7 @@ window.__quizData['m142']=[
 <div class="tabs" id="tabs-m151">
   <button class="tab-btn active" onclick="switchTab('m151','Overview')" id="tbtn-m151-Overview">Overview</button>
   <button class="tab-btn" onclick="switchTab('m151','Watch')" id="tbtn-m151-Watch">Watch</button>
+  <button class="tab-btn" onclick="switchTab('m151','Police-Check')" id="tbtn-m151-Police-Check">Police Check Steps</button>
   <button class="tab-btn" onclick="switchTab('m151','Templates')" id="tbtn-m151-Templates">SMS Templates</button>
   <button class="tab-btn" onclick="switchTab('m151','Quiz')" id="tbtn-m151-Quiz">Quiz</button>
   <button class="tab-btn" onclick="switchTab('m151','Practice-Activity')" id="tbtn-m151-Practice-Activity">Practice Activity</button>
@@ -4162,19 +4163,18 @@ window.__quizData['m142']=[
   <div class="content-block">
     <div class="block-title">Part 2 — Police Check</div>
     <div class="block-body">
-      <p>Submit the police check via the Airtable form on the same day as the internal interview, once you've decided you rate the candidate.</p>
-      <p style="margin-top:8px">Airtable police check form: <a href="https://airtable.com/appa05OOLs3y4DF14/pagb3onJatMDcdq94/form" style="color:var(--accent)" target="_blank">airtable.com/appa05OOLs3y4DF14/pagb3onJatMDcdq94/form</a></p>
-      <p style="margin-top:8px">You will need the following six details from the candidate — collect these during the internal interview:</p>
-      <ol>
-        <li>Full name</li>
-        <li>Email address</li>
-        <li>Date of birth</li>
-        <li>Gender</li>
-        <li>Contact number</li>
-        <li>Residential address</li>
-      </ol>
-      <p style="margin-top:8px">Results typically come back within <strong>24 to 72 hours</strong>. Clear → proceed to CV formatting. Serious flag → do not progress. Inform the candidate we will not be moving forward.</p>
-      <div class="callout warn">All six fields are mandatory. Do not submit an incomplete form — it will not be processed.</div>
+      <p>Submit the police check yourself on the Ministry of Justice criminal check portal on the same day as the internal interview, once you've decided you rate the candidate. No more forms through admin.</p>
+      <div class="callout info" style="margin-top:8px"><strong>Two steps only:</strong> (1) Submit the check on the portal &nbsp;→&nbsp; (2) Log the Request ID in Airtable. The automation handles everything after that. Full click-by-click walkthrough in the <a href="#" onclick="switchTab('m151','Police-Check');return false" style="color:var(--accent)">Police Check Steps</a> tab.</div>
+      <p style="margin-top:8px"><strong>What you'll need:</strong></p>
+      <ul>
+        <li><strong>Portal login</strong> — shared team email + password from the shared password sheet (provided by Nihanga). Do not create a personal account.</li>
+        <li><strong>Company card</strong> — payment details in the shared password sheet.</li>
+        <li><strong>Result email</strong> — always <strong>pc@standuprecruitment.co.nz</strong>, never your own.</li>
+        <li><strong>Airtable</strong> — AUS Placement Tracker → Police Checks tab.</li>
+      </ul>
+      <p style="margin-top:8px">Collect these from the candidate during the internal interview: full name (first, middle, surname), email address, date of birth, gender, contact number, residential address, and driver's licence number (if they have one).</p>
+      <p style="margin-top:8px"><strong>After you submit:</strong> the Ministry of Justice sends the result to pc@standuprecruitment.co.nz, the automation emails it to you, and Airtable updates from In Progress to Complete with the report attached. Results typically come back within <strong>24 to 72 hours</strong>. Clear → proceed to CV formatting. Serious flag → do not progress. Inform the candidate we will not be moving forward.</p>
+      <div class="callout warn">Always log the Request ID in Airtable — the automation uses it to match the result back to the candidate. Skip it and the result never reaches you.</div>
     </div>
   </div>
 
@@ -4187,7 +4187,7 @@ window.__quizData['m142']=[
       <label style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;cursor:pointer"><input type="checkbox" style="margin-top:2px;accent-color:var(--accent)"><span style="font-size:13px">SMS sent to any referee not reached after 2 calls</span></label>
       <label style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;cursor:pointer"><input type="checkbox" style="margin-top:2px;accent-color:var(--accent)"><span style="font-size:13px">All outcomes logged in JobAdder</span></label>
       <label style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;cursor:pointer"><input type="checkbox" style="margin-top:2px;accent-color:var(--accent)"><span style="font-size:13px">No more than 1 red flag or lukewarm response across all checks</span></label>
-      <label style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;cursor:pointer"><input type="checkbox" style="margin-top:2px;accent-color:var(--accent)"><span style="font-size:13px">Police check submitted via Airtable form with all 6 fields</span></label>
+      <label style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;cursor:pointer"><input type="checkbox" style="margin-top:2px;accent-color:var(--accent)"><span style="font-size:13px">Police check submitted on the portal and Request ID logged in Airtable</span></label>
       <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer"><input type="checkbox" style="margin-top:2px;accent-color:var(--accent)"><span style="font-size:13px">Police check result received and clear</span></label>
     </div>
   </div>
@@ -4199,7 +4199,7 @@ window.__quizData['m142']=[
       <div class="callout danger" style="margin-top:8px">Waiting for the cool off period to end before starting the checks</div>
       <div class="callout danger" style="margin-top:8px">Calling referees one at a time and waiting — batch your morning calls and recall in the afternoon</div>
       <div class="callout danger" style="margin-top:8px">Rushing past the silence after the close question — that gap is where the honest answer lives</div>
-      <div class="callout danger" style="margin-top:8px">Submitting an incomplete police check form — all 6 fields must be included</div>
+      <div class="callout danger" style="margin-top:8px">Using your own email instead of pc@standuprecruitment.co.nz, or forgetting to log the Request ID in Airtable</div>
       <div class="callout danger" style="margin-top:8px">Not logging the outcome of each reference call in JobAdder</div>
     </div>
   </div>
@@ -4221,16 +4221,18 @@ window.__quizData['m142']=[
         <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 5 Reference &amp; Police Check - Reference Check Live Recording.mp4 — A real reference check call showing the opening, the rundown question, how to handle short responses, and the close</p>
       </div>
       <div class="video-item">
-        <div class="video-title-bar"><span>Video 2 of 2</span><strong>Police Check — Airtable Form Walkthrough</strong></div>
+        <div class="video-title-bar"><span>Video 2 of 2</span><strong>Police Check — New Recruiter Process</strong></div>
         <video controls>
-          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 5 Reference & Police Checks - Police Check — Airtable Form Walkthrough.mp4" type="video/mp4">
-          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/Stage 5 Reference & Police Checks - Police Check — Airtable Form Walkthrough.mp4" style="color:var(--accent)">Open directly</a></p>
+          <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/New Police Check Process.mp4" type="video/mp4">
+          <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook Videos/New Police Check Process.mp4" style="color:var(--accent)">Open directly</a></p>
         </video>
-        <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: Stage 5 Reference &amp; Police Checks - Police Check — Airtable Form Walkthrough.mp4 — How to fill out and submit the police check form in Airtable</p>
+        <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: New Police Check Process.mp4 — Recorded October 13, 2026 (5 min 36 sec). Submitting on the criminal check portal and logging the Request ID in Airtable</p>
       </div>
     </div>
   </div>
 </div>
+
+<div class="tab-panel" id="panel-m151-Police-Check"><div class="content-block"><div class="block-label">Step 1 &#8212; Log In to the Criminal Check Portal</div><div class="block-body"><div class="term-row"><div class="term-name">Website</div><div class="term-def">Go to the criminal check portal — link provided by Nihanga.</div></div><div class="step-row"><div class="step-num">1</div><div>On the login page, click <strong>Registered Third Party</strong>.</div></div><div class="step-row"><div class="step-num">2</div><div>Enter the <strong>email address and password</strong> from the shared password sheet.</div></div><div class="step-row"><div class="step-num">3</div><div>Click <strong>Sign In</strong>.</div></div><div class="callout" style="margin-top:10px">Use the shared team login — do not create a personal account.</div></div></div><div class="content-block"><div class="block-label">Step 2 &#8212; Create the Request</div><div class="block-body"><div class="step-row"><div class="step-num">1</div><div>Click <strong>Create Request</strong>.</div></div><div class="step-row"><div class="step-num">2</div><div>Always select <strong>Complete on Applicant's Behalf</strong>.</div></div><div class="step-row"><div class="step-num">3</div><div>Enter the applicant's name across the three name fields, plus their <strong>email address</strong>. Click <strong>Next</strong>.</div></div><div class="step-row"><div class="step-num">4</div><div>Click <strong>Continue</strong> on the Third Party Declaration screen.</div></div></div></div><div class="content-block"><div class="block-label">Step 3 &#8212; Enter Candidate Details</div><div class="block-body"><div class="step-row"><div class="step-num">1</div><div>Enter the candidate's <strong>first name</strong>, <strong>middle name(s)</strong> (leave blank if none), and <strong>surname</strong>.</div></div><div class="step-row"><div class="step-num">2</div><div>"Have you been known by any other names?" → Select <strong>No</strong>.</div></div><div class="step-row"><div class="step-num">3</div><div>Enter their <strong>date of birth</strong> (DD/MM/YYYY).</div></div><div class="step-row"><div class="step-num">4</div><div>Select their <strong>gender</strong>.</div></div><div class="step-row"><div class="step-num">5</div><div>Enter their <strong>email address</strong> and <strong>phone number</strong>.</div></div><div class="step-row"><div class="step-num">6</div><div><strong>Place of birth</strong> — not mandatory, leave blank.</div></div><div class="step-row"><div class="step-num">7</div><div>Enter their <strong>driver's licence number</strong>. If they don't have one, leave blank.</div></div><div class="step-row"><div class="step-num">8</div><div>Click <strong>Next</strong>.</div></div></div></div><div class="content-block"><div class="block-label">Step 4 &#8212; Enter Residential Address</div><div class="block-body"><div class="step-row"><div class="step-num">1</div><div>Enter the candidate's full <strong>residential address</strong>: postcode, city/town, street name, street number, suburb.</div></div><div class="step-row"><div class="step-num">2</div><div>"Have you lived at any other New Zealand address in the last 10 years?" → Select <strong>No</strong>.</div></div><div class="step-row"><div class="step-num">3</div><div>Click <strong>Next</strong>.</div></div></div></div><div class="content-block"><div class="block-label">Step 5 &#8212; Declaration &amp; ID Confirmation</div><div class="block-body"><div class="step-row"><div class="step-num">1</div><div>"Would you like a copy of the report?" → Select <strong>No</strong> (automation handles delivery).</div></div><div class="step-row"><div class="step-num">2</div><div>Tick <strong>"I accept this declaration"</strong>. Click <strong>Complete</strong>.</div></div><div class="step-row"><div class="step-num">3</div><div>ID Confirmation: Click <strong>Yes</strong>.</div></div><div class="step-row"><div class="step-num">4</div><div>ID Type: Select <strong>New Zealand Passport</strong>. Click <strong>Agree and Submit</strong>.</div></div><div class="step-row"><div class="step-num">5</div><div>Click <strong>Agree and Submit</strong> again, then <strong>Continue</strong>.</div></div></div></div><div class="content-block"><div class="block-label">Step 6 &#8212; Payment</div><div class="block-body"><div class="step-row"><div class="step-num">1</div><div>Enter the <strong>company card payment details</strong> (from the shared password sheet).</div></div><div class="step-row"><div class="step-num">2</div><div>For the email field, always enter: <strong>pc@standuprecruitment.co.nz</strong></div></div><div class="step-row"><div class="step-num">3</div><div>Click <strong>Submit</strong>. Confirm payment is processed, then click <strong>Next</strong>.</div></div><div class="callout" style="margin-top:10px;border-color:#ef4444">Always use pc@standuprecruitment.co.nz as the result email — not your own email address.</div></div></div><div class="content-block"><div class="block-label">Step 7 &#8212; Log the Request ID in Airtable</div><div class="block-body"><div class="step-row"><div class="step-num">1</div><div>On the portal, click <strong>History</strong>.</div></div><div class="step-row"><div class="step-num">2</div><div>Find the candidate in the list and <strong>copy the Request ID</strong>.</div></div><div class="step-row"><div class="step-num">3</div><div>Go to <strong>Airtable → AUS Placement Tracker → Police Checks tab</strong>.</div></div><div class="step-row"><div class="step-num">4</div><div>Add a new row and fill in: <strong>Your name</strong>, <strong>Candidate's name</strong>, <strong>Requested date</strong> (today), <strong>Status = In Progress</strong>, <strong>Request ID</strong> (paste from portal).</div></div><div class="callout" style="margin-top:10px">The Request ID is the most important field — do not skip this step. The automation uses it to match the result back to the candidate.</div></div></div><div class="content-block"><div class="block-label">That's It &#8212; Automation Takes Over</div><div class="block-body"><p>Once you've logged the Request ID in Airtable, your job is done. The automation will:</p><div class="step-row"><div class="step-num">1</div><div>Receive the completed police check at pc@standuprecruitment.co.nz.</div></div><div class="step-row"><div class="step-num">2</div><div>Automatically email you the result.</div></div><div class="step-row"><div class="step-num">3</div><div>Update Airtable status to <strong>Complete</strong> and attach the report.</div></div></div></div></div>
 
 <div class="tab-panel" id="panel-m151-Templates">
   <div class="email-template">
@@ -4270,11 +4272,11 @@ window.__quizData['m142']=[
     <div class="quiz-option" id="opt-m151-2-3" onclick="selectOpt('m151',2,3)">D. Escalate to the client</div>
   </div>
   <div class="quiz-question">
-    <p>4. How many mandatory fields does the police check Airtable form require?</p>
-    <div class="quiz-option" id="opt-m151-3-0" onclick="selectOpt('m151',3,0)">A. 3</div>
-    <div class="quiz-option" id="opt-m151-3-1" onclick="selectOpt('m151',3,1)">B. 4</div>
-    <div class="quiz-option" id="opt-m151-3-2" onclick="selectOpt('m151',3,2)">C. 5</div>
-    <div class="quiz-option" id="opt-m151-3-3" onclick="selectOpt('m151',3,3)">D. 6</div>
+    <p>4. After submitting a police check on the portal, what must you do?</p>
+    <div class="quiz-option" id="opt-m151-3-0" onclick="selectOpt('m151',3,0)">A. Nothing — admin handles the rest</div>
+    <div class="quiz-option" id="opt-m151-3-1" onclick="selectOpt('m151',3,1)">B. Email the candidate the receipt</div>
+    <div class="quiz-option" id="opt-m151-3-2" onclick="selectOpt('m151',3,2)">C. Wait for the result, then log it in JobAdder</div>
+    <div class="quiz-option" id="opt-m151-3-3" onclick="selectOpt('m151',3,3)">D. Copy the Request ID from History and log it in Airtable</div>
   </div>
   <div class="quiz-question">
     <p>5. How long do police check results typically take to come back?</p>
@@ -4296,7 +4298,7 @@ window.__quizData['m142']=[
 <p style="margin-top:10px"><strong>For a real candidate assigned by Les:</strong></p>
 <div class="step-row"><div class="step-num">1</div><div>Call both referees using the reference check script — if no answer, recall in the afternoon and send the SMS if still no response</div></div>
 <div class="step-row"><div class="step-num">2</div><div>Log the outcome of each reference call in JobAdder</div></div>
-<div class="step-row"><div class="step-num">3</div><div>Submit the police check via the Airtable form with all 6 mandatory fields</div></div>
+<div class="step-row"><div class="step-num">3</div><div>Submit the police check on the portal and log the Request ID in Airtable</div></div>
 <div class="step-row"><div class="step-num">4</div><div>Confirm both checks are clear before moving forward</div></div>
 <p>Check in with Les once both checks are complete and cleared.</p>
 </div>
@@ -4304,7 +4306,7 @@ window.__quizData['m142']=[
 <div class="content-block">
 <div class="block-label">Resources</div>
 <div class="block-body">
-<ul><li>Airtable Police Check Form → <a href="https://airtable.com/appa05OOLs3y4DF14/pagb3onJatMDcdq94/form" target="_blank" style="color:var(--accent)">https://airtable.com/appa05OOLs3y4DF14/pagb3onJatMDcdq94/form</a></li><li>SUR Email Template Library</li></ul>
+<ul><li>Criminal check portal — link and login from Nihanga / the shared password sheet</li><li>Airtable → AUS Placement Tracker → Police Checks tab</li><li>SUR Email Template Library</li></ul>
 </div>
 </div>
 </div>
@@ -4378,7 +4380,7 @@ window.__quizData['m151']=[
 {"q":"When should the reference and police checks start relative to the internal interview?","opts":["After the 2-day cool off period ends","The same day as the internal interview, run simultaneously","Only after the client interview","One week later"],"ans":1},
 {"q":"How many reference checks are required at minimum?","opts":["1","2","3","4"],"ans":1},
 {"q":"If 2 or more red flags come up out of 3 checks, what should you do?","opts":["Proceed anyway","Ask for one more referee","Do not progress - inform the candidate we will not be moving forward","Escalate to the client"],"ans":2},
-{"q":"How many mandatory fields does the police check Airtable form require?","opts":["3","4","5","6"],"ans":3},
+{"q":"After submitting a police check on the portal, what must you do?","opts":["Nothing — admin handles the rest","Email the candidate the receipt","Wait for the result, then log it in JobAdder","Copy the Request ID from History and log it in Airtable"],"ans":3},
 {"q":"How long do police check results typically take to come back?","opts":["1 to 2 hours","24 to 72 hours","1 to 2 weeks","1 month"],"ans":1}
 ];
 </script>
