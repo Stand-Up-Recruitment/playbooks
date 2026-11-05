@@ -316,10 +316,20 @@
 
 <script>
 (function(){
-  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support', 'sales', 'automation'];
+  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support', 'sales', 'automation', 'recruiter4'];
   if(VALID_ROLES.indexOf(sessionStorage.getItem('playbook-auth')) === -1){
     window.location.href = 'login.html';
   }
+})();
+
+(function(){
+  // Limited roles only see these hub cards; each page's own role check is what blocks access.
+  var VISIBLE = {recruiter4: ['recruiter-hub.html', 'hr-policy-manual.html', 'onboarding-pack.html']};
+  var allowed = VISIBLE[sessionStorage.getItem('playbook-auth')];
+  if(!allowed) return;
+  document.querySelectorAll('a.card').forEach(function(card){
+    if(allowed.indexOf(card.getAttribute('href')) === -1) card.remove();
+  });
 })();
 
 document.getElementById('logoutBtn').addEventListener('click', function(){
