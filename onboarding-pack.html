@@ -3,7 +3,7 @@
 <head>
 <script>
 (function(){
-  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support', 'sales', 'automation', 'recruiter2', 'marketing2'];
+  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support', 'sales', 'automation', 'recruiter2', 'recruiter4', 'marketing2'];
   if(VALID_ROLES.indexOf(sessionStorage.getItem('playbook-auth')) === -1){
     window.location.href = 'login.html';
   }
@@ -431,7 +431,7 @@
 <a id="hub-back" href="index.html" title="Back to Playbook Hub" style="position:fixed;left:16px;bottom:16px;z-index:40;display:inline-flex;align-items:center;gap:6px;background:#132a4c;color:#fff;text-decoration:none;font-weight:600;font-size:13px;padding:9px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(11,26,46,.25)">&#8592; <span>Hub</span></a>
 <script>
 (function(){
-  var HOMES = {recruiter2:'recruiter-playbook-final.html', marketing2:'marketing-hub.html'};
+  var HOMES = {recruiter2:'recruiter-playbook-final.html', recruiter4:'recruiter-playbook-final.html', marketing2:'marketing-hub.html'};
   var home = HOMES[sessionStorage.getItem('playbook-auth')];
   if(home){ document.getElementById('hub-back').href = home; }
 })();
