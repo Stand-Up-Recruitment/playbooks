@@ -334,6 +334,7 @@ body{
 [data-theme="light"] #module-view .tabs{background:#f0f2f5}
 [data-theme="light"] #module-view .tab-btn.active{background:#0284c7;color:#fff;box-shadow:0 1px 6px rgba(2,132,199,.25)}
 
+#module-view .email-template-subject{color:var(--text);font-weight:600;font-size:13.5px}
 @media(max-width:640px){
   #dashboard{padding:48px 18px 80px}
   #module-view{padding:72px 18px 80px}
@@ -527,8 +528,1500 @@ body{
       <div class="module-desc">Post-placement care will be handled by a dedicated team member once hired.</div>
       <div class="module-arrow">&rarr;</div>
     </div>
+    <div class="module-card" onclick="openModule('aus-email-templates')">
+      <div class="module-num" style="color:#f0a04a">Resources</div>
+      <div class="module-title">Email &amp; SMS Template Library</div>
+      <div class="module-desc">Every email and SMS template used across the playbook, ready to copy and send.</div>
+      <div class="module-arrow">&rarr;</div>
+    </div>
+    <div class="module-card" onclick="openModule('aus-prompt-library')">
+      <div class="module-num" style="color:#f0a04a">Resources</div>
+      <div class="module-title">Prompt Library</div>
+      <div class="module-desc">Every Claude and ChatGPT prompt referenced in the playbook, ready to copy and paste.</div>
+      <div class="module-arrow">&rarr;</div>
+    </div>
 </div>
 </div>
+<div id="module-aus-email-templates" style="display:none">
+<button class="back-btn" onclick="openModule('aus')">&#8592; Back to Australian Recruitment Playbook</button>
+<div class="module-header">
+  <div class="module-eyebrow" style="color:#f0a04a">Resources</div>
+  <h1 class="module-h1">Email &amp; SMS Template Library</h1>
+  <p class="module-intro">Every email and SMS template used across the playbook. Copy any template and fill in the bracketed fields before sending.</p>
+</div>
+<div class="tabs" id="tabs-aus-email-templates">
+  <button class="tab-btn active" onclick="switchTab('aus-email-templates','Library')" id="tbtn-aus-email-templates-Library">Library</button>
+</div>
+<div class="tab-panel active" id="panel-aus-email-templates-Library">
+  <div class="callout info" style="margin-bottom:14px">Each template shows which section of the Sourcer or Placer playbook it belongs to and exactly when to use it. Templates marked <strong>Automated</strong> are sent for you — they are here so you know what the candidate received.</div>
+
+  <div class="content-block">
+    <div class="block-label">Sourcer</div>
+    <div class="block-title">S6 Screening Call</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS · Sourcer → Candidate</div><div class="email-template-subject">No Answer SMS</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-01" onclick="copyTemplate('aus-email-templates-01')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Sourcer: S6 Screening Call<br><strong>Use this when:</strong> You've called a candidate from your sourcing list and they didn't pick up.</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-01">Hi [Name], it's Ian from Stand Up Recruitment. You showed interest in moving to Australia for work. I've got some exciting opportunities for [Trade] offering high pay and free temporary accommodation. Would you be interested in hearing more?</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS · Sourcer / Placer → Candidate · Send within 5 minutes of ending the call</div><div class="email-template-subject">Not Ready Yet — Follow-Up SMS</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-02" onclick="copyTemplate('aus-email-templates-02')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Sourcer: S6 Screening Call, and Placer: P2 Internal Interview<br><strong>Use this when:</strong> The candidate says they're not ready to move yet (3, 6, or 12 months out) — send this right after the Not Ready Yet sub-script.</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-02">Hey [Name], [Recruiter] from Stand Up Recruitment here. Good chatting today. We'll touch base around [month] but call/text me anytime if your plans move earlier — we'll get your job sorted before you leave NZ, plus accommodation and flights. Save my number and we'll talk soon.</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Sourcer</div>
+    <div class="block-title">S8 Booking the Internal Interview</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Sourcer → Candidate</div><div class="email-template-subject">Interview Confirmation — Teams</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-03" onclick="copyTemplate('aus-email-templates-03')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Sourcer: S8 Booking the Internal Interview<br><strong>Use this when:</strong> The candidate is qualified on the screening call and you've booked them in for a Teams video internal interview.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> SUR Internal Interview with [Candidate Full Name] - [Trade]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-03">Hey [Name],
+
+Nice catching up with you earlier — excited to get this moving for you!
+
+Your interview is confirmed for [Date] at [Time]. Here are the details:
+
+Format: Microsoft Teams (video call)
+Meeting link: [Insert Teams link]
+Interviewer: [Placer Name]
+
+How to join:
+1. Download the Microsoft Teams app at teams.microsoft.com or search "Microsoft Teams" in the App Store or Google Play
+2. Open the app and sign in with your email address — or continue as a guest if you don't have an account
+3. At the time of your interview, click the meeting link above and select "Join now"
+
+Test your camera and microphone before the call. If you have any issues joining, call [Placer Name] on [Phone Number].
+
+See you then!
+
+[Sourcer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS · Sourcer → Candidate</div><div class="email-template-subject">Interview Confirmation SMS — Teams</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-04" onclick="copyTemplate('aus-email-templates-04')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Sourcer: S8 Booking the Internal Interview<br><strong>Use this when:</strong> Sending a shorter SMS version alongside the Teams confirmation email.</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-04">Hey [Name], great chatting earlier! Just confirming your interview with [Placer Name] on [Date] at [Time] via Microsoft Teams. I'll send the meeting link to your email. Download the Teams app beforehand and test your camera and mic. Any issues, call me on [Phone Number]. See you then!</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Sourcer → Candidate</div><div class="email-template-subject">Interview Confirmation — In-Person</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-05" onclick="copyTemplate('aus-email-templates-05')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Sourcer: S8 Booking the Internal Interview<br><strong>Use this when:</strong> The candidate is qualified and Auckland-based, and you've booked them in for an in-person internal interview.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> SUR Internal Interview with [Candidate Full Name] - [Trade]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-05">Hey [Name],
+
+Nice catching up with you earlier — excited to get this moving for you!
+
+Your interview is confirmed for [Date] at [Time]. Here are the details:
+
+Format: In-person
+Address: 41 Taharoto Road, Takapuna
+Google Maps: https://maps.app.goo.gl/iwhNCcMb1KpzAAdm6
+Interviewer: [Placer Name]
+
+Parking: There are two options nearby:
+1. Z or BP petrol station — turn right out of the station and walk for about 2 minutes. You will see a building with the number 41 on it. That's us.
+2. Street parking on Rangitira Avenue — https://maps.app.goo.gl/b9WFEypKiCT9Uc5b7
+
+If you have any issues finding us, call [Placer Name] on [Phone Number].
+
+See you then!
+
+[Sourcer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS · Sourcer → Candidate</div><div class="email-template-subject">Interview Confirmation SMS — In-Person</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-06" onclick="copyTemplate('aus-email-templates-06')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Sourcer: S8 Booking the Internal Interview<br><strong>Use this when:</strong> Sending a shorter SMS version alongside the in-person confirmation email.</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-06">Hey [Name], great chatting earlier! Just confirming your interview with [Placer Name] on [Date] at [Time] at 41 Taharoto Road, Takapuna. Two parking options nearby: 1) Z or BP station — turn right, 2 min walk, look for building 41. 2) Street parking on Rangitira Ave: https://maps.app.goo.gl/b9WFEypKiCT9Uc5b7. Office map: https://maps.app.goo.gl/iwhNCcMb1KpzAAdm6. Any issues, call me on [Phone Number]. See you then!</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Placer</div>
+    <div class="block-title">P2 Internal Interview</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS · Sourcer → Candidate</div><div class="email-template-subject">Meeting Day Reminder SMS</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-07" onclick="copyTemplate('aus-email-templates-07')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent on the morning of a standard (non Grand Slam) internal interview to confirm the candidate is still coming.</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-07">Hi [Name], quick reminder — locked in for [TIME] today. Got some solid AUS roles to walk you through. Worth 15 mins. Still good?</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS · Sourcer → Candidate · Grand Slam roles only</div><div class="email-template-subject">Meeting Day Reminder SMS — Grand Slam Roles</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-08" onclick="copyTemplate('aus-email-templates-08')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Same as the standard reminder, but only for roles that come with the Grand Slam offer — free flights and free temp accommodation.</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-08">Hey [Name], just a reminder we're locked in for [TIME] today! Got some really exciting roles in Australia to walk you through, and these ones come with free flights and temp accommodation sorted for you. Worth a quick 15 mins. Still good to go?</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Candidate</div><div class="email-template-subject">No-Show Interview — Email</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-09" onclick="copyTemplate('aus-email-templates-09')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> The candidate doesn't show up for their booked video interview.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> We missed you today, [Name]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-09">Hey [Name],
+
+Missed you on our Teams call today — you must have been busy.
+
+Would you like to reschedule so I can explain some exciting opportunities that we have in Australia?
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS · Placer → Candidate</div><div class="email-template-subject">No-Show Interview — SMS</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-10" onclick="copyTemplate('aus-email-templates-10')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Same as the no-show email — send alongside or instead of it, whichever is faster to reach the candidate.</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-10">Hey [Name], it's [Placer Name] from Stand Up Recruitment. Missed you on our Teams call today — you must have been busy. Would you like to reschedule so I can explain some exciting opportunities that we have in Australia?</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Candidate</div><div class="email-template-subject">Cool-Off Period Email</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-11" onclick="copyTemplate('aus-email-templates-11')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent immediately after the internal interview to kick off the candidate's cool-off period.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Please Take a Few Days to Consider This Opportunity</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-11">Hi [Candidate Name],
+
+Good to talk today. You've done well to get to this point, not everyone does.
+
+Before we go to the client, I need you to take the next 2 days and genuinely work through what's below. I'll be calling you at the end of that period and I'll be asking you directly about each of these. So don't just skim it, actually sit down and think it through.
+
+What I need you to work through:
+
+Are you financially ready to make the move and cover yourself for the first few weeks until your first pay comes in?
+
+Are you happy to start within 4 to 6 weeks?
+
+Are you happy with the location?
+
+I've attached a cost guide — go through it line by line and put your own numbers to it. Not a rough guess. Actual numbers.
+
+Have you actually had the conversation — not just mentioned it — with your partner and family? The timeline, what it means day-to-day, all of it. This is the most common reason placements fall apart. Be straight with yourself.
+
+Does this move make sense for where you want to be in the next few years? The people who thrive over there are the ones moving toward something, not just looking for a change.
+
+Role Overview
+
+Role & Location: [insert information]
+Pay: [insert information]
+Work Type / Hours: [insert information]
+Scope of Work: [insert information]
+Why It's Worth Considering: [insert information]
+
+When I call you in 2 days, I'll be asking you directly about your financial plan, whether your family is on board, and why this role and location makes sense for you right now. Candidates who can answer these clearly are the ones who make it work over there.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Automated → Candidate</div><div class="email-template-subject">Document Request Email (Automated)</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-12" onclick="copyTemplate('aus-email-templates-12')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> This one is automated — it's sent automatically 24 hours after the internal interview asking the candidate to upload their licence, passport, and trade certificate. You don't send this manually. It's here so you know what the candidate received if they ask about it.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> One Quick Thing While You Wait — [Candidate First Name]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-12">Hey [Name],
+
+Great catching up yesterday — you did really well.
+
+While we work through the next steps on our end, there's one thing we need from you to keep things moving.
+
+Please upload the following documents using the link below:
+
+- Driver's licence
+- Passport
+- Trade certificate (if you have one)
+
+Upload link: [Insert upload link]
+
+The sooner we have these, the faster we can move when the time comes. If you have any issues uploading, just reply to this email and we'll sort it out.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Automated → Candidate</div><div class="email-template-subject">Document Follow-Up 1 — Nothing Uploaded</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-13" onclick="copyTemplate('aus-email-templates-13')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent automatically 48 hours after the Document Request Email if nothing has been uploaded. You don't send this manually — it's here for reference.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Still Need Your Documents — [Candidate First Name]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-13">Hey [Name],
+
+Just checking in — I sent you a link a couple of days ago to upload your documents but haven't seen anything come through yet.
+
+We still need:
+
+- Driver's licence
+- Passport
+- Trade certificate (if you have one)
+
+Upload link: [Insert upload link]
+
+We can't move forward without these so the sooner you get them uploaded the better. If you're having any issues with the link, just let me know and we'll figure it out.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Automated → Candidate</div><div class="email-template-subject">Document Follow-Up 2</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-14" onclick="copyTemplate('aus-email-templates-14')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent automatically 48 hours after Follow-Up 1 if still nothing uploaded. You don't send this manually — it's here for reference.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Still Waiting on Your Documents — [Candidate First Name]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-14">Hey [Name],
+
+I've reached out a couple of times now about your documents and still haven't seen anything come through.
+
+We genuinely want to get this moving for you — but we can't progress without these:
+
+- Driver's licence
+- Passport
+- Trade certificate (if you have one)
+
+Upload link: [Insert upload link]
+
+If something has come up or you're having trouble with the link, just reply here and let me know. Happy to help sort it out.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Automated → Candidate</div><div class="email-template-subject">Document Follow-Up 3 — Final</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-15" onclick="copyTemplate('aus-email-templates-15')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent automatically 48 hours after Follow-Up 2 if still nothing uploaded. This is the final automated attempt — if it doesn't land, escalate to Les.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">This is the final follow-up. After sending this email, do not contact the candidate again regarding documents. Escalate to Les — raise it in the morning meeting or email Les directly if time-sensitive.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Last Message from Me — [Candidate First Name]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-15">Hey [Name],
+
+This will be my last message about your documents.
+
+I've reached out a few times now and haven't heard back. Without your driver's licence, passport, and trade certificate uploaded, we can't move your application forward.
+
+Upload link: [Insert upload link]
+
+If you're still keen and something has just come up on your end, reply to this email today and let me know. Otherwise, we'll have to put your application on hold.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Automated → Candidate</div><div class="email-template-subject">Document Follow-Up — Partial Upload</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-16" onclick="copyTemplate('aus-email-templates-16')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent automatically when the candidate has uploaded some but not all documents. You don't send this manually — it's here for reference.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Just a Couple More Documents — [Candidate First Name]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-16">Hey [Name],
+
+Thanks for uploading what you have — we're almost there.
+
+We just still need the following from you:
+
+- Driver's licence
+- Passport
+- Trade certificate (if you have one)
+
+Upload link: [Insert upload link]
+
+Once we have everything, we're good to go. If you're having any trouble uploading, just reply here and we'll sort it.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Placer</div>
+    <div class="block-title">P3 Reference and Police Checks</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS · Sourcer → Referee</div><div class="email-template-subject">Reference No Answer SMS</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-17" onclick="copyTemplate('aus-email-templates-17')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P3 Reference and Police Checks<br><strong>Use this when:</strong> A referee doesn't pick up when you call for a reference check.</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-17">Hey [Reference First Name], [Candidate Full Name] told me to give you a ring for a reference check. My name is [Your Name]. What time suits you best for me to give you a ring? It will take 2-3 minutes.</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Placer</div>
+    <div class="block-title">P5 Client Submission</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Client</div><div class="email-template-subject">Endorse Candidate + Suggest Meeting</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-18" onclick="copyTemplate('aus-email-templates-18')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> Sending a candidate's CV to the client for the first time on this role.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Pick the interview day yourself. Always write the day and date in the client's timezone. Once this is sent, text the candidate the Candidate Heads-Up SMS straight away.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Candidate Endorsement — [Candidate First Name], [Role Title]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-18">Hi [Client Name],
+
+Great to meet you!
+
+I had a great conversation with [Candidate First Name] and I believe he is an excellent fit for the [Role Title] role.
+
+[Insert 2 sentence blurb from ChatGPT based on the formatted CV]
+
+Will [Day] [Date] morning or afternoon work for you?
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS · Placer → Candidate · Send right after the endorsement email</div><div class="email-template-subject">Candidate Heads-Up SMS</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-19" onclick="copyTemplate('aus-email-templates-19')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> You've just sent the endorsement email to the client and are waiting on them to confirm the exact interview time.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Convert the morning and afternoon windows to NZ time before sending. NZ is 2 to 5 hours ahead of Australia depending on the state and daylight saving — a Perth morning can be a NZ afternoon.</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-19">Hi [Candidate First Name], it's [Your Name] from Stand Up Recruitment. Good news — I've sent your CV through to [Company Name] and we're lining up your interview for [Day] [Date]. We're just waiting on them to confirm the exact time, so please block out both the morning and afternoon (NZ time) that day. I'll let you know as soon as it's locked in!</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Call Script · Placer → Client · Call 1: 24 hours after CV · Call 2: 48 hours after Call 1</div><div class="email-template-subject">CV Follow-Up — Phone Call Script</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-20" onclick="copyTemplate('aus-email-templates-20')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> The client hasn't replied to the endorsement email. Use it for both Call 1 and Call 2. If the call goes unanswered, send Email 1 (after Call 1) or Email 2 (after Call 2) straight away.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Goal: book the interview on the call. A yes with a time, or a clean no. No maybes. If the day in your endorsement email has passed, offer a new day and re-send the Candidate Heads-Up SMS.</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-20">"Hey [Client Name], it's [Placer Name] from Stand Up Recruitment."
+
+[Pleasantries]
+
+"Hey look, I sent you [Candidate First Name]'s CV — I think they'd be a perfect fit for the role you're after. Did you get a chance to have a look? Would [Day] [Date] morning or afternoon work to catch up with them?"
+
+If they are keen:
+Confirm the exact time before you get off the call. Pin them to a specific time, then book it in JobAdder as a Contact Candidate Meeting.
+
+If they are wishy-washy or vague:
+"Are you still actively hiring for this role?"
+
+If no or not a priority:
+"No worries — just let me know and I can send [Candidate First Name] across to another one of our clients."</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Client · Send immediately after Call 1 goes unanswered</div><div class="email-template-subject">Email 1 — Just Tried Calling</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-21" onclick="copyTemplate('aus-email-templates-21')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> You've called the client 24 hours after sending the CV and they didn't answer.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> [Candidate First Name] — Just Tried Calling</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-21">Hi [Client Name],
+
+Just tried giving you a call. I wanted to make sure you saw [Candidate First Name]'s CV for the [Role Title] role.
+
+Will [Day] [Date] morning or afternoon work for a quick interview?
+
+[Candidate First Name] is also being considered for other roles, so I'm keen to lock something in soon.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Client · Send immediately after Call 2 goes unanswered</div><div class="email-template-subject">Email 2 — Still Need a [Role Title]?</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-22" onclick="copyTemplate('aus-email-templates-22')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> You've called the client twice with no answer. If there's still no reply and another client suits the candidate, put them forward straight away.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Still need a [Role Title]?</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-22">Hi [Client Name],
+
+I've tried calling a couple of times about [Candidate First Name] for the [Role Title] role, and I know things get busy.
+
+If hiring isn't a priority right now, no worries at all. Just let me know, and I'll put [Candidate First Name] forward to another one of our clients.
+
+If you'd still like to meet them, reply with a time that suits and I'll lock it in.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Client · Use after 2 candidates didn't pass</div><div class="email-template-subject">Endorse Candidate — 2nd Attempt</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-23" onclick="copyTemplate('aus-email-templates-23')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> You're submitting a new candidate after the client has already rejected 2 previous ones for this role.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Pick the interview day yourself. Always write the day and date in the client's timezone. Once this is sent, text the candidate the Candidate Heads-Up SMS straight away.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Candidate Endorsement — [Candidate First Name], [Role Title]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-23">Hi [Client Name],
+
+After two interviews and your feedback along the way, I have a much clearer picture of exactly what you need. I went away, took the time to find the right person, and I am confident that [Candidate First Name] ticks all the boxes.
+
+[Insert 2 sentence blurb based on the formatted CV]
+
+Will [Day] [Date] morning or afternoon work for you?
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Placer</div>
+    <div class="block-title">P6 Client Interview</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Candidate</div><div class="email-template-subject">Candidate Prep Email</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-24" onclick="copyTemplate('aus-email-templates-24')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P6 Client Interview<br><strong>Use this when:</strong> Right after sending the meeting invite to the client, prep the candidate with this before their client interview.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> SUR Prep for Your Interview with [Client Name]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-24">Hi [Candidate Name],
+
+Just a quick note ahead of your interview with [Client Name].
+
+Interview Details:
+Date & Time: [Insert]
+Format: [In-person / Teams / Phone] — Please download Microsoft Teams today and test the link
+Meeting Link: [Insert]
+Attendees: [Client Contact Name]
+
+What [Client Name] is Looking For:
+When you're speaking with them, make sure to highlight your experience in these areas:
+1. [Key Priority #1]
+2. [Key Priority #2]
+3. [Key Priority #3]
+
+Tips for Success:
+Keep answers clear and practical — real site examples go a long way.
+Focus on how you add value in line with the priorities above.
+Show enthusiasm about relocating and committing to the role.
+
+We'll open the interview with an intro and guide the first few questions to help you get started. From there, [Client Name] will take the lead.
+
+You've got this! Just be confident and honest about your experience.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">SMS · Placer → Candidate</div><div class="email-template-subject">Candidate Prep SMS</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-25" onclick="copyTemplate('aus-email-templates-25')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P6 Client Interview<br><strong>Use this when:</strong> Sending a shorter version of the prep email, or as a same-day reminder before the client interview.</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-25">Hi [Candidate Name], just a quick prep for your interview with [Client Name]:
+Focus on: [Key Priority #1], [Key Priority #2], [Key Priority #3].
+Keep examples short and site-based.
+Show commitment to relocating and joining their team.
+We'll open the call and set you up — just be yourself from there.</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Client · Send straight after the debrief</div><div class="email-template-subject">Post-Client Interview Email with Candidate Details</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-26" onclick="copyTemplate('aus-email-templates-26')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P6 Client Interview<br><strong>Use this when:</strong> The client has said yes in the post-interview debrief. Send the candidate's full name and possible start date so the client can prepare the offer letter, and ask them to include the temporary accommodation and vehicle arrangements in writing.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Confirm the possible start date with the candidate before sending — allow for the 2-day offer cool off and the time they need to relocate. If the role doesn't include accommodation or a vehicle, remove that part of the email.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> [Candidate Full Name] — [Role Title] Offer Details</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-26">Hi [Client Name],
+
+Thanks for your time today, great to hear [Candidate First Name] is the right fit.
+
+Here are the details you'll need for the offer letter:
+
+Full name: [Candidate Full Name]
+Possible start date: [Start Date]
+
+One more thing: could you also add a line in the offer letter confirming the temporary accommodation and vehicle arrangements? Something like:
+
+"Temporary Accommodation: Employer will provide temporary accommodation for [X weeks] from the commencement date, at [no cost to the employee / $[amount] per week], to support relocation. Vehicle: Employer will provide a company vehicle for use in the course of employment, described as [details]."
+
+Just needs the brackets filled in with your actual details. Having it in the letter means the candidate sees it in writing upfront, and it avoids any confusion down the track.
+
+Could you let me know when we can expect the offer letter?
+
+[Placer Name]</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Placer</div>
+    <div class="block-title">P7 Offer</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Client</div><div class="email-template-subject">Offer Letter Received Reply</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-27" onclick="copyTemplate('aus-email-templates-27')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P7 Offer<br><strong>Use this when:</strong> The client sends through the signed offer letter — reply the same day to acknowledge it.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> SUR Offer Letter Received — [Candidate First Name], [Role Title]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-27">Hi [Client Contact],
+
+Thanks for sending this through, appreciate it.
+
+Our standard process is to give the candidate 48 hours to go over the contract and confirm they're fully comfortable moving forward before signing. We've sent it to [Candidate Name] now and will follow up with them on [Day].
+
+Once it's signed, we'll get the fully executed copy back to you straight away.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Candidate · Sent automatically by DocuSeal once you add recipients</div><div class="email-template-subject">Offer of Employment Email</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-28" onclick="copyTemplate('aus-email-templates-28')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P7 Offer<br><strong>Use this when:</strong> This is sent automatically once you upload the offer to DocuSeal and add the candidate as a recipient — you don't send this manually, but it's here for reference so you know what the candidate is receiving.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> SUR Offer of Employment — [Candidate First Name], [Company Name]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-28">Hey [First Name],
+
+Congrats! This is a huge step and we're genuinely pumped to get you over there.
+
+There are two documents that need your signature to make it official:
+
+1. Offer Letter, click here to sign
+2. Stand Up Recruitment Terms of Business, click here to sign
+
+We've also attached our Relocation Guide, please have a read through it, it covers everything you need to know about making the move.
+
+Before you sign, take 48 hours with it.
+
+Not because we expect problems, just because once this is signed we're moving fast on flights, start dates, and logistics, and we want you locked in with zero doubts.
+
+In that 48 hours, have a proper look at:
+
+1. The role and location. [Location/Site] is where you'll be based. Are you good with that, day to day?
+2. The start date. [Start Date]. Is that realistic for you to have everything sorted in NZ and be on site ready to go?
+3. Your affairs at home. Lease, vehicle, family stuff, notice periods. Nothing left hanging once you're over there.
+
+If all of that lines up, go ahead and sign both documents using the links above. If anything doesn't sit right, call [Recruiter Name] before you sign, not after. We'd much rather sort it now than have you land in Australia and something's off.
+
+We'll follow up with you in 2 days for a quick video call to check you're all set.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Candidate · Send right after booking the call, 2 days after the offer</div><div class="email-template-subject">Welcome & Relocation Chat Email</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-29" onclick="copyTemplate('aus-email-templates-29')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P7 Offer<br><strong>Use this when:</strong> Right after your phone call to the candidate confirming the offer was sent and booking the Welcome & Relocation Chat.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Welcome & Relocation Chat with [Candidate Name] and Stand Up Recruitment</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-29">Hey [First Name],
+
+Locking in our Welcome & Relocation Chat for [Date] at [Time] via Microsoft Teams.
+
+On the call: you, me, and [Pastoral Care Name] from our support team. We'll walk through your Relocation Guide together, answer any questions, and make sure you're feeling good about the next steps.
+
+Meeting link: [Insert Teams link]
+
+Before we chat, have a read through:
+- Your Offer Letter
+- Our Terms of Business
+- The Relocation Guide
+
+If you have any questions before then, don't hesitate to reach out.
+
+Looking forward to it!
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Placer</div>
+    <div class="block-title">P8 Contract Follow-Up</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Client · Send next business day after missed date</div><div class="email-template-subject">Contract Follow-Up — Check-In</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-30" onclick="copyTemplate('aus-email-templates-30')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P8 Contract Follow-Up<br><strong>Use this when:</strong> A client decision or contract date has passed with nothing received.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Following Up — [Candidate Name]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-30">Hi [Client Contact],
+
+Just following up on [Candidate Name] — will I have that [contract / decision] today?
+
+Let me know if there's anything you need from us in the meantime.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Client · Send when second date is also missed</div><div class="email-template-subject">Contract Follow-Up — Urgency</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-31" onclick="copyTemplate('aus-email-templates-31')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Placer: P8 Contract Follow-Up<br><strong>Use this when:</strong> A second date has also been missed with no reply to the Check-In email.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> [Candidate Name] — Need to Confirm Timing</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-31">Hi [Client Contact],
+
+Still haven't received that contract for [Candidate Name]. I'm not going to be able to hold him much longer — I've got other clients interested in him as well.
+
+Will I have this today? If not, I'll need to start putting him in front of other opportunities.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Other</div>
+    <div class="block-title">Other templates</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Client</div><div class="email-template-subject">Float New Candidate Email</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-32" onclick="copyTemplate('aus-email-templates-32')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Not tied to a section: business development<br><strong>Use this when:</strong> You've got a strong candidate available and want to offer them to an existing client before taking them to market, even without a live matching role open yet.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Do not send the CV on first email. Ask if they would like you to send it as shown below.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> New [Trade] Available</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-32">Hey [Name],
+
+Just landed a strong [Trade] in our pool — [brief one-liner: e.g. 5 years commercial experience, based in Auckland, ready to relocate within 30 days].
+
+Giving you first look before we take him/her to market.
+
+Want me to send the CV across?
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Candidate</div><div class="email-template-subject">Rejection — NZ PR Applicant</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-33" onclick="copyTemplate('aus-email-templates-33')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Not tied to a section: edge case handling<br><strong>Use this when:</strong> A NZ Permanent Resident (not a citizen) applies to a role via Trade Me — our roles are citizens only.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Your Application at Stand Up Recruitment — [Role Title]</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-33">Hi [Candidate Name],
+
+Thank you for applying for the [Role Title] position. We've reviewed your application, and while your background is strong, this role is open to New Zealand Citizens only due to relocation requirements.
+
+We'll keep your details on file and if opportunities open up here in New Zealand, we'll be sure to let you know. If in the future you become a New Zealand Citizen and are interested in moving to Australia, please reach out — we'd be glad to hear from you.
+
+In the meantime, if you know an NZ Citizen who would be interested in working in Australia, we'd love to hear from them. As part of our referral program, if your referral signs a contract through us, you'll receive a $500 referral bonus.
+
+Thanks again for your application, and we'll stay in touch should something more suitable come up.
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Email · Placer → Candidate</div><div class="email-template-subject">Criminal Conviction Inquiry Reply</div></div>
+      <button class="copy-btn" id="copy-aus-email-templates-34" onclick="copyTemplate('aus-email-templates-34')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0"><strong>Relevant section:</strong> Not tied to a section: edge case handling<br><strong>Use this when:</strong> A candidate discloses a criminal conviction and asks whether they're eligible to work in Australia.</div>
+    <div style="padding:10px 16px;font-size:12.5px;border-bottom:1px solid var(--border);color:var(--text2)"><strong>Subject:</strong> Re: Your Enquiry</div>
+    <div class="email-template-body" id="tmpl-aus-email-templates-34">Hi [Name],
+
+Thanks for reaching out and for being upfront about your situation — we really appreciate that.
+
+To be honest, this is not something we are able to advise on directly as it falls outside of our expertise, but we can point you in the right direction.
+
+The good news is that having a conviction does not automatically mean you cannot enter Australia. The key steps we would suggest are:
+
+1. Complete the online pre-travel assessment form for NZ passport holders with criminal convictions. This is run by the Australian Department of Home Affairs and will give you an idea of where you stand before you make any decisions. You can find it here: https://immi.homeaffairs.gov.au/help-support/departmental-forms/online-forms/travelling-with-a-criminal-conviction
+
+2. If you are unsure about the outcome or your situation is complex, we would recommend speaking with an Australian immigration adviser who specialises in character assessments. They can give you a proper assessment of your options.
+
+Once you have clarity on your eligibility to enter Australia, we would be happy to have a conversation about opportunities that may suit your background.
+
+Hope that helps and best of luck with it!
+
+[Placer Name]
+Stand Up Recruitment</div>
+  </div>
+
+</div>
+</div>
+
+<div id="module-aus-prompt-library" style="display:none">
+<button class="back-btn" onclick="openModule('aus')">&#8592; Back to Australian Recruitment Playbook</button>
+<div class="module-header">
+  <div class="module-eyebrow" style="color:#f0a04a">Resources</div>
+  <h1 class="module-h1">Prompt Library</h1>
+  <p class="module-intro">Every Claude and ChatGPT prompt referenced in the playbook, ready to copy and paste. Fill in the bracketed fields before running each prompt.</p>
+</div>
+<div class="tabs" id="tabs-aus-prompt-library">
+  <button class="tab-btn active" onclick="switchTab('aus-prompt-library','Library')" id="tbtn-aus-prompt-library-Library">Library</button>
+</div>
+<div class="tab-panel active" id="panel-aus-prompt-library-Library">
+
+  <div class="content-block">
+    <div class="block-label">Sourcer</div>
+    <div class="block-title">S5 Cold Email and JobSmart</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Sourcer: S5 Cold Email · Claude / ChatGPT</div><div class="email-template-subject">Cold Outreach Role Blurb</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-01" onclick="copyTemplate('aus-prompt-library-01')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">Writes short, curiosity-driven role blurbs to sit inside cold outreach emails. The goal is to hook the candidate into booking a call — not to describe the full job.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Inputs required: Role name and location for each role you want a blurb for.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-01">SUR Cold Outreach Role Blurb Prompt
+
+You are writing short role blurbs for a cold outreach email sent by Stand Up Recruitment (SUR), a New Zealand-based recruitment agency placing Kiwi tradespeople in Australian roles.
+
+The email already has an opening and closing written. Your job is only to write the numbered role blurbs that sit in the middle of the email.
+
+The goal of each blurb is to hook the candidate into booking a call. Not to describe the job. Not to sell it. To make them think "I need to know more."
+
+Rules:
+- No em dashes
+- No pay or rate information
+- No client names or contact details
+- Keep each blurb to 2 to 3 sentences maximum
+- Do not oversell or make promises about the role
+- Tap into what good tradespeople actually care about: quality gear, variety of work, being valued, working with a team that runs things properly
+- The first blurb must open with: "[Location] based role..."
+- Every blurb after the first must open with: "A [descriptor] company/client in [Location] looking for..."
+- Each blurb should leave something unsaid so the candidate is curious enough to get on a call
+
+Examples of good blurbs:
+- Alice Springs based role working across earthworks, drainage, and road works on serious civil infrastructure projects. The scale of work up here is something most operators don't get to touch often, and the pipeline isn't slowing down. If you want to get your hands on meaningful projects in a part of Australia where the demand for skilled operators is real, this one is worth a conversation.
+- A well-established wet and dry hire company in Brisbane looking for digger and grader operators. Quality gear, a steady flow of work across different clients and sites, and the kind of setup where a good operator gets noticed. Plenty of variety and a team that runs things properly.
+
+Input: List the roles below. For each one include the location and a brief description of the work or client.
+
+Role 1: [role name] / [location]
+Role 2: [role name] / [location]
+
+Output: Numbered blurbs ready to paste directly into the cold outreach email.</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Sourcer: S5 Cold Email · Claude / ChatGPT</div><div class="email-template-subject">Candidate-Facing Job Summary</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-02" onclick="copyTemplate('aus-prompt-library-02')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">Creates a short, clear job summary to send directly to candidates. Use when a candidate asks for more details about a role during or after a screening call.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Input required: Paste the job card information where indicated.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-02">PROMPT: Candidate-Facing Job Summary (SUR Standard)
+
+Using the job card information below, create a short, high-level job summary suitable to send directly to a candidate.
+
+Rules:
+- Keep it clear, simple, and informative
+- Focus only on:
+  Pay
+  Hours / work pattern (if provided, otherwise say "full-time / ongoing")
+  Core tasks and scope of work
+- Write in a professional, tradie-friendly tone
+- No em-dashes or long dashes of any kind
+- No internal jargon, no long paragraphs, no sales fluff
+- 4 to 6 bullet points max
+
+Output structure (MANDATORY):
+- Role & Location
+- Pay
+- Work Type / Hours
+- What You'll Be Doing (tasks only, no requirements list)
+- Why It's Worth Considering (1 to 2 bullets max)
+
+Job Card Input:
+[PASTE JOB CARD HERE]</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Sourcer: S5 Trade Me JobSmart · Claude / ChatGPT</div><div class="email-template-subject">Boolean Search String Generator</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-03" onclick="copyTemplate('aus-prompt-library-03')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">Generates a Boolean search string to paste into the Role field on the Airtable sourcing form. This widens the AI bot's parameters so it captures related trades, alternate titles, and common variations instead of only an exact job title match.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Input required: The trade you are sourcing for. Paste the output directly into the Role field on the Airtable sourcing form.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-03">Create a Boolean search string for a [INSERT TRADE] that I can use to source candidates. Include common NZ job title variations, synonyms, and related trade titles. Keep it in standard Boolean search format using AND, OR, and quotation marks where needed.</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Placer</div>
+    <div class="block-title">P1 Job Setup</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Placer: P1 Job Setup · Claude / ChatGPT</div><div class="email-template-subject">Job Brief Generator</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-04" onclick="copyTemplate('aus-prompt-library-04')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">Generates a structured SUR job brief from the client job description form and sales call transcript. Use this before creating the job card in JobAdder.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Inputs required: Client Notes, Client Job Description Form, Sales Call Transcript.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-04">PROMPT: SUR Job Brief Generator
+
+Input
+Provide the following three inputs:
+- Client Notes — any additional context or instructions from the recruiter
+- Client Job Description Form — the completed form submitted by the client
+- Sales Call Transcript — the recorded/transcribed discovery call with the client
+
+Rules
+- Do not invent or assume details not stated in the inputs
+- Synthesise information across all three inputs — where details conflict, use the most recent or most specific source and note the discrepancy in Extra Notes
+- Keep bullet points short and actionable throughout
+- Keep the brief tight — the job description and call transcript are available for reference; the brief should give the recruiter everything they need at a glance without repeating everything
+- Any critical missing details (e.g. unconfirmed pay rate, headcount, key logistics) must be captured as a single "confirm before submitting" line at the bottom of Section 5
+- Flag ambiguities before producing output if clarification is needed
+
+Output Format
+Produce the SUR Job Brief using exactly the 5 sections below, in this order.
+
+Open with a pay callout line above Section 1 — one line summarising the key pay figures (e.g. rate, overtime, earning potential). Bold the numbers.
+
+1. Role Overview
+A short paragraph (3–5 sentences) covering:
+- Who the client is and what they do
+- Job title, location, and employment type
+- Pay rate and hours at a glance
+- The one key thing a recruiter needs to know about this role before doing anything else
+End the paragraph with the client contact name and email.
+
+2. What to Prioritise
+Bullet points covering:
+- Non-negotiable experience, skills, and licences
+- Target NZ company backgrounds or candidate profiles to search for first
+- Key traits or indicators the client said good looks like
+- The interview or assessment process the client will run
+- Any advantageous skills worth noting
+
+3. Selling Points to Candidates
+Bullet points covering what makes this role genuinely attractive to a NZ tradesperson considering the move. Focus on pay, earning potential, career development, company reputation, job security, and lifestyle. Keep it honest — do not oversell.
+
+4. Red Flags
+Bullet points covering specific candidate types, backgrounds, or behaviours that would disqualify someone or waste the client's time. Keep these sharp and specific.
+
+5. Extra Notes from Client
+Short bullets covering:
+- Culture fit and client expectations
+- Urgency and headcount
+- Sourcing strategy notes (internal only)
+- Relocation and logistics details candidates need to know
+- Any other context the recruiter needs that doesn't fit above
+
+End this section with a single bold line: Before submitting candidates, confirm: [list any unconfirmed or missing details the recruiter must chase up first]
+
+If nothing is missing, omit this line entirely.</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Placer: P1 Job Setup · Claude / ChatGPT</div><div class="email-template-subject">Tailored Interview Guide Generator</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-05" onclick="copyTemplate('aus-prompt-library-05')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">Analyses the job description and sales call transcript together to understand what the client is genuinely after — including anything implied but not stated outright — and produces a tailored set of interview questions across three categories: Commitment, Role & Location, and Technical. Use this in place of generic technical-only questions. Run it when you set up a new job (P1, Step 2), using the sales call transcript downloaded from Airtable, and keep the output for every internal interview on that job.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Inputs required: the client's Job Description and the Sales Call Transcript — the same two documents used for the Job Brief Generator. This prompt does not replace the standard screening questions already in the playbook (citizenship, criminal history, medical, passport, family/vacation commitments) — those are always asked regardless of this output.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-05">PROMPT: SUR Tailored Interview Guide Generator
+
+Input:
+- Job Description: [PASTE JOB DESCRIPTION HERE]
+- Sales Call Transcript: [PASTE SALES CALL TRANSCRIPT HERE]
+
+Task:
+Analyse both documents together to understand what the client is genuinely looking for in this hire — not just the stated requirements, but anything implied in the transcript that reveals a real concern, past bad experience, or unspoken expectation. Clients often say things during the sales call that never make it into the written job description but reveal exactly what could go wrong with the wrong hire — reliability concerns, remote or isolated site conditions, past staff who didn't work out and why, culture fit issues, or specific technical pain points.
+
+Rules:
+- Do not invent details not stated or reasonably inferable from the documents provided
+- If something in the transcript implies a concern (e.g. "the last guy we had just didn't show up half the time," "it's pretty remote out there," "we need someone who can actually run the site, not just follow instructions"), treat that as a genuine signal and build a question around it
+- Do not duplicate the standard screening questions already covered elsewhere in the process (citizenship, criminal history, medical conditions, passport validity, moving alone or with family, upcoming vacations) — this output is additional to those, not a replacement
+- Keep every question short, plain, and conversational — the recruiter needs to be able to ask it naturally, not read it off a script
+- Cap Technical Questions at exactly 3
+
+Output Format:
+
+1. Client Intent Summary
+A short set of bullet points summarising what the client is really after, including any implied concerns or red flags picked up from the transcript that the recruiter should be alert to during the interview.
+
+2. Commitment Questions (2 to 3, based on what's actually in the transcript)
+Questions designed to genuinely test whether the candidate will show up and stay — not just say yes to being keen. Anchor these to whatever specific commitment concern is present in the transcript (e.g. remote location, physically demanding role, past turnover issues). If nothing specific comes up in the transcript, generate general but genuine commitment questions instead of forcing a connection that isn't there.
+
+3. Role and Location Questions (2 to 3, based on what's actually in the transcript)
+Questions designed to surface whether the candidate has genuinely thought through the day-to-day reality of the role and where they'll be living — not just whether they're "keen." These should test whether the candidate has done any real thinking about logistics, lifestyle, or what the actual work will look like day to day.
+
+4. Technical Questions (exactly 3)
+Anchored directly to the client's specific must-haves or pain points from the job description and transcript — not generic trade questions. For each question, include:
+✅ What a strong answer looks like: specific tasks, tools, systems, or sites. Clear understanding of process and sequence. Genuine hands-on ownership.
+🚩 What a red flag answer looks like: vague or generic answers, buzzwords without explanation, describing what "the team" did without personal ownership.
+
+Write like a leading hand or site supervisor asking, not an HR professional. Short, plain, conversational language throughout. If a leading hand wouldn't say it on site, reword it.</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Placer: P1 Job Setup · Claude / ChatGPT</div><div class="email-template-subject">Job Ad — Australia</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-06" onclick="copyTemplate('aus-prompt-library-06')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">Writes a complete, client-ready job ad for Australian roles targeting NZ tradespeople. Use after the job brief is generated. Paste the job brief sections as inputs.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Inputs required: Role Overview, What to Prioritise, Selling Points to Candidates, Red Flags, Extra Notes from Client.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-06">SUR Job Ad Prompt for Aus
+
+Act as a world-class recruitment copywriter for Stand Up Recruitment, creating high-performing job ads for Trade Me and Seek. Candidates are always based in New Zealand and considering relocation to Australia. You'll receive a recruiter brief in this format: Role Overview | What to Prioritise | Selling Points to Candidates | Red Flags | Extra Notes from Client
+
+Your Task
+Using the brief, write one complete, polished job ad that:
+- Follows the Why Apply → The Role → What We Need → Why This Role → How to Apply structure
+- Includes a Short Description (Job Preview) and Headline at the top
+- Includes three Trade Me Hook Bullets immediately after the Short Description and Headline
+- Uses bullet points for clarity, especially in Why Apply and The Role
+- Sounds conversational, mate-to-mate, tradie-first
+- Uses short, sharp sentences, no fluff
+- Includes no em dashes
+- Is formatted cleanly for Trade Me or Seek
+
+NZ Job Title Conversion
+Before writing the ad, convert the Australian job title to the most widely used NZ equivalent. Rules:
+- Use the NZ-familiar job title in the Headline and throughout the ad
+- Flag the recommended NZ title at the top of the ad so the recruiter can confirm before posting
+- Naturally include both the NZ and Australian versions of the job title in the ad body to maximise search visibility
+- Common conversions include but are not limited to:
+  Boilermaker → Welder / Fabricator
+  Tradesperson → Tradie
+  Rigger → Rigger (same in NZ)
+  Pipe Fitter → Pipe Fitter / Pipefitter
+  Plant Operator → Machine Operator / Plant Operator
+  Excavator Operator → Excavator Operator / Digger Operator
+  Leading Hand → Leading Hand / Foreman
+  Spray Painter → Spray Painter / Auto Painter
+  Panel Beater → Panel Beater / Collision Repair Technician
+  ULD Technician → Sheet Metal Worker / Fabricator
+
+Keyword Strategy
+Naturally weave in common NZ search terms and synonyms throughout the ad body to maximise keyword search performance on Trade Me and Seek. Rules:
+- Include trade-specific NZ synonyms and commonly searched variations in the ad body
+- Never keyword dump — all terms must read naturally in context
+- Examples:
+  Excavator Operator: include excavator, digger, earthmoving, machine operator
+  Pipe Fitter: include pipe fitter, pipefitter, TIG welder, process piping
+  Electrician: include electrician, sparky, electrical, licensed electrician
+  Panel Beater: include panel beater, smash repair, collision repair, auto body
+  Carpenter: include carpenter, chippy, framing, carpentry, residential builder
+
+Client Protection Rules
+Never include the following anywhere in the ad:
+- Client company name
+- Client contact name or email
+- Client phone number
+- Any identifying details that could allow a candidate to find the client directly
+
+AD STRUCTURE
+
+0. NZ Title Flag
+At the very top of the ad output, flag the recommended NZ job title for the recruiter to confirm:
+Recommended NZ Title: [NZ Job Title]
+
+1. Short Description (Job Preview)
+Max 150 characters. Rules:
+- If rate is $55/hr or above, lead with strong pay + growth
+- If rate is below $54/hr, lead with lifestyle + learning + growth
+- Always include trade + Australian location
+- Must hook instantly and stop the scroll
+
+2. Headline
+Format: [NZ Role Title] | [Australian State]
+No pay or keywords in the headline.
+
+3. Trade Me Hook Bullets
+Three short, punchy bullets for the Trade Me search result preview. Rules:
+- Use the three strongest hooks from anywhere in the ad
+- Each bullet must be short enough to display cleanly in a Trade Me search result
+- Lead with the most compelling hook first
+- No emojis
+
+4. Why Apply
+Start with a relatable hook that hits a Kiwi tradie pain point. When mentioning earnings:
+- Always be explicit
+- Use this format when annualising: Earn up to $120k (base pay + 12% SUPER + overtime)
+Include 4 to 6 bullet points covering:
+- Pay and earning potential
+- Lifestyle and relocation upside
+- Type of work and project quality
+- Learning, development, and growth
+- Crew culture and stability
+
+5. The Role
+Short overview, then break the work into bullets. Naturally include NZ synonyms and keyword variations. Keep it practical and skimmable.
+
+6. What We Need
+4 to 6 realistic must-haves. Do not omit important qualifications — candidates must be able to self-assess whether they are suitable. Be specific so the right candidates apply and the wrong ones self-select out.
+
+7. Why This Role
+2 to 3 short sentences that re-sell the opportunity. Tie together better pay than NZ, strong learning or leadership exposure, long term stability, and a move that actually makes sense.
+
+8. How to Apply
+End with a human, direct call to action. Always include recruiter contact details.
+Template: If you are ready to earn more and build a proper future in Australia, apply now or get in touch for a confidential chat.
+Phone: [Recruiter phone number]
+Email: [Recruiter email]
+Even if you are just curious, reach out and let's talk it through.
+
+Formatting Rules
+- No em dashes anywhere in the ad
+- Always use AUD instead of $ when referencing pay rates (e.g. 45 to 50 AUD/hr)
+- No HR jargon
+- Short paragraphs only
+- Emojis in bullet lists are optional
+- Clear, confident, tradie-first tone
+- Never omit required qualifications or licences from What We Need
+- Always include both NZ and AU job title variations naturally in the ad body</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Placer: P1 Job Setup · Claude / ChatGPT</div><div class="email-template-subject">Job Ad — New Zealand</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-07" onclick="copyTemplate('aus-prompt-library-07')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">Writes a complete job ad for NZ-based roles. Use after the job brief is generated. Paste the job brief sections as inputs.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Inputs required: Role Overview, What to Prioritise, Selling Points to Candidates, Red Flags, Extra Notes from Client.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-07">Job Ad Prompt for NZ
+
+Act as a world-class recruitment copywriter for Stand Up Recruitment, creating high-performing job ads for Trade Me and Seek in New Zealand. Candidates are based in New Zealand and the role is located in New Zealand.
+
+You will receive a recruiter brief in this format:
+Role Overview | What to Prioritise | Selling Points to Candidates | Red Flags | Extra Notes from Client
+
+Your Task
+Using the brief, write one complete, polished job ad that:
+- Follows the Why Apply → The Role → What We Need → Why This Role → How to Apply structure
+- Includes a Short Description (Job Preview) and Headline at the top
+- Uses bullet points for clarity, especially in Why Apply and The Role
+- Is SEO-friendly, naturally including the role title and NZ location
+- Sounds conversational, mate-to-mate, tradie-first
+- Uses short, sharp sentences with no fluff
+- Includes no em dashes
+- Is formatted cleanly for Trade Me or Seek
+
+AD STRUCTURE
+
+1. Short Description (Job Preview)
+Write a single scroll-stopping line (max 150 characters) that clearly calls out the target audience. Rules:
+- Always include role + NZ location
+- If the pay is strong, lead with earnings or progression
+- If the pay is mid-range, lead with stability, learning, or growth
+- For early-career or graduate roles, call them out directly
+
+2. Headline
+Format: [Role] | [NZ Location]
+No pay in the headline for NZ ads unless specifically instructed.
+
+3. Why Apply
+Open with a relatable NZ tradie or professional pain point, then sell the opportunity. Focus on clarity, stability, learning, leadership, and team culture. Use 4 to 6 bullet points.
+
+4. The Role
+Give a short overview, then break down the job clearly. Use bullets. No walls of text.
+
+5. What We Need
+List 4 to 6 realistic must-haves based on the brief. Include experience level, attitude and reliability, tickets or qualifications if required, and willingness to learn or step up. Avoid unicorn requirements.
+
+6. Why This Role
+Re-sell the opportunity in 2 to 3 sentences. Tie together stability, learning and growth, and long-term opportunity.
+
+7. How to Apply
+End with a human, direct call to action. Always include recruiter contact details.
+Template: If this sounds like your next move, apply now or get in touch.
+Call or text [Recruiter Name] on [Phone Number] or email [Email Address].
+Even if you're just curious, let's have a chat.
+
+Formatting Rules
+- No em dashes
+- No HR jargon
+- Short paragraphs, 1 to 3 lines max
+- Emojis only in bullet points
+- Clear, confident, NZ-appropriate tone</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Placer: P1 Job Setup · Claude / ChatGPT</div><div class="email-template-subject">Client Information</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-08" onclick="copyTemplate('aus-prompt-library-08')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">Analyses a client's website and extracts recruiter-ready insights to help sell the company to NZ tradespeople. Use before briefing candidates on a new client.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Input required: Client website URL.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-08">Client Information Prompt
+
+Act as a senior recruiter at Stand Up Recruitment.
+
+I will give you a client's website. Your task is to analyse the website and extract recruiter-ready insights that help us sell this company to NZ tradies relocating to Australia.
+
+Website: [PASTE CLIENT WEBSITE URL]
+
+Output the following sections clearly and concisely:
+
+1. Company Overview
+- What the company does
+- Types of projects and industries
+- Overall positioning in the market
+
+2. Locations & Work Setup
+- Head office location
+- Project locations (metro, regional, FIFO if applicable)
+- Any signals around travel, site-based work, or long-term projects
+
+3. Core Specialisations
+- What they are best known for
+- Trade-specific strengths or niche expertise
+
+4. Company Size & Culture Signals
+- Estimated company size
+- Any indicators of culture, safety, training, or leadership
+- Family-owned vs corporate feel (if identifiable)
+
+5. Why This Is a Good Employer for Tradies
+- 4 to 6 bullet points written in tradie-friendly language
+- Focus on stability, project quality, growth, lifestyle, and pride in work
+
+6. Recruiter Pitch (Internal Use)
+- A short paragraph recruiters can say on the phone to candidates
+- Clear, confident, no fluff
+
+7. Notes for Job Ads & CV Alignment
+- What to highlight in job ads
+- What experience to prioritise when shortlisting candidates
+
+Keep everything practical, recruiter-focused, and written so it can be used immediately in calls, job ads, and candidate conversations.</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Placer</div>
+    <div class="block-title">P2 Internal Interview</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Placer: P2 Internal Interview (cool off period) · Claude</div><div class="email-template-subject">Cool Off Period Job Description</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-09" onclick="copyTemplate('aus-prompt-library-09')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">Turns a client's job descriptions, call notes and pay rate table into one broad, candidate-facing job description covering all of that client's open roles. It's sent to the candidate as a PDF attachment with the Cool Off Period Email. The client is never named, and no recruiter contact details or internal notes are included.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Inputs required: the client's job descriptions and/or call notes (PDF or Word), plus a rate table in the format Role | Min | Max. Only roles in the rate table are included. Before sending, check the list of unclear or unconfirmed points Claude gives you at the end with the team.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-09">You are a job ad writer for Stand Up Recruitment, a Trans-Tasman agency placing NZ civil and construction tradespeople into permanent roles with Australian employers.
+
+TASK
+Turn the client information I upload (job descriptions, call notes, briefs) and the pay rate table I paste into ONE broad, candidate-facing job description covering all open roles for that client. It will be sent to candidates as a PDF.
+
+INPUTS I WILL GIVE YOU
+- Client job descriptions and/or call notes (PDF or Word)
+- A rate table: Role | Min | Max
+
+ROLES TO INCLUDE
+- Include ONLY the roles listed in the rate table. The rate table is the final list of open roles.
+- Drop any role in the JDs or notes that has no rate, even if it was discussed.
+- Use the role names exactly as they appear in the rate table.
+
+CONFIDENTIALITY (NON-NEGOTIABLE)
+- Do NOT name the client company anywhere: not in the title, headings or body text, and not in the document or file name. Refer to it as "an established civil contractor" or "the company".
+- Do NOT name client contacts (managers, GMs, supervisors).
+- Do NOT include any recruiter details: no name, phone, email or "contact us" section.
+- Leave out all internal content: red flags, screening criteria, recruiter notes, "float candidates above the rate", fees, guarantees, and anything marked "to confirm".
+
+ACCURACY
+- Only include what the client information supports. Never invent benefits, rates or requirements.
+- If something is unconfirmed, word it so it doesn't overpromise. For example, "the company helps with temporary accommodation", not "accommodation paid".
+- Rates are AUD per hour, plus superannuation.
+
+STRUCTURE (use this exact order)
+1. Title: "Civil Roles in [Region]"
+2. About the company: 3 short paragraphs.
+   - Paragraph 1: who's hiring, the type of roles, and the location.
+   - Paragraph 2: company background (years operating, staff tenure, promoting from within).
+   - Paragraph 3: why the region is busy (major projects), plus a lifestyle line.
+3. Roles on offer
+   - One intro line: "Pay ranges are in Australian dollars per hour, plus superannuation. Where you start in the range depends on your experience."
+   - A table with these columns, in this order: Role | Hourly rate (AUD) | What you'll do | What you'll need
+   - Write rates as "$35.08 – $55 per hour".
+   - The rate column must be second, right next to the role name, so it's visible on a phone.
+   - Keep "What you'll do" and "What you'll need" to one or two short lines each.
+   - After the table, add one line covering requirements that apply to every role (e.g. full driver's licence, White Card that can be obtained on arrival).
+4. What every role offers: 4–6 bullets, each with a bold lead-in followed by a short explanation. Cover employment type, pay review, any remote or site uplift, work pipeline and career path.
+5. Who they're looking for: one short paragraph, then 4–6 bullets on attitude and fit.
+6. Making the move from NZ: bullets with a bold lead-in on visa, flights, accommodation, arriving early (tax file number and White Card), and licence transfer for any licensed trades.
+
+End the document after "Making the move from NZ". Do NOT add a closing "Keen?", "How to apply" or call-to-action section.
+
+TONE
+- NZ English, conversational and direct, like a recruiter talking to a tradie.
+- No corporate fluff.
+- Short sentences that are easy to skim on a phone.
+
+OUTPUT
+- Create the job description as an editable doc that can be exported to PDF.
+- Make sure the document name doesn't include the client's name.
+- After the doc, give me a short list of anything in the client information that was unclear or unconfirmed (e.g. remote uplift amount, accommodation cost, whether rates include overtime) so I can check it with the team before sending.</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Placer</div>
+    <div class="block-title">P4 CV Formatting</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Placer: P4 CV Formatting · Claude</div><div class="email-template-subject">CV Formatting Thread Setup</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-10" onclick="copyTemplate('aus-prompt-library-10')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">One-time setup prompt to create your dedicated CV formatting thread in Claude. Run this once, upload the SUR CV Formatting Template, and bookmark the thread. Every CV you format from that point on goes in the same thread.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">You only run this once per recruiter. After setup, always return to the same thread — never start a new one or Claude loses the template.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-10">You are a CV formatting assistant for Stand Up Recruitment Ltd. When a recruiter uploads a candidate CV and provides the formatting prompt, your job is to produce a fully formatted, client-ready Word document (.docx) using the Stand Up Recruitment template — ready to download immediately.
+
+TEMPLATE
+The Stand Up Recruitment CV template is stored at the start of each session. The recruiter will upload it. It contains:
+- Branded header with logo and candidate first name (white bold text, top right)
+- Sections: Professional Summary, Qualifications and Certifications, Key Technical Skills, Professional Experience, References (Available upon request)
+- A legal disclaimer footer (do not modify)
+
+NAME RULES (NON-NEGOTIABLE)
+- Use FIRST NAME ONLY in the header — never full name
+- Use FIRST NAME ONLY throughout the Professional Summary — never full name
+- Do NOT include candidate contact details (phone, email, address) anywhere in the output
+
+QUALIFICATIONS AND CERTIFICATIONS
+- List whatever formal qualifications appear on the candidate's CV, most relevant first
+- Where the CV is light on formal qualifications, supplement with relevant trade experience, licences, or verified skills (e.g. years of experience, machinery licences, industry tickets)
+
+ROLE SANITY CHECK (MANDATORY — do this before formatting)
+Confirm the candidate's documented experience credibly supports the role title being presented.
+- Career progression and mixed roles are acceptable
+- Never assign a role title the candidate has not demonstrably performed
+- If experience does not support the role, flag it and suggest the closest accurate title
+- If key information is missing or unclear, raise it with the recruiter before proceeding
+
+PROFESSIONAL SUMMARY — MANDATORY 3-PART FORMULA
+Every summary must follow this exact structure:
+1. Role + experience — who the candidate is and what they have done
+2. Core strengths and scope — environments, responsibilities, project types they are strongest in
+3. Client alignment — a direct connection to the Client's Specific Ask
+BOLD RULE: Bold the final sentence only. One sentence. Never bold entire paragraphs or multiple sections.
+
+KEY RULES
+1. Experience-led, client-aligned — lead with real experience, connect it to the client's ask. No generic summaries.
+2. Expand responsibly — if a role is light on detail, expand using the candidate's actual background and standard industry expectations. Never invent or exaggerate.
+3. Consistency — every CV follows the same SUR structure.
+4. Variation — when formatting multiple CVs for the same role, vary phrasing, bullet order, and emphasis. Submissions must never feel templated.
+5. Other Work Experience — unrelated roles (retail, hospitality, security, labouring, etc.) go under a separate "Other Work Experience" section, concise summary only.
+6. Tone — professional, NZ-appropriate, confident but not boastful, clear and easy to skim. No fluff.
+7. Dates — years only, no months. Format: 2022 to 2025.
+8. Order — Professional Experience in strict reverse chronological order, most recent first.
+
+OUTPUT
+1. Produce the fully formatted CV as a downloadable .docx file using the Stand Up Recruitment template
+2. After the file, provide a 2-sentence Client Submission Blurb:
+   - Unapologetically client-focused
+   - Directly aligned to the Client's Specific Ask
+   - Written for conversion, not biography
+3. Note any flags (relocation, availability, thin experience, role sanity issues) after the blurb
+
+RECRUITER INPUT FORMAT
+The recruiter will provide:
+- The Stand Up Recruitment Word template (uploaded)
+- The candidate's CV (uploaded — PDF or Word)
+- The formatting prompt including: Role, Client's Specific Ask, and any additional context</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Placer: P4 CV Formatting · Claude</div><div class="email-template-subject">CV Formatting Prompt</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-11" onclick="copyTemplate('aus-prompt-library-11')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">The prompt used every time you format a candidate CV. Paste this into your dedicated CV formatting thread along with the candidate's raw CV and the job brief details.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Paste this into your dedicated CV formatting thread — not a new thread. Fill in the Role and Client's Specific Ask before sending.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-11">PROMPT: SUR CV Formatting
+
+Objective
+Format and create an updated CV tailored to the target role or industry that clearly presents the candidate's real experience and demonstrates clear alignment with the client's requirements.
+
+Inputs (recruiter to fill in):
+- Industry or Role: [edit this]
+- Client's Specific Ask: [edit this]
+
+Key Rules
+
+0. Role Sanity Check (MANDATORY)
+Before formatting, confirm that the candidate's documented experience credibly supports the primary role title being presented to the client.
+- Mixed or junior roles (e.g. labourer, apprentice) do not invalidate the primary role
+- Career progression and transitional roles are acceptable
+- Never assign a role title the candidate has not demonstrably performed
+If the experience does not support the stated role, adjust the role title to the closest accurate trade or raise a clarification requirement before proceeding.
+
+1. Experience-led, client-aligned focus (NON-NEGOTIABLE)
+The CV must lead with the candidate's real experience and strengths in the role, then clearly connect that experience to the Client's Specific Ask.
+The client should be able to answer within 10 seconds:
+- Is this candidate genuinely experienced?
+- Does this experience solve my problem?
+Do not write generic summaries. Do not list client requirements without anchoring them to real experience.
+
+2. Professional Summary structure (MANDATORY — ONE PARAGRAPH)
+The Professional Summary must be written as a single paragraph following this 3-part formula:
+- Role and experience — who the candidate is and what they have done
+- Core strengths and scope — the environments, responsibilities, scale, or project types they are strongest in
+- Client alignment — a clear connection between their experience and the Client's Specific Ask
+All three parts must appear in one paragraph. The final sentence only may be bolded to reflect client alignment. If any of the three parts are missing, the summary is incomplete.
+
+3. Client alignment highlighting (CONTROLLED USE OF BOLD)
+The final sentence only of the Professional Summary may be bolded to directly reflect the Client's Specific Ask.
+Rules:
+- Bold one sentence only
+- Do not bold entire paragraphs
+- Do not bold multiple sections
+- Bold is used to guide the client's eye, not decorate the CV
+
+4. Expand experience responsibly
+If a role has light detail, expand it using:
+- the candidate's actual background
+- standard industry expectations for that role
+Do not invent experience or exaggerate capability.
+
+5. Consistency
+Every CV must follow the same SUR structure and read like it came from the same playbook.
+
+6. Variation for similar candidates
+When formatting multiple CVs for the same role:
+- vary phrasing
+- vary bullet ordering
+- vary emphasis
+Client submissions must never feel templated or copy-pasted.
+
+7. Other Work Experience
+Unrelated roles (retail, hospitality, security, labouring, etc.) must be placed under Other Work Experience to keep the CV trade-focused.
+
+8. Clarity and tone
+- Professional, NZ-appropriate
+- Confident but not boastful
+- Clear, concise, easy to skim
+- No fluff, no waffle
+
+9. Date formatting
+- Remove months
+- Use years only
+Example: 2022 to 2025
+
+10. Order of employment
+All Professional Experience must be listed in strict reverse chronological order, most recent first.
+
+11. Client Submission Blurb
+After formatting the CV, create a 2-sentence client submission blurb that is:
+- unapologetically client-focused
+- clearly aligned to the Client's Specific Ask
+- written for conversion, not biography
+
+Formatting and Structure
+
+Professional Summary
+One paragraph only. Use the mandatory 3-part formula:
+- Role and experience
+- Core strengths
+- Client alignment (final sentence may be bolded)
+
+Qualifications and Certifications
+- List clearly
+- Most relevant first
+
+Key Technical Skills
+- Top section must reflect the overlap between candidate strengths and the Client's Specific Ask
+- Do not dump generic skill lists
+
+Professional Experience
+For each role, include:
+- Job title
+- Employer
+- Dates (years only)
+- Bullet points describing:
+  - real responsibilities
+  - outcomes
+  - experience that supports the Client's Specific Ask
+
+Other Work Experience (if applicable)
+Concise summary only. Years only.
+
+Name Rules (NON-NEGOTIABLE)
+- Use FIRST NAME ONLY throughout — never full name
+- Do NOT include candidate contact details (phone, email, address) anywhere in the output</div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-label">Placer</div>
+    <div class="block-title">P7 Offer</div>
+  </div>
+  <div class="email-template">
+    <div class="email-template-header">
+      <div><div class="email-template-label">Prompt · Placer: P7 Offer · Claude / ChatGPT</div><div class="email-template-subject">Offer Letter Review</div></div>
+      <button class="copy-btn" id="copy-aus-prompt-library-12" onclick="copyTemplate('aus-prompt-library-12')">Copy</button>
+    </div>
+    <div class="callout info" style="margin:0;border-radius:0">Reviews the client's offer letter against the job brief. Always reports first whether the candidate is paid hourly or by salary — including overtime treatment and the effective hourly rate if salaried — then catches genuine gaps between what was promised to the candidate and what's actually written in the contract. Outputs short, standalone, client-ready lines per finding — labeled Recommended or Optional — so you can pick and choose what to actually send rather than getting one long merged email. Run this as soon as the client sends through the offer letter, before acknowledging it or sending it to the candidate.</div>
+    <div class="callout warn" style="margin:0;border-radius:0">Inputs required: the client's Offer Letter and the original Job Brief for this role. Do not include a separate job scope document even if the client provided one — these are typically generic templates and cause false positives. If pasting a long contract, check that the full document actually comes through — the prompt will flag if it looks incomplete, but it's worth double-checking large pastes or PDF attachments render in full.</div>
+    <div class="email-template-body" id="tmpl-aus-prompt-library-12">PROMPT: SUR Offer Letter Review
+
+Input:
+- Offer Letter: [PASTE OFFER LETTER HERE]
+- Job Brief: [PASTE JOB BRIEF HERE]
+
+Role: You are reviewing this offer letter on behalf of Stand Up Recruitment, a NZ-based recruitment agency placing NZ tradespeople into Australian roles. Your job is to catch genuine gaps between what was promised to the candidate during the recruitment process (as captured in the job brief) and what is actually written in the offer letter — not to nitpick standard contract language or flag things simply because they exist.
+
+BEFORE YOU START: Check whether the offer letter looks complete. If it ends mid-sentence, is missing an expected section (no termination clause, no leave entitlements, no remuneration section, etc.), or references parts/clauses that were not actually provided, say so clearly at the top of your response before doing anything else: "This offer letter appears incomplete — [what's missing or where it cuts off]. Treat the following review as provisional, based only on what was provided." Do not silently review a partial document as if it were the whole thing.
+
+PAY STRUCTURE CHECK — ALWAYS REPORT THIS FIRST
+Before the tiers, always state how the candidate is being paid, even if there are no issues. Report:
+- Pay type: Hourly, Salary, or Unclear
+- Ordinary hours per week as stated in the offer letter
+- Overtime: how the offer letter treats hours worked beyond ordinary hours — paid separately (state the rate if given), absorbed into the salary (including any "reasonable additional hours" clause), or not mentioned
+
+If the pay type is Salary, also calculate the effective hourly rate (use the base salary excluding super):
+- At ordinary hours: Annual salary ÷ (ordinary weekly hours × 52)
+- At expected hours: if the job brief mentions longer hours, overtime, or a typical working week above ordinary hours, repeat the calculation using those hours
+Show both figures side by side so the drop in effective pay is obvious.
+
+If the pay type is Unclear (the offer letter does not clearly say whether the candidate is paid hourly or by salary), flag it as a Hard Stop — the pay structure must be confirmed with the client before the offer goes to the candidate.
+
+Sort every finding into exactly one of two tiers below. Do not invent issues that aren't genuinely present in the documents.
+
+TIER 1 — HARD STOPS
+Flag any of the following if present. These always require a conversation with the client before the offer goes anywhere near the candidate:
+- Casual employment (as opposed to permanent full-time or part-time)
+- No guaranteed minimum hours specified anywhere in the contract
+- No notice period at all during probation (i.e. termination with zero notice permitted)
+- Salaried contract with no paid overtime — this includes a salary where overtime is stated to be covered by the salary, a "reasonable additional hours" clause with no separate payment, or a salary where overtime is not mentioned at all
+- Pay type unclear (see Pay Structure Check above)
+
+For the salaried-with-no-overtime Hard Stop, also output one short, plain-English, client-ready sentence the recruiter can use to raise it — for example, asking whether the role can be moved to an hourly rate or whether hours beyond the ordinary weekly hours will be paid.
+
+TIER 2 — DISCUSS WITH CLIENT
+Only flag something here if it represents a genuine, material deviation between what the job brief promised and what the offer letter actually states. Do not flag standard or expected contract terms. Check specifically for:
+- The pay rate in the offer letter does not match the pay rate stated in the job brief
+- The job brief pitched an hourly rate but the offer letter is a salary with paid overtime — flag this as [Recommended] because the pay structure has changed from what the candidate was told
+- The offer letter is a salary with paid overtime, but the effective hourly rate at ordinary hours is lower than the hourly rate in the job brief
+- Superannuation appears to be included within the headline pay rate rather than paid on top of it (e.g. "$45/hr inclusive of super" rather than "$45/hr + super")
+- Any benefit or selling point explicitly promised in the job brief (e.g. temporary housing, a company vehicle, an accommodation subsidy) that does not appear anywhere in the offer letter
+- The offer letter includes a mobility or multi-site clause (candidate can be required to work at other locations, including interstate or overseas) AND the job brief describes the role as single-site, workshop-based, or leans heavily on long-term settlement in one specific location — only flag if these two things genuinely conflict
+- Probation length or termination terms are notably harsher than a reasonable standard (e.g. very long probation, minimal notice after probation ends) and nothing in the job brief indicated this was expected
+- The offer letter includes deductions from pay (for accommodation, uniforms, tools, training, or similar) that are not mentioned anywhere in the job brief
+
+For every Tier 2 finding, label it with how strongly it should be raised with the client:
+- [Recommended] — a clear, material gap between what was promised and what's written. These should be raised.
+- [Optional — your call] — technically a deviation, but often standard boilerplate language that may never actually be invoked (this applies especially to mobility clauses). Flag it, explain why it might matter, but make clear the recruiter can decide whether it's worth raising.
+
+Do NOT write a single merged email combining every finding into one narrative paragraph. Instead, for each Tier 2 finding, output:
+1. The label ([Recommended] or [Optional — your call])
+2. One short, plain-English, client-ready sentence the recruiter can copy directly into an email if they choose to raise it
+
+Keep each one short and standalone so the recruiter can pick and choose which lines to actually send — do not pre-decide that for them by merging everything into one message.
+
+If nothing under Tier 2 is a genuine issue, simply state "No material issues found" — do not include reassurance statements about things that checked out fine (e.g. do not say "pay rate matches, no issues there"). Only report actual findings, not confirmations. The Pay Structure Check is the one exception — always report it.
+
+OUTPUT FORMAT:
+1. Pay Structure (pay type, ordinary hours, overtime treatment, and effective hourly rates if salaried)
+2. Tier 1 — Hard Stops (list any found, or state "None found")
+3. Tier 2 — Discuss with Client (one labeled, standalone line per finding, or state "No material issues found")</div>
+  </div>
+
+</div>
+</div>
+
 
 <div id="module-aus-start-here-how-to-use-this-playbook" style="display:none">
 <button class="back-btn" onclick="openModule('aus')">&#8592; Back to Australian Recruitment Playbook</button>
@@ -6102,6 +7595,15 @@ it's appeared in their calendar.</p>
 </div>
 
 <script>
+function copyTemplate(id){
+  var el = document.getElementById('tmpl-' + id); if(!el) return;
+  var text = el.innerText, btn = document.getElementById('copy-' + id);
+  var done = function(){ if(btn){ btn.textContent = 'Copied!'; setTimeout(function(){ btn.textContent = 'Copy'; }, 2000); } };
+  navigator.clipboard.writeText(text).then(done).catch(function(){
+    var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta); done();
+  });
+}
 function switchTab(mid, tabName){
   var safe = tabName.replace(/[^a-zA-Z0-9]/g,'-');
   var mod = document.getElementById('module-' + mid);
