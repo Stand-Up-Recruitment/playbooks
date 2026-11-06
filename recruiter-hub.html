@@ -2829,6 +2829,7 @@ OUTPUT FORMAT:
   <button class="tab-btn active" onclick="switchTab('aus-stage-3-screening-call','Overview')" id="tbtn-aus-stage-3-screening-call-Overview">Overview</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-3-screening-call','Watch')" id="tbtn-aus-stage-3-screening-call-Watch">Watch</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-3-screening-call','Practice Activity')" id="tbtn-aus-stage-3-screening-call-Practice-Activity">Practice Activity</button>
+  <button class="tab-btn" onclick="switchTab('aus-stage-3-screening-call','Coaching Guide')" id="tbtn-aus-stage-3-screening-call-Coaching-Guide">Coaching Guide</button>
 </div>
 <div class="tab-panel active" id="panel-aus-stage-3-screening-call-Overview">
 <div class="content-block">
@@ -2887,7 +2888,7 @@ OUTPUT FORMAT:
 <div class="block-title" style="margin-top:18px">Close: qualified but can't move within 3 months</div>
 <p>Don't treat this as a dead end. We want them to come back to us when they're ready, not apply for a job in Australia on their own.</p>
 <p>"No worries at all, that's really common. Just so you know, when you're ready we can have a job sorted before you even leave New Zealand, with free temporary accommodation and a free flight over. I'll touch base closer to [month]. If anything changes before then, just give me a call."</p>
-<p>Get a month, not "sometime next year". If they can't give one, put in the earliest realistic month. Send the Not Ready Yet follow-up text within 5 minutes. See the Script Coaching Guide for the full Not Ready Yet script.</p>
+<p>Get a month, not "sometime next year". If they can't give one, put in the earliest realistic month. Send the Not Ready Yet follow-up text within 5 minutes. See the <a href="#" onclick="switchTab('aus-stage-3-screening-call','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Script Coaching Guide</a> for the full Not Ready Yet script.</p>
 <div class="block-title" style="margin-top:18px">Close: not suitable</div>
 <p>"Awesome, thanks so much for chatting with me today [Name]. We'll be in touch if anything comes up that matches your experience. Have a good one!"</p>
 <div class="block-title" style="margin-top:18px">If they don't answer</div>
@@ -2987,7 +2988,156 @@ OUTPUT FORMAT:
     <div class="block-label">Do: Your Activity</div>
     <div class="block-body">
 <p>Listen in on at least 2 live screening calls, then run your first one solo on a real candidate. Update the four fields afterwards, and if they're qualified and can move within 3 months, book the internal interview. Check in with Les after your first solo call.</p>
-<p><strong>Resources:</strong> Email &amp; SMS Template Library: No Answer SMS, Not Ready Yet Follow-Up SMS. Script Coaching Guide: S6 Screening Call.</p>
+<p><strong>Resources:</strong> Email &amp; SMS Template Library: No Answer SMS, Not Ready Yet Follow-Up SMS. <a href="#" onclick="switchTab('aus-stage-3-screening-call','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Script Coaching Guide</a>: S6 Screening Call.</p>
+    </div>
+  </div>
+</div>
+<div class="tab-panel" id="panel-aus-stage-3-screening-call-Coaching-Guide">
+<div class="content-block">
+    <div class="block-label">How to Use This Guide</div>
+    <div class="block-body">
+      <div class="callout warn"><strong>The ethos behind every script in this guide:</strong> every interaction - whether it's a candidate, a referee, or a client - is a conversation, not a form you're working through. Build rapport. Be genuinely curious about the person in front of you. Ask follow-up questions because you actually want to know the answer, not because a script told you to. The words matter less than the mindset you bring into them.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">S6 Screening Call</div>
+    <div class="block-body"><p>For sourcers. Read the tone notes, not just the words. You don't dial candidates yourself: set their status to Screening in JobAdder and the bot connects the call, so it's recorded and transcribed. That means no notes to take, so give the candidate your full attention.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">1. The Open - Confirm Interest, Not Interrogate</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Sound like you're following up, not cold calling.</strong></div>
+    <p style="margin-top:8px">This isn't a cold call and it shouldn't feel like one. The candidate already raised their hand - they showed interest somewhere along the line. Your opening line is just confirming that, warmly, like you're following up on something they started, not starting something yourself.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Hey [Name]! (pause) It's [Your Name] from Stand Up Recruitment. (pause) You showed interest in work in Australia, is that right?</div>
+    <p style="margin-top:8px">Pause after their name and after you've said who you are. These two pauses give them a beat to register that this is a real person on the line and place who you are, before you ask them anything. Skip the pauses and the whole line runs together - they're still processing "who is this" while you've already moved on to the question.</p>
+    <div class="callout info" style="margin-top:8px"><strong>Candidate:</strong> Yeah, that's right.</div>
+    <p style="margin-top:8px">Say it like you already know the answer is yes. If they sound confused or say no, don't panic - just clarify where the interest came from (an ad, a database entry, a referral) and reset from there.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">2. The Why - Get Them Talking About Themselves</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Don't accept the first answer - dig one layer deeper.</strong></div>
+    <p style="margin-top:8px">This is the most important question in the whole call, and it's also the one recruiters rush past the most. Don't ask it and move on the second you get an answer. A generic answer like "better money" or "just want a change" is the start of the conversation, not the end of it.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> What's making you want to make the move to Australia?</div>
+    <p style="margin-top:8px">Let them talk. Don't jump in with the next question the second they pause - that pause is often them thinking of more to say. If they give you something surface-level, gently dig one layer deeper: "Yeah? What's driving that for you at the moment?" or "Is there something specific behind that?" You're not interrogating them, you're just genuinely curious. People can tell the difference, and it's the difference between a transactional call and one where they actually open up.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">3. Skills and Experience - Let Them Sell Themselves</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Show them you've paid attention before you ask anything.</strong></div>
+    <p style="margin-top:8px">Frame this as recognition, not a request. "I can see that you are a [trade]" tells them you've already looked at their profile - it shows you're paying attention, not running through a checklist.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> I can see that you are a [trade]. Can you expand a bit more on your skills and experience?</div>
+    <p style="margin-top:8px">Let them run with this. If they're vague or give you a one-liner, prompt gently - "What kind of projects were you working on day to day?" or "What's been the biggest job you've handled recently?" Once they've given you a general picture, that's your cue to ask the specific qualification questions for the role you're screening for.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">4. Readiness to Move - Anchor the Timeline</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Acknowledge before you move on - don't just log it and go.</strong></div>
+    <p style="margin-top:8px">This is a practical question but it still needs warmth. You're not checking a box, you're trying to understand where they're actually at in their head - some people have already made peace with moving, others are still testing the idea out loud for the first time.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> And when are you looking to make the move?</div>
+    <p style="margin-top:8px">Acknowledge whatever they say before moving on - don't just note it down and jump to the next question. A simple "Okay, that's good to know" or "Right, that gives us something to work with" keeps it feeling like a conversation rather than data collection.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">Where and Pay: Fill Your Required Fields</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Two quick questions you can never skip.</strong></div>
+    <p style="margin-top:8px">The readiness folders and daily alerts are built from the candidate's Notice Period, Location and Ideal Salary. You just got the first one. These two get you the rest. Ask them naturally, straight off the back of the timeline question.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Whereabouts in Australia are you keen to go?</div>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> And what sort of pay are you after?</div>
+    <p style="margin-top:8px">If they say "anywhere", ask which state they'd pick first. If they're unsure on pay, ask what they're on now and what would make the move worth it. Either way, you want something you can put in the field.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">Sub-Script: If They Can't Move Within 3 Months</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>This is not a dead end. It's a future booking you're locking in right now.</strong></div>
+    <p style="margin-top:8px">If the candidate says any version of "not looking to go for 3 months, 6 months, next year" - this is where you use it. The whole point is to make sure that when they are ready, they come back through Stand Up Recruitment instead of quietly self-applying for a job in Australia somewhere else. You do this by making the Grand Slam offer sound too good to walk away from - because it is. Why would they not want a job sorted before they even leave New Zealand? Why would they not want free temporary accommodation? Why would they not want a free flight? That's your job to make them realise.</p>
+    <p style="margin-top:8px"><strong>1. Build Rapport (New)</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Hey, did you know we're actually based here in Auckland, Takapuna?</div>
+    <p style="margin-top:8px">Candidates often assume they're talking to an overseas call centre. A quick, genuine local detail like this builds trust fast, before you even get to the offer. Drop it in naturally wherever it fits in the conversation - it doesn't need to be the very first line.</p>
+    <p style="margin-top:8px"><strong>2. Acknowledge</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Hey, yeah, no worries - a lot of people we talk to aren't ready right now.</div>
+    <p style="margin-top:8px"><strong>3. Reiterate the Grand Slam Offer</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> But the reason people do end up coming back through us, [Name], is because we sort you out with a job offer before you even leave New Zealand. That's going to save you a lot of stress, time, and wasted money when you get over there - because otherwise you're waiting on callbacks, going for interviews, it's just extra stress you don't want, right?</div>
+    <p style="margin-top:8px">(Pause. Get the micro-yes.)</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> On top of that, most of our clients offer temporary free accommodation if you need it. That lets you save up a bit before you get sorted. If your family's moving over too, depending on the case they can come after you, once you're settled. And if you've already got somewhere to stay, that's all good too. On top of that, we'll sort your free flight over as well.</div>
+    <p style="margin-top:8px">(Pause. Get the yes on each point before moving on.)</p>
+    <p style="margin-top:8px">These pauses matter more than they look on the page. The first one gets a small agreement before you build on it further - don't rush past it into the next sentence. Then take each point of the offer at its own pace rather than reading it as one block - a small yes on accommodation, a small yes on family, a small yes on the flight. If you fill the silence yourself, you're answering for them instead of letting them commit.</p>
+    <p style="margin-top:8px"><strong>4. The Capture Question (Updated)</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> So knowing all that, [Name], is there any reason you wouldn't come back through us when it's time to move to Australia?</div>
+    <p style="margin-top:8px">This replaces the old close question. Les's preferred phrasing on purpose - "is there any reason you wouldn't" surfaces any hidden objection now instead of it showing up as a no-show later. If they say something like "well, my uncle owns a business over there and can get me a job," that's fine - still say "perfect" and move on to lock a date anyway. We still want them captured.</p>
+    <p style="margin-top:8px">Alternative phrasing if it fits the conversation better: "So knowing all that, are you going to give me a call back when it's time to move to Australia?"</p>
+    <p style="margin-top:8px">(Pause. Let them answer either way.)</p>
+    <p style="margin-top:8px"><strong>5. Lock a Rough Date</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Great, so roughly what month are we talking here?</div>
+    <p style="margin-top:8px">Get a real month - not "sometime next year." A vague timeframe gives them no reason to actually call back, and gives you nothing to nurture them against later.</p>
+    <p style="margin-top:8px"><strong>6. Confirm and Set Expectation</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Yep, sweet, I'll pencil that in and give you a call back as we get closer. I'm gonna send you over a text message with my details, so if anything changes, you can get a hold of me before that. All good?</div>
+    <p style="margin-top:8px">Wait for a verbal yes before ending the call - don't just assume it and move on.</p>
+    <p style="margin-top:8px"><strong>7. Close</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Perfect, talk soon [Name].</div>
+    <p style="margin-top:8px">This is a scaffold, not a script to recite word for word. Use what works, drop what doesn't, and make it sound like you. After the call, update the four required fields (Status, Notice Period, Location and Ideal Salary) and send the Not Ready Yet follow-up text. The folders sort the candidate from there. See S7 in the Sourcer Playbook.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">5. Trade-Specific Qualifications - Confirm the Non-Negotiables</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>The one part that's closer to a checklist - keep the energy up anyway.</strong></div>
+    <p style="margin-top:8px">This is the one part of the call that is genuinely closer to a checklist, and that's fine - the candidate expects some practical questions. Just don't let the tone shift into interrogation mode. Keep the same conversational energy you've had the whole call.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Are you qualified in that trade? Do you hold a current [specific ticket]?</div>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> And are you a New Zealand citizen?</div>
+    <p style="margin-top:8px">Citizenship is a hard requirement. Ask it plainly and move on. If they're not a citizen, close the call politely using the not suitable close.</p>
+    <p style="margin-top:8px">Ask the specific tickets or qualifications relevant to the role brief. Acknowledge their answers before moving on - even a quick "Perfect, that's exactly what we need" keeps the energy up.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">6. Anything to Add - Leave the Door Open</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Don't skip this - the best information often shows up here.</strong></div>
+    <p style="margin-top:8px">This question often gets skipped because it feels like filler, but it's not. It gives the candidate a chance to raise something you didn't think to ask about, and it signals that you're interested in them as a whole person, not just the boxes you needed ticked.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Great! Is there anything else you would like us to know or anything you would like to add?</div>
+    <p style="margin-top:8px">Whatever they say here, take it seriously - sometimes the most useful information in the whole call comes out in this moment because the pressure of "being asked questions" has lifted.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">7. The Close: Qualified and Can Move Within 3 Months</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Sell the next step, then book them in with the placer before you hang up.</strong></div>
+    <p style="margin-top:8px">A lot of recruiters jump straight to "can we book a call" without giving the candidate a reason to say yes. Give them a hook first: who they'll talk to and what they'll get out of it. Then lock in a real day and time. Never end with a vague "we'll be in touch."</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Sweet! It sounds like you'd be a really good fit for what we've got on at the moment. The next step is a proper chat with [Placer Name], one of our recruiters. (pause) They'll run you through the role in detail, the pay, where it's based and how the move over works, and they can answer any questions you've got. It takes about 15 to 20 minutes.</div>
+    <p style="margin-top:8px">Pause after naming the placer. It lets the candidate register that they're being handed to a real person for a real next step.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> (If they're in Auckland) You're welcome to pop into our office for it, or we can do it on a Teams video call. Which suits you?</div>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Are you free [today / tomorrow] at [time]?</div>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Perfect, I've booked you in with [Placer Name] for [day] at [time]. You'll get an email with the details shortly, and a text reminder on the morning. Have a think about any questions you've got about the move. Talk soon!</div>
+    <p style="margin-top:8px">Only book candidates who can move within 3 months (Ready to go or Hot List). Aim for same day or next day, and book it in JobAdder before you move to your next call. See S8 in the Sourcer Playbook.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">8. The Close - Candidate Is Not Suitable</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>This is their last impression of us - make it a good one.</strong></div>
+    <p style="margin-top:8px">Say it slow and stay warm. This person gave you their time and their story - the way you close the call is the last impression they have of Stand Up Recruitment, so make it a good one.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Awesome, thanks so much for chatting with me today [Name]. We will be in touch if anything comes up that matches your experience. Have a good one!</div>
+    <p style="margin-top:8px">Update the four required fields straight after the call while it's fresh in your mind. Don't let it wait until the end of the day.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Quick Reference - Flow Order</div>
+    <div class="block-body">
+      <div class="step-row"><div class="step-num">1</div><div class="step-body">Confirm interest - warm, not cold</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-body">The why - dig one layer deeper than the first answer</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-body">Skills and experience - let them talk, ask specifics after</div></div>
+      <div class="step-row"><div class="step-num">4</div><div class="step-body">Readiness to move - acknowledge before moving on</div></div>
+      <div class="step-row"><div class="step-num">5</div><div class="step-body">Where and pay: never skip these two</div></div>
+      <div class="step-row"><div class="step-num">6</div><div class="step-body">Can't move within 3 months? Use the sub-script, then update the four fields</div></div>
+      <div class="step-row"><div class="step-num">7</div><div class="step-body">Trade-specific qualifications and citizenship: practical but still warm</div></div>
+      <div class="step-row"><div class="step-num">8</div><div class="step-body">Anything to add - take it seriously</div></div>
+      <div class="step-row"><div class="step-num">9</div><div class="step-body">Close, qualified and within 3 months: sell the next step, then book them with the placer before you hang up</div></div>
+      <div class="step-row"><div class="step-num">10</div><div class="step-body">Close, not suitable: warm, then update the four fields immediately</div></div>
     </div>
   </div>
 </div>
@@ -3004,6 +3154,7 @@ OUTPUT FORMAT:
   <button class="tab-btn active" onclick="switchTab('aus-stage-4-internal-interview','Overview')" id="tbtn-aus-stage-4-internal-interview-Overview">Overview</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-4-internal-interview','Watch')" id="tbtn-aus-stage-4-internal-interview-Watch">Watch</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-4-internal-interview','Practice Activity')" id="tbtn-aus-stage-4-internal-interview-Practice-Activity">Practice Activity</button>
+  <button class="tab-btn" onclick="switchTab('aus-stage-4-internal-interview','Coaching Guide')" id="tbtn-aus-stage-4-internal-interview-Coaching-Guide">Coaching Guide</button>
 </div>
 <div class="tab-panel active" id="panel-aus-stage-4-internal-interview-Overview">
 <div class="content-block">
@@ -3035,7 +3186,7 @@ OUTPUT FORMAT:
 <li><p>Check JobAdder for <strong>client feedback</strong> from any candidate who failed the client interview for this job, and add those points to your questions</p></li>
 <li><p>Have the <strong>Aus Video Interview Form</strong> open in JobAdder</p></li>
 </ul>
-<p>Before your first interview, read "How to Use the Tailored Interview Guide Without Sounding Like a Checklist" in the Script Coaching Guide. It shows you how to weave the questions into a natural conversation.</p>
+<p>Before your first interview, read "How to Use the Tailored Interview Guide Without Sounding Like a Checklist" in the <a href="#" onclick="switchTab('aus-stage-4-internal-interview','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Script Coaching Guide</a>. It shows you how to weave the questions into a natural conversation.</p>
 <div class="block-title" style="margin-top:18px">Recording the interview</div>
 <p>Every internal interview must be recorded. The recording is transcribed and summarised automatically, and the summary goes into the candidate's JobAdder profile under <strong>Activity → Notes</strong>. You don't need to take detailed notes. Stay focused on the candidate.</p>
 <ol type="1">
@@ -3157,7 +3308,7 @@ OUTPUT FORMAT:
 <li><p><strong>Cold or wants to pull out:</strong> let them go gracefully and update their status</p></li>
 <li><p><strong>Has a concern the client could answer:</strong> tell them to raise it at the client interview, and remind them there's a second cool off once the offer comes through</p></li>
 </ul>
-<p>See the Script Coaching Guide for the full Day 2 call script.</p>
+<p>See the <a href="#" onclick="switchTab('aus-stage-4-internal-interview','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Script Coaching Guide</a> for the full Day 2 call script.</p>
 <div class="block-title" style="margin-top:18px">Common mistakes to avoid</div>
 <ul>
 <li><p>Skipping the morning calendar check and reminder texts</p></li>
@@ -3192,7 +3343,260 @@ OUTPUT FORMAT:
     <div class="block-label">Do: Your Activity</div>
     <div class="block-body">
 <p>After shadowing, run your first solo internal interview on a real candidate. Complete the interview form, send the cool off and document request emails, and book the Day 2 call. Check in with Les afterwards.</p>
-<p><strong>Resources:</strong> Email &amp; SMS Template Library: Meeting Day Reminder SMS, No-Show Interview Email and SMS, Cool Off Period Email, Document Request Email. Prompt Library: Cool Off Period Job Description. Script Coaching Guide: P2 Internal Interview and P2 Day 2 Cool-Off Follow-Up Call. Aus Video Interview Form → [link]. Trans-Tasman Bridge One-Pagers → [link]. Relocation Cost Guide → [link].</p>
+<p><strong>Resources:</strong> Email &amp; SMS Template Library: Meeting Day Reminder SMS, No-Show Interview Email and SMS, Cool Off Period Email, Document Request Email. Prompt Library: Cool Off Period Job Description. <a href="#" onclick="switchTab('aus-stage-4-internal-interview','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Script Coaching Guide</a>: P2 Internal Interview and P2 Day 2 Cool-Off Follow-Up Call. Aus Video Interview Form → [link]. Trans-Tasman Bridge One-Pagers → [link]. Relocation Cost Guide → [link].</p>
+    </div>
+  </div>
+</div>
+<div class="tab-panel" id="panel-aus-stage-4-internal-interview-Coaching-Guide">
+<div class="content-block">
+    <div class="block-label">How to Use This Guide</div>
+    <div class="block-body">
+      <div class="callout warn"><strong>The ethos behind every script in this guide:</strong> every interaction - whether it's a candidate, a referee, or a client - is a conversation, not a form you're working through. Build rapport. Be genuinely curious about the person in front of you. Ask follow-up questions because you actually want to know the answer, not because a script told you to. The words matter less than the mindset you bring into them.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">P2 Internal Interview</div>
+    <div class="block-body"><p>For placers. Read the tone notes, not just the words. Your sourcer has already screened every candidate they book with you, and the call is recorded, so read their transcript before you start. This is the most important conversation you'll have with a candidate before they meet the client. It's also the longest, which means it's the easiest one to let slip into checklist mode. Fight that. This should feel like the best conversation this candidate has had about their future in a long time.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">How to Use the Tailored Interview Guide Without Sounding Like a Checklist</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>The guide is a reference document, not a script order.</strong></div>
+    <p style="margin-top:8px">Before you get into the actual flow of this interview, it's worth understanding how to use the Tailored Interview Guide properly. When recruiters first started using it, the most common feedback was that it felt overwhelming - a whole document full of questions can easily start to feel like a form you're working through rather than a conversation. Here's how to use it so that doesn't happen.</p>
+    <p style="margin-top:8px"><strong>1. Never read the questions in the order they're generated.</strong> The guide gives you a Client Intent Summary plus three categories of questions - Commitment, Role and Location, and Technical. That's a reference for you to draw from, not a script to read top to bottom. Read the whole thing before the call, understand why each question is there, then weave the questions in naturally wherever they actually fit based on what the candidate is saying.</p>
+    <p style="margin-top:8px"><strong>2. Anchor questions to something the candidate just said.</strong> This is the same technique that runs through every script in this guide - instead of announcing the next question on your list, connect it to what they just told you. For example, instead of "Next question: are you comfortable with the remote location?" try "You mentioned you grew up rurally - how do you think that'll translate to a site like this one, pretty out of the way?" Same information, completely different feel.</p>
+    <p style="margin-top:8px"><strong>3. Use the Client Intent Summary as context, not something you announce.</strong> Never say out loud "the client mentioned reliability concerns so I need to ask you about commitment." That's transparently box-ticking and the candidate will feel it. The summary should only inform which questions you reach for and how you frame them - it stays invisible to the candidate.</p>
+    <p style="margin-top:8px"><strong>4. Only ask what you don't already know.</strong> If Part 0 - Uncover the Real Why already revealed genuine motivation and commitment, you don't need to mechanically work through every commitment question on the list. Adapt based on what's already surfaced. The guide is there to make sure nothing important gets missed, not to force you through every line regardless of what's already been covered.</p>
+    <p style="margin-top:8px">If you're using more than one Tailored Interview Guide in the same call because the candidate could fit multiple jobs, this matters even more - you're holding two or three documents worth of questions in your head at once, and the conversation will only feel natural if you're pulling from them selectively rather than working through them like a checklist.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">0. Uncover the Real Why - Before Anything Else</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Do not accept the first answer. This is the question the whole call is built on.</strong></div>
+    <p style="margin-top:8px">Les is firm on this one. Every candidate gets asked why they want to move, and every candidate gets 2 to 3 follow-up questions to actually get to what's driving it. This happens first, before you sell anything - it's the foundation the rest of the conversation sits on.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Hey [Name], good to meet you - thanks for jumping on.</div>
+    <p style="margin-top:8px">Open warmly. Your sourcer has already told them who you are, so you're picking up a conversation, not starting a new one.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> What's making you want to make the move to Australia?</div>
+    <p style="margin-top:8px">Most candidates give you a surface answer first - better money, better weather, a change of scenery. That's not the real answer, it's the doorway to it. Your job is to keep gently pushing until you get something specific and real.</p>
+    <div class="formula" style="margin-top:8px">
+      <strong>Example:</strong> Candidate says: "I want to move because the money is better."
+      <br><br>Do not accept that and move on. Ask 2 to 3 follow-up questions such as:
+      <ul>
+        <li>"Sure, but what would that extra money actually let you do that you can't do right now?"</li>
+        <li>"Is there something specific driving that - a house deposit, supporting family back home, paying off debt?"</li>
+        <li>"Why does that matter to you at this point in your life?"</li>
+      </ul>
+    </div>
+    <p style="margin-top:8px">Keep digging until you get a real, specific answer - not a generic one. This tells you whether the candidate is genuinely motivated to make this move work, and it gives you something real to reference later when you sell the opportunity and during the cool off period conversation. Log their real motivation in your notes - you'll use it again.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">Lead With the Opportunity</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Screening already happened. Don't repeat it, build on it.</strong></div>
+    <p style="margin-top:8px">Your sourcer has already checked the basics: trade, qualifications, citizenship, when they can move, where they want to go and their pay expectations. Asking it all again wastes the candidate's time and makes us look disorganised. You've read the transcript, so use it. Go straight into selling the role.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> This is just a chat so I can give you a proper rundown of the role and see if it's a good fit for where you're at.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">1. Run Through the Opportunity</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Sell it like you actually believe in it - because the parts that are true are genuinely exciting.</strong></div>
+    <p style="margin-top:8px">Use the Selling Points section of the job brief as your foundation, but don't read it out like a list. Weave in what you learned from Part 0 - if their real "why" was providing for their kids, talk about the lifestyle and stability angle more than the pure pay number. Make it feel like it's built for them specifically.</p>
+    <p style="margin-top:8px">Cover: company overview, role duties, pay and earning potential, type of work and projects, growth and progression, lifestyle in Australia.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> From what you've told me, I think this could be a really good fit for you. It's not just a job - it's a genuine opportunity to step up, earn well, and set yourself up properly.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">2. Candidate Confirms They're Keen</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Don't assume interest - check it before you go deeper.</strong></div>
+    <p style="margin-top:8px">This is a short but important checkpoint. If they're hesitant here, it's worth understanding why before you invest more time in the technical and financial parts of the conversation.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Does that sound like something you'd want to hear more about?</div>
+    <p style="margin-top:8px">If yes → continue. If no or hesitant → understand their concerns before proceeding.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">3. Screening Questions</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Go deeper than a checklist - but this part is genuinely more practical, and that's fine.</strong></div>
+    <p style="margin-top:8px">These questions are more transactional by nature, but keep the same conversational warmth you've had the whole call. If anything disqualifying comes up here, it's better to find out now than after the client interview is booked.</p>
+    <div class="formula" style="margin-top:8px">
+      <ul>
+        <li>If you were to move, what's your timeframe?</li>
+        <li>Would you be moving over on your own, or bringing family with you?</li>
+        <li>We don't need to know your criminal history, but is there anything serious that could stop you from moving to Australia for work?</li>
+        <li>Any medical conditions or restrictions we should be aware of that might affect site work?</li>
+        <li>Do you have a valid passport with at least 6 months validity?</li>
+        <li>Do you have any planned vacations or commitments in the next few months?</li>
+      </ul>
+    </div>
+    <p style="margin-top:8px">If anything disqualifying comes up - close the call professionally before continuing.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">Sub-Script - If They Say They're Not Ready Yet</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>This is not a dead end. It's a future booking you're locking in right now.</strong></div>
+    <p style="margin-top:8px">If the candidate says any version of "not looking to go for 3 months, 6 months, next year" - this is where you use it. The whole point is to make sure that when they are ready, they come back through Stand Up Recruitment instead of quietly self-applying for a job in Australia somewhere else. You do this by making the Grand Slam offer sound too good to walk away from - because it is.</p>
+    <p style="margin-top:8px"><strong>1. Build Rapport (New)</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Hey, did you know we're actually based here in Auckland, Takapuna?</div>
+    <p style="margin-top:8px">Candidates often assume they're talking to an overseas call centre. A quick, genuine local detail like this builds trust fast, before you even get to the offer. Drop it in naturally wherever it fits in the conversation - it doesn't need to be the very first line.</p>
+    <p style="margin-top:8px"><strong>2. Acknowledge</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Hey, yeah, no worries - a lot of people we talk to aren't ready right now.</div>
+    <p style="margin-top:8px"><strong>3. Reiterate the Grand Slam Offer</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> But the reason people do end up coming back through us, [Name], is because we sort you out with a job offer before you even leave New Zealand. That's going to save you a lot of stress, time, and wasted money when you get over there - because otherwise you're waiting on callbacks, going for interviews, it's just extra stress you don't want, right?</div>
+    <p style="margin-top:8px">(Pause. Get the micro-yes.)</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> On top of that, most of our clients offer temporary free accommodation if you need it. That lets you save up a bit before you get sorted. If your family's moving over too, depending on the case they can come after you, once you're settled. And if you've already got somewhere to stay, that's all good too. On top of that, we'll sort your free flight over as well.</div>
+    <p style="margin-top:8px">(Pause. Get the yes on each point before moving on.)</p>
+    <p style="margin-top:8px">Let each of these pauses do their job. The first gets a small agreement to build on. Then take each point of the offer at its own pace - a small yes on accommodation, a small yes on family, a small yes on the flight - rather than reading it as one block.</p>
+    <p style="margin-top:8px"><strong>4. The Capture Question (Updated)</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> So knowing all that, [Name], is there any reason you wouldn't come back through us when it's time to move to Australia?</div>
+    <p style="margin-top:8px">This replaces the old close question. Les's preferred phrasing on purpose - "is there any reason you wouldn't" surfaces any hidden objection now instead of it showing up as a no-show later. If they say something like "well, my uncle owns a business over there and can get me a job," that's fine - still say "perfect" and move on to lock a date anyway. We still want them captured.</p>
+    <p style="margin-top:8px">Alternative phrasing if it fits the conversation better: "So knowing all that, are you going to give me a call back when it's time to move to Australia?"</p>
+    <p style="margin-top:8px">(Pause. Let them answer either way.)</p>
+    <p style="margin-top:8px"><strong>5. Lock a Rough Date</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Great, so roughly what month are we talking here?</div>
+    <p style="margin-top:8px">Get a real month, not "sometime next year." A vague timeframe gives them no reason to call back and gives you nothing to nurture them against.</p>
+    <p style="margin-top:8px"><strong>6. Confirm and Set Expectation</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Yep, sweet, I'll pencil that in and give you a call back as we get closer. I'm gonna send you over a text message with my details, so if anything changes, you can get a hold of me before that. All good?</div>
+    <p style="margin-top:8px"><strong>7. Close</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Perfect, talk soon [Name].</div>
+    <p style="margin-top:8px">After the call, update their Notice Period with the month they gave you and send the Not Ready Yet follow-up text. The folders sort them from there.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">4. Financial Readiness Discussion</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>This exists to protect the candidate, not to interrogate them. Frame it that way.</strong></div>
+    <p style="margin-top:8px">This conversation exists to reduce dropouts after the offer - but if you frame it as "we need to check you can afford this," it feels transactional and a bit cold. Frame it instead as looking out for them: you'd rather they know the real numbers now than get blindsided later. That framing changes everything about how this lands.</p>
+    <p style="margin-top:8px">Walk the candidate through the real costs - flights, accommodation, and a car, landing at roughly $5,000 all up to be comfortable.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Moving over costs more than most people expect. Your flight alone is $500 to $1,000. Accommodation runs $350 to $850 a week. Most people need a car within the first few weeks. So realistically, before your first pay comes in, you're looking at around $5,000 all up. (pause) Does that align with where you're at financially?</div>
+    <p style="margin-top:8px">Pause before asking if it aligns. You've just given them a genuinely confronting number - rushing straight into the question doesn't give them a chance to actually process it. Let it sit for a second.</p>
+    <div class="formula" style="margin-top:8px">
+      <strong>Path 1 - Clearly ready:</strong> "Perfect. We also offer a relocation package if you want it handled for you - I'll send you the info. Totally optional. Right, let's keep going..."
+      <br><br><strong>Path 2 - Unsure:</strong> "I appreciate you being straight with me. Use the cool off period to sit down and work out the numbers - I'll send you a cost guide."
+      <br><br><strong>Path 3 - Clearly not ready:</strong> "Thanks for being honest. If the finances aren't there right now it's going to be tough to make this work. Let's pause, you get yourself in a better position, and we reconnect when the timing is right."
+    </div>
+    <p style="margin-top:8px">Whichever path they land on, thank them for being straight with you. Candidates who are honest about money now are the ones who don't fall over later - reward that honesty with warmth, not disappointment.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">5. Work History and Technical Assessment</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Let them talk about their actual work - this is where their real expertise comes through.</strong></div>
+    <p style="margin-top:8px">This is often where candidates relax the most, because they're talking about something they know well and are proud of. Let them run with it, and use this as your opening to weave in the Commitment Questions, Role and Location Questions, and Technical Questions from your Tailored Interview Guide - going deeper rather than firing them one after another like a quiz.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Talk me through your experience - what have you been working on recently? Walk me through the last role or two.</div>
+    <p style="margin-top:8px">Listen carefully, ask clarifying questions, and note any gaps against the job brief must-haves. As they talk, look for natural openings to bring in your Commitment and Role and Location Questions if you haven't covered them yet - then move into the 3 Technical Questions from your Tailored Interview Guide.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> What's the thing that's going to keep you going on the tough days out there?</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">6. Close</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Wrap up on a high note, but make sure nothing gets left hanging.</strong></div>
+    <p style="margin-top:8px">There are three things to cover here and none of them can be skipped - the cool off period, referees, and police check details. Do this in one clean sweep at the end rather than scattering it through the call. End the call with the same energy you opened it with - this is exciting for them, don't let the admin at the end flatten that.</p>
+    <p style="margin-top:8px"><strong>Cool off period:</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Before we move you to the client interview stage, I want you to take the next 2 days to properly think this through. Relocating to Australia is a big decision. (pause) I'll send you an email with a summary of the role and the relocation information. We'll touch base in 2 days and decide together whether to move forward.</div>
+    <p style="margin-top:8px">Pause after acknowledging it's a big decision before moving into the practical next steps - let the weight of the decision land before you talk logistics.</p>
+    <p style="margin-top:8px"><strong>Referees:</strong> Ask for 2 previous supervisors - name, company, and contact number for each. Stay on the call to collect these. If the candidate says they'll send them later, let them know the details need to come directly to you.</p>
+    <p style="margin-top:8px"><strong>Police check details:</strong> Let the candidate know you'll need their full name, email, date of birth, gender, contact number, and residential address.</p>
+    <p style="margin-top:8px">Do not progress the candidate during the cool off period. Wait for the 2-day follow-up call.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Quick Reference - Flow Order</div>
+    <div class="block-body">
+      <div class="step-row"><div class="step-num">1</div><div class="step-body">Uncover the real why - dig 2 to 3 layers deeper, every time</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-body">Read the sourcer's transcript first, then lead with the opportunity. Don't repeat the screening.</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-body">Run through the opportunity - tailored to their real why</div></div>
+      <div class="step-row"><div class="step-num">4</div><div class="step-body">Confirm they're keen before going deeper</div></div>
+      <div class="step-row"><div class="step-num">5</div><div class="step-body">Screening questions, plus Commitment Questions and Role and Location Questions from the Tailored Interview Guide - woven in naturally, not read as a list</div></div>
+      <div class="step-row"><div class="step-num">6</div><div class="step-body">Financial readiness - pause before asking if it aligns</div></div>
+      <div class="step-row"><div class="step-num">7</div><div class="step-body">Work history and technical assessment - let them talk, then the 3 Technical Questions from the Tailored Interview Guide</div></div>
+      <div class="step-row"><div class="step-num">8</div><div class="step-body">Close - cool off period, referees, police check, all in one sweep</div></div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">P2 Day 2 Cool-Off Follow-Up Call</div>
+    <div class="block-body"><p>For placers. Read the tone notes, not just the words. This call happens 2 days after the internal interview. The candidate has had the cool off email and the cost guide - your job now is to find out if they've actually done the thinking, not just skimmed it. This is a real checkpoint, not a formality.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">1. Open - Pick Up Where You Left Off</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Warm and direct. They know why you're calling.</strong></div>
+    <p style="margin-top:8px">There's no need to re-explain the purpose of the call - they already know from the email. Open naturally and get into it.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Hey [Name], good to catch up again. So, had a proper think about everything?</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">2. Financial Readiness - Get Real Numbers, Not a Vibe</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Ask for the actual figures, not a general feeling.</strong></div>
+    <p style="margin-top:8px">The cool off email specifically asked them to put real numbers to the cost guide. If they give you a vague "yeah I think I'm sweet," push once for specifics - that's the difference between someone who's actually done the exercise and someone who's just saying what they think you want to hear.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Are you financially ready to make the move and cover yourself for the first few weeks until your first pay comes in? Walk me through the actual numbers you've landed on.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">3. Start Timing - Confirm the Real Window</div>
+    <div class="block-body">
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Are you happy to start within 4 to 6 weeks?</div>
+    <p style="margin-top:8px">This replaced the old "are you comfortable with the start date" question - a specific start date usually isn't locked in yet at this stage, so asking about the realistic window is more accurate and easier for them to answer honestly.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">4. Location - Confirm It's Still a Yes</div>
+    <div class="block-body">
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> And are you still happy with the location?</div>
+    <p style="margin-top:8px">Keep this short. If they've had second thoughts about the location, this is where it surfaces - don't rush past it.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">5. Family and Partner - Push Past "I Mentioned It"</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>This is the most important question in the whole call.</strong></div>
+    <p style="margin-top:8px">This is the single most common reason placements fall apart later, so don't accept "yeah I mentioned it to them" as a real answer. You're checking whether they've actually had the conversation - the timeline, what it means day to day, all of it.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Have you actually sat down and had the conversation with your partner and family - not just mentioned it - about the timeline and what this means day to day?</div>
+    <p style="margin-top:8px">If they're vague here, ask a genuine follow-up: "What did they say when you told them?" A real answer sounds specific. A vague one is a warning sign.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">6. The Future Question - Check They're Moving Toward Something</div>
+    <div class="block-body">
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Does this move make sense for where you want to be in the next few years?</div>
+    <p style="margin-top:8px">The people who thrive over there are moving toward something specific, not just escaping something or chasing a change for its own sake. Listen for whether their answer is concrete or vague.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">7. Close - Route Them Based on Where They Land</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Don't force a yes. Read where they actually are and route accordingly.</strong></div>
+    <p style="margin-top:8px">There are four honest outcomes to this call. Don't try to talk a hesitant or cold candidate into a yes - the whole point of the cool off period is to only move forward with candidates who are genuinely ready.</p>
+    <p style="margin-top:8px"><strong>If they're keen and answered everything clearly:</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Awesome, sounds like you've thought this through properly. Let's get you moving - I'll start working on getting you in front of the client.</div>
+    <p style="margin-top:8px">Move them forward to client submission.</p>
+    <p style="margin-top:8px"><strong>If they're hesitant - give them 2 more days, don't push:</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> No worries, sounds like there's still a bit to work through. Let's take 2 more days - have those conversations properly and get clear on the numbers, and I'll give you a call back.</div>
+    <p style="margin-top:8px">Do not pressure them to decide on this call. A hesitant yes now often becomes a no-show or a withdrawal later. Log the extension in JobAdder and schedule the next call.</p>
+    <p style="margin-top:8px"><strong>If they're cold and want to withdraw:</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> All good, I appreciate you being upfront with me. We'll leave it there - if anything changes down the track, you know where to find us.</div>
+    <p style="margin-top:8px">Let them go gracefully. Update their status and notes accordingly - do not try to talk them back in.</p>
+    <p style="margin-top:8px"><strong>If they raise a genuine concern that the client could actually address:</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> That's a fair thing to raise - that's actually a really good question for [Client] directly. We've got another cool off period once the offer comes through too, so there'll be another chance to work through anything before you sign. Let's get you in front of them and you can ask that yourself.</div>
+    <p style="margin-top:8px">Not every concern needs to be resolved by you on this call. If it's something the client is better placed to answer - site conditions, specific work arrangements, team structure - route it to the client interview rather than guessing on their behalf. Reassure them the offer-stage cool off period is a second checkpoint, so this isn't their only chance to raise things.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Quick Reference - Flow Order</div>
+    <div class="block-body">
+      <div class="step-row"><div class="step-num">1</div><div class="step-body">Open - pick up where you left off, no need to re-explain</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-body">Financial readiness - get actual numbers, not a vibe</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-body">Start timing - happy to start within 4 to 6 weeks?</div></div>
+      <div class="step-row"><div class="step-num">4</div><div class="step-body">Location - still a yes?</div></div>
+      <div class="step-row"><div class="step-num">5</div><div class="step-body">Family and partner - push past "I mentioned it"</div></div>
+      <div class="step-row"><div class="step-num">6</div><div class="step-body">The future question - moving toward something specific?</div></div>
+      <div class="step-row"><div class="step-num">7</div><div class="step-body">Close - keen → move forward. Hesitant → +2 days, don't push. Cold → let them go gracefully. Genuine concern → route to the client interview, remind them of the second cool off period at offer stage.</div></div>
     </div>
   </div>
 </div>
@@ -3208,6 +3612,7 @@ OUTPUT FORMAT:
   <button class="tab-btn active" onclick="switchTab('aus-stage-5-reference-and-police-checks','Overview')" id="tbtn-aus-stage-5-reference-and-police-checks-Overview">Overview</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-5-reference-and-police-checks','Watch')" id="tbtn-aus-stage-5-reference-and-police-checks-Watch">Watch</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-5-reference-and-police-checks','Practice Activity')" id="tbtn-aus-stage-5-reference-and-police-checks-Practice-Activity">Practice Activity</button>
+  <button class="tab-btn" onclick="switchTab('aus-stage-5-reference-and-police-checks','Coaching Guide')" id="tbtn-aus-stage-5-reference-and-police-checks-Coaching-Guide">Coaching Guide</button>
 </div>
 <div class="tab-panel active" id="panel-aus-stage-5-reference-and-police-checks-Overview">
 <div class="content-block">
@@ -3348,7 +3753,85 @@ OUTPUT FORMAT:
     <div class="block-label">Do: Your Activity</div>
     <div class="block-body">
 <p>For a real candidate you've interviewed and rate, call both referees, log the results, and submit the police check. Check in with Les once both checks are back and clear.</p>
-<p><strong>Resources:</strong> Email &amp; SMS Template Library: Reference No Answer SMS. Script Coaching Guide: P3 Reference Check. Airtable Police Check Form → [link].</p>
+<p><strong>Resources:</strong> Email &amp; SMS Template Library: Reference No Answer SMS. <a href="#" onclick="switchTab('aus-stage-5-reference-and-police-checks','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Script Coaching Guide</a>: P3 Reference Check. Airtable Police Check Form → [link].</p>
+    </div>
+  </div>
+</div>
+<div class="tab-panel" id="panel-aus-stage-5-reference-and-police-checks-Coaching-Guide">
+<div class="content-block">
+    <div class="block-label">How to Use This Guide</div>
+    <div class="block-body">
+      <div class="callout warn"><strong>The ethos behind every script in this guide:</strong> every interaction - whether it's a candidate, a referee, or a client - is a conversation, not a form you're working through. Build rapport. Be genuinely curious about the person in front of you. Ask follow-up questions because you actually want to know the answer, not because a script told you to. The words matter less than the mindset you bring into them.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">P3 Reference Check</div>
+    <div class="block-body"><p>For placers. Read the tone notes, not just the words.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">1. The Open - Own the Familiarity</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Say their name like you already know them - confidence, not a question.</strong></div>
+    <p style="margin-top:8px">The moment he answers, you say his name first - like you already know him. Even if he answers with his own name, you still say it back. This isn't about being clever, it's about setting the tone from the very first word: this is a friendly call from someone who already knows who they're talking to, not a cold approach from a stranger.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> [Reference First Name]. (pause) It's [Your Name]. (pause) [Candidate Full Name] gave me your number, said it's okay to run a bit of a reference check.</div>
+    <p style="margin-top:8px">Pause after saying their name, after saying who you are, and after explaining why you're calling. Each pause gives them a beat to catch up - first registering that someone is greeting them by name, then placing who you are, then understanding the purpose of the call. Rush through all three in one breath and they're still processing "who is this" while you've already asked to run a reference check.</p>
+    <div class="callout info" style="margin-top:8px"><strong>Reference:</strong> Yep, cool.</div>
+    <p style="margin-top:8px">If he checks whether it's okay, asks for two minutes, or wants context first - that's fine, just answer it plainly and keep moving. E.g. "Yeah all good, just a couple of minutes." Don't over-explain.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">2. The Rundown - Let Him Talk</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Ask it open, then go quiet. This is the biggest part of the call.</strong></div>
+    <p style="margin-top:8px">This is the biggest part of the call. Ask it open, then shut up. Let him run. Dig deeper on anything interesting - don't rush to the next question.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Can you give me a full rundown, please - the good, the bad, and the ugly?</div>
+    <div class="formula" style="margin-top:8px">While he's talking, make sure you walk away knowing:
+      <ul>
+        <li>Attitude - on the tools, with the team, under pressure</li>
+        <li>Attendance - reliable, punctual, any red flags</li>
+        <li>Anything he volunteers unprompted - that's usually the realest signal</li>
+      </ul>
+    </div>
+    <p style="margin-top:8px">If he's short or vague, prompt gently: "Yeah? What was that like day to day?" or "Anything stand out, good or bad?" - don't lead the witness.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">3. Skills and Experience - Get Specific to the Trade</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Don't accept a general answer. Push into the actual work.</strong></div>
+    <p style="margin-top:8px">Get specific to the trade. If he's an electrician, don't accept a general answer - get into the actual work.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> What kind of [trade] work was he actually doing for you? Was he good at it? Any muck-ups or mistakes worth mentioning?</div>
+    <p style="margin-top:8px">Push once if the answer is too smooth - "Genuinely no issues at all?" People often soften the first pass.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">4. If He's Hesitant - Don't Push, Just Log It</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Respect the hesitation. Pushing here costs you more than it gains.</strong></div>
+    <p style="margin-top:8px">If he seems cagey, says he can't really comment, or wants to loop in HR or his manager - don't push. Respect it, keep the door open, and note it as a flag for the file.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> No worries at all - appreciate you letting me know. If you think of anything after we hang up, feel free to flag it, otherwise thanks for your time.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">5. The Close: Give Them Permission to Be Honest</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Ask for a reason not to hire. Then ask if they'd rehire.</strong></div>
+    <p style="margin-top:8px">Referees soften their answers because they don't want to cost someone a job. This close flips that. By saying you're looking for an excuse not to hire, you give them permission to tell you the real stuff. Say it slow and casual, like you're levelling with them.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Hey [Referee Name], I'm pretty much looking for an excuse not to hire [Candidate First Name], because you know a bad hire costs a lot of money and time, right? (pause) Can you give me any reasons not to hire [him/her]?</div>
+    <p style="margin-top:8px">Pause after "right?" and let them agree. That small yes makes the real question easier to answer honestly.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Would you rehire [him/her]?</div>
+    <p style="margin-top:8px">This is the cleanest signal in the whole call. A quick, warm "absolutely" is a green light. Hesitation, a "probably", or a long pause is your answer. Whatever comes next, don't fill the silence.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Quick Reference - Flow Order</div>
+    <div class="block-body">
+      <div class="step-row"><div class="step-num">1</div><div class="step-body">Say his name first - own it</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-body">Recruiter intro + candidate name, confirm okay to proceed</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-body">"The good, the bad, and the ugly" - let him talk</div></div>
+      <div class="step-row"><div class="step-num">4</div><div class="step-body">Skills and experience - get trade-specific</div></div>
+      <div class="step-row"><div class="step-num">5</div><div class="step-body">Hesitant? Don't push, log it</div></div>
+      <div class="step-row"><div class="step-num">6</div><div class="step-body">Close: "looking for an excuse not to hire", pause, then "Would you rehire them?"</div></div>
     </div>
   </div>
 </div>
@@ -3551,6 +4034,7 @@ OUTPUT FORMAT:
   <button class="tab-btn active" onclick="switchTab('aus-stage-8-client-interview','Overview')" id="tbtn-aus-stage-8-client-interview-Overview">Overview</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-8-client-interview','Watch')" id="tbtn-aus-stage-8-client-interview-Watch">Watch</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-8-client-interview','Practice Activity')" id="tbtn-aus-stage-8-client-interview-Practice-Activity">Practice Activity</button>
+  <button class="tab-btn" onclick="switchTab('aus-stage-8-client-interview','Coaching Guide')" id="tbtn-aus-stage-8-client-interview-Coaching-Guide">Coaching Guide</button>
 </div>
 <div class="tab-panel active" id="panel-aus-stage-8-client-interview-Overview">
 <div class="content-block">
@@ -3650,7 +4134,107 @@ OUTPUT FORMAT:
 <li><p>Run the debrief, then send the Post-Client Interview Email after a yes, or log the feedback after a no</p></li>
 <li><p>Always leave the debrief with a date for the decision</p></li>
 </ol>
-<p><strong>Resources:</strong> Email &amp; SMS Template Library: Candidate Prep Email and SMS, Post-Client Interview Email with Candidate Details. Script Coaching Guide: P6 Client Interview.</p>
+<p><strong>Resources:</strong> Email &amp; SMS Template Library: Candidate Prep Email and SMS, Post-Client Interview Email with Candidate Details. <a href="#" onclick="switchTab('aus-stage-8-client-interview','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Script Coaching Guide</a>: P6 Client Interview.</p>
+    </div>
+  </div>
+</div>
+<div class="tab-panel" id="panel-aus-stage-8-client-interview-Coaching-Guide">
+<div class="content-block">
+    <div class="block-label">How to Use This Guide</div>
+    <div class="block-body">
+      <div class="callout warn"><strong>The ethos behind every script in this guide:</strong> every interaction - whether it's a candidate, a referee, or a client - is a conversation, not a form you're working through. Build rapport. Be genuinely curious about the person in front of you. Ask follow-up questions because you actually want to know the answer, not because a script told you to. The words matter less than the mindset you bring into them.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">P6 Client Interview</div>
+    <div class="block-body"><p>For placers. Read the tone notes, not just the words. This one's different from the others. You're not the one being interviewed and you're not the one interviewing - you're in the room to make sure the conversation between two other people goes well. That's a different skill. Most of this script is about presence and timing, not lines to recite.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">1. The Open - Introduce, Then Get Out of the Way</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Set the tone in one breath, then step back.</strong></div>
+    <p style="margin-top:8px">Your job in the opening is to make the introduction feel natural and then hand the floor over. Don't linger here - the longer you talk, the less this feels like the candidate and client's conversation.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> [Client name], this is [Candidate first name]. [Candidate], this is [Client name] from [Company]. (pause) I'll let you two get into it - I'm just here to help the conversation along if needed.</div>
+    <p style="margin-top:8px">Pause briefly after the introductions before handing it over - it gives both sides a beat to actually look at each other and register who's who, rather than being talked over into the next thing.</p>
+    <p style="margin-top:8px">After the introduction, hand over the direction of the interview based on whether this is a new or existing client.</p>
+    <p style="margin-top:8px"><strong>If it's a new client:</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> [Client name], how would you like to run this - would you want to tell [Candidate] a bit more about the company first, or would you prefer [Candidate] walks you through his experience to start?</div>
+    <p style="margin-top:8px">New clients haven't worked with us before, so giving them the choice up front shows respect for how they like to operate and sets a collaborative tone from the very first minute.</p>
+    <p style="margin-top:8px"><strong>If it's an existing client:</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> [Candidate], give [Client] a quick rundown on your skills and experience.</div>
+    <p style="margin-top:8px">With an existing client, you already know their style and they already trust the process - you can move straight into the candidate's rundown without needing to check in on format first.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">2. Reading the Room - When to Step In for the Candidate</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Watch for the moment they need a lifeline, not the moment they need rescuing.</strong></div>
+    <p style="margin-top:8px">There's a difference between a candidate who's thinking before they answer and a candidate who's actually stuck. Give them the space to work through it first - jumping in too early undermines them in front of the client. Step in only when it's clear they need help getting the good stuff out.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> [Candidate], you mentioned to me that you can do [x, y, z] - can you walk [Client] through how you approach that on site?</div>
+    <p style="margin-top:8px">Frame it as prompting a memory, not correcting a wrong answer. This lets the candidate save face and still land the point.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">3. Reading the Room - When to Step In for the Client</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Sometimes the client needs a nudge to ask the thing they actually want to know.</strong></div>
+    <p style="margin-top:8px">Occasionally the client will circle around a concern without directly asking about it - commitment, reliability, whatever's on their mind. If you can tell there's an unspoken question sitting in the room, you can surface it for them.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> [Candidate], [Client] is looking for someone who will commit to at least 24 months in this role - is that something you see yourself doing?</div>
+    <p style="margin-top:8px">Only do this if it genuinely helps move things toward a yes. You're not creating problems that weren't there - you're clearing up ones that already exist so they can be addressed directly instead of lingering unspoken.</p>
+    <p style="margin-top:8px"><strong>Setting the real stakes - say this in front of everyone:</strong></p>
+    <p style="margin-top:8px">This is a different kind of moment - you're deliberately putting a serious consequence on the table, in front of both the candidate and the client, so nobody can say later they weren't told. It also doubles as a genuine confidence check on the candidate. Slow this one right down.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Just one more thing while all the parties are here - [Candidate], if you get over there and you can't do what you've told us you can do, I just want to be completely clear that the client is not going to keep you around or offer you a job. (pause) Are you confident with your skills and the things that we talked about? (pause)</div>
+    <p style="margin-top:8px">Pause after stating the consequence, before asking about their confidence, and then again after asking it. The first pause lets the seriousness of "not keeping you around" actually land. The second gives them real space to answer honestly rather than reflexively saying yes just to keep the momentum going. Don't run all three into one breath. This isn't about scaring the candidate - it's about making sure their yes is a real yes.</p>
+    <p style="margin-top:8px"><strong>Once the candidate and client are both aligned and confident, close the loop for everyone in the room:</strong></p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> With that being said, is there any other questions from either parties?</div>
+    <p style="margin-top:8px">This is a small line but it matters - it signals the conversation is wrapping up on solid ground, and it gives both sides one last genuine chance to raise anything before you move to the debrief. Don't skip it just because things feel settled.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">4. The Debrief - Release the Candidate Gracefully</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Get them off the call warmly and without lingering.</strong></div>
+    <p style="margin-top:8px">This moment can feel a bit awkward if you let it drag. Keep it short, warm, and clear about what happens next.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Thanks [Candidate] - we'll be in touch very soon. I'm just going to have a quick chat with [Client] now.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">5. The Debrief - Get the Real Answer from the Client</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Ask it directly. Don't hedge, and don't fill the space while they think.</strong></div>
+    <p style="margin-top:8px">Once the candidate's off the call, get straight to it. Clients appreciate directness here more than a soft lead-in - you've both just spent time on this, they know what you're about to ask.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> What did you think? Does [Candidate] tick the boxes for you?</div>
+    <p style="margin-top:8px">If they pause before answering, let them. They're forming a genuine opinion, not stalling.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">6. If the Answer Is No - Extract Real Feedback</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Vague feedback helps nobody. Push gently for something specific.</strong></div>
+    <p style="margin-top:8px">"Not quite right" or "just not the one" isn't useful - it doesn't tell you anything to adjust for the next candidate. Ask for something concrete, and frame it as helping you help them, not as defending your candidate.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Just so I can improve the next batch - what was missing for you?</div>
+    <p style="margin-top:8px">Whatever they give you, log it properly in JobAdder. This is the difference between your next submission being a guess and being genuinely targeted.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">7. Always Leave With a Locked-In Date</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Every single debrief ends with a specific date - no exceptions.</strong></div>
+    <p style="margin-top:8px">This is non-negotiable, whether the answer was yes or no, whether they need to check with someone else or just need a day to think. "I'll get back to you" is not an answer you accept and move on from.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> No worries - when can we expect a decision by?</div>
+    <p style="margin-top:8px">Once you have that date, it's live. If it passes without word, that's what triggers the Contract Follow-Up cadence (P8 in the Placer Playbook) - so getting a real, specific date here isn't just good manners, it's what makes the whole follow-up system work.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Quick Reference - Flow Order</div>
+    <div class="block-body">
+      <div class="step-row"><div class="step-num">1</div><div class="step-body">Introduce, then step back - don't linger</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-body">Read the room - step in for the candidate only if they're genuinely stuck</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-body">Read the room - nudge the client only if it clears an unspoken concern</div></div>
+      <div class="step-row"><div class="step-num">4</div><div class="step-body">Release the candidate warmly and quickly</div></div>
+      <div class="step-row"><div class="step-num">5</div><div class="step-body">Ask the client directly - let their pause sit if they need it</div></div>
+      <div class="step-row"><div class="step-num">6</div><div class="step-body">If no - push gently for specific, usable feedback</div></div>
+      <div class="step-row"><div class="step-num">7</div><div class="step-body">Always close with a locked-in date, no exceptions</div></div>
     </div>
   </div>
 </div>
@@ -3666,6 +4250,7 @@ OUTPUT FORMAT:
   <button class="tab-btn active" onclick="switchTab('aus-stage-9-offer','Overview')" id="tbtn-aus-stage-9-offer-Overview">Overview</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-9-offer','Watch')" id="tbtn-aus-stage-9-offer-Watch">Watch</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-9-offer','Practice Activity')" id="tbtn-aus-stage-9-offer-Practice-Activity">Practice Activity</button>
+  <button class="tab-btn" onclick="switchTab('aus-stage-9-offer','Coaching Guide')" id="tbtn-aus-stage-9-offer-Coaching-Guide">Coaching Guide</button>
 </div>
 <div class="tab-panel active" id="panel-aus-stage-9-offer-Overview">
 <div class="content-block">
@@ -3815,7 +4400,74 @@ OUTPUT FORMAT:
     <div class="block-label">Do: Your Activity</div>
     <div class="block-body">
 <p>This needs a live placement, so you won't do it in your first week. When you get there, work through all seven steps, and check the fee with Les before you click Create.</p>
-<p><strong>Resources:</strong> Prompt Library: Offer Letter Review Prompt. Email &amp; SMS Template Library: Offer Letter Received Reply, Welcome &amp; Relocation Chat Email. Script Coaching Guide: P7 Offer Call.</p>
+<p><strong>Resources:</strong> Prompt Library: Offer Letter Review Prompt. Email &amp; SMS Template Library: Offer Letter Received Reply, Welcome &amp; Relocation Chat Email. <a href="#" onclick="switchTab('aus-stage-9-offer','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Script Coaching Guide</a>: P7 Offer Call.</p>
+    </div>
+  </div>
+</div>
+<div class="tab-panel" id="panel-aus-stage-9-offer-Coaching-Guide">
+<div class="content-block">
+    <div class="block-label">How to Use This Guide</div>
+    <div class="block-body">
+      <div class="callout warn"><strong>The ethos behind every script in this guide:</strong> every interaction - whether it's a candidate, a referee, or a client - is a conversation, not a form you're working through. Build rapport. Be genuinely curious about the person in front of you. Ask follow-up questions because you actually want to know the answer, not because a script told you to. The words matter less than the mindset you bring into them.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">P7 Offer Call</div>
+    <div class="block-body"><p>For placers. Read the tone notes, not just the words. This is one of the best calls you'll ever make - you're telling someone their life is about to change. Don't rush through it because it feels like an admin step on your end. For the candidate, this is a genuinely huge moment.</p></div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">1. Open / Exciting News - Let the Good News Land</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>This is a big deal for them. Say it like it is.</strong></div>
+    <p style="margin-top:8px">Don't bury the good news in a wall of process talk. Lead with it, plainly, and let it land before you move into anything practical.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Hey [Name], it's [Recruiter] from Stand Up. Good news - we've got your letter of offer through from [Client]. (pause) This is the big one. This means [Client] wants to bring you on board in Australia.</div>
+    <p style="margin-top:8px">Pause after telling them the offer has come through, before explaining what it means. Give them a second to feel the news before you frame it for them.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">2. Explain the Cool-Down Period - Make It About Them, Not Policy</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Frame this as something we do for them, not a rule they have to follow.</strong></div>
+    <p style="margin-top:8px">If this comes across as "company policy," it feels bureaucratic. If it comes across as "we want you to be certain," it feels like we're looking out for them. Same rule, completely different impression - say it the second way.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Now before anything gets signed, we give you a 48-hour cool-down period. (pause) That's non-negotiable on our end, and it's there for you. It's your time to sit with the contract properly, talk to your partner or family, and be honest with yourself about timing, location, and what this move actually means for your life. We'd rather you take those 48 hours and be certain than rush it and regret it. So don't sign anything, don't decide anything right now - just go away, read it, talk about it.</div>
+    <p style="margin-top:8px">Pause after stating the 48-hour period itself before explaining why it exists - the reasoning lands better once they've registered the actual timeframe first.</p>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">3. What's in the Email - Set Up the Next Call to Go Smoothly</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Tell them why the relocation guide matters - it makes the next call faster for them.</strong></div>
+    <p style="margin-top:8px">Don't just list what's coming in the email. Explain why the relocation guide specifically matters, because it directly benefits them at the next call - if they've read it, that call moves faster and feels less overwhelming.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> You'll get an email from us in the next few minutes with three things in it: your letter of offer from [Client], that's the actual job offer, pay, start date, all of it. Our terms of business, standard Stand Up terms, nothing new, just formalising us working together. And a relocation guide, this one's important. Have a proper read of it, because it covers things like your bank details, your tax file number, all the admin you'll need sorted.</div>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> The reason that one matters: in 48 hours, you're not just talking to me again. You'll be on a call with me and someone from our pastoral care team, and we'll be going through that relocation guide with you step by step. So if you walk in already familiar with it, that call moves a lot faster and smoother for you.</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">4. Book the Welcome & Relocation Chat - Lock the Date Before You Hang Up</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Same rule as everywhere else - don't leave this vague.</strong></div>
+    <p style="margin-top:8px">Just like every other stage in this process, you don't end the call without a locked-in date and time. This is where you book the Welcome & Relocation Chat.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> So let's lock that in now - we're talking [today], which means 48 hours takes us to [day]. What time suits you on [day]?</div>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Great, I'll send you a Teams invite for [day] at [time]. That's you, me, and our pastoral care team - we'll walk through everything, answer any questions, and get you moving toward Australia.</div>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> Take the next two days, talk it through, and I'll speak to you [day].</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-title">5. Close on a High Note - Leave Them Feeling Backed</div>
+    <div class="block-body">
+    <div class="callout warn"><strong>Don't end on logistics. End on how you actually feel about this.</strong></div>
+    <p style="margin-top:8px">This is a small addition but it matters - the last thing they hear from you shouldn't be a scheduling detail. It should be a genuine, human moment that tells them you're actually invested in how this goes for them.</p>
+    <div class="callout info" style="margin-top:8px"><strong>You:</strong> [Name], before I let you go - I just want to say, we're genuinely excited to have you on board. This is a massive step and we can't wait to see you thrive over there. Talk soon!</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <div class="block-label">Quick Reference - Flow Order</div>
+    <div class="block-body">
+      <div class="step-row"><div class="step-num">1</div><div class="step-body">Lead with the good news, let it land, then explain what it means</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-body">Cool-down period - frame it as for them, not company policy</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-body">What's in the email - explain why the relocation guide matters for the next call</div></div>
+      <div class="step-row"><div class="step-num">4</div><div class="step-body">Book the Welcome & Relocation Chat - always leave with a locked-in date and time</div></div>
+      <div class="step-row"><div class="step-num">5</div><div class="step-body">Close on a high note - end on genuine excitement, not logistics</div></div>
     </div>
   </div>
 </div>
