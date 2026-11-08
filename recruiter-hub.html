@@ -399,25 +399,25 @@ body{
       <div class="module-desc">End-to-end training for sourcing, screening, and placing NZ tradespeople with Australian clients via JobAdder.</div>
       <div class="module-arrow">&rarr;</div>
     </a>
-    <div class="module-card" data-hide-for="recruiter4" onclick="openModule('placer')">
+    <div class="module-card" data-only-for="recruiter4" onclick="openModule('aus')">
+      <div class="module-status status-ready">Ready</div>
+      <div class="module-num">02</div>
+      <div class="module-title">Australian Recruitment Playbook</div>
+      <div class="module-desc">The full recruiter process for one person running a job end to end, from a new job landing to a tradie starting in Australia.</div>
+      <div class="module-arrow">&rarr;</div>
+    </div>
+    <div class="module-card" onclick="openModule('placer')">
       <div class="module-status status-ready">Ready</div>
       <div class="module-num">03</div>
       <div class="module-title">Placer Playbook</div>
       <div class="module-desc">The placer role end to end: job setup, internal interview, checks, CV, client submission and interview, offer and contract.</div>
       <div class="module-arrow">&rarr;</div>
     </div>
-    <div class="module-card" data-hide-for="recruiter4" onclick="openModule('sourcer')">
+    <div class="module-card" onclick="openModule('sourcer')">
       <div class="module-status status-ready">Ready</div>
       <div class="module-num">04</div>
       <div class="module-title">Sourcer Playbook</div>
       <div class="module-desc">The sourcer role end to end: folders and tags, daily routine, bots, cold email, screening calls and booking interviews.</div>
-      <div class="module-arrow">&rarr;</div>
-    </div>
-    <div class="module-card" data-only-for="recruiter4" onclick="openModule('aus')">
-      <div class="module-status status-ready">Ready</div>
-      <div class="module-num">02</div>
-      <div class="module-title">Australian Recruitment Playbook</div>
-      <div class="module-desc">The full recruiter process for one person running a job end to end, from a new job landing to a tradie starting in Australia.</div>
       <div class="module-arrow">&rarr;</div>
     </div>
   </div>
@@ -8317,7 +8317,7 @@ function toggleTheme() {
   document.querySelectorAll('[data-hide-for]').forEach(function(c){ if(c.getAttribute('data-hide-for') === role) c.remove(); });
   var h = decodeURIComponent(location.hash.slice(1)).split('/');
   var isAus = /^aus(-|$)/.test(h[0] || '');
-  if(h[0] && document.getElementById('module-' + h[0]) && isAus === (role === 'recruiter4')){ openModule(h[0]); if(h[1]) switchTab(h[0], h[1]); }
+  if(h[0] && document.getElementById('module-' + h[0]) && (!isAus || role === 'recruiter4')){ openModule(h[0]); if(h[1]) switchTab(h[0], h[1]); }
 })();
 
 </script>
