@@ -173,14 +173,14 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <tr><td><strong>n8n</strong></td><td>The workflow automation tool running behind the scenes — triggers calendar events, syncs Airtable/JobAdder/Xero.</td></tr>
     <tr><td><strong>TL</strong></td><td>Trade Licensing — the trade-specific licence/certification a candidate needs to legally work on site in their state (TL-1 = the summary + application form sent to candidates).</td></tr>
     <tr><td><strong>DocuSeal</strong></td><td>The e-signature tool used for TOB and contract signing.</td></tr>
-    <tr><td><strong>Pathway A / B</strong></td><td>A = self-managed (candidate arranges own flights/accommodation). B = full relocation (SUR sources accommodation via AI-ACCOM, books flights/transfer).</td></tr>
+    <tr><td><strong>Pathway A / B</strong></td><td>A = self-managed (candidate arranges own flights/accommodation; SUR reimburses the flight). B = full relocation (SUR sources accommodation via AI-ACCOM, books flights/transfer).</td></tr>
   </table>
   <div class="note-blue" style="margin-bottom:28px">Best-effort definitions built from how these terms are used across the playbook — flag anything wrong or missing.</div>
 
   <div class="video-card" style="display:block">
     <video controls preload="metadata" style="width:100%;display:block;background:#000;max-height:420px">
-      <source src="System_Overview_Video.mp4" type="video/mp4">
-      Your browser doesn't support embedded video — the file is System_Overview_Video.mp4 in this folder.
+      <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/NEW%20Videos/System_Overview_Video.mp4" type="video/mp4">
+      Your browser doesn't support embedded video — <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/NEW%20Videos/System_Overview_Video.mp4">open the video</a>.
     </video>
     <div class="video-body">
       <div style="margin-bottom:6px"><span class="video-badge">TRAINING VIDEO</span></div>
@@ -576,7 +576,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div class="note-blue" style="margin-bottom:14px">Logistics failures before the candidate lands — separate from the concern/conflict scenarios above, but they follow the same rule: something time-critical gets Les's visibility fast, not at the next scheduled catch-up.</div>
   <table class="info-table">
     <tr><th>Scenario</th><th>Protocol</th></tr>
-    <tr><td>Candidate pulls out</td><td>Log in JobAdder and notify recruiter same day. Recruiter notifies client within 24 hours. Rachel owns it same day regardless of reason. Les FYI same day — revenue impact needs his visibility. Rachel runs refund/replacement per the Guarantee Claim Process. <strong>Preventive:</strong> the Pre-Departure Waiting Period Check-In Cadence (Tab 5) exists to catch wavering before it gets here — any hesitation flagged in those check-ins triggers this same protocol early.</td></tr>
+    <tr><td>Candidate pulls out</td><td>Log in JobAdder and notify recruiter same day. Rachel sends <strong>TC-DROP</strong> (Tab 3) to the client same day — replacement search starts straight away. Rachel owns it same day regardless of reason. Les FYI same day — revenue impact needs his visibility. If the client asks for a refund instead, Rachel runs it per the Guarantee Claim Process. <strong>Preventive:</strong> the Pre-Departure Waiting Period Check-In Cadence (Tab 5) exists to catch wavering before it gets here — any hesitation flagged in those check-ins triggers this same protocol early.</td></tr>
     <tr><td>Airport transfer no-show</td><td>Time-critical — candidate calls you directly, not email. Book emergency taxi/rideshare on the spot, reimburse the candidate. Log the incident with the transfer provider same day. Second no-show ever from the same provider → escalate to Les to review the provider relationship.</td></tr>
     <tr><td>Accommodation falls through</td><td>Pre-departure (host backs out before flight): re-run AI-ACCOM immediately. No alternative found within 48 hours of flight → escalate to Les. Post-arrival (host backs out after landing): urgent, same-day — book a temporary hotel while re-searching, escalate to Les immediately given cost and candidate welfare.</td></tr>
     <tr><td>Flights not booked by deadline</td><td>Day 5, no flights booked → call the candidate directly, understand the blocker. Day 7 (deadline), still not booked → escalate to recruiter — this is now a client-relationship risk. Recruiter unresolved within 24 hours → escalate to Les.</td></tr>
@@ -607,7 +607,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <div class="step-row" style="border-bottom:none"><div class="step-num">B1</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">TC-B fires automatically to client</span><span class="badge badge-auto">Automated · Triggered on Airtable entry + status change</span></div><div class="step-body">Enter accommodation + flight + contact details in Airtable and set JobAdder status to "Flight Booked" — automated email fires to client with flight, contact, and accommodation details, and confirms airport transfer is sorted.</div></div></div>
 
   <div class="sec-hdr">Email Templates — Client Pre-Departure</div>
-  <div class="note-blue">Email 2B fires automatically same day as Email 1, both pathways. TC-A/TC-B fire automatically once flight + contact details are entered in Airtable and JobAdder status is set to "Flight Booked" — grab the one matching the candidate's pathway.</div>
+  <div class="note-blue">Email 2B fires automatically same day as Email 1, both pathways. TC-A/TC-B fire automatically once flight + contact details are entered in Airtable and JobAdder status is set to "Flight Booked" — grab the one matching the candidate's pathway. C-SUP is manual — send after Email 2B to lock in the supervisor contact before the Week 1 check-in. TC-DROP is manual — send same day if the candidate pulls out.</div>
 
   <div class="email-card">
     <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">Email 2B</span><span class="badge badge-auto">Automated</span><span class="badge badge-client">Client</span><span style="font-size:11px;color:#829ab1">Same day as Email 1 · Both pathways</span></div><div class="email-title">Here Is What The Next 15 Weeks Look Like</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
@@ -631,6 +631,15 @@ Week 14.5 — prep call ahead of the three-way review.
 Week 15 — 30-minute Teams review with you, [Candidate Name], and me.
 
 Each touchpoint is short and focused. If anything comes up before a scheduled check-in, don't wait — reach out directly.</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">C-SUP</span><span class="badge badge-manual">Manual · After Email 2B</span><span class="badge badge-client">Client</span></div><div class="email-title">Who's best for weekly check-ins on [Candidate Name]?</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-body" data-email-body>Hey [Client Name],
+
+I'd like to check in weekly on how [Candidate Name] is going with his work and settling in. I know you're busy, so is there someone else on your team, like a supervisor, who'd be better placed to catch up with me?
+
+If so, could you send me their name, email and phone number? I'll keep it quick, a few minutes each week, and I'll keep you in the loop if anything comes up.</div>
   </div>
 
   <div class="email-card">
@@ -662,6 +671,17 @@ Contact details of [Candidate Name] — [Candidate Email] / [Candidate Number]
 Note: Their New Zealand number won't be valid once they land in Australia, so it's best to contact them by email.
 
 Thank you and please let me know if there is anything else you need from my end.</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">TC-DROP</span><span class="badge badge-manual">Manual</span><span class="badge badge-client">Client</span></div><div class="email-title">Candidate Pulls Out</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-body" data-email-body>Hi [Client Name],
+
+I'm sorry to let you know that [Candidate Name] won't be moving forward with the role, as some personal issues have come up on his end. We apologise for the inconvenience.
+
+We'll start looking for a candidate straight away and will be in touch as soon as we have someone who matches the skillset.
+
+In the meantime, please let me know if there's anything you'd like us to sort out from our end.</div>
   </div>
 
   <div class="sec-hdr">AI Prompts</div>
@@ -1004,7 +1024,7 @@ BEFORE THE CALL
 - Check the last checkpoint note in JobAdder. If any issues are open, sort them in a 1:1 first, not on the 3-way.
 
 1. OPEN
-- "Hi everyone, thanks for making the time. [Candidate] has now reached the 3-month mark, so this is our final review to close off the placement."
+- "Hi everyone, thanks for making the time. [Candidate] has now reached the 4-month mark, so this is our final review to close off the placement."
 - "It's a quick one. We'll hear from you both, confirm everything's tracking well, and wrap it up."
 
 2. CLIENT
@@ -1115,6 +1135,7 @@ AFTER THE CALL
 <li>Select the candidate</li>
 <li>Go to the <strong>Activity</strong> tab → log the reason for drop off</li>
 <li>Change status to: <strong style="color:#c0392b">Candidate Drop Off</strong></li>
+<li>Send <strong>TC-DROP</strong> (Tab 3) to the client same day</li>
 </ol></div></div>
   </div>
 
@@ -1130,7 +1151,7 @@ AFTER THE CALL
   <div class="note-red" style="margin-bottom:20px"><strong style="color:#5e1a14">Any hesitation flagged at any of these check-ins</strong> → trigger the Candidate Pulls Out protocol (Escalation Protocol tab) immediately. Catching wavering early is a completely different conversation than catching it 48 hours out — don't wait for it to become final.</div>
 
   <div class="sec-hdr" style="background:#1f4e79">Pathway A — Self-Managed</div>
-  <div class="note-blue">Candidate arranges their own flights and accommodation. SUR is not involved in logistics after the gate.</div>
+  <div class="note-blue">Candidate arranges their own flights and accommodation. SUR reimburses the flight once booked (send CE-A1R). Otherwise SUR is not involved in logistics after the gate.</div>
   <div class="step-row"><div class="step-num">A1</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Flights must be booked within week 1 of placement</span><span class="badge badge-sys">JobAdder update required</span></div><div class="step-body">3 weeks before start date. Communicate this on the Documents Call. Not booked after week 1 → follow up immediately. Still not booked at 2 weeks out → escalate to recruiter same day.<br><br><strong style="color:#334e68">When candidate confirms flights are booked:</strong> JobAdder → Placements → [Candidate] → update Status to <strong style="color:#157347">Contract Live</strong>.</div></div></div>
   <div class="step-row"><div class="step-num">A2</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Receive and forward flight confirmation</span></div><div class="step-body">Once candidate sends flight details — forward to employer same day. Confirm candidate arriving at least 3 days before start date.</div></div></div>
   <div class="step-row" style="border-bottom:none"><div class="step-num">A3</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Send contact exchange email to candidate; TC-A fires to employer</span></div><div class="step-body">CE-A1 to candidate (employer contact details) — send manually. TC-A fires automatically to employer once flight + contact details are entered in Airtable and status is set to Flight Booked in JobAdder. Update Airtable.</div></div></div>
@@ -1144,7 +1165,7 @@ AFTER THE CALL
   <div class="step-row" style="border-bottom:none"><div class="step-num">B5</div><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="step-title">Update Airtable + save all documents to JobAdder</span></div><div class="step-body">Full relocation record complete. Airtable updated. All booking confirmations saved to JobAdder before candidate departs.</div></div></div>
 
   <div class="sec-hdr">Email Templates — Candidate Pre-Departure</div>
-  <div class="note-blue">Email 1A and 1B are automated. Email 2A, Email 3, CE-A1/CE-A2, TL-1, and A20 are sent manually. TOB follow-up email and text are only sent if TOB unsigned after Documents Call. CE-A has a Pathway A and Pathway B version — grab the one matching the candidate's pathway. TL-1 goes out to every candidate, same day as the Documents Call. A20 (Week 11 call-first check-in) mirrors client script A16 — same touchpoint, different recipient.</div>
+  <div class="note-blue">Email 1A and 1B are automated. Email 2A, Email 3, CE-A1/CE-A2, CE-A1R, TL-1, and A20 are sent manually. CE-A1R (flight reimbursement) goes with CE-A1 once a Pathway A candidate confirms flights. TOB follow-up email and text are only sent if TOB unsigned after Documents Call. CE-A has a Pathway A and Pathway B version — grab the one matching the candidate's pathway. TL-1 goes out to every candidate, same day as the Documents Call. A20 (Week 11 call-first check-in) mirrors client script A16 — same touchpoint, different recipient.</div>
 
   <div class="email-card">
     <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">Email 1A</span><span class="badge badge-auto">Automated</span><span class="badge badge-cand">Candidate</span><span class="badge badge-pw">Pathway A</span></div><div class="email-title">Congratulations On The Offer — Here Are Your Next Steps</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
@@ -1264,7 +1285,7 @@ I want to follow up directly on your Terms of Business.
 
 I understand this may feel like a formality, but I want to be straightforward with you — signing the TOB is a non-negotiable requirement before we can proceed. This is standard company procedure at Stand Up Recruitment and there are no exceptions, regardless of the stage you are at in the process.
 
-[PLACEHOLDER — add specific reason or clause if relevant, e.g. "The TOB covers your relocation support arrangements and the guarantee period that protects both you and [Client Name]."]
+The TOB covers your relocation support arrangements and the guarantee period that protects both you and [Client Name].
 
 Without a signed TOB in place, we are unable to continue supporting your relocation or confirm your placement with [Client Name].
 
@@ -1298,6 +1319,19 @@ If you have any questions before you fly, just reach out. We are really excited 
 
 [Your Name]
 Stand Up Recruitment</div>
+  </div>
+
+  <div class="email-card">
+    <div class="email-hdr"><div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px"><span class="email-code">CE-A1R</span><span class="badge badge-manual">Manual · On flight confirm</span><span class="badge badge-cand">Candidate</span><span class="badge badge-pw">Pathway A</span></div><div class="email-title">Flights booked - reimbursement details</div></div><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+    <div class="email-body" data-email-body>Hey [Name],
+
+Great to hear your flights are booked!
+
+We'll reimburse you for your flight. To do that, please send me your bank account number and the name on the account.
+
+As soon as you land, you can expect the payment to come through.
+
+Let me know if you have any questions.</div>
   </div>
 
   <div class="email-card">
@@ -1934,6 +1968,7 @@ IF THEY PUSH BACK:
 AFTER: Log in Airtable + JobAdder. Flag "Do Not Re-place". Pause n8n check-ins. Guarantee Claim Process if within 3 months. No further contact unless they reach out.</div>
   </div>
 
+
 </div>
 </div>
 
@@ -2090,8 +2125,8 @@ AFTER: Log in Airtable + JobAdder. Flag "Do Not Re-place". Pause n8n check-ins. 
   <div class="note-blue" style="margin-bottom:14px">Master index of every training video in the playbook, for new onboarders working through the process top to bottom. Each video also sits inline next to the relevant step — this is just the one-stop list.</div>
   <div class="video-card" style="display:block">
     <video controls preload="metadata" style="width:100%;display:block;background:#000;max-height:420px">
-      <source src="System_Overview_Video.mp4" type="video/mp4">
-      Your browser doesn't support embedded video — the file is System_Overview_Video.mp4 in this folder.
+      <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/NEW%20Videos/System_Overview_Video.mp4" type="video/mp4">
+      Your browser doesn't support embedded video — <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/NEW%20Videos/System_Overview_Video.mp4">open the video</a>.
     </video>
     <div class="video-body">
       <div style="margin-bottom:6px"><span class="video-badge">TAB 1 · OVERVIEW</span></div>
