@@ -21,7 +21,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 .container{max-width:1100px;margin:0 auto;padding:0 20px 80px}
 /* TABS */
 .tab-bar{display:flex;gap:2px;margin-top:24px;background:#d8e1eb;border-radius:10px 10px 0 0;padding:5px 5px 0;flex-wrap:wrap}
-.tab-btn{flex:1;min-width:110px;padding:10px 10px;cursor:pointer;border:none;border-bottom:3px solid transparent;background:transparent;color:#5e7790;font-family:'Archivo',sans-serif;font-weight:600;font-size:11.5px;letter-spacing:.01em;transition:all .15s;border-top-left-radius:7px;border-top-right-radius:7px;white-space:nowrap;text-align:center}
+.tab-btn{flex:1 1 auto;min-width:110px;padding:10px 10px;cursor:pointer;border:none;border-bottom:3px solid transparent;background:transparent;color:#5e7790;font-family:'Archivo',sans-serif;font-weight:600;font-size:11.5px;letter-spacing:.01em;transition:all .15s;border-top-left-radius:7px;border-top-right-radius:7px;white-space:nowrap;text-align:center}
 .tab-btn.active{border-bottom:3px solid #2f6df6;background:#fff;color:#102a43;font-weight:700}
 .tab-btn:hover:not(.active){background:rgba(255,255,255,.5);color:#334e68}
 .tab-panel{display:none}.tab-panel.active{display:block}
@@ -123,6 +123,17 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 /* HEALTH SCORE ROW COLORS */
 .hs-5{background:#f0faf3}.hs-4{background:#f0f8ff}.hs-3{background:#fff7ed}.hs-2{background:#fef3f3}.hs-1{background:#fde8e8}
 @media(max-width:680px){.lic-grid,.pathway-grid{grid-template-columns:1fr}}
+/* DECISION PRINCIPLES — CALL NAVIGATOR */
+.path-card{background:#fff;border:1px solid #d9e2ec;border-left:5px solid #2f6df6;border-radius:0 12px 12px 0;padding:16px 20px;margin-bottom:14px}
+.path-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.path-name{font-family:'Archivo';font-weight:800;font-size:16px;color:#102a43}
+.path-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:18px}
+.path-lbl{font-family:'Archivo';font-weight:700;font-size:12.5px;color:#334e68;margin-bottom:4px}
+.path-card ul,.path-card ol,.q-list{padding-left:18px;font-size:13px;line-height:1.6;color:#52708a}
+.path-card li,.q-list li{margin-bottom:3px}
+.path-say{background:#f7f9fc;border:1px solid #e3eaf2;border-radius:8px;padding:9px 13px;font-size:13px;line-height:1.6;color:#486581;margin-top:12px}
+.path-foot{margin-top:12px;padding-top:9px;border-top:1px solid #eef2f6;font-size:12.5px;line-height:1.6;color:#486581}
+@media(max-width:680px){.path-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -136,7 +147,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,4vw,42px);line-height:1.05;letter-spacing:-.02em;margin-bottom:12px">🇦🇺 Australian Relocation Playbook</h1>
   <p style="font-size:14px;line-height:1.65;color:#cbd8e8;max-width:660px;margin-bottom:24px">One playbook. One process. Every NZ to Australia placement — no exceptions, no workarounds. The Support Team owns the process from the moment Recruitment hands over.</p>
   <div style="display:flex;gap:24px;flex-wrap:wrap">
-    <div><div style="font-family:'Archivo';font-weight:700;font-size:20px">7</div><div style="font-size:10.5px;color:#8fb0d4;letter-spacing:.04em">Sections</div></div>
+    <div><div style="font-family:'Archivo';font-weight:700;font-size:20px">9</div><div style="font-size:10.5px;color:#8fb0d4;letter-spacing:.04em">Sections</div></div>
     <div><div style="font-family:'Archivo';font-weight:700;font-size:20px">15 wk</div><div style="font-size:10.5px;color:#8fb0d4;letter-spacing:.04em">Support program</div></div>
     <div><div style="font-family:'Archivo';font-weight:700;font-size:20px">92%</div><div style="font-size:10.5px;color:#8fb0d4;letter-spacing:.04em">Placement stick rate</div></div>
     <div><div style="font-family:'Archivo';font-weight:700;font-size:20px">A+B</div><div style="font-size:10.5px;color:#8fb0d4;letter-spacing:.04em">Pathways</div></div>
@@ -153,6 +164,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <button id="tab-canpost" class="tab-btn" onclick="showTab('canpost')">6 · Candidate Post-Dep.</button>
   <button id="tab-lic" class="tab-btn" onclick="showTab('lic')">7 · Trade Licensing</button>
   <button id="tab-resources" class="tab-btn" onclick="showTab('resources')">8 · Resources</button>
+  <button id="tab-decisions" class="tab-btn" onclick="showTab('decisions')">9 · Decision Principles</button>
 </div>
 
 <!-- ═══ TAB 1: OVERVIEW ═══ -->
@@ -204,7 +216,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <tr><th>Score</th><th>Status</th><th>Action</th></tr>
     <tr class="hs-5"><td><strong style="color:#157347">5</strong></td><td>Thriving</td><td>Continue as scheduled</td></tr>
     <tr class="hs-4"><td><strong style="color:#1c4fc4">4</strong></td><td>Settled</td><td>Monitor, revisit at next check-in</td></tr>
-    <tr class="hs-3"><td><strong style="color:#b7791f">3</strong></td><td>Needs attention</td><td>Flag to RC, increase call frequency</td></tr>
+    <tr class="hs-3"><td><strong style="color:#b7791f">3</strong></td><td>Needs attention</td><td>Rachel handles, increase call frequency</td></tr>
     <tr class="hs-2"><td><strong style="color:#c0392b">2</strong></td><td>At risk</td><td>Rachel takes over immediately, action plan same day</td></tr>
     <tr class="hs-1"><td><strong style="color:#7a241b">1</strong></td><td>Critical</td><td>Rachel actions same day, no delay</td></tr>
   </table>
@@ -493,6 +505,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 
   <div class="sec-hdr">Self-Resolved Concerns — When Client and Candidate Sort It Out Themselves</div>
   <div class="note-blue" style="margin-bottom:14px">Different from the Concern Resolution Protocol above — this is for when a concern never comes to you first. Client and candidate talk directly and sort something small out between themselves, and you only hear about it after the fact.</div>
+  <div class="note-amber"><strong>Exception:</strong> if the client brings the concern to you about the candidate — even framed as "just an update, I've handled it" — it's not self-resolved. Run the Concern Resolution Protocol (see the "just an update" row in the Post-Departure Escalation Protocol).</div>
   <table class="info-table" style="margin-bottom:28px">
     <tr><th>Step</th><th>Action</th></tr>
     <tr><td>1</td><td>Don't insert yourself immediately, even if you hear about it same-day. Jumping in signals you don't trust them to handle it themselves, and can re-open something that's already settled.</td></tr>
@@ -519,6 +532,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <tr><td>4</td><td>+48 hrs</td><td>Email from Les</td></tr>
     <tr><td>5</td><td>+48 hrs</td><td>Les calls</td></tr>
   </table>
+  <div class="note-amber"><strong>Log every step of the ladder in JobAdder</strong> — date, time, method. A client who runs the full ladder with no reply and later claims the guarantee goes to Les to decide (see Guarantee Claim Process, Step 1b). The log is the evidence.</div>
 
   <div class="sec-hdr">Escalation Contacts</div>
   <table class="info-table" style="margin-bottom:28px">
@@ -533,6 +547,12 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
 
   <div class="sec-hdr">Post-Departure Escalation Protocol</div>
   <div class="note-blue">Applies across all 15 weeks, both sides. No recruiter tier here — <strong style="color:#1c4fc4">Rachel owns every at-risk and drop-off decision.</strong> Les is available for guidance when needed, not a required escalation step. Safety/welfare and medical: Rachel handles it, Les gets an FYI same day. This sits alongside the score ≤3 and mismatch rules already built into each check-in — see Tabs 4 and 6.</div>
+  <div style="font-family:'Archivo';font-weight:700;font-size:14px;color:#102a43;margin:4px 0 8px">When Les steps in — not just an FYI</div>
+  <table class="info-table">
+    <tr><th>Trigger</th><th>Protocol</th></tr>
+    <tr><td>Client asks for an owner-to-owner conversation, or won't deal with Rachel</td><td><strong>Rachel briefs Les same day</strong>: what happened, both sides' account, contact log, recommended next step. <strong>Les decides. Rachel actions</strong> and logs the outcome in JobAdder.</td></tr>
+    <tr><td>Guarantee claim after the client ran the full No-Response Ladder</td><td>Les decides case by case — see Guarantee Claim Process, Step 1b.</td></tr>
+  </table>
 
   <div style="font-family:'Archivo';font-weight:700;font-size:13px;color:#c0392b;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px">Immediate — same day, no waiting period</div>
   <table class="info-table" style="margin-bottom:20px">
@@ -542,6 +562,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <tr><td>Candidate has a medical emergency, accident, or hospitalisation</td><td>Rachel handles immediately, welfare support first. Les FYI same day.</td></tr>
     <tr><td>Client wants to terminate the candidate</td><td>Rachel handles same day, before responding to client. Rachel decides next steps — see Guarantee Claim Process below.</td></tr>
     <tr><td>Candidate wants to quit the job / leave the placement</td><td>Rachel owns that conversation, same day. Get the real reason, then decide next steps.</td></tr>
+    <tr><td>Candidate resigns, then withdraws the resignation</td><td>Not resolved — treat as a <strong>live flight risk</strong>. Les FYI same day. Call the client same day to confirm they're still happy to keep the candidate on. Call the candidate solo: get the real reason they resigned (it may not be the one first given). <strong>Weekly check-ins both sides until stable</strong> — two weekly check-ins in a row with no new concerns from either side <strong>and</strong> a health score of 4+ from both sides. Then back to normal cadence. Log every step in JobAdder.</td></tr>
     <tr><td>Candidate no-shows on a rostered start day, no contact</td><td>Rachel actions within the hour — no waiting period, this is binary. Call the candidate immediately in parallel; the client relationship needs attention at the same time, not after.</td></tr>
   </table>
 
@@ -553,7 +574,10 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
     <tr><td>Health score declining trend, not yet ≤3 (e.g. 5→4→3 across two checks)</td><td>Rachel acts early — increase call frequency and dig into the cause. Don't wait for it to hit ≤3.</td></tr>
     <tr><td>Milestone invoice unpaid (Week 4 / Week 8 triggers)</td><td>Unpaid 5 business days after trigger → escalate to Les. Same shape as the pre-departure payment-gap rule.</td></tr>
     <tr><td>Serious issue surfaces live during the Week 15 review</td><td>Pause the meeting, don't try to resolve on the spot. Close professionally, Rachel actions same day, reconvene once handled.</td></tr>
+    <tr><td>Week 15 three-way review would risk reopening a live issue</td><td>Skip the joint review <strong>only</strong> if bringing both sides together risks reopening something still live. <strong>Les approves the skip</strong> — Rachel briefs him with the reason. Replace it with <strong>separate calls to the candidate and the client</strong>, using the Week 15 review questions. Log both calls and the reason for skipping in JobAdder.</td></tr>
     <tr><td>Candidate raises a pay or hours dispute</td><td>Contact the client the same day to clarify and resolve — treat as urgent regardless of dollar amount, this erodes trust fast. Second time it happens with the same candidate/client → Rachel steps in personally and runs the Repeat-Issue Ladder.</td></tr>
+    <tr><td>Client raises attendance — sick days, late starts, no-shows (any time it's raised, even if the client says it's "handled")</td><td>1. Get the numbers from the client: how many sick days and late starts, and since when.<br>2. Call the candidate same day (First-Response Rule). Get the count from them too. Remind them of their why, then state the consequence plainly: this is what gets people let go.<br>3. Set the rule: any sick day or late start, the candidate tells Rachel before the boss does.<br>4. <strong>Text recap to the candidate same day</strong>, e.g. "Hey [Name], good chat today. Just recapping: attendance needs to lift from here, and any sick day or late start, flick me a text first. You've got this."<br>5. <strong>Weekly check-ins both sides until the client confirms it's improved.</strong> Ask the client directly: "Has attendance improved since we spoke?"<br>6. Client raises it again → Repeat-Issue Ladder. Log every step in JobAdder.</td></tr>
+    <tr><td>Client raises a concern but says it's "just an update" or "already handled"</td><td>Treat it as a live concern. <strong>Run the Concern Resolution Protocol anyway</strong>: clients rarely mention something unless it's already on their mind. Call the candidate same day (First-Response Rule). <strong>Go back to the client within the week</strong> to confirm it's actually fixed. Ask directly, don't wait for them to volunteer it. Log in JobAdder.</td></tr>
     <tr><td>Client gives vague or lukewarm feedback with no specifics at a check-in</td><td>Push for specifics before ending the call — clients rarely say "this isn't working" outright until they've already decided. Still vague after asking directly, or vague two check-ins running → Rachel treats it as an early relationship-risk signal and acts on it, even without a low health score.</td></tr>
     <tr><td>Candidate needs to temporarily return home (family emergency, bereavement)</td><td>Support first, this is a person before it's a process. Loop in the client proactively so it's not a surprise. Track the expected return date against the guarantee clock. If it becomes permanent, this converts into the "candidate wants to quit" protocol above.</td></tr>
   </table>
@@ -565,6 +589,7 @@ body{background:#eef1f5;font-family:'Source Sans 3',sans-serif;color:#334e68;-we
   <table class="info-table">
     <tr><th>Step</th><th>Action</th></tr>
     <tr><td>1</td><td>Confirm the claim is inside the 4-month window from the candidate's start date.</td></tr>
+    <tr><td style="font-weight:700;color:#c0392b">1b — engagement check</td><td>Pull the client's contact log in JobAdder. Did we run the <strong>full No-Response Ladder</strong> (Tab 2) at any point with no reply from the client? <strong>Yes</strong> → the claim goes to Les. Les decides case by case (replacement, refund or decline) using the contact log. Rachel doesn't offer refund or replacement until Les has decided. <strong>No</strong> → continue to Step 2.</td></tr>
     <tr><td>2</td><td>Rachel runs it same day. Les FYI.</td></tr>
     <tr><td>3</td><td>Rachel determines validity and presents the client with their choice — refund or replacement candidate.</td></tr>
     <tr><td>4 — if refund</td><td>Rachel → Nihanga processes via online banking (not Xero). Les FYI.</td></tr>
@@ -1968,7 +1993,6 @@ IF THEY PUSH BACK:
 AFTER: Log in Airtable + JobAdder. Flag "Do Not Re-place". Pause n8n check-ins. Guarantee Claim Process if within 3 months. No further contact unless they reach out.</div>
   </div>
 
-
 </div>
 </div>
 
@@ -2243,6 +2267,148 @@ AFTER: Log in Airtable + JobAdder. Flag "Do Not Re-place". Pause n8n check-ins. 
 </div>
 
 </div><!-- end .container -->
+
+
+<!-- ═══ TAB 9: DECISION PRINCIPLES ═══ -->
+<div id="panel-decisions" class="tab-panel">
+<div class="panel-body">
+  <h2 style="font-family:'Archivo';font-weight:800;font-size:26px;color:#102a43;margin-bottom:8px">Decision Principles</h2>
+  <p style="font-size:14px;line-height:1.65;color:#52708a;max-width:700px;margin-bottom:22px">How pastoral care calls actually get decided. Built from real placements: the patterns behind the calls, not just the protocols. Tab 2 still owns every escalation rule; this tab tells you which one you're on.</p>
+
+  <div class="sec-hdr">Call Navigator: Where the Call Goes Next</div>
+  <div class="note-blue">Every call lands on one of seven paths. Ask the deep questions (below), work out which path you're on, follow its moves, and <strong style="color:#1c4fc4">name the path in your JobAdder note</strong>. Week 1 stays light and Week 2 is the rated text. The deep questions kick in from the Week 3 follow-up and the Week 4 deep call onward.</div>
+  <div class="note-red"><strong style="color:#5e1a14">Hard stops: don't navigate, run the Tab 2 protocol straight away.</strong> Safety or welfare issue, injury or medical emergency, serious conduct, client wants to terminate, candidate has resigned or says they're leaving, no-show on a rostered start, pay or hours dispute, family emergency, anything visa, legal or police related. Rachel handles same day, Les FYI.</div>
+
+  <table class="info-table">
+    <tr><th>What you're hearing</th><th style="width:190px">Path</th></tr>
+    <tr><td>Specific positives, scores 4–5, talks about the future, both sides line up</td><td><strong>1 · Genuinely good</strong></td></tr>
+    <tr><td>"All good", "yeah fine", short answers, a score with no reason behind it</td><td><strong>2 · Vague or deflecting</strong></td></tr>
+    <tr><td>One clear complaint: supervisor, tools, hours, a first sick day</td><td><strong>3 · Minor issue</strong></td></tr>
+    <tr><td>Sick days, late starts, attitude, effort. The candidate is the cause.</td><td><strong>4 · Behaviour problem</strong></td></tr>
+    <tr><td>Homesick, "not sure I'll last", comparing to NZ, looking at other jobs</td><td><strong>5 · Flight risk</strong></td></tr>
+    <tr><td>Candidate says great, client hints at problems, or the other way round</td><td><strong>6 · Sides don't match</strong></td></tr>
+    <tr><td>"Too busy", no callback, one-word replies from the client</td><td><strong>7 · Client won't engage</strong></td></tr>
+  </table>
+
+  <div class="path-card" style="border-left-color:#157347">
+    <div class="path-top"><div class="path-name">Path 1 · Genuinely good</div><span class="badge badge-manual">Score 4–5</span></div>
+    <div class="path-grid">
+      <div><div class="path-lbl">Signals</div><ul><li>Specific positives, not just "good"</li><li>Talks about the future ("when I get my ticket...")</li><li>Both sides' answers line up</li></ul></div>
+      <div><div class="path-lbl">Moves</div><ol><li>Confirm it with one probe: "Anything that could change that?"</li><li>Run the Positive Check-In Protocol (Tab 2): testimonial seed at Week 4, referral ask at Week 8</li><li>Book the next check-in before you hang up</li></ol></div>
+    </div>
+    <div class="path-foot"><strong>Log:</strong> "Path 1 · Good", health score, one specific positive.</div>
+  </div>
+
+  <div class="path-card" style="border-left-color:#b7791f">
+    <div class="path-top"><div class="path-name">Path 2 · Vague or deflecting</div><span class="badge badge-pw">Watch</span></div>
+    <div class="path-grid">
+      <div><div class="path-lbl">Signals</div><ul><li>"All good", "yeah fine", short answers</li><li>Changes the subject</li><li>Gives a score with no reason behind it</li></ul></div>
+      <div><div class="path-lbl">Moves</div><ol><li>Don't accept it. Follow the score: "A 4, what's stopping it being a 5?"</li><li>Ask "what else?" and sit in the silence</li><li>Ask about someone else: "How's the crew finding it?"</li><li>Ask the future question: "Still see yourself there in 3 months?"</li><li>Still vague → "No stress, I'll check in again Thursday." Diarise it and do it.</li></ol></div>
+    </div>
+    <div class="path-foot"><strong>Rule:</strong> vague two check-ins running = live concern. Move to Path 3 (matches the Tab 2 vague-feedback rule).<br><strong>Learned from:</strong> roofing brothers. "All good" a day after the fix, then a resignation letter 3 days later.</div>
+  </div>
+
+  <div class="path-card" style="border-left-color:#b7791f">
+    <div class="path-top"><div class="path-name">Path 3 · Minor issue</div><span class="badge badge-pw">Score 3</span></div>
+    <div class="path-grid">
+      <div><div class="path-lbl">Signals</div><ul><li>One clear complaint: supervisor friction, tools, hours, an accommodation niggle</li><li>A first sick day</li></ul></div>
+      <div><div class="path-lbl">Moves</div><ol><li>Get the specifics: what, when, how often. Numbers, not vibes.</li><li>Ask what they've already tried</li><li>Run the Concern Resolution Protocol (Tab 2). The First-Response Rule sets the timing: client bad about candidate → call candidate same day. Candidate bad about client → give it a week.</li><li>Agree one action and who owns it</li><li>Weekly check-in for 2 weeks, diarised</li></ol></div>
+    </div>
+    <div class="path-foot"><strong>Log:</strong> "Path 3 · [issue], action agreed, follow-up [date]".<br><strong>Learned from:</strong> roofing brothers. The stated reason was "the supervisor". The real reason was a fight between the brothers. Probe past the first answer.</div>
+  </div>
+
+  <div class="path-card" style="border-left-color:#c0392b">
+    <div class="path-top"><div class="path-name">Path 4 · Behaviour problem</div><span class="badge badge-crit">Score 2–3</span></div>
+    <div class="path-grid">
+      <div><div class="path-lbl">Signals</div><ul><li>Sick days, late starts, attitude, effort</li><li>Raised by the client or admitted by the candidate</li><li>Any sick day in the first 4 weeks counts</li></ul></div>
+      <div><div class="path-lbl">Moves</div><ol><li>Get the count from both sides: how many sick days, how many late starts, since when</li><li>Remind them of their why, the reason they made the move</li><li>Say the consequence plainly (script below)</li><li>Set the rule: they tell you about any sick day before the boss does</li><li>Text a recap of what was agreed, same day</li><li>Weekly check-ins both sides until the client confirms it's improved. Ask the client directly: "Has attendance improved since we spoke?"</li></ol></div>
+    </div>
+    <div class="path-say"><strong>Say:</strong> "Mate, I've got to be straight with you. This is the stuff that gets people let go. New job, new country, there's no buffer. Any sick day, I want to hear about it from you first."</div>
+    <div class="path-foot"><strong>Rule:</strong> raised again at the next check-in → Repeat-Issue Ladder (Tab 2).<br><strong>Learned from:</strong> plumber placement. Coached on his why but no consequence given, client's concern taken as "handled". 14 sick days in 9 weeks, let go, replacement triggered. Encouragement alone isn't enough.</div>
+  </div>
+
+  <div class="path-card" style="border-left-color:#c0392b">
+    <div class="path-top"><div class="path-name">Path 5 · Flight risk</div><span class="badge badge-crit">Score 1–2</span></div>
+    <div class="path-grid">
+      <div><div class="path-lbl">Signals</div><ul><li>Homesick, "not sure I'll last"</li><li>Comparing everything to NZ</li><li>Looking at other jobs</li><li>No straight answer to the 3-month question</li></ul></div>
+      <div><div class="path-lbl">Moves</div><ol><li>Don't panic or argue. Ask: "What would need to change for you to stay?"</li><li>Split it: is it the job (fixable with the client) or life (accommodation, money, family)? Sort the practical side first.</li><li>Get the promise: "Promise me you'll ring me before you hand anything in."</li><li>Rachel owns it same day. Les FYI same day, revenue is at risk.</li></ol></div>
+    </div>
+    <div class="path-foot"><strong>Rule:</strong> already resigned or says they're leaving → hard stop, Tab 2 "candidate wants to quit".</div>
+  </div>
+
+  <div class="path-card" style="border-left-color:#c0392b">
+    <div class="path-top"><div class="path-name">Path 6 · Sides don't match</div><span class="badge badge-crit">Same day</span></div>
+    <div class="path-grid">
+      <div><div class="path-lbl">Signals</div><ul><li>Candidate says great, client hints at problems, or the other way round</li><li>Week 2, 4 or 8 answers don't line up</li></ul></div>
+      <div><div class="path-lbl">Moves</div><ol><li>Believe the more specific side. Details beat vibes.</li><li>Test the issue gently with the other side, without throwing anyone under the bus: "Boss mentioned a few late starts, what's going on there?"</li><li>Find the real cause</li><li>Rachel actions same day (Tab 2 mismatch rule)</li></ol></div>
+    </div>
+    <div class="path-foot"><strong>Rule:</strong> a mismatch means someone isn't telling you everything.<br><strong>Learned from:</strong> plumber placement. The candidate was "going okay" while the client was counting sick days.</div>
+  </div>
+
+  <div class="path-card" style="border-left-color:#b7791f">
+    <div class="path-top"><div class="path-name">Path 7 · Client won't engage</div><span class="badge badge-pw">Ladder</span></div>
+    <div class="path-grid">
+      <div><div class="path-lbl">Signals</div><ul><li>"Too busy", every time</li><li>No callback</li><li>One-word replies</li></ul></div>
+      <div><div class="path-lbl">Moves</div><ol><li>Log every attempt: date, time, method. This is your evidence if a guarantee claim lands later.</li><li>Switch channel: text, email, another contact on site. Ask: "Is there anyone else on your side I should be in touch with?"</li><li>Still nothing → No-Response Ladder (Tab 2). Steps 4 and 5 bring Les in.</li><li>Keep the candidate close in the meantime. You can't steer the client, so steer the candidate.</li></ol></div>
+    </div>
+    <div class="path-foot"><strong>Learned from:</strong> unresponsive-client placement. The client dodged every check-in, then asked for a replacement after the window closed. Logged attempts let Les decline the replacement and the refund.</div>
+  </div>
+
+  <div class="sec-hdr">Deep Question Bank: Week 4 Onward</div>
+  <div class="note-blue">Swap "how's it going?" for these. Pick 3–4 per call. It's a conversation, not an interrogation. Use the same core questions at Week 4, 6, 8 and 11 so you can track how the answers move.</div>
+  <div class="pathway-grid">
+    <div class="pathway-card pathway-a">
+      <div style="margin-bottom:8px"><span class="badge badge-cand">Candidate</span></div>
+      <ul class="q-list">
+        <li>"What's been the hardest part of this week?"</li>
+        <li>"Who on site do you get on with? Who don't you click with?"</li>
+        <li>"What's your supervisor like day to day?"</li>
+        <li>"Any days you've thought about leaving early or not showing up?"</li>
+        <li>"How many days have you missed or been late so far?"</li>
+        <li>"What's different from how you thought it'd be?"</li>
+        <li>"What's the boss said about your work? Good or bad?"</li>
+        <li>"How's life outside work? Accommodation, money, mates, family back home?"</li>
+        <li>"1 to 5, where's it at? What would make it a 5?"</li>
+        <li>"If a mate back home asked about this job, what would you tell him?"</li>
+        <li>"Where do you see yourself in 3 months? Still there?"</li>
+      </ul>
+    </div>
+    <div class="pathway-card pathway-b">
+      <div style="margin-bottom:8px"><span class="badge badge-client">Client</span></div>
+      <ul class="q-list">
+        <li>"How's [Name] tracking compared to the rest of the crew?"</li>
+        <li>"Any sick days or late starts so far? How many?"</li>
+        <li>"What's [Name] doing well? Where's [Name] falling short?"</li>
+        <li>"Has anything come up you haven't mentioned yet?"</li>
+        <li>"Is [Name] where you expected by now?"</li>
+        <li>"What does [Name] need to do in the next month to be a keeper?"</li>
+        <li>"1 to 5, how confident are you [Name] is still with you at the end of the guarantee?"</li>
+        <li>"Who's [Name] working under? How are they finding [Name]?"</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="info-table">
+    <tr><th>Technique</th><th>How</th><th style="width:110px">Surfaces</th></tr>
+    <tr><td><strong>Follow the score</strong></td><td>"A 3, what's stopping it being a 4?"</td><td>Path 2</td></tr>
+    <tr><td><strong>Ask "what else?"</strong></td><td>The real issue usually comes out on the second or third answer.</td><td>Paths 2, 3</td></tr>
+    <tr><td><strong>Sit in the silence</strong></td><td>Don't rush to fill the pause. Let them fill it.</td><td>Paths 2, 5</td></tr>
+    <tr><td><strong>Ask about someone else</strong></td><td>"How's your brother finding it?" People say more about others than themselves.</td><td>Paths 3, 5</td></tr>
+    <tr><td><strong>Bring in the other side</strong></td><td>"Your boss mentioned X, what's your take?" Use carefully.</td><td>Path 6</td></tr>
+    <tr><td><strong>Ask about the future</strong></td><td>"Still there in 3 months?" catches people planning to leave before they go.</td><td>Path 5</td></tr>
+  </table>
+
+  <div class="sec-hdr">After Every Call</div>
+  <table class="info-table">
+    <tr><th>Rule</th><th>Detail</th></tr>
+    <tr><td><strong>Name the path</strong></td><td>Put it in the JobAdder note with the health score, e.g. "Path 4 · 3 sick days, consequence stated, recap texted".</td></tr>
+    <tr><td><strong>Book the next call before you hang up</strong></td><td>Path 1: normal cadence. Path 2: within a week. Paths 3 and 4: weekly for 2 weeks. Paths 5 and 6: same day, then within 48 hours. Path 7: run the ladder.</td></tr>
+    <tr><td><strong>"All good" isn't confirmation</strong></td><td>The 2 weeks after any issue are high-risk. Check in on a schedule, not on a feeling.</td></tr>
+    <tr><td><strong>Same path twice, no improvement</strong></td><td>Move up. Run the Repeat-Issue Ladder (Tab 2).</td></tr>
+    <tr><td><strong>Skipping a standard step</strong></td><td>Only if it adds risk. Replace it with a lighter version and log why. E.g. the Week 15 three-way review → separate calls to candidate and client, Les approves the skip (Tab 2).</td></tr>
+  </table>
+</div>
+</div>
 
 <div style="text-align:center;padding:28px 16px 40px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#829ab1;letter-spacing:.08em">
   STAND UP RECRUITMENT · AUSTRALIAN RELOCATION PLAYBOOK · INTERNAL USE ONLY · v6.0
