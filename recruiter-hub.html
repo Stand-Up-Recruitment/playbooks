@@ -6931,7 +6931,7 @@ set.</p>
     <div class="module-card" onclick="openModule('sourcer-s3')">
       <div class="module-num" style="color:#4af0a0">S3</div>
       <div class="module-title">Your Daily Routine</div>
-      <div class="module-desc">Every day, you follow the same routine.</div>
+      <div class="module-desc">Your goal every day is 30 answered calls.</div>
       <div class="module-arrow">&rarr;</div>
     </div>
     <div class="module-card" onclick="openModule('sourcer-s4')">
@@ -7272,7 +7272,7 @@ client must have, and what would rule a candidate out.</p>
 <div class="module-header">
   <div class="module-eyebrow" style="color:#4af0a0">S3</div>
   <h1 class="module-h1">Your Daily Routine</h1>
-  <p class="module-intro">Every day, you follow the same routine.</p>
+  <p class="module-intro">Your goal every day is 30 answered calls.</p>
 </div>
 <div class="tabs" id="tabs-sourcer-s3">
   <button class="tab-btn active" onclick="switchTab('sourcer-s3','Overview')" id="tbtn-sourcer-s3-Overview">Overview</button>
@@ -7283,21 +7283,77 @@ client must have, and what would rule a candidate out.</p>
 <div class="content-block">
     <div class="block-label">Tell: What You Need to Know</div>
     <div class="block-body">
-<p>First, you call everyone on your <strong>daily alert email</strong>.
-It arrives at 7AM every day from the automation team, and it lists the
-candidates you need to call that day.</p>
-<p>Then you work through the four readiness folders in the same order
-every time. Ready to go and Hot List come first, because those are the
-candidates you can book with a placer. Warm List and Cold List come
-after, to find anyone who's become ready and to keep everyone's
-availability date up to date.</p>
+<p>Your goal every day is <strong>30 answered calls</strong>. Only calls
+where the candidate picks up count. Dials, voicemails and unanswered
+calls don't.</p>
+<p>Your day follows the same structure every time:</p>
+<table class="data-table">
+<thead>
+<tr>
+<th>Time</th>
+<th>Block</th>
+<th>What you're doing</th>
+<th>Answered calls by the end</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7:00 to 8:30</td>
+<td><strong>Admin</strong></td>
+<td>Read your 7AM daily alert email and plan your call list. Check new job tasks and read the job briefs. Set your folder filters. Submit Bot 2 forms and send any cold email batches.</td>
+<td>0</td>
+</tr>
+<tr>
+<td>8:30 to 10:30</td>
+<td><strong>Calls 1: new candidates</strong></td>
+<td>Call every new candidate on your daily alert email, all trades. Placer bookings open from 9:30.</td>
+<td>10</td>
+</tr>
+<tr>
+<td>10:30 to 12:30</td>
+<td><strong>Calls 2: Ready to go and Hot List</strong></td>
+<td>Unanswered, Unresponsive, No Engage and No Show-Up candidates in Ready to go, then Hot List</td>
+<td>20</td>
+</tr>
+<tr>
+<td>12:30 to 1:00</td>
+<td><strong>Lunch</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1:00 to 3:00</td>
+<td><strong>Calls 3: keep going</strong></td>
+<td>Finish Ready to go and Hot List, then cold email and Trade Me replies</td>
+<td>30</td>
+</tr>
+<tr>
+<td>3:00 to 4:00</td>
+<td><strong>Nurture</strong></td>
+<td>Warm and Cold reminders: text first, then call, then update the Notice Period. These calls don't count toward your 30.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use the checkpoints.</strong> If you're well under 10 answered
+calls by 10:30, you know early that you're behind and need to pick up
+the pace.</p>
+<p><strong>The 3pm switch is a hard stop.</strong> Nurture starts at 3pm
+even if you haven't hit 30. If it gets skipped, Warm and Cold candidates
+go cold and we lose them.</p>
+<p><strong>Why 30 is realistic.</strong> Calls are recorded and
+transcribed, so after each call you only update the four fields. That's
+about 6 to 7 minutes on the call and 2 to 3 minutes updating fields, so
+30 answered calls is about 4.5 hours. That leaves time across your call
+blocks for the unanswered dials in between.</p>
     </div>
   </div>
 <div class="content-block">
     <div class="block-label">Full Breakdown</div>
     <div class="block-body">
-<p><strong>Step 1: Call everyone on your daily alert email.</strong> It
-arrives at 7AM. Call every candidate on the list before you start on the
+<p><strong>Step 1: Call every new candidate on your daily alert email
+(8:30 to 10:30).</strong> The email arrives at 7AM. Call every new
+candidate on it, whatever their trade, before you start on the
 folders. On every one of these calls:</p>
 <ol type="1">
 <li><p><strong>Always get the four details:</strong> when they can move
@@ -7340,8 +7396,8 @@ and they're the hottest leads.</p>
 <p>For <strong>No Show-Up</strong> candidates, read their notes before
 you call. The placer will already have sent them a No-Show email and
 text, and may have rebooked them.</p>
-<p><strong>Step 6: Work the folders in this order.</strong> Repeat Steps
-2 to 5 for each folder.</p>
+<p><strong>Step 6: Work Ready to go, then Hot List (10:30 to
+3:00).</strong> Repeat Steps 2 to 5 for each folder.</p>
 <table class="data-table">
 <colgroup>
 <col style="width: 11%" />
@@ -7364,37 +7420,48 @@ text, and may have rebooked them.</p>
 <tr>
 <td>2</td>
 <td>Hot List</td>
-<td>Screen and book qualified candidates with the placer</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Warm List</td>
-<td>Check if anyone is now ready. If not, still talk to them to confirm
-when they can move, and update their Notice Period.</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Cold List</td>
-<td>Same as Warm List</td>
+<td>Screen and book qualified candidates with the placer, nearest
+availability date first</td>
 </tr>
 </tbody>
 </table>
+<p>Once Ready to go and Hot List are done, move on to cold email and
+Trade Me replies (S5).</p>
+<p><strong>Don't work the Warm List or Cold List during your call
+blocks.</strong> Those candidates only get called when their reminder
+comes up, in your nurture block.</p>
 <p><strong>Step 7: After every call,</strong> update the required fields
 (see S7).</p>
+<p><strong>Step 8: Nurture block (3:00 to 4:00).</strong> At 3pm, stop
+sourcing and work through the Warm and Cold reminders on your daily
+alert email. For each candidate:</p>
+<ol type="1">
+<li><p>Send them a quick text first</p></li>
+<li><p>Then call them</p></li>
+<li><p>Update their Notice Period with when they can move now. If
+they're ready sooner than before, the folders will move them up
+automatically.</p></li>
+</ol>
+<p>If a Warm or Cold candidate is now ready to move within 3 months,
+screen them (S6) and book them with the placer (S8).</p>
+<p>Nurture calls don't count toward your 30 answered calls.</p>
 <div class="block-title" style="margin-top:18px">Common mistakes to avoid</div>
 <ul>
-<li><p>Starting on the folders before calling everyone on the daily
-alert email</p></li>
-<li><p>Starting with Warm or Cold List. Ready to go and Hot List always
-come first.</p></li>
+<li><p>Starting on the folders before calling every new candidate on
+the daily alert email</p></li>
+<li><p>Counting unanswered calls or voicemails toward your 30</p></li>
+<li><p>Not checking your progress at 10:30 and 12:30</p></li>
+<li><p>Skipping the 3pm switch to nurture because you haven't hit
+30</p></li>
+<li><p>Calling Warm or Cold candidates outside their reminder</p></li>
 <li><p>Skipping the column check, then forgetting to update a
 field</p></li>
 <li><p>Not sorting by Created, and missing the newest
 candidates</p></li>
 <li><p>Calling a No Show-Up candidate without reading their notes
 first</p></li>
-<li><p>Hanging up on a Warm or Cold List candidate without updating
-their Notice Period</p></li>
+<li><p>Hanging up on a nurture call without updating their Notice
+Period</p></li>
 </ul>
     </div>
   </div>
