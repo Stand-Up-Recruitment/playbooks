@@ -3,7 +3,7 @@
 <head>
 <script>
 (function(){
-  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support', 'recruiter4'];
+  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support', 'recruiter4', 'recruiter5'];
   if(VALID_ROLES.indexOf(sessionStorage.getItem('playbook-auth')) === -1){
     window.location.href = 'login.html';
   }
@@ -392,14 +392,14 @@ body{
       <div class="module-desc">Pre-start setup, Day 1 plan, and 30/60/90-day goals for a new hire.</div>
       <div class="module-arrow">&rarr;</div>
     </div>
-    <a class="module-card" data-hide-for="recruiter4" href="recruiter-playbook-final.html">
+    <a class="module-card" data-hide-for="recruiter4 recruiter5" href="recruiter-playbook-final.html">
       <div class="module-status status-ready">Ready</div>
       <div class="module-num">02</div>
       <div class="module-title">Playbook</div>
       <div class="module-desc">End-to-end training for sourcing, screening, and placing NZ tradespeople with Australian clients via JobAdder.</div>
       <div class="module-arrow">&rarr;</div>
     </a>
-    <div class="module-card" data-only-for="recruiter4" onclick="openModule('aus')">
+    <div class="module-card" data-only-for="recruiter4 recruiter5" onclick="openModule('aus')">
       <div class="module-status status-ready">Ready</div>
       <div class="module-num">02</div>
       <div class="module-title">Australian Recruitment Playbook</div>
@@ -6979,11 +6979,11 @@ function toggleTheme() {
 })();
 (function(){
   var role = sessionStorage.getItem('playbook-auth');
-  document.querySelectorAll('[data-only-for]').forEach(function(c){ if(c.getAttribute('data-only-for') !== role) c.remove(); });
-  document.querySelectorAll('[data-hide-for]').forEach(function(c){ if(c.getAttribute('data-hide-for') === role) c.remove(); });
+  document.querySelectorAll('[data-only-for]').forEach(function(c){ if(c.getAttribute('data-only-for').split(' ').indexOf(role) === -1) c.remove(); });
+  document.querySelectorAll('[data-hide-for]').forEach(function(c){ if(c.getAttribute('data-hide-for').split(' ').indexOf(role) !== -1) c.remove(); });
   var h = decodeURIComponent(location.hash.slice(1)).split('/');
   var isAus = /^aus(-|$)/.test(h[0] || '');
-  if(h[0] && document.getElementById('module-' + h[0]) && (!isAus || role === 'recruiter4')){ openModule(h[0]); if(h[1]) switchTab(h[0], h[1]); }
+  if(h[0] && document.getElementById('module-' + h[0]) && (!isAus || role === 'recruiter4' || role === 'recruiter5')){ openModule(h[0]); if(h[1]) switchTab(h[0], h[1]); }
 })();
 
 </script>
