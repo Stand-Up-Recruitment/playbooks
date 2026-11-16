@@ -2593,7 +2593,11 @@ OUTPUT FORMAT:
 </tr>
 <tr>
 <td>Screened</td>
-<td>Screened, but not a strong enough candidate to hold onto.</td>
+<td>Screened, and not suitable <strong>for now</strong>, but could suit a role in the future. For example, an apprentice electrician or plumber, or someone who hasn't finished a formal qualification yet. Bot 2 can still call them.</td>
+</tr>
+<tr>
+<td>Not Qualified</td>
+<td>We can't place them in any role. Either they have no trade background (for example, someone who works at a fast food restaurant), or their trade certificate or licence is from overseas and they don't have the NZ equivalent. Bot 2 won't call them.</td>
 </tr>
 <tr>
 <td>In Process</td>
@@ -2617,6 +2621,84 @@ OUTPUT FORMAT:
 </tr>
 </tbody>
 </table>
+<p><strong>Screened or Not Qualified?</strong> Ask yourself: could we
+ever place this person?</p>
+<ul>
+<li><p><strong>Not right now, but maybe later</strong> (for example,
+they're still finishing their qualification, or they're short on
+experience or a licence class): tag them <strong>Screened</strong>. Bot
+2 can still call them when a new job comes up.</p></li>
+<li><p><strong>No, we can't place them:</strong> tag them <strong>Not
+Qualified</strong>. Bot 2 won't call them. This is for candidates with
+no trade background, or with an overseas trade certificate or licence
+and no NZ equivalent.</p></li>
+</ul>
+<p>If you're unsure, use Screened. Tagging someone Not Qualified takes
+them out of future bot sourcing, so only use it when you're sure. If a
+Not Qualified candidate later gets their NZ equivalent, update their
+tag.</p>
+<p><strong>Examples:</strong></p>
+<table class="data-table">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 22%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">Candidate</th>
+<th style="text-align: left;">Tag</th>
+<th style="text-align: left;">Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Machine operator with 3 years on moxy and
+dump truck, little excavator seat time, applied for an excavator
+role</td>
+<td style="text-align: left;"><strong>Screened</strong> for the
+excavator job</td>
+<td style="text-align: left;">Not ready for excavator work yet. But
+check your other live jobs first: if there's a dump truck or moxy role
+open and he can move within 3 months, screen and book him for that role.
+Make sure his Categories show dump truck and moxy, not just
+excavator.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Truck driver with class 1 to 4, no class
+5</td>
+<td style="text-align: left;"><strong>Screened</strong>, unless you have
+a rigid truck role</td>
+<td style="text-align: left;">Class 4 covers heavy rigid trucks, so he
+can be placed in rigid truck roles now. If every current role needs
+class 5, he's one licence away.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Truck driver who's only just got his class
+5</td>
+<td style="text-align: left;"><strong>Screened</strong>, unless a client
+will take a newer driver</td>
+<td style="text-align: left;">Qualified on paper but light on
+experience. Note how long he's held the licence.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Electrician with an overseas licence and
+no NZ equivalent</td>
+<td style="text-align: left;"><strong>Not Qualified</strong></td>
+<td style="text-align: left;">We can't place him until he has the NZ
+equivalent</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fast food worker with no trade
+background</td>
+<td style="text-align: left;"><strong>Not Qualified</strong></td>
+<td style="text-align: left;">No trade we could ever place him in</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule of thumb:</strong> anyone with a real NZ trade, licence
+or plant experience who's just short on hours or tickets is
+Screened.</p>
 <div class="block-title" style="margin-top:18px">Job card tags</div>
 <p>These go on the candidate's application for a specific job.</p>
 <table class="data-table">
@@ -2840,7 +2922,7 @@ OUTPUT FORMAT:
 <ol type="1">
 <li><p><strong>Qualified and can move within 3 months:</strong> book the internal interview before you hang up</p></li>
 <li><p><strong>Qualified but can't move within 3 months:</strong> update their details and move on. The folders will sort them.</p></li>
-<li><p><strong>Not suitable:</strong> close the call politely and update their status</p></li>
+<li><p><strong>Not suitable:</strong> close the call politely and update their status. Use <strong>Screened</strong> if they could suit a role in the future, or <strong>Not Qualified</strong> if we could never place them (see Stage 2.2).</p></li>
 </ol>
 <p>After every call where you speak to the candidate, you update the <strong>four required fields</strong>. The readiness folders and your daily alert email are built from them.</p>
     </div>
@@ -3627,73 +3709,144 @@ OUTPUT FORMAT:
     <div class="block-label">Full Breakdown</div>
     <div class="block-body">
 <div class="block-title" style="margin-top:18px">Part 1: Reference checks</div>
-<p>You need at least 2 reference checks, both from supervisors the candidate gave you in the internal interview.</p>
-<p><strong>When to call.</strong> Don't call one referee and wait. Work through them together:</p>
+<p>You do <strong>3 reference checks</strong> for every candidate:</p>
+<ul>
+<li><p><strong>2 from the candidate:</strong> the supervisors they gave
+you in the internal interview. A bot connects these calls in JobAdder,
+so they're recorded and transcribed.</p></li>
+<li><p><strong>1 independent check:</strong> a past supervisor or
+employer you find yourself. You call this one manually.</p></li>
+</ul>
+<p><strong>Triggering the 2 candidate referee calls in
+JobAdder</strong></p>
+<ol type="1">
+<li><p>Open the job card and find the candidate</p></li>
+<li><p>Hover over the candidate's name and click the <strong>three
+dots</strong> beside it</p></li>
+<li><p>Select <strong>Reference Check</strong>, then <strong>Reference
+Check Order Form</strong></p></li>
+<li><p>Fill in the first referee's <strong>name</strong>, the
+<strong>referee's phone number</strong>, and <strong>your phone
+number</strong></p></li>
+<li><p>Click <strong>Save</strong></p></li>
+<li><p>Fill in the form again for the second referee: their name, their
+phone number, and your phone number</p></li>
+<li><p>Click <strong>Save</strong></p></li>
+<li><p>Move the candidate to the <strong>Reference Check</strong> stage
+on the job card</p></li>
+<li><p>Your phone will ring. Pick it up and press any key.</p></li>
+<li><p>The bot calls the first referee and connects you. When that call
+ends, it calls the second referee.</p></li>
+</ol>
+<p><strong>Important:</strong> save the form once for each referee
+before you move the candidate to Reference Check. The stage move is what
+starts the calls.</p>
+<p><strong>When to call:</strong></p>
 <table class="data-table">
 <colgroup>
-<col style="width: 37%" />
-<col style="width: 62%" />
+<col style="width: 26%" />
+<col style="width: 71%" />
 </colgroup>
 <thead>
 <tr>
-<th>When</th>
-<th>What to do</th>
+<th style="text-align: left;">When</th>
+<th style="text-align: left;">What to do</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Morning</td>
-<td>Call every referee on your list</td>
+<td style="text-align: left;">Morning</td>
+<td style="text-align: left;">Trigger the calls for every candidate who
+needs reference checks</td>
 </tr>
 <tr>
-<td>Afternoon</td>
-<td>Call back anyone who didn't answer in the morning</td>
+<td style="text-align: left;">Afternoon</td>
+<td style="text-align: left;">Trigger the calls again for any referee
+who didn't answer in the morning</td>
 </tr>
 <tr>
-<td>After the 2nd missed call</td>
-<td>Send the Reference No Answer SMS and wait for a reply</td>
+<td style="text-align: left;">After the 2nd missed call</td>
+<td style="text-align: left;">Send the Reference No Answer SMS and wait
+for a reply</td>
 </tr>
 </tbody>
 </table>
-<p><strong>The reference check script.</strong> Keep it casual. You want the referee to open up.</p>
+<p><strong>The independent check</strong></p>
+<p>Find a past supervisor or employer from the candidate's work history
+who isn't one of the referees they gave you, and call them yourself. Use
+the same script below, but change the opening, since the candidate
+didn't give you their number: "Hey, it's [Your Name] from Stand Up
+Recruitment. I'm running a reference check on [Candidate Full Name], who
+I understand worked with you at [Company]. Have you got a few
+minutes?"</p>
+<p><strong>The reference check script.</strong> Keep it casual. You want
+the referee to open up.</p>
 <ol type="1">
-<li><p><strong>Open.</strong> Say their first name, confidently, not as a question: "[Referee First Name]." When they answer: "Hey, it's [Your Name]. [Candidate Full Name] gave me your number, said it's okay to run a bit of a reference check." If they want more context, keep it short and keep going.</p></li>
-<li><p><strong>The rundown.</strong> "Can you give me a full rundown please? The good, the bad, and the ugly." Then stop talking and let them go. Listen for their attitude on the tools, with the team and under pressure, for reliability and turning up on time, and for anything they mention without being asked. That's usually the most honest part. If they're short: "Yeah? What was that like day to day?" or "Anything stand out, good or bad?"</p></li>
-<li><p><strong>Skills and experience.</strong> "What kind of [trade] work were they actually doing for you?" / "Were they good at it?" / "Any muck-ups or mistakes worth mentioning?" If it sounds too perfect: "Genuinely no issues at all?"</p></li>
-<li><p><strong>If they're hesitant.</strong> If they seem cagey or want to involve HR, don't push. Note it as a flag. "No worries at all, appreciate you letting me know. If you think of anything after we hang up, feel free to flag it. Thanks for your time."</p></li>
-<li><p><strong>The close.</strong> "Hey [Referee Name], I'm pretty much looking for an excuse not to hire [Candidate First Name], because you know a bad hire costs a lot of money and time, right? Can you give me any reasons not to hire [him/her]?" Then follow up with: "Would you rehire [him/her]?" Whatever comes next, silence, hesitation or a flat yes, that's your answer. Don't fill the silence.</p></li>
+<li><p><strong>Open.</strong> Say their first name, confidently, not as
+a question: "[Referee First Name]." When they answer: "Hey, it's [Your
+Name]. [Candidate Full Name] gave me your number, said it's okay to run
+a bit of a reference check." If they want more context, keep it short
+and keep going.</p></li>
+<li><p><strong>The rundown.</strong> "Can you give me a full rundown
+please? The good, the bad, and the ugly." Then stop talking and let them
+go. Listen for their attitude on the tools, with the team and under
+pressure, for reliability and turning up on time, and for anything they
+mention without being asked. That's usually the most honest part. If
+they're short: "Yeah? What was that like day to day?" or "Anything stand
+out, good or bad?"</p></li>
+<li><p><strong>Skills and experience.</strong> "What kind of [trade]
+work were they actually doing for you?" / "Were they good at it?" / "Any
+muck-ups or mistakes worth mentioning?" If it sounds too perfect:
+"Genuinely no issues at all?"</p></li>
+<li><p><strong>If they're hesitant.</strong> If they seem cagey or want
+to involve HR, don't push. Note it as a flag. "No worries at all,
+appreciate you letting me know. If you think of anything after we hang
+up, feel free to flag it. Thanks for your time."</p></li>
+<li><p><strong>The close.</strong> "Hey [Referee Name], I'm pretty much
+looking for an excuse not to hire [Candidate First Name], because you
+know a bad hire costs a lot of money and time, right? Can you give me
+any reasons not to hire [him/her]?" Then follow up with: "Would you
+rehire [him/her]?" Whatever comes next, silence, hesitation or a flat
+yes, that's your answer. Don't fill the silence.</p></li>
 </ol>
 <p><strong>What to do with the result:</strong></p>
 <table class="data-table">
 <colgroup>
-<col style="width: 41%" />
-<col style="width: 58%" />
+<col style="width: 19%" />
+<col style="width: 79%" />
 </colgroup>
 <thead>
 <tr>
-<th>Result</th>
-<th>What to do</th>
+<th style="text-align: left;">Result</th>
+<th style="text-align: left;">What to do</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1 red flag or lukewarm answer</td>
-<td>Ask the candidate for one more referee. Don't tell them why.</td>
+<td style="text-align: left;">1 red flag or lukewarm answer</td>
+<td style="text-align: left;">Ask the candidate for one more referee.
+Don't tell them why.</td>
 </tr>
 <tr>
-<td>2 or more red flags out of 3</td>
-<td>Don't progress them. Set <strong>Unsuccessful - Internal</strong> on the job card and let the candidate know we won't be moving forward.</td>
+<td style="text-align: left;">2 or more red flags out of 3</td>
+<td style="text-align: left;">Don't progress them. Set
+<strong>Unsuccessful - Internal</strong> on the job card and let the
+candidate know we won't be moving forward.</td>
 </tr>
 <tr>
-<td>All clear</td>
-<td>Carry on to the police check result and the CV (Stage 6)</td>
+<td style="text-align: left;">All clear</td>
+<td style="text-align: left;">Carry on to the police check result and
+the CV (Stage 6)</td>
 </tr>
 </tbody>
 </table>
-<p>Log every reference check in JobAdder: the referee's name and company, what they said, and what you made of it.</p>
+<p>Log every reference check in JobAdder: the referee's name and
+company, what they said, and what you made of it.</p>
 <div class="block-title" style="margin-top:18px">Part 2: Police check</div>
-<p>Submit the police check through the Airtable form on the same day as the internal interview: [Insert Airtable form link]</p>
-<p>You need six details, which you collected at the end of the interview:</p>
+<p>Submit the police check through the Airtable form on the same day as
+the internal interview: [Insert Airtable form link]</p>
+<p>You need six details, which you collected at the end of the
+interview:</p>
 <ul>
 <li><p>Full name</p></li>
 <li><p>Email address</p></li>
@@ -3702,29 +3855,54 @@ OUTPUT FORMAT:
 <li><p>Phone number</p></li>
 <li><p>Home address</p></li>
 </ul>
-<p><strong>Important:</strong> all six are required. An incomplete form won't be processed.</p>
+<p><strong>Important:</strong> all six are required. An incomplete form
+won't be processed.</p>
 <p>Results usually come back in 24 to 72 hours.</p>
 <ul>
 <li><p><strong>Clear:</strong> carry on to the CV (Stage 6)</p></li>
-<li><p><strong>Serious flag:</strong> don't progress them. Set <strong>Unsuccessful - Internal</strong> on the job card and let the candidate know we won't be moving forward.</p></li>
+<li><p><strong>Serious flag:</strong> don't progress them. Set
+<strong>Unsuccessful - Internal</strong> on the job card and let the
+candidate know we won't be moving forward.</p></li>
 </ul>
 <p>Never click Reject on the job card.</p>
 <div class="block-title" style="margin-top:18px">Checklist</div>
 <ul class="task-list">
-<li><p><label><input type="checkbox" />Reference 1 called and done</label></p></li>
-<li><p><label><input type="checkbox" />Reference 2 called and done</label></p></li>
-<li><p><label><input type="checkbox" />Morning no-answers called back in the afternoon</label></p></li>
-<li><p><label><input type="checkbox" />SMS sent to any referee not reached after 2 calls</label></p></li>
-<li><p><label><input type="checkbox" />Every reference logged in JobAdder</label></p></li>
-<li><p><label><input type="checkbox" />No more than 1 red flag or lukewarm answer</label></p></li>
-<li><p><label><input type="checkbox" />Police check submitted with all 6 details</label></p></li>
-<li><p><label><input type="checkbox" />Police check back and clear</label></p></li>
+<li><p><label><input type="checkbox" />Reference Check Order Form saved
+for both candidate referees</label></p></li>
+<li><p><label><input type="checkbox" />Candidate moved to the Reference
+Check stage</label></p></li>
+<li><p><label><input type="checkbox" />Reference 1 (from the candidate)
+done</label></p></li>
+<li><p><label><input type="checkbox" />Reference 2 (from the candidate)
+done</label></p></li>
+<li><p><label><input type="checkbox" />Reference 3 (independent)
+done</label></p></li>
+<li><p><label><input type="checkbox" />Morning no-answers retriggered in
+the afternoon</label></p></li>
+<li><p><label><input type="checkbox" />SMS sent to any referee not
+reached after 2 calls</label></p></li>
+<li><p><label><input type="checkbox" />Every reference logged in
+JobAdder</label></p></li>
+<li><p><label><input type="checkbox" />No more than 1 red flag or
+lukewarm answer</label></p></li>
+<li><p><label><input type="checkbox" />Police check submitted with all 6
+details</label></p></li>
+<li><p><label><input type="checkbox" />Police check back and
+clear</label></p></li>
 </ul>
 <div class="block-title" style="margin-top:18px">Common mistakes to avoid</div>
 <ul>
-<li><p>Waiting for the cool off to end before starting the checks</p></li>
-<li><p>Finishing one check before starting the other. Run them together.</p></li>
-<li><p>Calling one referee and waiting, instead of calling them all in the morning</p></li>
+<li><p>Waiting for the cool off to end before starting the
+checks</p></li>
+<li><p>Finishing one check before starting the other. Run them
+together.</p></li>
+<li><p>Forgetting to click Save after each referee on the order
+form</p></li>
+<li><p>Leaving your own phone number off the form</p></li>
+<li><p>Moving the candidate to Reference Check before both referees are
+saved</p></li>
+<li><p>Skipping the independent check</p></li>
+<li><p>Not retriggering missed calls in the afternoon</p></li>
 <li><p>Talking over the silence after the close question</p></li>
 <li><p>Submitting the police check with a detail missing</p></li>
 <li><p>Not logging each reference in JobAdder</p></li>
@@ -3752,7 +3930,7 @@ OUTPUT FORMAT:
 <div class="content-block">
     <div class="block-label">Do: Your Activity</div>
     <div class="block-body">
-<p>For a real candidate you've interviewed and rate, call both referees, log the results, and submit the police check. Check in with Les once both checks are back and clear.</p>
+<p>For a real candidate you've interviewed and rate: fill in the Reference Check Order Form for both referees, move them to Reference Check, and take the bot-connected calls. Then find and call one independent referee, log all three results, and submit the police check. Check in with Les once all checks are back and clear.</p>
 <p><strong>Resources:</strong> Email &amp; SMS Template Library: Reference No Answer SMS. <a href="#" onclick="switchTab('aus-stage-5-reference-and-police-checks','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Script Coaching Guide</a>: P3 Reference Check. Airtable Police Check Form → [link].</p>
     </div>
   </div>
@@ -4051,7 +4229,7 @@ OUTPUT FORMAT:
 <div class="block-title" style="margin-top:18px">Part 1: Before the interview</div>
 <ol type="1">
 <li><p>When the client confirms the exact time, text or call the candidate to make sure they can make it before you book anything</p></li>
-<li><p>Move the candidate to the <strong>Reference</strong> stage on the job card</p></li>
+<li><p>Check the candidate is in the <strong>Reference Check</strong> stage on the job card. You moved them there in Stage 5.</p></li>
 <li><p>Book the interview in JobAdder:</p>
 <ul>
 <li><p>Hover over the candidate's name and click the <strong>three dots</strong> beside it</p></li>
@@ -5558,36 +5736,76 @@ or take another job.</p>
     <div class="block-label">Full Breakdown</div>
     <div class="block-body">
 <div class="block-title" style="margin-top:18px">Part 1: Reference checks</div>
-<p>You need at least 2 reference checks, both from supervisors the
-candidate gave you in the internal interview.</p>
-<p><strong>When to call.</strong> Don't call one referee and wait. Work
-through them together:</p>
+<p>You do <strong>3 reference checks</strong> for every candidate:</p>
+<ul>
+<li><p><strong>2 from the candidate:</strong> the supervisors they gave
+you in the internal interview. A bot connects these calls in JobAdder,
+so they're recorded and transcribed.</p></li>
+<li><p><strong>1 independent check:</strong> a past supervisor or
+employer you find yourself. You call this one manually.</p></li>
+</ul>
+<p><strong>Triggering the 2 candidate referee calls in
+JobAdder</strong></p>
+<ol type="1">
+<li><p>Open the job card and find the candidate</p></li>
+<li><p>Hover over the candidate's name and click the <strong>three
+dots</strong> beside it</p></li>
+<li><p>Select <strong>Reference Check</strong>, then <strong>Reference
+Check Order Form</strong></p></li>
+<li><p>Fill in the first referee's <strong>name</strong>, the
+<strong>referee's phone number</strong>, and <strong>your phone
+number</strong></p></li>
+<li><p>Click <strong>Save</strong></p></li>
+<li><p>Fill in the form again for the second referee: their name, their
+phone number, and your phone number</p></li>
+<li><p>Click <strong>Save</strong></p></li>
+<li><p>Move the candidate to the <strong>Reference Check</strong> stage
+on the job card</p></li>
+<li><p>Your phone will ring. Pick it up and press any key.</p></li>
+<li><p>The bot calls the first referee and connects you. When that call
+ends, it calls the second referee.</p></li>
+</ol>
+<p><strong>Important:</strong> save the form once for each referee
+before you move the candidate to Reference Check. The stage move is what
+starts the calls.</p>
+<p><strong>When to call:</strong></p>
 <table class="data-table">
 <colgroup>
-<col style="width: 37%" />
-<col style="width: 62%" />
+<col style="width: 26%" />
+<col style="width: 71%" />
 </colgroup>
 <thead>
 <tr>
-<th>When</th>
-<th>What to do</th>
+<th style="text-align: left;">When</th>
+<th style="text-align: left;">What to do</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Morning</td>
-<td>Call every referee on your list</td>
+<td style="text-align: left;">Morning</td>
+<td style="text-align: left;">Trigger the calls for every candidate who
+needs reference checks</td>
 </tr>
 <tr>
-<td>Afternoon</td>
-<td>Call back anyone who didn't answer in the morning</td>
+<td style="text-align: left;">Afternoon</td>
+<td style="text-align: left;">Trigger the calls again for any referee
+who didn't answer in the morning</td>
 </tr>
 <tr>
-<td>After the 2nd missed call</td>
-<td>Send the Reference No Answer SMS and wait for a reply</td>
+<td style="text-align: left;">After the 2nd missed call</td>
+<td style="text-align: left;">Send the Reference No Answer SMS and wait
+for a reply</td>
 </tr>
 </tbody>
 </table>
+<p><strong>The independent check</strong></p>
+<p>Find a past supervisor or employer from the candidate's work history
+who isn't one of the referees they gave you, and call them yourself. Use
+the same script below, but change the opening, since the candidate
+didn't give you their number: "Hey, it's [Your Name] from Stand Up
+Recruitment. I'm running a reference check on [Candidate Full Name], who
+I understand worked with you at [Company]. Have you got a few
+minutes?"</p>
 <p><strong>The reference check script.</strong> Keep it casual. You want
 the referee to open up.</p>
 <ol type="1">
@@ -5621,28 +5839,31 @@ yes, that's your answer. Don't fill the silence.</p></li>
 <p><strong>What to do with the result:</strong></p>
 <table class="data-table">
 <colgroup>
-<col style="width: 41%" />
-<col style="width: 58%" />
+<col style="width: 19%" />
+<col style="width: 79%" />
 </colgroup>
 <thead>
 <tr>
-<th>Result</th>
-<th>What to do</th>
+<th style="text-align: left;">Result</th>
+<th style="text-align: left;">What to do</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1 red flag or lukewarm answer</td>
-<td>Ask the candidate for one more referee. Don't tell them why.</td>
+<td style="text-align: left;">1 red flag or lukewarm answer</td>
+<td style="text-align: left;">Ask the candidate for one more referee.
+Don't tell them why.</td>
 </tr>
 <tr>
-<td>2 or more red flags out of 3</td>
-<td>Don't progress them. Set <strong>Unsuccessful - Internal</strong> on
-the job card and let the candidate know we won't be moving forward.</td>
+<td style="text-align: left;">2 or more red flags out of 3</td>
+<td style="text-align: left;">Don't progress them. Set
+<strong>Unsuccessful - Internal</strong> on the job card and let the
+candidate know we won't be moving forward.</td>
 </tr>
 <tr>
-<td>All clear</td>
-<td>Carry on to the police check result and the CV (P4)</td>
+<td style="text-align: left;">All clear</td>
+<td style="text-align: left;">Carry on to the police check result and
+the CV (P4)</td>
 </tr>
 </tbody>
 </table>
@@ -5673,11 +5894,17 @@ candidate know we won't be moving forward.</p></li>
 <p>Never click Reject on the job card.</p>
 <div class="block-title" style="margin-top:18px">Checklist</div>
 <ul class="task-list">
-<li><p><label><input type="checkbox" />Reference 1 called and
+<li><p><label><input type="checkbox" />Reference Check Order Form saved
+for both candidate referees</label></p></li>
+<li><p><label><input type="checkbox" />Candidate moved to the Reference
+Check stage</label></p></li>
+<li><p><label><input type="checkbox" />Reference 1 (from the candidate)
 done</label></p></li>
-<li><p><label><input type="checkbox" />Reference 2 called and
+<li><p><label><input type="checkbox" />Reference 2 (from the candidate)
 done</label></p></li>
-<li><p><label><input type="checkbox" />Morning no-answers called back in
+<li><p><label><input type="checkbox" />Reference 3 (independent)
+done</label></p></li>
+<li><p><label><input type="checkbox" />Morning no-answers retriggered in
 the afternoon</label></p></li>
 <li><p><label><input type="checkbox" />SMS sent to any referee not
 reached after 2 calls</label></p></li>
@@ -5696,8 +5923,13 @@ clear</label></p></li>
 checks</p></li>
 <li><p>Finishing one check before starting the other. Run them
 together.</p></li>
-<li><p>Calling one referee and waiting, instead of calling them all in
-the morning</p></li>
+<li><p>Forgetting to click Save after each referee on the order
+form</p></li>
+<li><p>Leaving your own phone number off the form</p></li>
+<li><p>Moving the candidate to Reference Check before both referees are
+saved</p></li>
+<li><p>Skipping the independent check</p></li>
+<li><p>Not retriggering missed calls in the afternoon</p></li>
 <li><p>Talking over the silence after the close question</p></li>
 <li><p>Submitting the police check with a detail missing</p></li>
 <li><p>Not logging each reference in JobAdder</p></li>
@@ -5726,9 +5958,7 @@ the morning</p></li>
 <div class="content-block">
     <div class="block-label">Do: Your Activity</div>
     <div class="block-body">
-<p>For a real candidate you've interviewed and rate, call both referees,
-log the results, and submit the police check. Check in with Les once
-both checks are back and clear.</p>
+<p>For a real candidate you've interviewed and rate: fill in the Reference Check Order Form for both referees, move them to Reference Check, and take the bot-connected calls. Then find and call one independent referee, log all three results, and submit the police check. Check in with Les once all checks are back and clear.</p>
 <p><strong>Resources:</strong> Email &amp; SMS Template Library:
 Reference No Answer SMS. <a href="#" onclick="switchTab('placer-p3','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Coaching Guide</a>: Reference Check script.
 Airtable Police Check Form → [link].</p>
@@ -6127,8 +6357,7 @@ contact details. Never put both on the same invite.</p>
 <li><p>When the client confirms the exact time, text or call the
 candidate to make sure they can make it before you book
 anything</p></li>
-<li><p>Move the candidate to the <strong>Reference</strong> stage on the
-job card</p></li>
+<li><p>Check the candidate is in the <strong>Reference Check</strong> stage on the job card. You moved them there in P3.</p></li>
 <li><p>Book the interview in JobAdder:</p>
 <ul>
 <li><p>Hover over the candidate's name and click the <strong>three
