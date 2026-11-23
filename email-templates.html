@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  var VALID_ROLES = ['marketing', 'accounts', 'recruiter', 'support', 'recruiter4', 'recruiter5'];
+  if(VALID_ROLES.indexOf(sessionStorage.getItem('playbook-auth')) === -1){
+    window.location.href = 'login.html';
+  }
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta charset="UTF-8">
+<title>SUR Email & SMS Templates</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background: #fff;
+    font-size: 13px;
+    color: #1a1a1a;
+  }
+  nav {
+    width: 260px;
+    min-width: 260px;
+    background: #f7f6f3;
+    border-right: 1px solid #e5e3dc;
+    overflow-y: auto;
+    padding: 20px 0;
+  }
+  nav h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #888; padding: 0 16px 12px; }
+  nav ul { list-style: none; }
+  nav ul li a { display: block; padding: 7px 16px; color: #333; text-decoration: none; font-size: 12px; border-left: 3px solid transparent; transition: background 0.15s; line-height: 1.4; }
+  nav ul li a:hover { background: #eeecea; }
+  nav ul li a.active { border-left-color: #1a1a1a; background: #eeecea; font-weight: 600; color: #1a1a1a; }
+  nav .section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #aaa; padding: 16px 16px 4px; }
+  main { flex: 1; overflow-y: auto; padding: 40px 48px; max-width: 780px; }
+  .template { display: none; }
+  .template.active { display: block; }
+  .template h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; color: #1a1a1a; }
+  .template .meta { font-size: 11px; color: #888; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #e5e3dc; }
+  .template .meta span { display: inline-block; background: #f0efeb; border-radius: 4px; padding: 2px 8px; margin-right: 6px; font-weight: 500; }
+  .usage { background: #EEEDFE; border-left: 3px solid #534AB7; border-radius: 0 6px 6px 0; padding: 12px 16px; font-size: 12px; color: #3C3489; margin-bottom: 16px; line-height: 1.6; }
+  .usage strong { color: #2a2470; }
+  .field-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #888; margin-bottom: 6px; margin-top: 20px; }
+  .subject-box { background: #f7f6f3; border: 1px solid #e5e3dc; border-radius: 6px; padding: 10px 14px; font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 16px; }
+  .body-box { background: #fff; border: 1px solid #e5e3dc; border-radius: 6px; padding: 20px; white-space: pre-wrap; line-height: 1.7; font-size: 13px; color: #1a1a1a; }
+  .note-box { background: #fef9ec; border: 1px solid #f0d875; border-radius: 6px; padding: 12px 16px; font-size: 12px; color: #7a6300; margin-top: 16px; line-height: 1.6; }
+  .copy-btn { margin-top: 12px; background: #1a1a1a; color: #fff; border: none; border-radius: 6px; padding: 8px 16px; font-size: 12px; cursor: pointer; font-family: inherit; }
+  .copy-btn:hover { background: #333; }
+  .copy-btn.copied { background: #2d7a4f; }
+  #home { display: block; }
+  #home h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  #home p { color: #666; font-size: 13px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<nav>
+  <h2>SUR Templates</h2>
+
+  <div class="section-label">Sourcer: S6 Screening Call</div>
+  <ul>
+    <li><a href="#" onclick="show('no-answer-sms')">No Answer SMS</a></li>
+    <li><a href="#" onclick="show('not-ready-yet-sms')">Not Ready Yet — Follow-Up SMS</a></li>
+  </ul>
+
+  <div class="section-label">Sourcer: S8 Booking the Internal Interview</div>
+  <ul>
+    <li><a href="#" onclick="show('interview-teams-email')">Interview Confirmation — Teams</a></li>
+    <li><a href="#" onclick="show('interview-teams-sms')">Interview Confirmation SMS — Teams</a></li>
+    <li><a href="#" onclick="show('interview-inperson-email')">Interview Confirmation — In-Person</a></li>
+    <li><a href="#" onclick="show('interview-inperson-sms')">Interview Confirmation SMS — In-Person</a></li>
+  </ul>
+
+  <div class="section-label">Placer: P2 Internal Interview</div>
+  <ul>
+    <li><a href="#" onclick="show('meeting-reminder-sms')">Meeting Day Reminder SMS</a></li>
+    <li><a href="#" onclick="show('meeting-reminder-grandslam-sms')">Meeting Day Reminder SMS — Grand Slam Roles</a></li>
+    <li><a href="#" onclick="show('no-show-email')">No-Show Interview — Email</a></li>
+    <li><a href="#" onclick="show('no-show-sms')">No-Show Interview — SMS</a></li>
+    <li><a href="#" onclick="show('cooldown-email')">Cool-Off Period Email</a></li>
+    <li><a href="#" onclick="show('document-request-email')">Document Request Email (Automated)</a></li>
+    <li><a href="#" onclick="show('document-followup-none')">Document Follow-Up 1 (Automated)</a></li>
+    <li><a href="#" onclick="show('document-followup-2')">Document Follow-Up 2 (Automated)</a></li>
+    <li><a href="#" onclick="show('document-followup-3')">Document Follow-Up 3 — Final (Automated)</a></li>
+    <li><a href="#" onclick="show('document-followup-partial')">Document Follow-Up — Partial Upload (Automated)</a></li>
+  </ul>
+
+  <div class="section-label">Placer: P3 Reference and Police Checks</div>
+  <ul>
+    <li><a href="#" onclick="show('ref-no-answer-sms')">Reference No Answer SMS</a></li>
+  </ul>
+
+  <div class="section-label">Placer: P5 Client Submission</div>
+  <ul>
+    <li><a href="#" onclick="show('endorse-candidate-email')">Endorse Candidate + Suggest Meeting</a></li>
+    <li><a href="#" onclick="show('candidate-headsup-sms')">Candidate Heads-Up SMS</a></li>
+    <li><a href="#" onclick="show('cv-call-script')">CV Follow-Up — Phone Call Script</a></li>
+    <li><a href="#" onclick="show('followup-schedule-email')">Email 1 — Just Tried Calling</a></li>
+    <li><a href="#" onclick="show('cv-missed-call-email')">Email 2 — Still Need a [Role Title]?</a></li>
+    <li><a href="#" onclick="show('endorse-candidate-2nd')">Endorse Candidate — 2nd Attempt</a></li>
+  </ul>
+
+  <div class="section-label">Placer: P6 Client Interview</div>
+  <ul>
+    <li><a href="#" onclick="show('candidate-prep-email')">Candidate Prep Email</a></li>
+    <li><a href="#" onclick="show('candidate-prep-sms')">Candidate Prep SMS</a></li>
+    <li><a href="#" onclick="show('candidate-confirmation-email')">Post-Client Interview Email with Candidate Details</a></li>
+  </ul>
+
+  <div class="section-label">Placer: P7 Offer</div>
+  <ul>
+    <li><a href="#" onclick="show('offer-received-email')">Offer Letter Received Reply</a></li>
+    <li><a href="#" onclick="show('offer-email')">Offer of Employment Email</a></li>
+    <li><a href="#" onclick="show('welcome-relocation-chat')">Welcome Call Email</a></li>
+  </ul>
+
+  <div class="section-label">Placer: P8 Contract Follow-Up</div>
+  <ul>
+    <li><a href="#" onclick="show('followup-checkin-email')">Contract Follow-Up — Check-In</a></li>
+    <li><a href="#" onclick="show('followup-urgency-email')">Contract Follow-Up — Urgency</a></li>
+  </ul>
+
+  <div class="section-label">Other</div>
+  <ul>
+    <li><a href="#" onclick="show('float-candidate-email')">Float New Candidate Email</a></li>
+    <li><a href="#" onclick="show('rejection-pr-email')">Rejection — NZ PR Applicant</a></li>
+    <li><a href="#" onclick="show('conviction-inquiry-email')">Criminal Conviction Inquiry Reply</a></li>
+  </ul>
+
+</nav>
+
+<main>
+
+  <div id="home" class="template active">
+    <h1>SUR Email & SMS Templates</h1>
+    <p>Click any template in the left panel to view it. Each template shows which stage of the playbook it belongs to and exactly when to use it.</p>
+  </div>
+
+  <div id="no-answer-sms" class="template">
+    <h1>No Answer SMS</h1>
+    <div class="meta"><span>SMS</span><span>Sourcer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S6 Screening Call<br><strong>Use this when:</strong> You've called a candidate from your sourcing list and they didn't pick up.</div>
+    <div class="field-label">Message</div>
+    <div class="body-box" id="no-answer-sms-body">Hi [Name], it's Ian from Stand Up Recruitment. You showed interest in moving to Australia for work. I've got some exciting opportunities for [Trade] offering high pay and free temporary accommodation. Would you be interested in hearing more?</div>
+    <button class="copy-btn" onclick="copyText('no-answer-sms-body', this)">Copy</button>
+  </div>
+
+  <div id="interview-teams-email" class="template">
+    <h1>Interview Confirmation — Teams</h1>
+    <div class="meta"><span>Email</span><span>Sourcer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S8 Booking the Internal Interview<br><strong>Use this when:</strong> The candidate is qualified on the screening call and you've booked them in for a Teams video internal interview.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">SUR Internal Interview with [Candidate Full Name] - [Trade]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="interview-teams-email-body">Hey [Name],
+
+Nice catching up with you earlier — excited to get this moving for you!
+
+Your interview is confirmed for [Date] at [Time]. Here are the details:
+
+Format: Microsoft Teams (video call)
+Meeting link: [Insert Teams link]
+Interviewer: [Placer Name]
+
+How to join:
+1. Download the Microsoft Teams app at teams.microsoft.com or search "Microsoft Teams" in the App Store or Google Play
+2. Open the app and sign in with your email address — or continue as a guest if you don't have an account
+3. At the time of your interview, click the meeting link above and select "Join now"
+
+Test your camera and microphone before the call. If you have any issues joining, call [Placer Name] on [Phone Number].
+
+See you then!
+
+[Sourcer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('interview-teams-email-body', this)">Copy</button>
+  </div>
+
+  <div id="interview-teams-sms" class="template">
+    <h1>Interview Confirmation SMS — Teams</h1>
+    <div class="meta"><span>SMS</span><span>Sourcer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S8 Booking the Internal Interview<br><strong>Use this when:</strong> Sending a shorter SMS version alongside the Teams confirmation email.</div>
+    <div class="field-label">Message</div>
+    <div class="body-box" id="interview-teams-sms-body">Hey [Name], great chatting earlier! Just confirming your interview with [Placer Name] on [Date] at [Time] via Microsoft Teams. I'll send the meeting link to your email. Download the Teams app beforehand and test your camera and mic. Any issues, call me on [Phone Number]. See you then!</div>
+    <button class="copy-btn" onclick="copyText('interview-teams-sms-body', this)">Copy</button>
+  </div>
+
+  <div id="interview-inperson-email" class="template">
+    <h1>Interview Confirmation — In-Person</h1>
+    <div class="meta"><span>Email</span><span>Sourcer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S8 Booking the Internal Interview<br><strong>Use this when:</strong> The candidate is qualified and Auckland-based, and you've booked them in for an in-person internal interview.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">SUR Internal Interview with [Candidate Full Name] - [Trade]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="interview-inperson-email-body">Hey [Name],
+
+Nice catching up with you earlier — excited to get this moving for you!
+
+Your interview is confirmed for [Date] at [Time]. Here are the details:
+
+Format: In-person
+Address: 41 Taharoto Road, Takapuna
+Google Maps: https://maps.app.goo.gl/iwhNCcMb1KpzAAdm6
+Interviewer: [Placer Name]
+
+Parking: There are two options nearby:
+1. Z or BP petrol station — turn right out of the station and walk for about 2 minutes. You will see a building with the number 41 on it. That's us.
+2. Street parking on Rangitira Avenue — https://maps.app.goo.gl/b9WFEypKiCT9Uc5b7
+
+If you have any issues finding us, call [Placer Name] on [Phone Number].
+
+See you then!
+
+[Sourcer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('interview-inperson-email-body', this)">Copy</button>
+  </div>
+
+  <div id="interview-inperson-sms" class="template">
+    <h1>Interview Confirmation SMS — In-Person</h1>
+    <div class="meta"><span>SMS</span><span>Sourcer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S8 Booking the Internal Interview<br><strong>Use this when:</strong> Sending a shorter SMS version alongside the in-person confirmation email.</div>
+    <div class="field-label">Message</div>
+    <div class="body-box" id="interview-inperson-sms-body">Hey [Name], great chatting earlier! Just confirming your interview with [Placer Name] on [Date] at [Time] at 41 Taharoto Road, Takapuna. Two parking options nearby: 1) Z or BP station — turn right, 2 min walk, look for building 41. 2) Street parking on Rangitira Ave: https://maps.app.goo.gl/b9WFEypKiCT9Uc5b7. Office map: https://maps.app.goo.gl/iwhNCcMb1KpzAAdm6. Any issues, call me on [Phone Number]. See you then!</div>
+    <button class="copy-btn" onclick="copyText('interview-inperson-sms-body', this)">Copy</button>
+  </div>
+
+  <div id="meeting-reminder-sms" class="template">
+    <h1>Meeting Day Reminder SMS</h1>
+    <div class="meta"><span>SMS</span><span>Sourcer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent on the morning of a standard (non Grand Slam) internal interview to confirm the candidate is still coming.</div>
+    <div class="field-label">Message</div>
+    <div class="body-box" id="meeting-reminder-sms-body">Hi [Name], quick reminder — locked in for [TIME] today. Got some solid AUS roles to walk you through. Worth 15 mins. Still good?</div>
+    <button class="copy-btn" onclick="copyText('meeting-reminder-sms-body', this)">Copy</button>
+  </div>
+
+  <div id="meeting-reminder-grandslam-sms" class="template">
+    <h1>Meeting Day Reminder SMS — Grand Slam Roles</h1>
+    <div class="meta"><span>SMS</span><span>Sourcer → Candidate</span><span>Grand Slam roles only</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Same as the standard reminder, but only for roles that come with the Grand Slam offer — free flights and free temp accommodation.</div>
+    <div class="field-label">Message</div>
+    <div class="body-box" id="meeting-reminder-grandslam-sms-body">Hey [Name], just a reminder we're locked in for [TIME] today! Got some really exciting roles in Australia to walk you through, and these ones come with free flights and temp accommodation sorted for you. Worth a quick 15 mins. Still good to go?</div>
+    <button class="copy-btn" onclick="copyText('meeting-reminder-grandslam-sms-body', this)">Copy</button>
+  </div>
+
+  <div id="not-ready-yet-sms" class="template">
+    <h1>Not Ready Yet — Follow-Up SMS</h1>
+    <div class="meta"><span>SMS</span><span>Sourcer / Placer → Candidate</span><span>Send within 5 minutes of ending the call</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S6 Screening Call, and Placer: P2 Internal Interview<br><strong>Use this when:</strong> The candidate says they're not ready to move yet (3, 6, or 12 months out) — send this right after the Not Ready Yet sub-script.</div>
+    <div class="field-label">Message</div>
+    <div class="body-box" id="not-ready-yet-sms-body">Hey [Name], [Recruiter] from Stand Up Recruitment here. Good chatting today. We'll touch base around [month] but call/text me anytime if your plans move earlier — we'll get your job sorted before you leave NZ, plus accommodation and flights. Save my number and we'll talk soon.</div>
+    <button class="copy-btn" onclick="copyText('not-ready-yet-sms-body', this)">Copy</button>
+  </div>
+
+  <div id="no-show-email" class="template">
+    <h1>No-Show Interview — Email</h1>
+    <div class="meta"><span>Email</span><span>Placer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> The candidate doesn't show up for their booked video interview.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">We missed you today, [Name]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="no-show-email-body">Hey [Name],
+
+Missed you on our Teams call today — you must have been busy.
+
+Would you like to reschedule so I can explain some exciting opportunities that we have in Australia?
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('no-show-email-body', this)">Copy</button>
+  </div>
+
+  <div id="no-show-sms" class="template">
+    <h1>No-Show Interview — SMS</h1>
+    <div class="meta"><span>SMS</span><span>Placer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Same as the no-show email — send alongside or instead of it, whichever is faster to reach the candidate.</div>
+    <div class="field-label">Message</div>
+    <div class="body-box" id="no-show-sms-body">Hey [Name], it's [Placer Name] from Stand Up Recruitment. Missed you on our Teams call today — you must have been busy. Would you like to reschedule so I can explain some exciting opportunities that we have in Australia?</div>
+    <button class="copy-btn" onclick="copyText('no-show-sms-body', this)">Copy</button>
+  </div>
+
+  <div id="cooldown-email" class="template">
+    <h1>Cool-Off Period Email</h1>
+    <div class="meta"><span>Email</span><span>Placer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent immediately after the internal interview to kick off the candidate's cool-off period.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Please Take a Few Days to Consider This Opportunity</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="cooldown-email-body">Hi [Candidate Name],
+
+Good to talk today. You've done well to get to this point, not everyone does.
+
+Before we go to the client, I need you to take the next 2 days and genuinely work through what's below. I'll be calling you at the end of that period and I'll be asking you directly about each of these. So don't just skim it, actually sit down and think it through.
+
+What I need you to work through:
+
+Are you financially ready to make the move and cover yourself for the first few weeks until your first pay comes in?
+
+Are you happy to start within 4 to 6 weeks?
+
+Are you happy with the location?
+
+I've attached a cost guide — go through it line by line and put your own numbers to it. Not a rough guess. Actual numbers.
+
+Have you actually had the conversation — not just mentioned it — with your partner and family? The timeline, what it means day-to-day, all of it. This is the most common reason placements fall apart. Be straight with yourself.
+
+Does this move make sense for where you want to be in the next few years? The people who thrive over there are the ones moving toward something, not just looking for a change.
+
+Role Overview
+
+Role & Location: [insert information]
+Pay: [insert information]
+Work Type / Hours: [insert information]
+Scope of Work: [insert information]
+Why It's Worth Considering: [insert information]
+
+When I call you in 2 days, I'll be asking you directly about your financial plan, whether your family is on board, and why this role and location makes sense for you right now. Candidates who can answer these clearly are the ones who make it work over there.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('cooldown-email-body', this)">Copy</button>
+  </div>
+
+  <div id="document-followup-none" class="template">
+    <h1>Document Follow-Up 1 — Nothing Uploaded</h1>
+    <div class="meta"><span>Email</span><span>Automated → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent automatically 48 hours after the Document Request Email if nothing has been uploaded. You don't send this manually — it's here for reference.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Still Need Your Documents — [Candidate First Name]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="document-followup-none-body">Hey [Name],
+
+Just checking in — I sent you a link a couple of days ago to upload your documents but haven't seen anything come through yet.
+
+We still need:
+
+- Driver's licence
+- Passport
+- Trade certificate (if you have one)
+
+Upload link: [Insert upload link]
+
+We can't move forward without these so the sooner you get them uploaded the better. If you're having any issues with the link, just let me know and we'll figure it out.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('document-followup-none-body', this)">Copy</button>
+  </div>
+
+  <div id="document-followup-2" class="template">
+    <h1>Document Follow-Up 2</h1>
+    <div class="meta"><span>Email</span><span>Automated → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent automatically 48 hours after Follow-Up 1 if still nothing uploaded. You don't send this manually — it's here for reference.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Still Waiting on Your Documents — [Candidate First Name]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="document-followup-2-body">Hey [Name],
+
+I've reached out a couple of times now about your documents and still haven't seen anything come through.
+
+We genuinely want to get this moving for you — but we can't progress without these:
+
+- Driver's licence
+- Passport
+- Trade certificate (if you have one)
+
+Upload link: [Insert upload link]
+
+If something has come up or you're having trouble with the link, just reply here and let me know. Happy to help sort it out.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('document-followup-2-body', this)">Copy</button>
+  </div>
+
+  <div id="document-followup-3" class="template">
+    <h1>Document Follow-Up 3 — Final</h1>
+    <div class="meta"><span>Email</span><span>Automated → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent automatically 48 hours after Follow-Up 2 if still nothing uploaded. This is the final automated attempt — if it doesn't land, escalate to Les.</div>
+    <div class="note-box">This is the final follow-up. After sending this email, do not contact the candidate again regarding documents. Escalate to Les — raise it in the morning meeting or email Les directly if time-sensitive.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Last Message from Me — [Candidate First Name]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="document-followup-3-body">Hey [Name],
+
+This will be my last message about your documents.
+
+I've reached out a few times now and haven't heard back. Without your driver's licence, passport, and trade certificate uploaded, we can't move your application forward.
+
+Upload link: [Insert upload link]
+
+If you're still keen and something has just come up on your end, reply to this email today and let me know. Otherwise, we'll have to put your application on hold.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('document-followup-3-body', this)">Copy</button>
+  </div>
+
+  <div id="document-followup-partial" class="template">
+    <h1>Document Follow-Up — Partial Upload</h1>
+    <div class="meta"><span>Email</span><span>Automated → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> Sent automatically when the candidate has uploaded some but not all documents. You don't send this manually — it's here for reference.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Just a Couple More Documents — [Candidate First Name]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="document-followup-partial-body">Hey [Name],
+
+Thanks for uploading what you have — we're almost there.
+
+We just still need the following from you:
+
+- Driver's licence
+- Passport
+- Trade certificate (if you have one)
+
+Upload link: [Insert upload link]
+
+Once we have everything, we're good to go. If you're having any trouble uploading, just reply here and we'll sort it.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('document-followup-partial-body', this)">Copy</button>
+  </div>
+
+  <div id="ref-no-answer-sms" class="template">
+    <h1>Reference No Answer SMS</h1>
+    <div class="meta"><span>SMS</span><span>Sourcer → Referee</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P3 Reference and Police Checks<br><strong>Use this when:</strong> A referee doesn't pick up when you call for a reference check.</div>
+    <div class="field-label">Message</div>
+    <div class="body-box" id="ref-no-answer-sms-body">Hey [Reference First Name], [Candidate Full Name] told me to give you a ring for a reference check. My name is [Your Name]. What time suits you best for me to give you a ring? It will take 2-3 minutes.</div>
+    <button class="copy-btn" onclick="copyText('ref-no-answer-sms-body', this)">Copy</button>
+  </div>
+
+  <div id="endorse-candidate-email" class="template">
+    <h1>Endorse Candidate + Suggest Meeting</h1>
+    <div class="meta"><span>Email</span><span>Placer → Client</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> Sending a candidate's CV to the client for the first time on this role.</div>
+    <div class="note-box">Pick the interview day yourself. Always write the day and date in the client's timezone. Once this is sent, text the candidate the Candidate Heads-Up SMS straight away.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Candidate Endorsement — [Candidate First Name], [Role Title]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="endorse-candidate-email-body">Hi [Client Name],
+
+Great to meet you!
+
+I had a great conversation with [Candidate First Name] and I believe he is an excellent fit for the [Role Title] role.
+
+[Insert 2 sentence blurb from ChatGPT based on the formatted CV]
+
+Will [Day] [Date] morning or afternoon work for you?
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('endorse-candidate-email-body', this)">Copy</button>
+  </div>
+
+  <div id="candidate-headsup-sms" class="template">
+    <h1>Candidate Heads-Up SMS</h1>
+    <div class="meta"><span>SMS</span><span>Placer → Candidate</span><span>Send right after the endorsement email</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> You've just sent the endorsement email to the client and are waiting on them to confirm the exact interview time.</div>
+    <div class="note-box">Convert the morning and afternoon windows to NZ time before sending. NZ is 2 to 5 hours ahead of Australia depending on the state and daylight saving — a Perth morning can be a NZ afternoon.</div>
+    <div class="field-label">Message</div>
+    <div class="body-box" id="candidate-headsup-sms-body">Hi [Candidate First Name], it's [Your Name] from Stand Up Recruitment. Good news — I've sent your CV through to [Company Name] and we're lining up your interview for [Day] [Date]. We're just waiting on them to confirm the exact time, so please block out both the morning and afternoon (NZ time) that day. I'll let you know as soon as it's locked in!</div>
+    <button class="copy-btn" onclick="copyText('candidate-headsup-sms-body', this)">Copy</button>
+  </div>
+
+  <div id="cv-call-script" class="template">
+    <h1>CV Follow-Up — Phone Call Script</h1>
+    <div class="meta"><span>Call Script</span><span>Placer → Client</span><span>Call 1: 24 hours after CV · Call 2: 48 hours after Call 1</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> The client hasn't replied to the endorsement email. Use it for both Call 1 and Call 2. If the call goes unanswered, send Email 1 (after Call 1) or Email 2 (after Call 2) straight away.</div>
+    <div class="note-box">Goal: book the interview on the call. A yes with a time, or a clean no. No maybes. If the day in your endorsement email has passed, offer a new day and re-send the Candidate Heads-Up SMS.</div>
+    <div class="field-label">Script</div>
+    <div class="body-box" id="cv-call-script-body">"Hey [Client Name], it's [Placer Name] from Stand Up Recruitment."
+
+[Pleasantries]
+
+"Hey look, I sent you [Candidate First Name]'s CV — I think they'd be a perfect fit for the role you're after. Did you get a chance to have a look? Would [Day] [Date] morning or afternoon work to catch up with them?"
+
+If they are keen:
+Confirm the exact time before you get off the call. Pin them to a specific time, then book it in JobAdder as a Contact Candidate Meeting.
+
+If they are wishy-washy or vague:
+"Are you still actively hiring for this role?"
+
+If no or not a priority:
+"No worries — just let me know and I can send [Candidate First Name] across to another one of our clients."</div>
+    <button class="copy-btn" onclick="copyText('cv-call-script-body', this)">Copy</button>
+  </div>
+
+  <div id="followup-schedule-email" class="template">
+    <h1>Email 1 — Just Tried Calling</h1>
+    <div class="meta"><span>Email</span><span>Placer → Client</span><span>Send immediately after Call 1 goes unanswered</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> You've called the client 24 hours after sending the CV and they didn't answer.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">[Candidate First Name] — Just Tried Calling</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="followup-schedule-email-body">Hi [Client Name],
+
+Just tried giving you a call. I wanted to make sure you saw [Candidate First Name]'s CV for the [Role Title] role.
+
+Will [Day] [Date] morning or afternoon work for a quick interview?
+
+[Candidate First Name] is also being considered for other roles, so I'm keen to lock something in soon.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('followup-schedule-email-body', this)">Copy</button>
+  </div>
+
+  <div id="cv-missed-call-email" class="template">
+    <h1>Email 2 — Still Need a [Role Title]?</h1>
+    <div class="meta"><span>Email</span><span>Placer → Client</span><span>Send immediately after Call 2 goes unanswered</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> You've called the client twice with no answer. If there's still no reply and another client suits the candidate, put them forward straight away.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Still need a [Role Title]?</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="cv-missed-call-email-body">Hi [Client Name],
+
+I've tried calling a couple of times about [Candidate First Name] for the [Role Title] role, and I know things get busy.
+
+If hiring isn't a priority right now, no worries at all. Just let me know, and I'll put [Candidate First Name] forward to another one of our clients.
+
+If you'd still like to meet them, reply with a time that suits and I'll lock it in.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('cv-missed-call-email-body', this)">Copy</button>
+  </div>
+
+  <div id="endorse-candidate-2nd" class="template">
+    <h1>Endorse Candidate — 2nd Attempt</h1>
+    <div class="meta"><span>Email</span><span>Placer → Client</span><span>Use after 2 candidates didn't pass</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P5 Client Submission<br><strong>Use this when:</strong> You're submitting a new candidate after the client has already rejected 2 previous ones for this role.</div>
+    <div class="note-box">Pick the interview day yourself. Always write the day and date in the client's timezone. Once this is sent, text the candidate the Candidate Heads-Up SMS straight away.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Candidate Endorsement — [Candidate First Name], [Role Title]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="endorse-candidate-2nd-body">Hi [Client Name],
+
+After two interviews and your feedback along the way, I have a much clearer picture of exactly what you need. I went away, took the time to find the right person, and I am confident that [Candidate First Name] ticks all the boxes.
+
+[Insert 2 sentence blurb based on the formatted CV]
+
+Will [Day] [Date] morning or afternoon work for you?
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('endorse-candidate-2nd-body', this)">Copy</button>
+  </div>
+
+  <div id="candidate-confirmation-email" class="template">
+    <h1>Post-Client Interview Email with Candidate Details</h1>
+    <div class="meta"><span>Email</span><span>Placer → Client</span><span>Send straight after the debrief</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P6 Client Interview<br><strong>Use this when:</strong> The client has said yes in the post-interview debrief. Send the candidate's full name and possible start date so the client can prepare the offer letter, and ask them to include the temporary accommodation and vehicle arrangements in writing.</div>
+    <div class="note-box">Confirm the possible start date with the candidate before sending — allow for the 2-day offer cool off and the time they need to relocate. If the role doesn't include accommodation or a vehicle, remove that part of the email.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">[Candidate Full Name] — [Role Title] Offer Details</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="candidate-confirmation-email-body">Hi [Client Name],
+
+Thanks for your time today, great to hear [Candidate First Name] is the right fit.
+
+Here are the details you'll need for the offer letter:
+
+Full name: [Candidate Full Name]
+Possible start date: [Start Date]
+
+One more thing: could you also add a line in the offer letter confirming the temporary accommodation and vehicle arrangements? Something like:
+
+"Temporary Accommodation: Employer will provide temporary accommodation for [X weeks] from the commencement date, at [no cost to the employee / $[amount] per week], to support relocation. Vehicle: Employer will provide a company vehicle for use in the course of employment, described as [details]."
+
+Just needs the brackets filled in with your actual details. Having it in the letter means the candidate sees it in writing upfront, and it avoids any confusion down the track.
+
+Could you let me know when we can expect the offer letter?
+
+[Placer Name]</div>
+    <button class="copy-btn" onclick="copyText('candidate-confirmation-email-body', this)">Copy</button>
+  </div>
+
+  <div id="candidate-prep-email" class="template">
+    <h1>Candidate Prep Email</h1>
+    <div class="meta"><span>Email</span><span>Placer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P6 Client Interview<br><strong>Use this when:</strong> Right after sending the meeting invite to the client, prep the candidate with this before their client interview.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">SUR Prep for Your Interview with [Client Name]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="candidate-prep-email-body">Hi [Candidate Name],
+
+Just a quick note ahead of your interview with [Client Name].
+
+Interview Details:
+Date & Time: [Insert]
+Format: [In-person / Teams / Phone] — Please download Microsoft Teams today and test the link
+Meeting Link: [Insert]
+Attendees: [Client Contact Name]
+
+What [Client Name] is Looking For:
+When you're speaking with them, make sure to highlight your experience in these areas:
+1. [Key Priority #1]
+2. [Key Priority #2]
+3. [Key Priority #3]
+
+Tips for Success:
+Keep answers clear and practical — real site examples go a long way.
+Focus on how you add value in line with the priorities above.
+Show enthusiasm about relocating and committing to the role.
+
+We'll open the interview with an intro and guide the first few questions to help you get started. From there, [Client Name] will take the lead.
+
+You've got this! Just be confident and honest about your experience.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('candidate-prep-email-body', this)">Copy</button>
+  </div>
+
+  <div id="candidate-prep-sms" class="template">
+    <h1>Candidate Prep SMS</h1>
+    <div class="meta"><span>SMS</span><span>Placer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P6 Client Interview<br><strong>Use this when:</strong> Sending a shorter version of the prep email, or as a same-day reminder before the client interview.</div>
+    <div class="field-label">Message</div>
+    <div class="body-box" id="candidate-prep-sms-body">Hi [Candidate Name], just a quick prep for your interview with [Client Name]:
+Focus on: [Key Priority #1], [Key Priority #2], [Key Priority #3].
+Keep examples short and site-based.
+Show commitment to relocating and joining their team.
+We'll open the call and set you up — just be yourself from there.</div>
+    <button class="copy-btn" onclick="copyText('candidate-prep-sms-body', this)">Copy</button>
+  </div>
+
+  <div id="offer-received-email" class="template">
+    <h1>Offer Letter Received Reply</h1>
+    <div class="meta"><span>Email</span><span>Placer → Client</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P7 Offer<br><strong>Use this when:</strong> The client sends through the signed offer letter — reply the same day to acknowledge it.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">SUR Offer Letter Received — [Candidate First Name], [Role Title]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="offer-received-email-body">Hi [Client Contact],
+
+Thanks for sending this through, appreciate it.
+
+Our standard process is to give the candidate 48 hours to go over the contract and confirm they're fully comfortable moving forward before signing. We've sent it to [Candidate Name] now and will follow up with them on [Day].
+
+Once it's signed, we'll get the fully executed copy back to you straight away.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('offer-received-email-body', this)">Copy</button>
+  </div>
+
+  <div id="offer-email" class="template">
+    <h1>Offer of Employment Email</h1>
+    <div class="meta"><span>Email</span><span>Placer → Candidate</span><span>Sent automatically by DocuSeal once you add recipients</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P7 Offer<br><strong>Use this when:</strong> This is sent automatically once you upload the offer to DocuSeal and add the candidate as a recipient — you don't send this manually, but it's here for reference so you know what the candidate is receiving.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">SUR Offer of Employment — [Candidate First Name], [Company Name]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="offer-email-body">Hey [First Name],
+
+Congrats! This is a huge step and we're genuinely pumped to get you over there.
+
+There are two documents that need your signature to make it official:
+
+1. Offer Letter, click here to sign
+2. Stand Up Recruitment Terms of Business, click here to sign
+
+We've also attached our Relocation Guide, please have a read through it, it covers everything you need to know about making the move.
+
+Before you sign, take 48 hours with it.
+
+Not because we expect problems, just because once this is signed we're moving fast on flights, start dates, and logistics, and we want you locked in with zero doubts.
+
+In that 48 hours, have a proper look at:
+
+1. The role and location. [Location/Site] is where you'll be based. Are you good with that, day to day?
+2. The start date. [Start Date]. Is that realistic for you to have everything sorted in NZ and be on site ready to go?
+3. Your affairs at home. Lease, vehicle, family stuff, notice periods. Nothing left hanging once you're over there.
+
+If all of that lines up, go ahead and sign both documents using the links above. If anything doesn't sit right, call [Recruiter Name] before you sign, not after. We'd much rather sort it now than have you land in Australia and something's off.
+
+We'll follow up with you in 2 days for a quick video call to check you're all set.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('offer-email-body', this)">Copy</button>
+  </div>
+
+  <div id="welcome-relocation-chat" class="template">
+    <h1>Welcome Call Email</h1>
+    <div class="meta"><span>Email</span><span>Placer → Candidate</span><span>Send as soon as the candidate signs the offer</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P7 Offer<br><strong>Use this when:</strong> The candidate has signed the offer and you've booked the Welcome Call with them and the pastoral care team.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Welcome Call with [Candidate Name] and Stand Up Recruitment</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="welcome-relocation-chat-body">Hey [First Name],
+
+Congratulations on signing your offer! Locking in our Welcome Call for [Date] at [Time] via Microsoft Teams.
+
+On the call: you, me, and [Pastoral Care Name] from our pastoral care team. [Pastoral Care Name] will be looking after your onboarding from here. We'll walk through your Relocation Guide together, answer any questions, and make sure you're feeling good about the next steps.
+
+Meeting link: [Insert Teams link]
+
+Before we chat, have a read through the Relocation Guide.
+
+If you have any questions before then, don't hesitate to reach out.
+
+Looking forward to it!
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('welcome-relocation-chat-body', this)">Copy</button>
+  </div>
+
+  <div id="followup-checkin-email" class="template">
+    <h1>Contract Follow-Up — Check-In</h1>
+    <div class="meta"><span>Email</span><span>Placer → Client</span><span>Send next business day after missed date</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P8 Contract Follow-Up<br><strong>Use this when:</strong> A client decision or contract date has passed with nothing received.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Following Up — [Candidate Name]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="followup-checkin-email-body">Hi [Client Contact],
+
+Just following up on [Candidate Name] — will I have that [contract / decision] today?
+
+Let me know if there's anything you need from us in the meantime.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('followup-checkin-email-body', this)">Copy</button>
+  </div>
+
+  <div id="followup-urgency-email" class="template">
+    <h1>Contract Follow-Up — Urgency</h1>
+    <div class="meta"><span>Email</span><span>Placer → Client</span><span>Send when second date is also missed</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P8 Contract Follow-Up<br><strong>Use this when:</strong> A second date has also been missed with no reply to the Check-In email.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">[Candidate Name] — Need to Confirm Timing</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="followup-urgency-email-body">Hi [Client Contact],
+
+Still haven't received that contract for [Candidate Name]. I'm not going to be able to hold him much longer — I've got other clients interested in him as well.
+
+Will I have this today? If not, I'll need to start putting him in front of other opportunities.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('followup-urgency-email-body', this)">Copy</button>
+  </div>
+
+  <div id="document-request-email" class="template">
+    <h1>Document Request Email (Automated)</h1>
+    <div class="meta"><span>Email</span><span>Automated → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Placer: P2 Internal Interview<br><strong>Use this when:</strong> This one is automated — it's sent automatically 24 hours after the internal interview asking the candidate to upload their licence, passport, and trade certificate. You don't send this manually. It's here so you know what the candidate received if they ask about it.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">One Quick Thing While You Wait — [Candidate First Name]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="document-request-email-body">Hey [Name],
+
+Great catching up yesterday — you did really well.
+
+While we work through the next steps on our end, there's one thing we need from you to keep things moving.
+
+Please upload the following documents using the link below:
+
+- Driver's licence
+- Passport
+- Trade certificate (if you have one)
+
+Upload link: [Insert upload link]
+
+The sooner we have these, the faster we can move when the time comes. If you have any issues uploading, just reply to this email and we'll sort it out.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('document-request-email-body', this)">Copy</button>
+  </div>
+
+  <div id="float-candidate-email" class="template">
+    <h1>Float New Candidate Email</h1>
+    <div class="meta"><span>Email</span><span>Placer → Client</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Not tied to a section: business development<br><strong>Use this when:</strong> You've got a strong candidate available and want to offer them to an existing client before taking them to market, even without a live matching role open yet.</div>
+    <div class="note-box">Do not send the CV on first email. Ask if they would like you to send it as shown below.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">New [Trade] Available</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="float-candidate-email-body">Hey [Name],
+
+Just landed a strong [Trade] in our pool — [brief one-liner: e.g. 5 years commercial experience, based in Auckland, ready to relocate within 30 days].
+
+Giving you first look before we take him/her to market.
+
+Want me to send the CV across?
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('float-candidate-email-body', this)">Copy</button>
+  </div>
+
+  <div id="rejection-pr-email" class="template">
+    <h1>Rejection — NZ PR Applicant</h1>
+    <div class="meta"><span>Email</span><span>Placer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Not tied to a section: edge case handling<br><strong>Use this when:</strong> A NZ Permanent Resident (not a citizen) applies to a role via Trade Me — our roles are citizens only.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Your Application at Stand Up Recruitment — [Role Title]</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="rejection-pr-email-body">Hi [Candidate Name],
+
+Thank you for applying for the [Role Title] position. We've reviewed your application, and while your background is strong, this role is open to New Zealand Citizens only due to relocation requirements.
+
+We'll keep your details on file and if opportunities open up here in New Zealand, we'll be sure to let you know. If in the future you become a New Zealand Citizen and are interested in moving to Australia, please reach out — we'd be glad to hear from you.
+
+In the meantime, if you know an NZ Citizen who would be interested in working in Australia, we'd love to hear from them. As part of our referral program, if your referral signs a contract through us, you'll receive a $500 referral bonus.
+
+Thanks again for your application, and we'll stay in touch should something more suitable come up.
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('rejection-pr-email-body', this)">Copy</button>
+  </div>
+
+  <div id="conviction-inquiry-email" class="template">
+    <h1>Criminal Conviction Inquiry Reply</h1>
+    <div class="meta"><span>Email</span><span>Placer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Not tied to a section: edge case handling<br><strong>Use this when:</strong> A candidate discloses a criminal conviction and asks whether they're eligible to work in Australia.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Re: Your Enquiry</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="conviction-inquiry-email-body">Hi [Name],
+
+Thanks for reaching out and for being upfront about your situation — we really appreciate that.
+
+To be honest, this is not something we are able to advise on directly as it falls outside of our expertise, but we can point you in the right direction.
+
+The good news is that having a conviction does not automatically mean you cannot enter Australia. The key steps we would suggest are:
+
+1. Complete the online pre-travel assessment form for NZ passport holders with criminal convictions. This is run by the Australian Department of Home Affairs and will give you an idea of where you stand before you make any decisions. You can find it here: https://immi.homeaffairs.gov.au/help-support/departmental-forms/online-forms/travelling-with-a-criminal-conviction
+
+2. If you are unsure about the outcome or your situation is complex, we would recommend speaking with an Australian immigration adviser who specialises in character assessments. They can give you a proper assessment of your options.
+
+Once you have clarity on your eligibility to enter Australia, we would be happy to have a conversation about opportunities that may suit your background.
+
+Hope that helps and best of luck with it!
+
+[Placer Name]
+Stand Up Recruitment</div>
+    <button class="copy-btn" onclick="copyText('conviction-inquiry-email-body', this)">Copy</button>
+  </div>
+
+</main>
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.template').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    const target = document.getElementById(id);
+    if (target) target.classList.add('active');
+    const link = document.querySelector(`nav a[onclick="show('${id}')"]`);
+    if (link) link.classList.add('active');
+  }
+  function copyText(id, btn) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
