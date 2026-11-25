@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SUR Cold Email Templates</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background: #fff;
+    font-size: 13px;
+    color: #1a1a1a;
+  }
+  nav {
+    width: 260px;
+    min-width: 260px;
+    background: #f7f6f3;
+    border-right: 1px solid #e5e3dc;
+    overflow-y: auto;
+    padding: 20px 0;
+  }
+  nav h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #888; padding: 0 16px 12px; }
+  nav ul { list-style: none; }
+  nav ul li a { display: block; padding: 7px 16px; color: #333; text-decoration: none; font-size: 12px; border-left: 3px solid transparent; transition: background 0.15s; line-height: 1.4; }
+  nav ul li a:hover { background: #eeecea; }
+  nav ul li a.active { border-left-color: #1a1a1a; background: #eeecea; font-weight: 600; color: #1a1a1a; }
+  nav .section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #aaa; padding: 16px 16px 4px; }
+  main { flex: 1; overflow-y: auto; padding: 40px 48px; max-width: 780px; }
+  .template { display: none; }
+  .template.active { display: block; }
+  .template h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; color: #1a1a1a; }
+  .template .meta { font-size: 11px; color: #888; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #e5e3dc; }
+  .template .meta span { display: inline-block; background: #f0efeb; border-radius: 4px; padding: 2px 8px; margin-right: 6px; font-weight: 500; }
+  .usage { background: #EEEDFE; border-left: 3px solid #534AB7; border-radius: 0 6px 6px 0; padding: 12px 16px; font-size: 12px; color: #3C3489; margin-bottom: 16px; line-height: 1.6; }
+  .usage strong { color: #2a2470; }
+  .field-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #888; margin-bottom: 6px; margin-top: 20px; }
+  .subject-box { background: #f7f6f3; border: 1px solid #e5e3dc; border-radius: 6px; padding: 10px 14px; font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 16px; }
+  .body-box { background: #fff; border: 1px solid #e5e3dc; border-radius: 6px; padding: 20px; white-space: pre-wrap; line-height: 1.7; font-size: 13px; color: #1a1a1a; }
+  .note-box { background: #fef9ec; border: 1px solid #f0d875; border-radius: 6px; padding: 12px 16px; font-size: 12px; color: #7a6300; margin-top: 16px; line-height: 1.6; }
+  .copy-btn { margin-top: 12px; background: #1a1a1a; color: #fff; border: none; border-radius: 6px; padding: 8px 16px; font-size: 12px; cursor: pointer; font-family: inherit; }
+  .copy-btn:hover { background: #333; }
+  .copy-btn.copied { background: #2d7a4f; }
+  #home { display: none; }
+  #home.active { display: block; }
+  #home h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  #home p { color: #666; font-size: 13px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<nav>
+  <h2>SUR Cold Emails</h2>
+
+  <ul>
+    <li><a href="#" onclick="show('home')">How to Use</a></li>
+  </ul>
+
+  <div class="section-label">JobAdder Candidates: 4-Email Sequence</div>
+  <ul>
+    <li><a href="#" onclick="show('ja-email-1')">Email 1: Higher Pay (Day 1)</a></li>
+    <li><a href="#" onclick="show('ja-email-2')">Email 2: Cost of Living (Day 3)</a></li>
+    <li><a href="#" onclick="show('ja-email-3')">Email 3: Easier Than You Think (Day 7)</a></li>
+    <li><a href="#" onclick="show('ja-email-4')">Email 4: Last One From Me (Day 12)</a></li>
+  </ul>
+
+  <div class="section-label">JobAdder Candidates: Replies</div>
+  <ul>
+    <li><a href="#" onclick="show('ja-reply-yes')">Reply: &quot;Yes&quot; or &quot;1&quot;</a></li>
+    <li><a href="#" onclick="show('ja-reply-2')">Reply: &quot;2&quot; (Not Now)</a></li>
+    <li><a href="#" onclick="show('ja-reply-3')">Reply: &quot;3&quot;, &quot;Stop&quot; or &quot;Not Interested&quot;</a></li>
+  </ul>
+
+  <div class="section-label">Trade Me Candidates</div>
+  <ul>
+    <li><a href="#" onclick="show('tm-fifo-email')">FIFO Roles Email</a></li>
+    <li><a href="#" onclick="show('tm-fifo-sms')">FIFO Roles SMS</a></li>
+  </ul>
+
+</nav>
+
+<main>
+  <div id="home" class="template active">
+    <h1>SUR Cold Email Templates</h1>
+    <p>Every cold email and text for reaching candidates, in one place. Click a template in the left panel to view it.</p>
+    <p><strong>JobAdder candidates</strong> get the 4-email sequence: 4 emails over 12 days, plain text, no links or images. <strong>Trade Me candidates</strong> get the role-specific email or text.</p>
+    <div class="note-box"><strong>Run rules for the JobAdder sequence</strong><br>
+    • Any reply stops the sequence for that person.<br>
+    • Answer a "yes" or "1" within 1 hour, between 7am and 7pm.<br>
+    • A "2" gets their Notice Period set 3 months out, then goes back in at Email 4.<br>
+    • A "3" or "stop" gets removed from the list and their status updated.<br>
+    • For past candidates, swap the first line of Email 1 for: "You registered with us back in {year} when you were looking at Aus."</div>
+  </div>
+
+  <div id="ja-email-1" class="template">
+    <h1>Email 1: Higher Pay (Day 1)</h1>
+    <div class="meta"><span>Email</span><span>Sourcer → Candidate</span><span>Day 1</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S5 Cold Email<br><strong>Send to:</strong> past candidates already in JobAdder.<br><strong>Use this when:</strong> starting the sequence with a new batch.</div>
+    <div class="note-box">For candidates already in JobAdder, swap the first line for: "You registered with us back in {year} when you were looking at Aus."</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Higher pay for Kiwi {trade}s</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="ja-email-1-body">Hey {first_name},
+
+This is only for Kiwi {trade}s looking for better opportunities and higher pay.
+
+We&#x27;ve got Australian roles paying 20–30% more than NZ wages. We line up the job and get you sorted before you leave NZ, help with temporary accommodation, and your flights to a main city are covered. It costs you nothing.
+
+Want me to send through roles that suit your experience? Just reply &quot;yes&quot;.
+
+Cheers mate,
+Les / Stand Up</div>
+    <button class="copy-btn" onclick="copyText('ja-email-1-body', this)">Copy</button>
+  </div>
+
+  <div id="ja-email-2" class="template">
+    <h1>Email 2: Cost of Living (Day 3)</h1>
+    <div class="meta"><span>Email</span><span>Sourcer → Candidate</span><span>Day 3</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S5 Cold Email<br><strong>Send to:</strong> past candidates already in JobAdder.<br><strong>Use this when:</strong> 2 days after Email 1, with no reply.</div>
+    <div class="note-box">Send as a reply in the same thread as Email 1.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Re: Higher pay for Kiwi {trade}s</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="ja-email-2-body">Hey {first_name},
+
+Heaps of Kiwi {trade}s I talk to are doing everything right and still not getting ahead. Rent, power, fuel, food, it all keeps going up and the pay isn&#x27;t keeping up.
+
+That&#x27;s why so many are making the move across to Australia. Same work, 20–30% more in your pocket.
+
+Keen to see what&#x27;s out there? Reply &quot;yes&quot; and I&#x27;ll send roles through.
+
+Cheers mate,
+Les / Stand Up</div>
+    <button class="copy-btn" onclick="copyText('ja-email-2-body', this)">Copy</button>
+  </div>
+
+  <div id="ja-email-3" class="template">
+    <h1>Email 3: Easier Than You Think (Day 7)</h1>
+    <div class="meta"><span>Email</span><span>Sourcer → Candidate</span><span>Day 7</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S5 Cold Email<br><strong>Send to:</strong> past candidates already in JobAdder.<br><strong>Use this when:</strong> 4 days after Email 2, with no reply.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Easier than you think</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="ja-email-3-body">Hey {first_name},
+
+Most people think moving to Australia is a mission. It isn&#x27;t when it&#x27;s done right.
+
+We&#x27;ll have you a job locked in before you leave New Zealand. We help sort your licence transfer and stay with you until you&#x27;re settled. We&#x27;ll also help with temporary accommodation and pay for your flights to a main city. All of this costs you nothing.
+
+Want me to send through roles that fit you? Just reply &quot;yes&quot;.
+
+Cheers mate,
+Les / Stand Up</div>
+    <button class="copy-btn" onclick="copyText('ja-email-3-body', this)">Copy</button>
+  </div>
+
+  <div id="ja-email-4" class="template">
+    <h1>Email 4: Last One From Me (Day 12)</h1>
+    <div class="meta"><span>Email</span><span>Sourcer → Candidate</span><span>Day 12</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S5 Cold Email<br><strong>Send to:</strong> past candidates already in JobAdder.<br><strong>Use this when:</strong> 5 days after Email 3, with no reply. This is the last email in the sequence.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Last one from me</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="ja-email-4-body">Hey {first_name},
+
+Last one from me. Just reply with a number:
+
+1 – send me roles
+2 – not now, check back in 3 months
+3 – not interested
+
+Cheers mate,
+Les / Stand Up</div>
+    <button class="copy-btn" onclick="copyText('ja-email-4-body', this)">Copy</button>
+  </div>
+
+  <div id="ja-reply-yes" class="template">
+    <h1>Reply: &quot;Yes&quot; or &quot;1&quot;</h1>
+    <div class="meta"><span>Email</span><span>Sourcer → Candidate</span><span>Within 1 hour</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S5 Cold Email<br><strong>Send to:</strong> past candidates already in JobAdder.<br><strong>Use this when:</strong> they reply "yes" or "1". Answer within 1 hour, between 7am and 7pm.</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="ja-reply-yes-body">Hey {first_name},
+
+Good stuff. Here&#x27;s what&#x27;s open right now:
+
+{Role} – {Location} – ${rate}/hr – {one line on what makes it good}
+
+Easiest way to make sure it&#x27;s the right fit is a quick 10-min call. Does {day} arvo or {day} morning suit?
+
+Cheers mate,
+Les / Stand Up</div>
+    <button class="copy-btn" onclick="copyText('ja-reply-yes-body', this)">Copy</button>
+  </div>
+
+  <div id="ja-reply-2" class="template">
+    <h1>Reply: &quot;2&quot; (Not Now)</h1>
+    <div class="meta"><span>Email</span><span>Sourcer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S5 Cold Email<br><strong>Send to:</strong> past candidates already in JobAdder.<br><strong>Use this when:</strong> they reply "2". Update their Notice Period to 3 months out. They go back in at Email 4.</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="ja-reply-2-body">All good mate, I&#x27;ll check back in 3 months. If anything changes before then, just flick me a message.
+
+Cheers mate,
+Les / Stand Up</div>
+    <button class="copy-btn" onclick="copyText('ja-reply-2-body', this)">Copy</button>
+  </div>
+
+  <div id="ja-reply-3" class="template">
+    <h1>Reply: &quot;3&quot;, &quot;Stop&quot; or &quot;Not Interested&quot;</h1>
+    <div class="meta"><span>Email</span><span>Sourcer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S5 Cold Email<br><strong>Send to:</strong> past candidates already in JobAdder.<br><strong>Use this when:</strong> they reply "3", "stop" or "not interested". Remove them from the list and update their status.</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="ja-reply-3-body">No worries {first_name}, I&#x27;ve taken you off the list. All the best.
+
+Les / Stand Up</div>
+    <button class="copy-btn" onclick="copyText('ja-reply-3-body', this)">Copy</button>
+  </div>
+
+  <div id="tm-fifo-email" class="template">
+    <h1>FIFO Roles Email</h1>
+    <div class="meta"><span>Email</span><span>Sourcer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S5 Trade Me JobSmart<br><strong>Send to:</strong> candidates found in Trade Me's database.<br><strong>Use this when:</strong> reaching out about FIFO roles in Western Australia.</div>
+    <div class="field-label">Subject</div>
+    <div class="subject-box">Exciting FIFO roles available – [$X–$Y] a week</div>
+    <div class="field-label">Body</div>
+    <div class="body-box" id="tm-fifo-email-body">Hey [Name],
+
+We&#x27;ve got FIFO [Position] roles going in Western Australia, paying [$X–$Y] AUD a week on swing before tax, plus super.
+
+You work 12-hour days on a 5 on / 2 off or 6 on / 2 off swing, then fly home with real money and real time off with your family.
+
+This is for grafters with a manual Class 4 or 5 who don&#x27;t mind hard work in the heat. If you&#x27;d rather sit on the same NZ wage another year, this isn&#x27;t for you.
+
+If you&#x27;re keen to hear more, reply &quot;YES&quot; and I&#x27;ll call you today with the full rundown.
+
+[Recruiter Name]
+Stand Up Recruitment | [Phone]</div>
+    <button class="copy-btn" onclick="copyText('tm-fifo-email-body', this)">Copy</button>
+  </div>
+
+  <div id="tm-fifo-sms" class="template">
+    <h1>FIFO Roles SMS</h1>
+    <div class="meta"><span>SMS</span><span>Sourcer → Candidate</span></div>
+    <div class="usage"><strong>Relevant section:</strong> Sourcer: S5 Trade Me JobSmart<br><strong>Send to:</strong> candidates found in Trade Me's database.<br><strong>Use this when:</strong> texting about FIFO roles in Western Australia.</div>
+    <div class="field-label">Message</div>
+    <div class="body-box" id="tm-fifo-sms-body">Hey [Name], [Recruiter] from Stand Up Recruitment.
+We&#x27;ve got mining FIFO [Position] roles going in Western Australia, paying [$X–$Y] AUD a week before tax.
+12-hour days, then fly home for real time off with your family. You need a manual Class 4 or 5 and a solid work ethic. Keen to hear more? Reply YES and I&#x27;ll call you today.</div>
+    <button class="copy-btn" onclick="copyText('tm-fifo-sms-body', this)">Copy</button>
+  </div>
+
+</main>
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.template').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    const target = document.getElementById(id);
+    if (target) target.classList.add('active');
+    const link = document.querySelector(`nav a[onclick="show('${id}')"]`);
+    if (link) link.classList.add('active');
+  }
+  function copyText(id, btn) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
