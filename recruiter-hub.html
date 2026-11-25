@@ -3698,6 +3698,7 @@ Screened.</p>
 </div>
 <div class="tabs" id="tabs-aus-stage-5-reference-and-police-checks">
   <button class="tab-btn active" onclick="switchTab('aus-stage-5-reference-and-police-checks','Overview')" id="tbtn-aus-stage-5-reference-and-police-checks-Overview">Overview</button>
+  <button class="tab-btn" onclick="switchTab('aus-stage-5-reference-and-police-checks','Police Check Steps')" id="tbtn-aus-stage-5-reference-and-police-checks-Police-Check-Steps">Police Check Steps</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-5-reference-and-police-checks','Watch')" id="tbtn-aus-stage-5-reference-and-police-checks-Watch">Watch</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-5-reference-and-police-checks','Practice Activity')" id="tbtn-aus-stage-5-reference-and-police-checks-Practice-Activity">Practice Activity</button>
   <button class="tab-btn" onclick="switchTab('aus-stage-5-reference-and-police-checks','Coaching Guide')" id="tbtn-aus-stage-5-reference-and-police-checks-Coaching-Guide">Coaching Guide</button>
@@ -3849,21 +3850,31 @@ the CV (Stage 6)</td>
 <p>Log every reference check in JobAdder: the referee's name and
 company, what they said, and what you made of it.</p>
 <div class="block-title" style="margin-top:18px">Part 2: Police check</div>
-<p>Submit the police check through the Airtable form on the same day as
-the internal interview: <a href="https://airtable.com/appa05OOLs3y4DF14/pagb3onJatMDcdq94/form" target="_blank" rel="noopener" style="color:var(--dept-accent)">Police Check Form</a></p>
-<p>You need six details, which you collected at the end of the
-interview:</p>
+<p>Submit the police check yourself on the Ministry of Justice criminal
+check portal on the same day as the internal interview, once you've
+decided you rate the candidate. No more forms through admin.</p>
+<div class="callout"><strong>Two steps only:</strong> (1) Submit the check on the portal, then (2) log the Request ID in Airtable. The automation handles everything after that. The click-by-click walkthrough is in the <a href="#" onclick="switchTab('aus-stage-5-reference-and-police-checks','Police Check Steps');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Police Check Steps</a> tab.</div>
+<p><strong>What you'll need:</strong></p>
 <ul>
-<li><p>Full name</p></li>
-<li><p>Email address</p></li>
-<li><p>Date of birth</p></li>
-<li><p>Gender</p></li>
-<li><p>Phone number</p></li>
-<li><p>Home address</p></li>
+<li><p><strong>Portal login:</strong> the shared team email and password
+from the shared password sheet (provided by Nihanga). Don't create a
+personal account.</p></li>
+<li><p><strong>Company card:</strong> payment details are in the shared
+password sheet.</p></li>
+<li><p><strong>Result email:</strong> always
+<strong>pc@standuprecruitment.co.nz</strong>, never your own.</p></li>
+<li><p><strong>Airtable:</strong> AUS Placement Tracker, Police Checks
+tab.</p></li>
 </ul>
-<p><strong>Important:</strong> all six are required. An incomplete form
-won't be processed.</p>
-<p>Results usually come back in 24 to 72 hours.</p>
+<p>The candidate details you collected at the end of the interview: full
+name (first, middle, surname), email address, date of birth, gender,
+phone number, home address, and driver's licence number (if they have
+one).</p>
+<p><strong>After you submit:</strong> the Ministry of Justice sends the
+result to pc@standuprecruitment.co.nz, the automation emails it to you,
+and Airtable changes from In Progress to Complete with the report
+attached. Results usually come back in 24 to 72 hours.</p>
+<div class="callout warn">Always log the Request ID in Airtable. The automation uses it to match the result back to the candidate. Skip it and the result never reaches you.</div>
 <ul>
 <li><p><strong>Clear:</strong> carry on to the CV (Stage 6)</p></li>
 <li><p><strong>Serious flag:</strong> don't progress them. Set
@@ -3891,8 +3902,8 @@ reached after 2 calls</label></p></li>
 JobAdder</label></p></li>
 <li><p><label><input type="checkbox" />No more than 1 red flag or
 lukewarm answer</label></p></li>
-<li><p><label><input type="checkbox" />Police check submitted with all 6
-details</label></p></li>
+<li><p><label><input type="checkbox" />Police check submitted on the
+portal and Request ID logged in Airtable</label></p></li>
 <li><p><label><input type="checkbox" />Police check back and
 clear</label></p></li>
 </ul>
@@ -3910,25 +3921,89 @@ saved</p></li>
 <li><p>Skipping the independent check</p></li>
 <li><p>Not retriggering missed calls in the afternoon</p></li>
 <li><p>Talking over the silence after the close question</p></li>
-<li><p>Submitting the police check with a detail missing</p></li>
+<li><p>Using your own email instead of pc@standuprecruitment.co.nz, or
+forgetting to log the Request ID in Airtable</p></li>
 <li><p>Not logging each reference in JobAdder</p></li>
 <li><p>Clicking Reject on the job card</p></li>
 </ul>
     </div>
   </div>
 </div>
+<div class="tab-panel" id="panel-aus-stage-5-reference-and-police-checks-Police-Check-Steps">
+<div class="content-block"><div class="block-label">Step 1: Log in to the criminal check portal</div><div class="block-body">
+  <p>Go to the criminal check portal (link provided by Nihanga).</p>
+  <div class="step-row"><div class="step-num">1</div><div>On the login page, click <strong>Registered Third Party</strong>.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>Enter the <strong>email address and password</strong> from the shared password sheet.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Click <strong>Sign In</strong>.</div></div>
+  <div class="callout">Use the shared team login. Don't create a personal account.</div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 2: Create the request</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>Click <strong>Create Request</strong>.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>Always select <strong>Complete on Applicant's Behalf</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Enter the applicant's name across the three name fields, plus their <strong>email address</strong>. Click <strong>Next</strong>.</div></div>
+  <div class="step-row"><div class="step-num">4</div><div>Click <strong>Continue</strong> on the Third Party Declaration screen.</div></div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 3: Enter candidate details</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>Enter the candidate's <strong>first name</strong>, <strong>middle name(s)</strong> (leave blank if none), and <strong>surname</strong>.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>"Have you been known by any other names?" Select <strong>No</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Enter their <strong>date of birth</strong> (DD/MM/YYYY).</div></div>
+  <div class="step-row"><div class="step-num">4</div><div>Select their <strong>gender</strong>.</div></div>
+  <div class="step-row"><div class="step-num">5</div><div>Enter their <strong>email address</strong> and <strong>phone number</strong>.</div></div>
+  <div class="step-row"><div class="step-num">6</div><div><strong>Place of birth</strong> isn't mandatory. Leave it blank.</div></div>
+  <div class="step-row"><div class="step-num">7</div><div>Enter their <strong>driver's licence number</strong>. If they don't have one, leave it blank.</div></div>
+  <div class="step-row"><div class="step-num">8</div><div>Click <strong>Next</strong>.</div></div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 4: Enter residential address</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>Enter the candidate's full <strong>residential address</strong>: postcode, city or town, street name, street number, suburb.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>"Have you lived at any other New Zealand address in the last 10 years?" Select <strong>No</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Click <strong>Next</strong>.</div></div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 5: Declaration and ID confirmation</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>"Would you like a copy of the report?" Select <strong>No</strong> (the automation handles delivery).</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>Tick <strong>"I accept this declaration"</strong>. Click <strong>Complete</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>ID Confirmation: click <strong>Yes</strong>.</div></div>
+  <div class="step-row"><div class="step-num">4</div><div>ID Type: select <strong>New Zealand Passport</strong>. Click <strong>Agree and Submit</strong>.</div></div>
+  <div class="step-row"><div class="step-num">5</div><div>Click <strong>Agree and Submit</strong> again, then <strong>Continue</strong>.</div></div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 6: Payment</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>Enter the <strong>company card payment details</strong> (from the shared password sheet).</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>For the email field, always enter <strong>pc@standuprecruitment.co.nz</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Click <strong>Submit</strong>. Confirm the payment has gone through, then click <strong>Next</strong>.</div></div>
+  <div class="callout warn">Always use pc@standuprecruitment.co.nz as the result email, not your own.</div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 7: Log the Request ID in Airtable</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>On the portal, click <strong>History</strong>.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>Find the candidate in the list and <strong>copy the Request ID</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Go to <strong>Airtable, AUS Placement Tracker, Police Checks tab</strong>.</div></div>
+  <div class="step-row"><div class="step-num">4</div><div>Add a new row and fill in: <strong>your name</strong>, <strong>candidate's name</strong>, <strong>Requested date</strong> (today), <strong>Status = In Progress</strong>, and the <strong>Request ID</strong> (pasted from the portal).</div></div>
+  <div class="callout warn">The Request ID is the most important field. Don't skip this step: the automation uses it to match the result back to the candidate.</div>
+</div></div>
+<div class="content-block"><div class="block-label">That's it: the automation takes over</div><div class="block-body">
+  <p>Once the Request ID is in Airtable, your part is done. The automation will:</p>
+  <div class="step-row"><div class="step-num">1</div><div>Receive the completed police check at pc@standuprecruitment.co.nz.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>Email you the result.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Change the Airtable status to <strong>Complete</strong> and attach the report.</div></div>
+</div></div>
+</div>
 <div class="tab-panel" id="panel-aus-stage-5-reference-and-police-checks-Watch">
 <div class="content-block">
     <div class="block-label">Watch: See It Done</div>
     <div class="block-body">
 <div class="video-item">
-  <div class="video-title-bar"><span>Video 1 of 1</span><strong>Reference Check through Job Adder</strong></div>
+  <div class="video-title-bar"><span>Video 1 of 2</span><strong>Reference Check through Job Adder</strong></div>
   <video controls preload="metadata">
     <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook%20Videos/P3%20Reference%20Check%20through%20Job%20Adder.mp4" type="video/mp4">
     <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook%20Videos/P3%20Reference%20Check%20through%20Job%20Adder.mp4" style="color:var(--dept-accent)">Open directly</a></p>
   </video>
 </div>
-<p><strong>Police check: shown live, no video.</strong> The police check form includes payment details, so it isn't recorded. Sit with an experienced recruiter while they submit one before you do your first.</p>
+<div class="video-item">
+  <div class="video-title-bar"><span>Video 2 of 2</span><strong>Police Check: New Process</strong></div>
+  <video controls preload="metadata">
+    <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook%20Videos/New%20Police%20Check%20Process.mp4" type="video/mp4">
+    <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook%20Videos/New%20Police%20Check%20Process.mp4" style="color:var(--dept-accent)">Open directly</a></p>
+  </video>
+  <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: New Police Check Process.mp4 (5 min 36 sec). Submitting on the criminal check portal and logging the Request ID in Airtable.</p>
+</div>
     </div>
   </div>
 </div>
@@ -3937,7 +4012,7 @@ saved</p></li>
     <div class="block-label">Do: Your Activity</div>
     <div class="block-body">
 <p>For a real candidate you've interviewed and rate: fill in the Reference Check Order Form for both referees, move them to Reference Check, and take the bot-connected calls. Then find and call one independent referee, log all three results, and submit the police check. Check in with Les once all checks are back and clear.</p>
-<p><strong>Resources:</strong> Email &amp; SMS Template Library: Reference No Answer SMS. <a href="#" onclick="switchTab('aus-stage-5-reference-and-police-checks','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Script Coaching Guide</a>: P3 Reference Check. Airtable <a href="https://airtable.com/appa05OOLs3y4DF14/pagb3onJatMDcdq94/form" target="_blank" rel="noopener" style="color:var(--dept-accent)">Police Check Form</a>.</p>
+<p><strong>Resources:</strong> Email &amp; SMS Template Library: Reference No Answer SMS. <a href="#" onclick="switchTab('aus-stage-5-reference-and-police-checks','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Script Coaching Guide</a>: P3 Reference Check. <a href="#" onclick="switchTab('aus-stage-5-reference-and-police-checks','Police Check Steps');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Police Check Steps</a>: criminal check portal and Airtable Request ID.</p>
     </div>
   </div>
 </div>
@@ -5738,6 +5813,7 @@ Trans-Tasman Bridge One-Pagers → [link]. Relocation Cost Guide →
 </div>
 <div class="tabs" id="tabs-placer-p3">
   <button class="tab-btn active" onclick="switchTab('placer-p3','Overview')" id="tbtn-placer-p3-Overview">Overview</button>
+  <button class="tab-btn" onclick="switchTab('placer-p3','Police Check Steps')" id="tbtn-placer-p3-Police-Check-Steps">Police Check Steps</button>
   <button class="tab-btn" onclick="switchTab('placer-p3','Watch')" id="tbtn-placer-p3-Watch">Watch</button>
   <button class="tab-btn" onclick="switchTab('placer-p3','Practice Activity')" id="tbtn-placer-p3-Practice-Activity">Practice Activity</button>
   <button class="tab-btn" onclick="switchTab('placer-p3','Coaching Guide')" id="tbtn-placer-p3-Coaching-Guide">Coaching Guide</button>
@@ -5891,21 +5967,31 @@ the CV (P4)</td>
 <p>Log every reference check in JobAdder: the referee's name and
 company, what they said, and what you made of it.</p>
 <div class="block-title" style="margin-top:18px">Part 2: Police check</div>
-<p>Submit the police check through the Airtable form on the same day as
-the internal interview: <a href="https://airtable.com/appa05OOLs3y4DF14/pagb3onJatMDcdq94/form" target="_blank" rel="noopener" style="color:var(--dept-accent)">Police Check Form</a></p>
-<p>You need six details, which you collected at the end of the
-interview:</p>
+<p>Submit the police check yourself on the Ministry of Justice criminal
+check portal on the same day as the internal interview, once you've
+decided you rate the candidate. No more forms through admin.</p>
+<div class="callout"><strong>Two steps only:</strong> (1) Submit the check on the portal, then (2) log the Request ID in Airtable. The automation handles everything after that. The click-by-click walkthrough is in the <a href="#" onclick="switchTab('placer-p3','Police Check Steps');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Police Check Steps</a> tab.</div>
+<p><strong>What you'll need:</strong></p>
 <ul>
-<li><p>Full name</p></li>
-<li><p>Email address</p></li>
-<li><p>Date of birth</p></li>
-<li><p>Gender</p></li>
-<li><p>Phone number</p></li>
-<li><p>Home address</p></li>
+<li><p><strong>Portal login:</strong> the shared team email and password
+from the shared password sheet (provided by Nihanga). Don't create a
+personal account.</p></li>
+<li><p><strong>Company card:</strong> payment details are in the shared
+password sheet.</p></li>
+<li><p><strong>Result email:</strong> always
+<strong>pc@standuprecruitment.co.nz</strong>, never your own.</p></li>
+<li><p><strong>Airtable:</strong> AUS Placement Tracker, Police Checks
+tab.</p></li>
 </ul>
-<p><strong>Important:</strong> all six are required. An incomplete form
-won't be processed.</p>
-<p>Results usually come back in 24 to 72 hours.</p>
+<p>The candidate details you collected at the end of the interview: full
+name (first, middle, surname), email address, date of birth, gender,
+phone number, home address, and driver's licence number (if they have
+one).</p>
+<p><strong>After you submit:</strong> the Ministry of Justice sends the
+result to pc@standuprecruitment.co.nz, the automation emails it to you,
+and Airtable changes from In Progress to Complete with the report
+attached. Results usually come back in 24 to 72 hours.</p>
+<div class="callout warn">Always log the Request ID in Airtable. The automation uses it to match the result back to the candidate. Skip it and the result never reaches you.</div>
 <ul>
 <li><p><strong>Clear:</strong> carry on to the CV (P4)</p></li>
 <li><p><strong>Serious flag:</strong> don't progress them. Set
@@ -5933,8 +6019,8 @@ reached after 2 calls</label></p></li>
 JobAdder</label></p></li>
 <li><p><label><input type="checkbox" />No more than 1 red flag or
 lukewarm answer</label></p></li>
-<li><p><label><input type="checkbox" />Police check submitted with all 6
-details</label></p></li>
+<li><p><label><input type="checkbox" />Police check submitted on the
+portal and Request ID logged in Airtable</label></p></li>
 <li><p><label><input type="checkbox" />Police check back and
 clear</label></p></li>
 </ul>
@@ -5952,26 +6038,90 @@ saved</p></li>
 <li><p>Skipping the independent check</p></li>
 <li><p>Not retriggering missed calls in the afternoon</p></li>
 <li><p>Talking over the silence after the close question</p></li>
-<li><p>Submitting the police check with a detail missing</p></li>
+<li><p>Using your own email instead of pc@standuprecruitment.co.nz, or
+forgetting to log the Request ID in Airtable</p></li>
 <li><p>Not logging each reference in JobAdder</p></li>
 <li><p>Clicking Reject on the job card</p></li>
 </ul>
     </div>
   </div>
 </div>
+<div class="tab-panel" id="panel-placer-p3-Police-Check-Steps">
+<div class="content-block"><div class="block-label">Step 1: Log in to the criminal check portal</div><div class="block-body">
+  <p>Go to the criminal check portal (link provided by Nihanga).</p>
+  <div class="step-row"><div class="step-num">1</div><div>On the login page, click <strong>Registered Third Party</strong>.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>Enter the <strong>email address and password</strong> from the shared password sheet.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Click <strong>Sign In</strong>.</div></div>
+  <div class="callout">Use the shared team login. Don't create a personal account.</div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 2: Create the request</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>Click <strong>Create Request</strong>.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>Always select <strong>Complete on Applicant's Behalf</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Enter the applicant's name across the three name fields, plus their <strong>email address</strong>. Click <strong>Next</strong>.</div></div>
+  <div class="step-row"><div class="step-num">4</div><div>Click <strong>Continue</strong> on the Third Party Declaration screen.</div></div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 3: Enter candidate details</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>Enter the candidate's <strong>first name</strong>, <strong>middle name(s)</strong> (leave blank if none), and <strong>surname</strong>.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>"Have you been known by any other names?" Select <strong>No</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Enter their <strong>date of birth</strong> (DD/MM/YYYY).</div></div>
+  <div class="step-row"><div class="step-num">4</div><div>Select their <strong>gender</strong>.</div></div>
+  <div class="step-row"><div class="step-num">5</div><div>Enter their <strong>email address</strong> and <strong>phone number</strong>.</div></div>
+  <div class="step-row"><div class="step-num">6</div><div><strong>Place of birth</strong> isn't mandatory. Leave it blank.</div></div>
+  <div class="step-row"><div class="step-num">7</div><div>Enter their <strong>driver's licence number</strong>. If they don't have one, leave it blank.</div></div>
+  <div class="step-row"><div class="step-num">8</div><div>Click <strong>Next</strong>.</div></div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 4: Enter residential address</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>Enter the candidate's full <strong>residential address</strong>: postcode, city or town, street name, street number, suburb.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>"Have you lived at any other New Zealand address in the last 10 years?" Select <strong>No</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Click <strong>Next</strong>.</div></div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 5: Declaration and ID confirmation</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>"Would you like a copy of the report?" Select <strong>No</strong> (the automation handles delivery).</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>Tick <strong>"I accept this declaration"</strong>. Click <strong>Complete</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>ID Confirmation: click <strong>Yes</strong>.</div></div>
+  <div class="step-row"><div class="step-num">4</div><div>ID Type: select <strong>New Zealand Passport</strong>. Click <strong>Agree and Submit</strong>.</div></div>
+  <div class="step-row"><div class="step-num">5</div><div>Click <strong>Agree and Submit</strong> again, then <strong>Continue</strong>.</div></div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 6: Payment</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>Enter the <strong>company card payment details</strong> (from the shared password sheet).</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>For the email field, always enter <strong>pc@standuprecruitment.co.nz</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Click <strong>Submit</strong>. Confirm the payment has gone through, then click <strong>Next</strong>.</div></div>
+  <div class="callout warn">Always use pc@standuprecruitment.co.nz as the result email, not your own.</div>
+</div></div>
+<div class="content-block"><div class="block-label">Step 7: Log the Request ID in Airtable</div><div class="block-body">
+  <div class="step-row"><div class="step-num">1</div><div>On the portal, click <strong>History</strong>.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>Find the candidate in the list and <strong>copy the Request ID</strong>.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Go to <strong>Airtable, AUS Placement Tracker, Police Checks tab</strong>.</div></div>
+  <div class="step-row"><div class="step-num">4</div><div>Add a new row and fill in: <strong>your name</strong>, <strong>candidate's name</strong>, <strong>Requested date</strong> (today), <strong>Status = In Progress</strong>, and the <strong>Request ID</strong> (pasted from the portal).</div></div>
+  <div class="callout warn">The Request ID is the most important field. Don't skip this step: the automation uses it to match the result back to the candidate.</div>
+</div></div>
+<div class="content-block"><div class="block-label">That's it: the automation takes over</div><div class="block-body">
+  <p>Once the Request ID is in Airtable, your part is done. The automation will:</p>
+  <div class="step-row"><div class="step-num">1</div><div>Receive the completed police check at pc@standuprecruitment.co.nz.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div>Email you the result.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div>Change the Airtable status to <strong>Complete</strong> and attach the report.</div></div>
+</div></div>
+</div>
 <div class="tab-panel" id="panel-placer-p3-Watch">
 <div class="content-block">
     <div class="block-label">Watch: See It Done</div>
     <div class="block-body">
 <div class="video-item">
-  <div class="video-title-bar"><span>Video 1 of 1</span><strong>Reference Check through Job Adder</strong></div>
+  <div class="video-title-bar"><span>Video 1 of 2</span><strong>Reference Check through Job Adder</strong></div>
   <video controls preload="metadata">
     <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook%20Videos/P3%20Reference%20Check%20through%20Job%20Adder.mp4" type="video/mp4">
     <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook%20Videos/P3%20Reference%20Check%20through%20Job%20Adder.mp4" style="color:var(--dept-accent)">Open directly</a></p>
   </video>
   <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: P3 Reference Check through Job Adder.mp4</p>
 </div>
-<p><strong>Police check:</strong> shown live, no video. The police check form includes payment details, so it isn't recorded. Sit with an experienced placer while they submit one before you do your first.</p>
+<div class="video-item">
+  <div class="video-title-bar"><span>Video 2 of 2</span><strong>Police Check: New Process</strong></div>
+  <video controls preload="metadata">
+    <source src="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook%20Videos/New%20Police%20Check%20Process.mp4" type="video/mp4">
+    <p style="padding:20px;color:var(--muted)">Video cannot be loaded. <a href="https://minio-api.srv1303295.hstgr.cloud/playbook/Playbook%20Videos/New%20Police%20Check%20Process.mp4" style="color:var(--dept-accent)">Open directly</a></p>
+  </video>
+  <p style="font-size:11px;color:var(--muted);margin-top:4px;padding:0 4px">File: New Police Check Process.mp4 (5 min 36 sec). Submitting on the criminal check portal and logging the Request ID in Airtable.</p>
+</div>
     </div>
   </div>
 </div>
@@ -5982,7 +6132,7 @@ saved</p></li>
 <p>For a real candidate you've interviewed and rate: fill in the Reference Check Order Form for both referees, move them to Reference Check, and take the bot-connected calls. Then find and call one independent referee, log all three results, and submit the police check. Check in with Les once all checks are back and clear.</p>
 <p><strong>Resources:</strong> Email &amp; SMS Template Library:
 Reference No Answer SMS. <a href="#" onclick="switchTab('placer-p3','Coaching Guide');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Coaching Guide</a>: Reference Check script.
-Airtable <a href="https://airtable.com/appa05OOLs3y4DF14/pagb3onJatMDcdq94/form" target="_blank" rel="noopener" style="color:var(--dept-accent)">Police Check Form</a>.</p>
+<a href="#" onclick="switchTab('placer-p3','Police Check Steps');window.scrollTo(0,0);return false" style="color:var(--dept-accent)">Police Check Steps</a>: criminal check portal and Airtable Request ID.</p>
     </div>
   </div>
 </div>
